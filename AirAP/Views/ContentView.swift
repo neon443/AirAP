@@ -6,10 +6,14 @@
 //
 
 import SwiftUI
+import Airstream
 
 struct ContentView: View {
+	@StateObject var ASmanager = AirstreamManager()
+	
     var body: some View {
         VStack {
+			Text(" ")
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
