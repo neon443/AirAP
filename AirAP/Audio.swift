@@ -10,7 +10,7 @@ import AudioToolbox
 
 class CoreAudioPlayer {
 	private var audioQueue: AudioQueueRef?
-	private let bufferCount = 3
+	private let bufferCount = 30
 	private var audioBuffers: [AudioQueueBufferRef] = []
 	private let bufferSize: UInt32 = 4096
 	
@@ -69,10 +69,9 @@ class CoreAudioPlayer {
 		
 		memcpy(buffer.pointee.mAudioData, audio, byteCount)
 		buffer.pointee.mAudioDataByteSize = UInt32(byteCount)
-		print("Buffer size: \(buffer.pointee.mAudioDataByteSize)")
+//		print("Buffer size: \(buffer.pointee.mAudioDataByteSize)")
 		
 		let err = AudioQueueEnqueueBuffer(queue, buffer, 0, nil)
-		print(err)
 		if err != noErr {
 			print("failed to queue \(err)")
 		} else {
