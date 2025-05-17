@@ -10,6 +10,7 @@
 		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
+		A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96EAF2A2DD8EEEF00E13432 /* Audio.swift */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
 		A99E25322DD7D35600BF77D7 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */; };
 		A99E25332DD7D35600BF77D7 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -35,6 +36,7 @@
 		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
 		A92DCADA2DD74F1800D82924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92DCADB2DD74F1800D82924 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A96EAF2A2DD8EEEF00E13432 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Airstream.framework; path = AirAP/Views/Airstream.framework; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		A92DCABC2DD74EB000D82924 = {
 			isa = PBXGroup;
 			children = (
+				A96EAF2A2DD8EEEF00E13432 /* Audio.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
 				A99E25362DD87D5C00BF77D7 /* AVManager.swift */,
 				A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */,
@@ -168,6 +171,7 @@
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
 				A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
+				A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

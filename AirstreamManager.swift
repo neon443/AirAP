@@ -10,7 +10,8 @@ import Airstream
 import AVFoundation
 
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
-	private var airstream: Airstream?
+	@Published var airstream: Airstream?
+	private let player = CoreAudioPlayer()
 	
 	@Published var metadata: [String: String] = [:]
 	
@@ -23,19 +24,22 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		try? AVAudioSession.sharedInstance().setActive(true)
 	}
 	
-	func airstream(_ airstream: Airstream, didSetVolume volume: Float) {
-		DispatchQueue.main.async {
-			print("set vol here")
-//			self.airstream?.volume = volume
-		}
-	}
+//	func airstream(_ airstream: Airstream, didSetVolume volume: Float) {
+//		DispatchQueue.main.async {
+//			print("set vol here")
+//		}
+//	}
 	
 	func stop() {
 		airstream?.stopServer()
 	}
-	let player = Player()
-	func airstream(_ airstream: Airstream, didReceiveAudio audio: UnsafePointer<UInt16>, frames: Int, channels: Int) {
-		player.playAudio(audio, frames: frames, channels: channels)
-		print("hoo")
+	func airstream(
+		_ airstream: Airstream,
+		didReceiveAudio audio: UnsafePointer<UInt16>,
+		frames: Int,
+		channels: Int
+	) {
+		let byteCount = frames * channels * MemoryLayout<UInt16>.size
+		player.playAudio(audio, byteCount: byteCount)
 	}
 }
