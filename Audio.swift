@@ -50,11 +50,15 @@ class CoreAudioPlayer {
 			}
 		}
 		
-		AudioQueueStart(audioQueue!, nil)
-		print("start audio queue")
+		let startStatus = AudioQueueStart(audioQueue!, nil)
+		if startStatus != noErr {
+			print("failed to start queue \(startStatus)")
+		} else {
+			print("start audio queu sucess")
+		}
 	}
 	
-	func playAudio(_ audio: UnsafePointer<UInt16>, byteCount: Int) {
+	func playAudio(_ audio: UnsafePointer<Int8>, byteCount: Int) {
 		guard let queue = audioQueue else {
 			return
 		}
@@ -68,6 +72,7 @@ class CoreAudioPlayer {
 		print("Buffer size: \(buffer.pointee.mAudioDataByteSize)")
 		
 		let err = AudioQueueEnqueueBuffer(queue, buffer, 0, nil)
+		print(err)
 		if err != noErr {
 			print("failed to queue \(err)")
 		} else {
@@ -81,5 +86,4 @@ func outputCallback (
 	_ queue: AudioQueueRef,
 	_ buffer: AudioQueueBufferRef
 ) {
-	print("called back")
 }

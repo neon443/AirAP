@@ -33,13 +33,12 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	func stop() {
 		airstream?.stopServer()
 	}
+
 	func airstream(
 		_ airstream: Airstream,
-		didReceiveAudio audio: UnsafePointer<UInt16>,
-		frames: Int,
-		channels: Int
+		processAudio buffer: UnsafeMutablePointer<Int8>,
+		length: Int32
 	) {
-		let byteCount = frames * channels * MemoryLayout<UInt16>.size
-		player.playAudio(audio, byteCount: byteCount)
+		player.playAudio(buffer, byteCount: Int(length))
 	}
 }
