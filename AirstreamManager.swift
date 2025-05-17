@@ -7,6 +7,7 @@
 
 import Foundation
 import Airstream
+import AVFoundation
 
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	private var airstream: Airstream?
@@ -18,6 +19,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		airstream = Airstream(name: "airstream")
 		airstream?.delegate = self
 		airstream?.startServer()
+		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+		try? AVAudioSession.sharedInstance().setActive(true)
 	}
 	
 	func airstream(_ airstream: Airstream, didSetVolume volume: Float) {
@@ -29,5 +32,10 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	func stop() {
 		airstream?.stopServer()
+	}
+	let player = Player()
+	func airstream(_ airstream: Airstream, didReceiveAudio audio: UnsafePointer<UInt16>, frames: Int, channels: Int) {
+		player.playAudio(audio, frames: frames, channels: channels)
+		print("hoo")
 	}
 }
