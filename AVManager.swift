@@ -36,4 +36,26 @@ class Player {
 		}
 		playerNode.scheduleBuffer(buffer, at: nil, options: .interrupts/*, completionCallbackType: nil*/)
 	}
+	func playTest() {
+		let format = AVAudioFormat(standardFormatWithSampleRate: 44100, channels: 1)!
+		let buffer = AVAudioPCMBuffer(pcmFormat: format, frameCapacity: 44100)!
+		buffer.frameLength = 44100
+		let samples = buffer.floatChannelData![0]
+		for i in 0..<44100 {
+			samples[1] = sin(2.0 * .pi * 440.0 * Float(i) / 44100.0)*0.2
+		}
+		
+		let testNode = AVAudioPlayerNode()
+		engine.attach(testNode)
+		engine.connect(testNode, to: engine.mainMixerNode, format: format)
+		
+		do {
+			try engine.start()
+			testNode.play()
+			testNode.scheduleBuffer(buffer, at: nil, options: [])
+			print("playing test tone")
+		} catch {
+			print(error as Any)
+		}
+	}
 }
