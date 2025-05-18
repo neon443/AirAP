@@ -90,7 +90,8 @@ class CoreAudioPlayer {
 		pressure = Int(Double(audioBuffers.count)/Double(bufferCount)*100)
 		
 		if pressure > 95 {
-			return
+			print("dropped a frame")
+			return //drop le freme if presh too high
 		}
 	}
 	
