@@ -62,11 +62,7 @@ class CoreAudioPlayer {
 	
 	func playAudio(_ audio: UnsafePointer<Int8>, byteCount: Int) {
 		guard let queue = audioQueue else { return }
-		guard bufferQueue.sync(execute: { audioBuffers.count }) > Int((Double(bufferCount)*0.9)) else {
-			return
-		}
 		
-		pressure = Int(Double(audioBuffers.count)/Double(bufferCount)*100)
 		//MARK: FIX (if broken)
 		guard let buffer = bufferQueue.sync(
 			execute: { audioBuffers.popLast() }
@@ -84,15 +80,13 @@ class CoreAudioPlayer {
 		} else {
 			//MARK: dont immediatley reuse
 //			audioBuffers.insert(buffer, at: 0) //reuse
-			return
 		}
 		
-//		pressure = Int(Double(audioBuffers.count)/Double(bufferCount)*100)
-		
+		pressure = Int(Double(audioBuffers.count)/Double(bufferCount)*100)
+		print(pressure)
 		if pressure > 95 {
 			return //drop le freme if presh too high
 		}
-		print("\(pressure)%")
 	}
 	
 	func stop() {
