@@ -61,15 +61,11 @@ class CoreAudioPlayer {
 	}
 	
 	func playAudio(_ audio: UnsafePointer<Int8>, byteCount: Int) {
-		guard let queue = audioQueue else {
-			return
-		}
+		guard let queue = audioQueue else { return }
 		
 		//MARK: FIX (if broken)
 		guard let buffer = bufferQueue.sync(
-			execute: {
-				audioBuffers.popLast()
-			}
+			execute: { audioBuffers.popLast() }
 		) else {
 			print("!!buffer poplast failed")
 			return
@@ -77,7 +73,6 @@ class CoreAudioPlayer {
 		
 		memcpy(buffer.pointee.mAudioData, audio, byteCount)
 		buffer.pointee.mAudioDataByteSize = UInt32(byteCount)
-//		print("Buffer size: \(buffer.pointee.mAudioDataByteSize)")
 		
 		let err = AudioQueueEnqueueBuffer(queue, buffer, 0, nil)
 		if err != noErr {
@@ -90,7 +85,6 @@ class CoreAudioPlayer {
 		pressure = Int(Double(audioBuffers.count)/Double(bufferCount)*100)
 		
 		if pressure > 95 {
-			print("dropped a frame")
 			return //drop le freme if presh too high
 		}
 	}
