@@ -13,7 +13,6 @@ struct ContentView: View {
 	@State var hey = UUID()
     var body: some View {
         VStack {
-			Text(" ")
             Image(systemName: "globe")
                 .imageScale(.large)
                 .foregroundStyle(.tint)
@@ -22,10 +21,8 @@ struct ContentView: View {
 			Text("\(ASmanager.airstream?.running ?? false)")
 			Text("\(ASmanager.airstream?.volume ?? -1)")
 			Text("\(ASmanager.airstream?.metadata ?? [:])")
-			if let coverart = ASmanager.airstream?.coverart {
-				if let image = UIImage(data: coverart) {
-					Image(uiImage: image)
-				}
+			if let coverart = ASmanager.coverArt {
+				Image(uiImage: coverart)
 			}
         }
 		.onTapGesture {

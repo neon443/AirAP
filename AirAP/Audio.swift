@@ -10,7 +10,7 @@ import AudioToolbox
 
 class CoreAudioPlayer {
 	private var audioQueue: AudioQueueRef?
-	private let bufferCount = 30
+	private let bufferCount = 64
 	private var audioBuffers: [AudioQueueBufferRef] = []
 	private let bufferSize: UInt32 = 16_384
 	private let bufferQueue = DispatchQueue(label: "audio.buffer.q")

@@ -8,10 +8,12 @@
 import Foundation
 import Airstream
 import AVFoundation
+import UIKit
 
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
-	private var player: CoreAudioPlayer?
+	private var player = CoreAudioPlayer()
+	@Published var coverArt: UIImage?
 	
 	override init() {
 		super.init()
@@ -37,11 +39,17 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		processAudio buffer: UnsafeMutablePointer<Int8>,
 		length: Int32
 	) {
-		player = CoreAudioPlayer()
-		player!.playAudio(buffer, byteCount: Int(length))
+		player.playAudio(buffer, byteCount: Int(length))
 	}
 	
 	func airstreamFlushAudio(_ airstream: Airstream) {
 //		player = nil
+	}
+	
+	func airstream(_ airstream: Airstream, didSetCoverart coverart: Data) {
+		print(coverart)
+		if let image = UIImage(data: coverart) {
+			coverArt = image
+		}
 	}
 }
