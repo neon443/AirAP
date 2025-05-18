@@ -12,7 +12,8 @@ class CoreAudioPlayer {
 	private var audioQueue: AudioQueueRef?
 	private let bufferCount = 30
 	private var audioBuffers: [AudioQueueBufferRef] = []
-	private let bufferSize: UInt32 = 4096
+	private let bufferSize: UInt32 = 16_384
+	private let bufferQueue = DispatchQueue(label: "audio.buffer.q")
 	
 	init() {
 		var format = AudioStreamBasicDescription(
@@ -46,7 +47,9 @@ class CoreAudioPlayer {
 			var bufferRef: AudioQueueBufferRef?
 			let result = AudioQueueAllocateBuffer(audioQueue!, bufferSize, &bufferRef)
 			if result == noErr, let buf = bufferRef {
-				audioBuffers.append(buf)
+				bufferQueue.sync {
+					audioBuffers.append(buf)
+				}
 			}
 		}
 		
@@ -63,7 +66,12 @@ class CoreAudioPlayer {
 			return
 		}
 		
-		guard let buffer = audioBuffers.popLast() else {
+		guard let buffer = bufferQueue.sync(
+			execute: {
+				audioBuffers.popLast()
+			}
+		) else {
+			print("buffer poplast failed")
 			return
 		}
 		
@@ -75,7 +83,25 @@ class CoreAudioPlayer {
 		if err != noErr {
 			print("failed to queue \(err)")
 		} else {
-			audioBuffers.insert(buffer, at: 0) //reuse
+			//MARK: dont immediatley reuse
+//			audioBuffers.insert(buffer, at: 0) //reuse
+		}
+	}
+	
+	func stop() {
+		if let queue = audioQueue {
+			AudioQueueStop(queue, true)
+			AudioQueueDispose(queue, true)
+			print("stopped and dispreosed que")
+		}
+		bufferQueue.sync {
+			audioBuffers.removeAll()
+		}
+	}
+	
+	func recycleBuffer(_ buffer: AudioQueueBufferRef) {
+		bufferQueue.sync {
+			audioBuffers.append(buffer)
 		}
 	}
 }
@@ -85,4 +111,7 @@ func outputCallback (
 	_ queue: AudioQueueRef,
 	_ buffer: AudioQueueBufferRef
 ) {
+	guard let userData = userData else { return }
+	let player = Unmanaged<CoreAudioPlayer>.fromOpaque(userData).takeUnretainedValue()
+	player.recycleBuffer(buffer)
 }

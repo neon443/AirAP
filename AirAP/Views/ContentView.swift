@@ -22,6 +22,11 @@ struct ContentView: View {
 			Text("\(ASmanager.airstream?.running ?? false)")
 			Text("\(ASmanager.airstream?.volume ?? -1)")
 			Text("\(ASmanager.airstream?.metadata ?? [:])")
+			if let coverart = ASmanager.airstream?.coverart {
+				if let image = UIImage(data: coverart) {
+					Image(uiImage: image)
+				}
+			}
         }
 		.onTapGesture {
 			hey = UUID()

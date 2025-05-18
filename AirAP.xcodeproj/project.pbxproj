@@ -11,6 +11,7 @@
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
 		A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96EAF2A2DD8EEEF00E13432 /* Audio.swift */; };
+		A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A96EAF312DDA005000E13432 /* Config.xcconfig */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
 		A99E25322DD7D35600BF77D7 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */; };
 		A99E25332DD7D35600BF77D7 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -36,6 +37,7 @@
 		A92DCADA2DD74F1800D82924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92DCADB2DD74F1800D82924 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A96EAF2A2DD8EEEF00E13432 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
+		A96EAF312DDA005000E13432 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Airstream.framework; path = Views/Airstream.framework; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -56,6 +58,7 @@
 		A92DCABC2DD74EB000D82924 = {
 			isa = PBXGroup;
 			children = (
+				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
 				A92DCAC62DD74EB000D82924 /* Products */,
 			);
@@ -153,6 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */,
 				A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -176,6 +180,7 @@
 /* Begin XCBuildConfiguration section */
 		A92DCACE2DD74EB100D82924 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A96EAF312DDA005000E13432 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -240,6 +245,7 @@
 		};
 		A92DCACF2DD74EB100D82924 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A96EAF312DDA005000E13432 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -301,7 +307,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 8JGND254B7;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -313,6 +319,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to recieve AirPlay Audio and broadcast the server";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -323,7 +330,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -342,7 +349,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 8JGND254B7;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -354,6 +361,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to recieve AirPlay Audio and broadcast the server";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -364,7 +372,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";

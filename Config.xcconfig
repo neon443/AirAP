@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  AirAP
+//
+//  Created by neon443 on 18/05/2025.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
+
+VERSION = 0.1
+BUILD_NUMBER = 0
