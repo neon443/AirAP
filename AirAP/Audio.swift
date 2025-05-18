@@ -15,7 +15,6 @@ class CoreAudioPlayer {
 	private let bufferSize: UInt32 = 8_192
 	private let bufferQueue = DispatchQueue(label: "audio.buffer.q")
 	private var pressure: Int = 0
-	private var buffersFree: Int = 48
 	
 	init() {
 		var format = AudioStreamBasicDescription(
@@ -67,11 +66,11 @@ class CoreAudioPlayer {
 		}
 		
 		//MARK: FIX (if broken)
-		guard let buffer = /*bufferQueue.sync(*/
-//			execute: {
+		guard let buffer = bufferQueue.sync(
+			execute: {
 				audioBuffers.popLast()
-//			}
-		/*)*/ else {
+			}
+		) else {
 			print("!!buffer poplast failed")
 			return
 		}
@@ -90,11 +89,8 @@ class CoreAudioPlayer {
 		
 		pressure = Int(Double(audioBuffers.count)/Double(bufferCount)*100)
 		
-		buffersFree = bufferCount - audioBuffers.count
-		
-		print("Free buffers: \(buffersFree); \(pressure)% presh")
-		if pressure > 85 {
-			usleep(1000)
+		if pressure > 95 {
+			return
 		}
 	}
 	
@@ -107,6 +103,7 @@ class CoreAudioPlayer {
 		bufferQueue.sync {
 			audioBuffers.removeAll()
 		}
+		pressure = 0
 	}
 	
 	func recycleBuffer(_ buffer: AudioQueueBufferRef) {
