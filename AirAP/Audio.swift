@@ -71,7 +71,7 @@ class CoreAudioPlayer {
 				audioBuffers.popLast()
 			}
 		) else {
-			print("buffer poplast failed")
+//			print("buffer poplast failed")
 			return
 		}
 		

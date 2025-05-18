@@ -11,7 +11,7 @@ import AVFoundation
 
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
-	private var player = CoreAudioPlayer()
+	private var player: CoreAudioPlayer?
 	
 	override init() {
 		super.init()
@@ -37,10 +37,11 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		processAudio buffer: UnsafeMutablePointer<Int8>,
 		length: Int32
 	) {
-		player.playAudio(buffer, byteCount: Int(length))
+		player = CoreAudioPlayer()
+		player!.playAudio(buffer, byteCount: Int(length))
 	}
 	
 	func airstreamFlushAudio(_ airstream: Airstream) {
-		player.stop()
+//		player = nil
 	}
 }

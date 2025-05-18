@@ -12,17 +12,19 @@
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
 		A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96EAF2A2DD8EEEF00E13432 /* Audio.swift */; };
 		A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A96EAF312DDA005000E13432 /* Config.xcconfig */; };
-		A96EAF382DDA104200E13432 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EAF362DDA104200E13432 /* Airstream.framework */; };
+		A96EAF3B2DDA2B3500E13432 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EAF362DDA104200E13432 /* Airstream.framework */; };
+		A96EAF3C2DDA2B3500E13432 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A96EAF362DDA104200E13432 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A99E25342DD7D35600BF77D7 /* Embed Frameworks */ = {
+		A96EAF3D2DDA2B3500E13432 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A96EAF3C2DDA2B3500E13432 /* Airstream.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,7 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A96EAF382DDA104200E13432 /* Airstream.framework in Frameworks */,
+				A96EAF3B2DDA2B3500E13432 /* Airstream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,7 +112,7 @@
 				A92DCAC12DD74EB000D82924 /* Sources */,
 				A92DCAC22DD74EB000D82924 /* Frameworks */,
 				A92DCAC32DD74EB000D82924 /* Resources */,
-				A99E25342DD7D35600BF77D7 /* Embed Frameworks */,
+				A96EAF3D2DDA2B3500E13432 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
