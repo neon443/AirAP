@@ -40,7 +40,7 @@
 		A96EAF312DDA005000E13432 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A96EAF362DDA104200E13432 /* Airstream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Airstream.framework; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
-		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +60,8 @@
 			children = (
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
+				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
+				A99E25352DD7D3C500BF77D7 /* Info.plist */,
 				A92DCAC62DD74EB000D82924 /* Products */,
 				A96EAF372DDA104200E13432 /* Frameworks */,
 			);
@@ -76,9 +78,7 @@
 		A92DCADC2DD74F1800D82924 /* AirAP */ = {
 			isa = PBXGroup;
 			children = (
-				A99E25352DD7D3C500BF77D7 /* Info.plist */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
-				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
 				A96EAF2A2DD8EEEF00E13432 /* Audio.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
 				A92DCAE02DD74F2000D82924 /* Views */,
