@@ -41,7 +41,6 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	func airstreamFlushAudio(_ airstream: Airstream) {
-//		player.stop()
-//		player = nil
+		player.stop()
 	}
 }

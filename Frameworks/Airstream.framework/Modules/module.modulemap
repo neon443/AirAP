@@ -1,0 +1,6 @@
+framework module Airstream {
+  umbrella header "Airstream.h"
+  export *
+
+  module * { export * }
+}

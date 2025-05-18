@@ -12,9 +12,8 @@
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
 		A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96EAF2A2DD8EEEF00E13432 /* Audio.swift */; };
 		A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A96EAF312DDA005000E13432 /* Config.xcconfig */; };
+		A96EAF382DDA104200E13432 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EAF362DDA104200E13432 /* Airstream.framework */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
-		A99E25322DD7D35600BF77D7 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */; };
-		A99E25332DD7D35600BF77D7 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +23,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A99E25332DD7D35600BF77D7 /* Airstream.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,7 +36,7 @@
 		A92DCADB2DD74F1800D82924 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A96EAF2A2DD8EEEF00E13432 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		A96EAF312DDA005000E13432 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Airstream.framework; path = Views/Airstream.framework; sourceTree = "<group>"; };
+		A96EAF362DDA104200E13432 /* Airstream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Airstream.framework; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,7 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A99E25322DD7D35600BF77D7 /* Airstream.framework in Frameworks */,
+				A96EAF382DDA104200E13432 /* Airstream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +59,7 @@
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
 				A92DCAC62DD74EB000D82924 /* Products */,
+				A96EAF372DDA104200E13432 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -80,7 +79,6 @@
 				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
 				A96EAF2A2DD8EEEF00E13432 /* Audio.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
-				A99E252E2DD7CF2C00BF77D7 /* Airstream.framework */,
 				A92DCAE02DD74F2000D82924 /* Views */,
 			);
 			path = AirAP;
@@ -92,6 +90,14 @@
 				A92DCADB2DD74F1800D82924 /* ContentView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A96EAF372DDA104200E13432 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A96EAF362DDA104200E13432 /* Airstream.framework */,
+			);
+			path = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,6 +322,8 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Carthage/Checkouts/Airstream/build/Release",
 					"$(PROJECT_DIR)/AirAP/Views",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
@@ -358,6 +366,8 @@
 					"$(PROJECT_DIR)/Carthage/Build/Mac",
 					"$(PROJECT_DIR)/Carthage/Checkouts/Airstream/build/Release",
 					"$(PROJECT_DIR)/AirAP/Views",
+					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Frameworks",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
