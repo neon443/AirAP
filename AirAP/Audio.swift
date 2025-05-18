@@ -10,10 +10,12 @@ import AudioToolbox
 
 class CoreAudioPlayer {
 	private var audioQueue: AudioQueueRef?
-	private let bufferCount = 16
+	private let bufferCount = 48
 	private var audioBuffers: [AudioQueueBufferRef] = []
 	private let bufferSize: UInt32 = 8_192
 	private let bufferQueue = DispatchQueue(label: "audio.buffer.q")
+	private var pressure: Int = 0
+	private var buffersFree: Int = 48
 	
 	init() {
 		var format = AudioStreamBasicDescription(
@@ -64,12 +66,13 @@ class CoreAudioPlayer {
 			return
 		}
 		
-		guard let buffer = bufferQueue.sync(
-			execute: {
+		//MARK: FIX (if broken)
+		guard let buffer = /*bufferQueue.sync(*/
+//			execute: {
 				audioBuffers.popLast()
-			}
-		) else {
-//			print("buffer poplast failed")
+//			}
+		/*)*/ else {
+			print("!!buffer poplast failed")
 			return
 		}
 		
@@ -83,6 +86,15 @@ class CoreAudioPlayer {
 		} else {
 			//MARK: dont immediatley reuse
 //			audioBuffers.insert(buffer, at: 0) //reuse
+		}
+		
+		pressure = Int(Double(audioBuffers.count)/Double(bufferCount)*100)
+		
+		buffersFree = bufferCount - audioBuffers.count
+		
+		print("Free buffers: \(buffersFree); \(pressure)% presh")
+		if pressure > 85 {
+			usleep(1000)
 		}
 	}
 	
