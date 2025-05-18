@@ -10,9 +10,9 @@ import AudioToolbox
 
 class CoreAudioPlayer {
 	private var audioQueue: AudioQueueRef?
-	private let bufferCount = 64
+	private let bufferCount = 16
 	private var audioBuffers: [AudioQueueBufferRef] = []
-	private let bufferSize: UInt32 = 16_384
+	private let bufferSize: UInt32 = 8_192
 	private let bufferQueue = DispatchQueue(label: "audio.buffer.q")
 	
 	init() {
@@ -56,8 +56,6 @@ class CoreAudioPlayer {
 		let startStatus = AudioQueueStart(audioQueue!, nil)
 		if startStatus != noErr {
 			print("failed to start queue \(startStatus)")
-		} else {
-			print("start audio queu sucess")
 		}
 	}
 	
@@ -89,11 +87,11 @@ class CoreAudioPlayer {
 	}
 	
 	func stop() {
-		if let queue = audioQueue {
-			AudioQueueStop(queue, true)
-			AudioQueueDispose(queue, true)
-			print("stopped and dispreosed que")
-		}
+//		if let queue = audioQueue {
+//			AudioQueueStop(queue, true)
+//			AudioQueueDispose(queue, true)
+//			print("stopped and dispreosed que")
+//		}
 		bufferQueue.sync {
 			audioBuffers.removeAll()
 		}

@@ -20,7 +20,6 @@ struct ContentView: View {
 			Text(ASmanager.airstream?.name ?? "nnone")
 			Text("\(ASmanager.airstream?.running ?? false)")
 			Text("\(ASmanager.airstream?.volume ?? -1)")
-			Text("\(ASmanager.airstream?.metadata ?? [:])")
 			if let coverart = ASmanager.coverArt {
 				Image(uiImage: coverart)
 			}
