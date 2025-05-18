@@ -79,12 +79,15 @@ class CoreAudioPlayer {
 			print("failed to queue \(err)")
 		} else {
 			//MARK: dont immediatley reuse
+			//MARK: DONT FUCKING TOUCH TS
 //			audioBuffers.insert(buffer, at: 0) //reuse
 		}
 		
 		pressure = Int(Double(audioBuffers.count)/Double(bufferCount)*100)
 		print(pressure)
 		if pressure > 95 {
+//			usleep(10)
+			print(pressure)
 			return //drop le freme if presh too high
 		}
 	}
@@ -103,7 +106,9 @@ class CoreAudioPlayer {
 	
 	func recycleBuffer(_ buffer: AudioQueueBufferRef) {
 		bufferQueue.sync {
-			audioBuffers.append(buffer)
+			if !audioBuffers.contains(buffer) {
+				audioBuffers.append(buffer)
+			}
 		}
 	}
 }
