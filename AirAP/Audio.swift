@@ -10,7 +10,7 @@ import AudioToolbox
 
 class CoreAudioPlayer {
 	private var audioQueue: AudioQueueRef?
-	private let bufferCount = 48
+	private let bufferCount = 64
 	private var audioBuffers: [AudioQueueBufferRef] = []
 	private let bufferSize: UInt32 = 8_192
 	private let bufferQueue = DispatchQueue(label: "audio.buffer.q")
@@ -84,10 +84,10 @@ class CoreAudioPlayer {
 		}
 		
 		pressure = Int(Double(audioBuffers.count)/Double(bufferCount)*100)
+//		print(pressure)
 		print(pressure)
 		if pressure > 95 {
 //			usleep(10)
-			print(pressure)
 			return //drop le freme if presh too high
 		}
 	}
