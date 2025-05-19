@@ -15,6 +15,7 @@
 		A96EAF3B2DDA2B3500E13432 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EAF362DDA104200E13432 /* Airstream.framework */; };
 		A96EAF3C2DDA2B3500E13432 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A96EAF362DDA104200E13432 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
+		A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -41,6 +42,7 @@
 		A96EAF362DDA104200E13432 /* Airstream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Airstream.framework; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularBuffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -89,6 +91,7 @@
 				A99E25352DD7D3C500BF77D7 /* Info.plist */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
 				A96EAF2A2DD8EEEF00E13432 /* Audio.swift */,
+				A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
 				A92DCAE02DD74F2000D82924 /* Views */,
 			);
@@ -189,6 +192,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
 				A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
