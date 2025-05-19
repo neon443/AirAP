@@ -16,7 +16,6 @@
 		A96EAF3C2DDA2B3500E13432 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A96EAF362DDA104200E13432 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
 		A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */; };
-		A9B2EC042DDB6574004CD6C3 /* AudioUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2EC032DDB6574004CD6C3 /* AudioUnit.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,7 +43,6 @@
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularBuffer.swift; sourceTree = "<group>"; };
-		A9B2EC032DDB6574004CD6C3 /* AudioUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AudioUnit.swift; path = AirAP/AudioUnit.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -70,7 +68,6 @@
 		A92DCABC2DD74EB000D82924 = {
 			isa = PBXGroup;
 			children = (
-				A9B2EC032DDB6574004CD6C3 /* AudioUnit.swift */,
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
 				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
@@ -199,7 +196,6 @@
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
 				A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
-				A9B2EC042DDB6574004CD6C3 /* AudioUnit.swift in Sources */,
 				A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
