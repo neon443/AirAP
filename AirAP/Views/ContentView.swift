@@ -12,23 +12,28 @@ struct ContentView: View {
 	@StateObject var ASmanager = AirstreamManager()
 	@State var hey = UUID()
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
-			Text(ASmanager.airstream?.name ?? "nnone")
-			Text("\(ASmanager.airstream?.running ?? false)")
-			Text("\(ASmanager.airstream?.volume ?? -1)")
-			if let coverart = ASmanager.coverArt {
-				Image(uiImage: coverart)
+		NavigationStack {
+			List {
+				Button("refresh") {
+					hey = UUID()
+				}
+				Button(ASmanager.running ? "Stop" : "Start") {
+					ASmanager.startStop()
+				}
+				Text(ASmanager.airstream?.name ?? "Not Running")
+				Text("\(ASmanager.airstream?.running ?? false)")
+				Text("\(ASmanager.airstream?.volume ?? -1)")
+				Text("\(ASmanager.airstream?.duration)")
+				Text("\(ASmanager.airstream?.position)")
+				if let coverart = ASmanager.art {
+					Image(uiImage: coverart)
+				}
 			}
-        }
-		.onTapGesture {
-			hey = UUID()
+			.id(hey)
+			.onReceive(ASmanager.objectWillChange) {
+				hey = UUID()
+			}
 		}
-		.id(hey)
-        .padding()
     }
 }
 

@@ -13,25 +13,22 @@ import UIKit
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
 	private var player = CircularBuffer()
-	@Published var coverArt: UIImage?
 	var audioUnit: AudioComponentInstance?
 	var circularBuffer = TPCircularBuffer()
 	
 	var buffering: Bool = false
-	var art: UIImage?
-	var title: String = ""
-	var album: String = ""
-	var artist: String = ""
-	var canControl = false
+	@Published var running = false
+	@Published var art: UIImage?
+	@Published var title: String = ""
+	@Published var album: String = ""
+	@Published var artist: String = ""
+	@Published var canControl = false
 	
 	override init() {
 		super.init()
 		_TPCircularBufferInit(&circularBuffer, 131_072, MemoryLayout.size(ofValue: circularBuffer))
 		airstream = Airstream(name: "airstream")
 		airstream?.delegate = self
-		airstream?.startServer()
-		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
-		try? AVAudioSession.sharedInstance().setActive(true)
 	}
 	
 	deinit {
@@ -44,6 +41,29 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 			print("failed to stop audio unit")
 		}
 		audioUnit = nil
+	}
+	
+	func start() {
+		airstream?.startServer()
+		running = true
+		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+		try? AVAudioSession.sharedInstance().setActive(true)
+	}
+	
+	func stop() {
+		airstream?.stopServer()
+		running = false
+	}
+	
+	func startStop() {
+		if let running = airstream?.running {
+			switch running {
+			case true:
+				stop()
+			case false:
+				start()
+			}
+		}
 	}
 	
 	//brefore stream setup
@@ -174,10 +194,12 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	//recieved track info
 	func airstream(_ airstream: Airstream, didSetMetadata metadata: [String : String]) {
 		print(metadata)
+		objectWillChange.send()
 	}
 	
 	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {
 		canControl = true
+		objectWillChange.send()
 	}
 	
 	let OutputRenderCallback: AURenderCallback = { (
@@ -190,7 +212,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	) in
 		let manager = Unmanaged<AirstreamManager>.fromOpaque(inRefCon).takeUnretainedValue()
 		if manager.circularBuffer.fillCount == 0 || manager.buffering {
-			//MARK: FIXXX
+			//TODO: fixme
+//			i think its just best to return???
 			for i in 0..<Int(ioData!.pointee.mNumberBuffers) {
 				memset(
 					ioData!.pointee.mBuffers.mData,
