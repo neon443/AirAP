@@ -15,7 +15,6 @@
 		A96EAF3B2DDA2B3500E13432 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96EAF362DDA104200E13432 /* Airstream.framework */; };
 		A96EAF3C2DDA2B3500E13432 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A96EAF362DDA104200E13432 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
-		A9EE4DB02DDA76C500395AA7 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9EE4DAF2DDA76C400395AA7 /* TPCircularBuffer.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -42,10 +41,15 @@
 		A96EAF362DDA104200E13432 /* Airstream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Airstream.framework; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9EE4DAE2DDA76C400395AA7 /* TPCircularBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
-		A9EE4DAF2DDA76C400395AA7 /* TPCircularBuffer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
-		A9EE4DB12DDA76CF00395AA7 /* AirAP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirAP-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A9B2EBF52DDA7828004CD6C3 /* TPCircularBuffer */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = TPCircularBuffer;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A92DCAC22DD74EB000D82924 /* Frameworks */ = {
@@ -66,10 +70,8 @@
 				A92DCADC2DD74F1800D82924 /* AirAP */,
 				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
 				A92DCAC62DD74EB000D82924 /* Products */,
+				A9B2EBF52DDA7828004CD6C3 /* TPCircularBuffer */,
 				A96EAF372DDA104200E13432 /* Frameworks */,
-				A9EE4DAE2DDA76C400395AA7 /* TPCircularBuffer.h */,
-				A9EE4DAF2DDA76C400395AA7 /* TPCircularBuffer.c */,
-				A9EE4DB12DDA76CF00395AA7 /* AirAP-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -124,6 +126,9 @@
 			buildRules = (
 			);
 			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A9B2EBF52DDA7828004CD6C3 /* TPCircularBuffer */,
 			);
 			name = AirAP;
 			packageProductDependencies = (
@@ -187,7 +192,6 @@
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
 				A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
-				A9EE4DB02DDA76C500395AA7 /* TPCircularBuffer.c in Sources */,
 				A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -256,6 +260,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OBJC_BRIDGING_HEADER = "TPCircularBuffer/AirAP-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -314,6 +319,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OBJC_BRIDGING_HEADER = "TPCircularBuffer/AirAP-Bridging-Header.h";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -358,7 +364,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AirAP-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TPCircularBuffer/AirAP-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -405,7 +411,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AirAP-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "TPCircularBuffer/AirAP-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
