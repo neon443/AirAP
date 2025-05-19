@@ -18,17 +18,12 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	var buffering: Bool = false
 	@Published var running = false
-	@Published var art: UIImage?
-	@Published var title: String = ""
-	@Published var album: String = ""
-	@Published var artist: String = ""
+	@Published var name: String = UIDevice().model
 	@Published var canControl = false
 	
 	override init() {
 		super.init()
 		_TPCircularBufferInit(&circularBuffer, 131_072, MemoryLayout.size(ofValue: circularBuffer))
-		airstream = Airstream(name: "airstream")
-		airstream?.delegate = self
 	}
 	
 	deinit {
@@ -44,6 +39,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	func start() {
+		airstream = Airstream(name: name)
+		airstream?.delegate = self
 		airstream?.startServer()
 		running = true
 		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
@@ -56,13 +53,11 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	func startStop() {
-		if let running = airstream?.running {
-			switch running {
-			case true:
-				stop()
-			case false:
-				start()
-			}
+		switch running {
+		case true:
+			stop()
+		case false:
+			start()
 		}
 	}
 	
@@ -188,7 +183,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	//recieved cover art
 	func airstream(_ airstream: Airstream, didSetCoverart coverart: Data) {
-		art = UIImage(data: coverart)
+		
 	}
 	
 	//recieved track info

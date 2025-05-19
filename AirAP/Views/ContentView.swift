@@ -10,28 +10,17 @@ import Airstream
 
 struct ContentView: View {
 	@StateObject var ASmanager = AirstreamManager()
-	@State var hey = UUID()
     var body: some View {
 		NavigationStack {
 			List {
-				Button("refresh") {
-					hey = UUID()
-				}
 				Button(ASmanager.running ? "Stop" : "Start") {
 					ASmanager.startStop()
 				}
-				Text(ASmanager.airstream?.name ?? "Not Running")
+				TextField("AirPlay Server Name", text: $ASmanager.name)
 				Text("\(ASmanager.airstream?.running ?? false)")
 				Text("\(ASmanager.airstream?.volume ?? -1)")
 				Text("\(ASmanager.airstream?.duration)")
 				Text("\(ASmanager.airstream?.position)")
-				if let coverart = ASmanager.art {
-					Image(uiImage: coverart)
-				}
-			}
-			.id(hey)
-			.onReceive(ASmanager.objectWillChange) {
-				hey = UUID()
 			}
 		}
     }
