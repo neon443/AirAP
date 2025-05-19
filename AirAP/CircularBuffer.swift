@@ -10,7 +10,7 @@ import Foundation
 class CircularBuffer {
 	private var buffer = TPCircularBuffer()
 	
-	init(size: Int32 = 131-072) {
+	init(size: Int32 = 131_072) {
 		let success = _TPCircularBufferInit(&buffer, size, MemoryLayout.size(ofValue: buffer))
 		assert(success, "failed to init tpcirc buffer")
 	}
