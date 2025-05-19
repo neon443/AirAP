@@ -9,6 +9,7 @@ import Foundation
 import Airstream
 import AVFoundation
 import UIKit
+import SwiftUI
 
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
@@ -42,14 +43,18 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		airstream = Airstream(name: name)
 		airstream?.delegate = self
 		airstream?.startServer()
-		running = true
+		withAnimation {
+			running = true
+		}
 		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
 		try? AVAudioSession.sharedInstance().setActive(true)
 	}
 	
 	func stop() {
 		airstream?.stopServer()
-		running = false
+		withAnimation {
+			running = false
+		}
 	}
 	
 	func startStop() {

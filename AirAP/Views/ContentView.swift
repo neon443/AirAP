@@ -13,15 +13,28 @@ struct ContentView: View {
     var body: some View {
 		NavigationStack {
 			List {
-				Button(ASmanager.running ? "Stop" : "Start") {
-					ASmanager.startStop()
-				}
 				TextField("AirPlay Server Name", text: $ASmanager.name)
-				Text("\(ASmanager.airstream?.running ?? false)")
-				Text("\(ASmanager.airstream?.volume ?? -1)")
-				Text("\(ASmanager.airstream?.duration)")
-				Text("\(ASmanager.airstream?.position)")
+					.textFieldStyle(RoundedBorderTextFieldStyle())
+				Text(
+					"Server: \(ASmanager.running ? "Running" : "Not Running")"
+				)
+				.contentTransition(.numericText())
+				.foregroundStyle(ASmanager.running ? .green : .red)
+//				.animation(.default, value: ASmanager.running)
 			}
+			Spacer()
+			Button() {
+				ASmanager.startStop()
+			} label: {
+				Text(ASmanager.running ? "Stop" : "Start")
+					.contentTransition(.numericText())
+					.bold()
+					.monospaced()
+					.font(.title)
+			}
+			.buttonStyle(BorderedProminentButtonStyle())
+			.sensoryFeedback(.impact(weight: .heavy, intensity: 1.0), trigger: ASmanager.running)
+			.padding(.bottom)
 		}
     }
 }
