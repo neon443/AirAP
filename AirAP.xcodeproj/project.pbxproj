@@ -12,7 +12,8 @@
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
 		A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96EAF2A2DD8EEEF00E13432 /* Audio.swift */; };
 		A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A96EAF312DDA005000E13432 /* Config.xcconfig */; };
-		A9904A252DDCFEE500816130 /* Airstream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9904A242DDCFEE400816130 /* Airstream.xcframework */; };
+		A9904A262DDD047500816130 /* Airstream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9904A242DDCFEE400816130 /* Airstream.xcframework */; };
+		A9904A272DDD047500816130 /* Airstream.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9904A242DDCFEE400816130 /* Airstream.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
 		A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				A9904A272DDD047500816130 /* Airstream.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -56,7 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9904A252DDCFEE500816130 /* Airstream.xcframework in Frameworks */,
+				A9904A262DDD047500816130 /* Airstream.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
