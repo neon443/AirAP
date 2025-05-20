@@ -10,10 +10,12 @@
 		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
-		A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96EAF2A2DD8EEEF00E13432 /* Audio.swift */; };
 		A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A96EAF312DDA005000E13432 /* Config.xcconfig */; };
 		A9904A262DDD047500816130 /* Airstream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9904A242DDCFEE400816130 /* Airstream.xcframework */; };
 		A9904A272DDD047500816130 /* Airstream.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9904A242DDCFEE400816130 /* Airstream.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9904A302DDD098500816130 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9904A2E2DDD098500816130 /* TPCircularBuffer.c */; };
+		A9904A322DDD0AD900816130 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A312DDD0AD900816130 /* NowPlaying.swift */; };
+		A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A332DDD0BE100816130 /* SettingsView.swift */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
 		A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */; };
 /* End PBXBuildFile section */
@@ -37,21 +39,17 @@
 		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
 		A92DCADA2DD74F1800D82924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92DCADB2DD74F1800D82924 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A96EAF2A2DD8EEEF00E13432 /* Audio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Audio.swift; sourceTree = "<group>"; };
 		A96EAF312DDA005000E13432 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A9904A242DDCFEE400816130 /* Airstream.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Airstream.xcframework; path = Carthage/Build/Airstream.xcframework; sourceTree = SOURCE_ROOT; };
+		A9904A2C2DDD098500816130 /* AirAP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirAP-Bridging-Header.h"; sourceTree = "<group>"; };
+		A9904A2D2DDD098500816130 /* TPCircularBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
+		A9904A2E2DDD098500816130 /* TPCircularBuffer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
+		A9904A312DDD0AD900816130 /* NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
+		A9904A332DDD0BE100816130 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularBuffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		A9B2EBF52DDA7828004CD6C3 /* TPCircularBuffer */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = TPCircularBuffer;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A92DCAC22DD74EB000D82924 /* Frameworks */ = {
@@ -71,8 +69,8 @@
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
 				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
+				A9904A2F2DDD098500816130 /* TPCircularBuffer */,
 				A92DCAC62DD74EB000D82924 /* Products */,
-				A9B2EBF52DDA7828004CD6C3 /* TPCircularBuffer */,
 				A96EAF372DDA104200E13432 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -90,7 +88,6 @@
 			children = (
 				A99E25352DD7D3C500BF77D7 /* Info.plist */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
-				A96EAF2A2DD8EEEF00E13432 /* Audio.swift */,
 				A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
 				A92DCAE02DD74F2000D82924 /* Views */,
@@ -102,6 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				A92DCADB2DD74F1800D82924 /* ContentView.swift */,
+				A9904A332DDD0BE100816130 /* SettingsView.swift */,
+				A9904A312DDD0AD900816130 /* NowPlaying.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -112,6 +111,16 @@
 				A9904A242DDCFEE400816130 /* Airstream.xcframework */,
 			);
 			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9904A2F2DDD098500816130 /* TPCircularBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				A9904A2C2DDD098500816130 /* AirAP-Bridging-Header.h */,
+				A9904A2D2DDD098500816130 /* TPCircularBuffer.h */,
+				A9904A2E2DDD098500816130 /* TPCircularBuffer.c */,
+			);
+			path = TPCircularBuffer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,9 +138,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				A9B2EBF52DDA7828004CD6C3 /* TPCircularBuffer */,
 			);
 			name = AirAP;
 			packageProductDependencies = (
@@ -192,11 +198,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9904A322DDD0AD900816130 /* NowPlaying.swift in Sources */,
+				A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */,
+				A9904A302DDD098500816130 /* TPCircularBuffer.c in Sources */,
 				A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
 				A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
-				A96EAF2B2DD8EEEF00E13432 /* Audio.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

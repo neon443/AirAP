@@ -14,13 +14,19 @@ import SwiftUI
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
 	private var player = CircularBuffer()
+	
 	var audioUnit: AudioComponentInstance?
 	var circularBuffer = TPCircularBuffer()
-	
 	var buffering: Bool = false
+	
 	@Published var running = false
 	@Published var name: String = UIDevice().model
 	@Published var canControl = false
+	
+	@Published var title: String?
+	@Published var album: String?
+	@Published var artist: String?
+	@Published var albumArt: UIImage?
 	
 	override init() {
 		super.init()
@@ -188,18 +194,25 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	//recieved cover art
 	func airstream(_ airstream: Airstream, didSetCoverart coverart: Data) {
-		
+		guard let uiimage = UIImage(data: coverart) else { return } //con only if the data is an image
+		guard uiimage != albumArt else { return } //con only if album art is diff
+		withAnimation {
+			albumArt = uiimage
+		}
 	}
 	
 	//recieved track info
 	func airstream(_ airstream: Airstream, didSetMetadata metadata: [String : String]) {
+		withAnimation {
+			title = metadata["minm"] //??
+			album = metadata["asal"] //airstream album
+			artist = metadata["asar"] //airstream artist
+		}
 		print(metadata)
-		objectWillChange.send()
 	}
 	
 	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {
 		canControl = true
-		objectWillChange.send()
 	}
 	
 	let OutputRenderCallback: AURenderCallback = { (
