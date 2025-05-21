@@ -60,10 +60,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		airstream?.stopServer()
 		withAnimation {
 			running = false
-			albumArt = nil
-			title = nil
-			album = nil
-			artist = nil
+			clearMetadata()
 		}
 	}
 	
@@ -74,6 +71,13 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		case false:
 			start()
 		}
+	}
+	
+	func clearMetadata() {
+		albumArt = nil
+		title = nil
+		album = nil
+		artist = nil
 	}
 	
 	//brefore stream setup
