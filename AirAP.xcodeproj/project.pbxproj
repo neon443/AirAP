@@ -352,12 +352,7 @@
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Airstream/build/Release",
-					"$(PROJECT_DIR)/AirAP/Views",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
+					"\"$(SRCROOT)/Carthage/Build\"",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
@@ -399,12 +394,7 @@
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-					"$(PROJECT_DIR)/Carthage/Build/Mac",
-					"$(PROJECT_DIR)/Carthage/Checkouts/Airstream/build/Release",
-					"$(PROJECT_DIR)/AirAP/Views",
-					"$(PROJECT_DIR)",
-					"$(PROJECT_DIR)/Frameworks",
+					"\"$(SRCROOT)/Carthage/Build\"",
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
