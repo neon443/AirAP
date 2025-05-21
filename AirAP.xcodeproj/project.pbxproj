@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A90D496B2DDE73B300781124 /* PlaybackControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D496A2DDE73B300781124 /* PlaybackControls.swift */; };
 		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A90D496A2DDE73B300781124 /* PlaybackControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControls.swift; sourceTree = "<group>"; };
 		A92DCAC52DD74EB000D82924 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
 		A92DCADA2DD74F1800D82924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -65,6 +67,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A90D49682DDE738C00781124 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A9904A332DDD0BE100816130 /* SettingsView.swift */,
+				A9904A3C2DDD1CD600816130 /* StartStopButton.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		A90D49692DDE739A00781124 /* Playing */ = {
+			isa = PBXGroup;
+			children = (
+				A9904A312DDD0AD900816130 /* NowPlaying.swift */,
+				A90D496A2DDE73B300781124 /* PlaybackControls.swift */,
+			);
+			path = Playing;
+			sourceTree = "<group>";
+		};
 		A92DCABC2DD74EB000D82924 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +121,8 @@
 			isa = PBXGroup;
 			children = (
 				A92DCADB2DD74F1800D82924 /* ContentView.swift */,
-				A9904A312DDD0AD900816130 /* NowPlaying.swift */,
-				A9904A332DDD0BE100816130 /* SettingsView.swift */,
-				A9904A3C2DDD1CD600816130 /* StartStopButton.swift */,
+				A90D49692DDE739A00781124 /* Playing */,
+				A90D49682DDE738C00781124 /* Settings */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -207,6 +226,7 @@
 				A9904A302DDD098500816130 /* TPCircularBuffer.c in Sources */,
 				A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
+				A90D496B2DDE73B300781124 /* PlaybackControls.swift in Sources */,
 				A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
 			);

@@ -156,12 +156,18 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	//here's some audio
-	func airstream(
+	private func airstream(
 		_ airstream: Airstream,
-		processAudio buffer: UnsafeMutablePointer<CChar>,
+		processAudio buffer: inout UnsafeMutablePointer<CChar>,
 		length: Int32
 	) {
+//		var buffer = buffer
+//		var length = length
 		//MARK: add volume changing later
+		if airstream.volume < 1 {
+			let bufferF = Float(buffer.pointee)
+			buffer.pointee = Int8(bufferF * airstream.volume)
+		}
 		//		if airstream.volume < 1.0 {
 		//			var shortData = buffer.pointee/*.bindMemory(to: Int16.self, capacity: length / MemoryLayout<Int16>.stride)*/
 		//			var shortData = buffer.pointee.
@@ -219,11 +225,16 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 			album = metadata["asal"] //airstream album
 			artist = metadata["asar"] //airstream artist
 		}
-		print(metadata)
 	}
 	
 	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {
-		canControl = true
+		withAnimation {
+			canControl = true
+		}
+	}
+	
+	func airstream(_ airstream: Airstream, didSetVolume volume: Float) {
+		
 	}
 	
 	let OutputRenderCallback: AURenderCallback = { (

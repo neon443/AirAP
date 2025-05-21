@@ -65,6 +65,11 @@ struct NowPlaying: View {
 					.contentTransition(.numericText())
 					.multilineTextAlignment(.center)
 					.frame(maxWidth: .infinity)
+				
+				Spacer()
+				
+				PlaybackControls(ASmanager: ASmanager)
+				
 				Spacer()
 				StartStopButton(ASmanager: ASmanager)
 			}
