@@ -156,24 +156,12 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	//here's some audio
-	private func airstream(
+	func airstream(
 		_ airstream: Airstream,
-		processAudio buffer: inout UnsafeMutablePointer<CChar>,
+		processAudio buffer: UnsafeMutablePointer<CChar>,
 		length: Int32
 	) {
-//		var buffer = buffer
-//		var length = length
 		//MARK: add volume changing later
-		if airstream.volume < 1 {
-			let bufferF = Float(buffer.pointee)
-			buffer.pointee = Int8(bufferF * airstream.volume)
-		}
-		//		if airstream.volume < 1.0 {
-		//			var shortData = buffer.pointee/*.bindMemory(to: Int16.self, capacity: length / MemoryLayout<Int16>.stride)*/
-		//			var shortData = buffer.pointee.
-		//			let length = Int(length)
-		//			shortData *= Int8(airstream.volume)
-		//		}
 		let audioBuffer = AudioBuffer(
 			mNumberChannels: UInt32(airstream.channelsPerFrame),
 			mDataByteSize: UInt32(length),
@@ -220,6 +208,19 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	//recieved track info
 	func airstream(_ airstream: Airstream, didSetMetadata metadata: [String : String]) {
+//		guard let gotTitle = metadata["minm"], !gotTitle.isEmpty else {
+//			title = nil
+//			return
+//		}
+//		guard let gotAlbum = metadata["minm"], !gotAlbum.isEmpty else {
+//			album = nil
+//			return
+//		}
+//		guard let gotArtist = metadata["minm"], !gotArtist.isEmpty else {
+//			artist = nil
+//			return
+//		}
+		
 		withAnimation {
 			title = metadata["minm"] //??
 			album = metadata["asal"] //airstream album

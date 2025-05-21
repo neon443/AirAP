@@ -45,26 +45,8 @@ struct NowPlaying: View {
 				}
 				.animation(.spring, value: ASmanager.album)
 				.padding(.bottom)
-				Text(ASmanager.title ?? "Not Playing")
-					.bold()
-					.font(.title)
-					.contentTransition(.numericText())
-					.multilineTextAlignment(.center)
-					.foregroundStyle(
-						.primary.opacity(ASmanager.title != nil ? 1 : 0.5)
-					)
-				
-				Text(ASmanager.album ?? "")
-					.font(.title3)
-					.contentTransition(.numericText())
-					.multilineTextAlignment(.center)
-					.frame(maxWidth: .infinity)
-				
-				Text(ASmanager.artist ?? "")
-					.font(.title3)
-					.contentTransition(.numericText())
-					.multilineTextAlignment(.center)
-					.frame(maxWidth: .infinity)
+
+				MetadataView(ASmanager: ASmanager)
 				
 				Spacer()
 				
