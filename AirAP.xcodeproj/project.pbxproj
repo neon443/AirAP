@@ -16,6 +16,7 @@
 		A9904A302DDD098500816130 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9904A2E2DDD098500816130 /* TPCircularBuffer.c */; };
 		A9904A322DDD0AD900816130 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A312DDD0AD900816130 /* NowPlaying.swift */; };
 		A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A332DDD0BE100816130 /* SettingsView.swift */; };
+		A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A3C2DDD1CD600816130 /* StartStopButton.swift */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
 		A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */; };
 /* End PBXBuildFile section */
@@ -46,6 +47,7 @@
 		A9904A2E2DDD098500816130 /* TPCircularBuffer.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TPCircularBuffer.c; sourceTree = "<group>"; };
 		A9904A312DDD0AD900816130 /* NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
 		A9904A332DDD0BE100816130 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		A9904A3C2DDD1CD600816130 /* StartStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopButton.swift; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularBuffer.swift; sourceTree = "<group>"; };
@@ -99,8 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				A92DCADB2DD74F1800D82924 /* ContentView.swift */,
-				A9904A332DDD0BE100816130 /* SettingsView.swift */,
 				A9904A312DDD0AD900816130 /* NowPlaying.swift */,
+				A9904A332DDD0BE100816130 /* SettingsView.swift */,
+				A9904A3C2DDD1CD600816130 /* StartStopButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -198,6 +201,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */,
 				A9904A322DDD0AD900816130 /* NowPlaying.swift in Sources */,
 				A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */,
 				A9904A302DDD098500816130 /* TPCircularBuffer.c in Sources */,

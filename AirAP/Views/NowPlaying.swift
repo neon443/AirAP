@@ -49,6 +49,7 @@ struct NowPlaying: View {
 					.bold()
 					.font(.title)
 					.contentTransition(.numericText())
+					.multilineTextAlignment(.center)
 					.foregroundStyle(
 						.primary.opacity(ASmanager.title != nil ? 1 : 0.5)
 					)
@@ -56,26 +57,16 @@ struct NowPlaying: View {
 				Text(ASmanager.album ?? "")
 					.font(.title3)
 					.contentTransition(.numericText())
+					.multilineTextAlignment(.center)
 					.frame(maxWidth: .infinity)
 				
 				Text(ASmanager.artist ?? "")
 					.font(.title3)
 					.contentTransition(.numericText())
+					.multilineTextAlignment(.center)
 					.frame(maxWidth: .infinity)
 				Spacer()
-				Button() {
-					ASmanager.startStop()
-				} label: {
-					Text(ASmanager.running ? "Stop" : "Start")
-						.contentTransition(.numericText())
-						.bold()
-						.monospaced()
-						.font(.title)
-				}
-				.buttonStyle(BorderedProminentButtonStyle())
-				.sensoryFeedback(.impact(weight: .heavy, intensity: 1.0), trigger: ASmanager.running)
-				.padding(.bottom)
-				.frame(maxWidth: .infinity)
+				StartStopButton(ASmanager: ASmanager)
 			}
 		}
 	}

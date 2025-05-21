@@ -60,6 +60,10 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		airstream?.stopServer()
 		withAnimation {
 			running = false
+			albumArt = nil
+			title = nil
+			album = nil
+			artist = nil
 		}
 	}
 	
@@ -194,7 +198,10 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	//recieved cover art
 	func airstream(_ airstream: Airstream, didSetCoverart coverart: Data) {
-		guard let uiimage = UIImage(data: coverart) else { return } //con only if the data is an image
+		guard let uiimage = UIImage(data: coverart) else {
+			albumArt = nil
+			return
+		} //con only if the data is an image
 		guard uiimage != albumArt else { return } //con only if album art is diff
 		withAnimation {
 			albumArt = uiimage
