@@ -29,10 +29,43 @@ struct MetadataView: View {
 			Text(ASmanager.artist ?? " ")
 				.modifier(NEText())
 			
-			Text("sample rate")
-				.modifier(NEHeading())
-			Text("\(ASmanager.airstream?.sampleRate)")
-				.modifier(NEText())
+			HStack {
+				Spacer()
+				VStack {
+					Text("sample rate")
+						.modifier(NEHeading())
+					Text(
+						ASmanager.airstream?.sampleRate == nil ||
+						ASmanager.airstream?.sampleRate == 0 ?
+						"" : "\(ASmanager.airstream!.sampleRate)Hz"
+					)
+					.modifier(NEText())
+				}
+				.padding()
+				
+				VStack {
+					Text("bit depth")
+						.modifier(NEHeading())
+					Text(
+						ASmanager.airstream?.bitsPerChannel == nil ||
+						ASmanager.airstream?.bitsPerChannel == 0 ?
+						"" : "\(ASmanager.airstream!.bitsPerChannel) bit"
+					)
+					.modifier(NEText())
+				}
+				VStack {
+					Text("channels")
+						.modifier(NEHeading())
+					Text(
+						ASmanager.airstream?.channelsPerFrame == nil ||
+						ASmanager.airstream?.channelsPerFrame == 0 ?
+						"" : "\(ASmanager.airstream!.channelsPerFrame)"
+					)
+					.modifier(NEText())
+				}
+				.padding()
+				Spacer()
+			}
 		}
 		.padding(.horizontal)
 	}
