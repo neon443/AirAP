@@ -75,6 +75,7 @@ struct MetadataView: View {
 			}
 			.padding(10)
 		}
+		.fixedSize(horizontal: false, vertical: true)
 	}
 }
 

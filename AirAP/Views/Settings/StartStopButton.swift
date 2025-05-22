@@ -14,15 +14,23 @@ struct StartStopButton: View {
 		Button() {
 			ASmanager.startStop()
 		} label: {
-			Text(ASmanager.running ? "Stop" : "Start")
-				.contentTransition(.numericText())
-				.bold()
-				.monospaced()
-				.font(.title)
+			ZStack(alignment: .center) {
+				RoundedRectangle(cornerRadius: 10)
+					.foregroundStyle(
+						ASmanager.running ? .red : .green
+					)
+				Text(ASmanager.running ? "Stop" : "Start")
+					.contentTransition(.numericText())
+					.bold()
+					.monospaced()
+					.font(.title)
+					.padding(5)
+			}
+			.fixedSize()
 		}
-		.buttonStyle(BorderedProminentButtonStyle())
+		.buttonStyle(PlainButtonStyle())
 		.sensoryFeedback(.impact(weight: .heavy, intensity: 1.0), trigger: ASmanager.running)
-		.padding(.bottom)
+		.padding(.bottom, 5)
 		.frame(maxWidth: .infinity)
     }
 }

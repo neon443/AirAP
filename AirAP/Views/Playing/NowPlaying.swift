@@ -19,10 +19,11 @@ struct NowPlaying: View {
 						.resizable()
 						.ignoresSafeArea(.all)
 						.scaledToFill()
-						.blur(radius: 50)
+						.blur(radius: 75)
 						.clipped()
 						.opacity(0.8)
 						.frame(maxWidth: geo.size.width, maxHeight: geo.size.height)
+						.padding(.top, 5)
 				}
 				VStack(alignment: .center) {
 					ZStack {

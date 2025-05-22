@@ -11,15 +11,14 @@ import Airstream
 struct ContentView: View {
 	@StateObject var ASmanager = AirstreamManager()
 	var body: some View {
-		Text(
-			"Server: \(ASmanager.running ? "Running" : "Not Running")"
-		)
-		.contentTransition(.numericText())
-		.foregroundStyle(ASmanager.running ? .green : .red)
 		TabView {
 			NowPlaying(ASmanager: ASmanager)
 				.tabItem {
 					Label("Now Playing", systemImage: "play.fill")
+				}
+			HelpView()
+				.tabItem {
+					Label("Help", systemImage: "questionmark.app")
 				}
 			SettingsView(ASmanager: ASmanager)
 				.tabItem {

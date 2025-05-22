@@ -36,6 +36,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	override init() {
 		super.init()
 		_TPCircularBufferInit(&circularBuffer, 131_072, MemoryLayout.size(ofValue: circularBuffer))
+		start()
 	}
 	
 	deinit {
