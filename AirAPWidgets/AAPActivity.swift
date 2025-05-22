@@ -30,6 +30,7 @@ struct AAPActivity: Widget {
 		} dynamicIsland: { context in
 			DynamicIsland {
 				DynamicIslandExpandedRegion(.leading) {
+					Text("Live activity")
 					Text(context.state.title)
 						.bold()
 				}

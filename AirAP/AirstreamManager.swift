@@ -29,6 +29,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var artist: String?
 	@Published var albumArt: UIImage?
 	
+	@Published var currentActivity: Activity<AAPNowPlayingActivityAttributes>?
+	
 	override init() {
 		super.init()
 		_TPCircularBufferInit(&circularBuffer, 131_072, MemoryLayout.size(ofValue: circularBuffer))
@@ -95,12 +97,12 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		let content = ActivityContent(state: contentState, staleDate: nil)
 		
 		do {
-			let activity = try Activity<AAPNowPlayingActivityAttributes>.request(
+			currentActivity = try Activity<AAPNowPlayingActivityAttributes>.request(
 				attributes: attrs,
 				content: content,
 				pushType: nil
 			)
-			print(activity)
+			print(currentActivity)
 		} catch {
 			print("failed to start live activity")
 			print(error.localizedDescription)
@@ -108,24 +110,21 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	func updateLiveActivity() {
-		guard !Activity<AAPNowPlayingActivityAttributes>.activities.isEmpty else {
+		guard let activity = currentActivity else {
 			startLiveActivity()
-			updateLiveActivity()
 			return
 		}
+		let contentState = AAPNowPlayingActivityAttributes.ContentState(
+			title: title ?? "",
+			album: album ?? "",
+			artist: artist ?? "",
+			channels: Int(airstream?.channelsPerFrame ?? 2),
+			sampleRate: Int(airstream?.sampleRate ?? 44_100),
+			bitDepth: Int(airstream?.bitsPerChannel ?? 16)
+		)
+		let content = ActivityContent(state: contentState, staleDate: nil)
 		Task {
-			for activity in Activity<AAPNowPlayingActivityAttributes>.activities {
-				let contentState = AAPNowPlayingActivityAttributes.ContentState(
-					title: title ?? "",
-					album: album ?? "",
-					artist: artist ?? "",
-					channels: Int(airstream?.channelsPerFrame ?? 2),
-					sampleRate: Int(airstream?.sampleRate ?? 44_100),
-					bitDepth: Int(airstream?.bitsPerChannel ?? 16)
-				)
-				let content = ActivityContent(state: contentState, staleDate: nil)
-				await activity.update(content)
-			}
+			await activity.update(content)
 		}
 	}
 	
