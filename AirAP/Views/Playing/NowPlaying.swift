@@ -24,7 +24,21 @@ struct NowPlaying: View {
 						.opacity(0.8)
 						.frame(maxWidth: geo.size.width, maxHeight: geo.size.height)
 				}
-				AlbumArtView(ASmanager: ASmanager, geoSize: geo.size)
+				
+				VStack(alignment: .center) {
+					AlbumArtView(ASmanager: ASmanager, geoSize: geo.size)
+					
+					MetadataView(ASmanager: ASmanager)
+					
+					Spacer()
+					
+					if ASmanager.canControl {
+						PlaybackControls(ASmanager: ASmanager)
+					}
+					
+					Spacer()
+					StartStopButton(ASmanager: ASmanager)
+				}
 			}
 		}
 	}
