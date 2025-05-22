@@ -26,11 +26,12 @@ struct AAPNowPlayingActivityAttributes: ActivityAttributes {
 struct AAPActivity: Widget {
 	var body: some WidgetConfiguration {
 		ActivityConfiguration(for: AAPNowPlayingActivityAttributes.self) { context in
-			
+			Text(context.state.title)
 		} dynamicIsland: { context in
 			DynamicIsland {
 				DynamicIslandExpandedRegion(.leading) {
-					
+					Text(context.state.title)
+						.bold()
 				}
 				DynamicIslandExpandedRegion(.trailing) {
 					if let albumart = context.state.albumArt {

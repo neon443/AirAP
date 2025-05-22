@@ -84,13 +84,13 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	func startLiveActivity() {
 		let attrs = AAPNowPlayingActivityAttributes()
 		let contentState = AAPNowPlayingActivityAttributes.ContentState(
-			title: "",
-			album: "",
-			artist: "",
+			title: title ?? "",
+			album: album ?? "",
+			artist: artist ?? "",
 			albumArt: airstream?.coverart,
-			channels: 0,
-			sampleRate: 0,
-			bitDepth: 0
+			channels: Int(airstream?.channelsPerFrame ?? 0),
+			sampleRate: Int(airstream?.sampleRate ?? 0),
+			bitDepth: Int(airstream?.bitsPerChannel ?? 0)
 		)
 		let content = ActivityContent(state: contentState, staleDate: nil)
 		
@@ -108,6 +108,11 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	func updateLiveActivity() {
+		guard !Activity<AAPNowPlayingActivityAttributes>.activities.isEmpty else {
+			startLiveActivity()
+			updateLiveActivity()
+			return
+		}
 		Task {
 			for activity in Activity<AAPNowPlayingActivityAttributes>.activities {
 				let contentState = AAPNowPlayingActivityAttributes.ContentState(
@@ -197,8 +202,6 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 			print(unitStatus)
 			return
 		}
-		
-		startLiveActivity()
 	}
 	
 	//here's some audio
@@ -273,6 +276,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 			album = metadata["asal"] //airstream album
 			artist = metadata["asar"] //airstream artist
 		}
+		
 		updateLiveActivity()
 	}
 	

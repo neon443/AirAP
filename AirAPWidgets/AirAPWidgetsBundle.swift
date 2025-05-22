@@ -14,5 +14,7 @@ struct AirAPWidgetsBundle: WidgetBundle {
         AirAPWidgets()
         AirAPWidgetsControl()
         AirAPWidgetsLiveActivity()
+		
+		AirAPWidgetsLiveActivity()
     }
 }
