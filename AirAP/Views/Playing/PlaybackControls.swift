@@ -20,7 +20,7 @@ struct PlaybackControls: View {
 					.resizable()
 					.scaledToFit()
 			}
-			.frame(width: 75)
+			.frame(width: 60)
 			
 			Button() {
 				ASmanager.airstream?.remote?.playPause()
@@ -29,21 +29,20 @@ struct PlaybackControls: View {
 					.resizable()
 					.scaledToFit()
 			}
-			.frame(width: 100)
+			.frame(width: 75)
+			.padding()
 			
 			Button() {
-				if let remote = ASmanager.airstream?.remote {
-					remote.nextItem()
-				}
+				ASmanager.airstream?.remote?.nextItem()
 			} label: {
 				Image(systemName: "forward.fill")
 					.resizable()
 					.scaledToFit()
 			}
-			.frame(width: 75)
+			.frame(width: 60)
 			Spacer()
 		}
-			.disabled(!ASmanager.canControl)
+		.disabled(!ASmanager.canControl)
 //		.opacity(ASmanager.canControl ? 1.0 : 0.5)
 	}
 }
