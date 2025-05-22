@@ -15,7 +15,7 @@ struct AAPNowPlayingActivityAttributes: ActivityAttributes {
 		var album: String
 		var artist: String
 
-		var albumArt: Data
+		var albumArt: Data?
 
 		var channels: Int
 		var sampleRate: Int
@@ -33,8 +33,10 @@ struct AAPActivity: Widget {
 					
 				}
 				DynamicIslandExpandedRegion(.trailing) {
-					if let uiimage = UIImage(data: context.state.albumArt) {
-						Image(uiImage: uiimage)
+					if let albumart = context.state.albumArt {
+						if let uiimage = UIImage(data: albumart) {
+							Image(uiImage: uiimage)
+						}
 					}
 				}
 				DynamicIslandExpandedRegion(.bottom) {
@@ -44,10 +46,16 @@ struct AAPActivity: Widget {
 				Image(systemName: "airplayaudio")
 					.rotationEffect(.degrees(180))
 			} compactTrailing: {
-				
+				if let albumart = context.state.albumArt {
+					if let uiimage = UIImage(data: albumart) {
+						Image(uiImage: uiimage)
+					}
+				}
 			} minimal: {
-				if let uiimage = UIImage(data: context.state.albumArt) {
-					Image(uiImage: uiimage)
+				if let albumart = context.state.albumArt {
+					if let uiimage = UIImage(data: albumart) {
+						Image(uiImage: uiimage)
+					}
 				}
 			}
 			.keylineTint(.blue)

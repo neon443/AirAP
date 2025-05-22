@@ -10,6 +10,7 @@ import Airstream
 import AVFoundation
 import UIKit
 import SwiftUI
+import ActivityKit
 
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
@@ -78,6 +79,49 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		title = nil
 		album = nil
 		artist = nil
+	}
+	
+	func startLiveActivity() {
+		let attrs = AAPNowPlayingActivityAttributes()
+		let contentState = AAPNowPlayingActivityAttributes.ContentState(
+			title: "",
+			album: "",
+			artist: "",
+			albumArt: airstream?.coverart,
+			channels: 0,
+			sampleRate: 0,
+			bitDepth: 0
+		)
+		let content = ActivityContent(state: contentState, staleDate: nil)
+		
+		do {
+			let activity = try Activity<AAPNowPlayingActivityAttributes>.request(
+				attributes: attrs,
+				content: content,
+				pushType: nil
+			)
+			print(activity)
+		} catch {
+			print("failed to start live activity")
+			print(error.localizedDescription)
+		}
+	}
+	
+	func updateLiveActivity() {
+		Task {
+			for activity in Activity<AAPNowPlayingActivityAttributes>.activities {
+				let contentState = AAPNowPlayingActivityAttributes.ContentState(
+					title: title ?? "",
+					album: album ?? "",
+					artist: artist ?? "",
+					channels: Int(airstream?.channelsPerFrame ?? 2),
+					sampleRate: Int(airstream?.sampleRate ?? 44_100),
+					bitDepth: Int(airstream?.bitsPerChannel ?? 16)
+				)
+				let content = ActivityContent(state: contentState, staleDate: nil)
+				await activity.update(content)
+			}
+		}
 	}
 	
 	//brefore stream setup
@@ -153,6 +197,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 			print(unitStatus)
 			return
 		}
+		
+		startLiveActivity()
 	}
 	
 	//here's some audio
@@ -204,6 +250,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		withAnimation {
 			albumArt = uiimage
 		}
+		updateLiveActivity()
 	}
 	
 	//recieved track info
@@ -226,16 +273,13 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 			album = metadata["asal"] //airstream album
 			artist = metadata["asar"] //airstream artist
 		}
+		updateLiveActivity()
 	}
 	
 	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {
 		withAnimation {
 			canControl = true
 		}
-	}
-	
-	func airstream(_ airstream: Airstream, didSetVolume volume: Float) {
-		
 	}
 	
 	let OutputRenderCallback: AURenderCallback = { (
