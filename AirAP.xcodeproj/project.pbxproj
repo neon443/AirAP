@@ -12,6 +12,7 @@
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
 		A966B4B22DDF863B00C721A5 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966B4B12DDF863B00C721A5 /* HelpView.swift */; };
+		A966B4B42DDF8A6B00C721A5 /* AlbumArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */; };
 		A96A94342DDE80AC00C12751 /* MetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A94332DDE80AC00C12751 /* MetadataView.swift */; };
 		A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A96EAF312DDA005000E13432 /* Config.xcconfig */; };
 		A9904A262DDD047500816130 /* Airstream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9904A242DDCFEE400816130 /* Airstream.xcframework */; };
@@ -77,6 +78,7 @@
 		A92DCADA2DD74F1800D82924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92DCADB2DD74F1800D82924 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A966B4B12DDF863B00C721A5 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtView.swift; sourceTree = "<group>"; };
 		A96A94332DDE80AC00C12751 /* MetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataView.swift; sourceTree = "<group>"; };
 		A96EAF312DDA005000E13432 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		A9904A242DDCFEE400816130 /* Airstream.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Airstream.xcframework; path = Carthage/Build/Airstream.xcframework; sourceTree = SOURCE_ROOT; };
@@ -138,6 +140,7 @@
 			isa = PBXGroup;
 			children = (
 				A9904A312DDD0AD900816130 /* NowPlaying.swift */,
+				A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */,
 				A96A94332DDE80AC00C12751 /* MetadataView.swift */,
 				A90D496A2DDE73B300781124 /* PlaybackControls.swift */,
 			);
@@ -335,6 +338,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */,
+				A966B4B42DDF8A6B00C721A5 /* AlbumArtView.swift in Sources */,
 				A966B4B22DDF863B00C721A5 /* HelpView.swift in Sources */,
 				A9904A322DDD0AD900816130 /* NowPlaying.swift in Sources */,
 				A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */,
