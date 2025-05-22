@@ -60,6 +60,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	func stop() {
+		
 		airstream?.stopServer()
 		withAnimation {
 			running = false
@@ -89,7 +90,6 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 			title: title ?? "",
 			album: album ?? "",
 			artist: artist ?? "",
-			albumArt: airstream?.coverart,
 			channels: Int(airstream?.channelsPerFrame ?? 0),
 			sampleRate: Int(airstream?.sampleRate ?? 0),
 			bitDepth: Int(airstream?.bitsPerChannel ?? 0)
@@ -110,7 +110,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	func updateLiveActivity() {
-		guard let activity = currentActivity else {
+		guard currentActivity != nil else {
 			startLiveActivity()
 			return
 		}
@@ -124,7 +124,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		)
 		let content = ActivityContent(state: contentState, staleDate: nil)
 		Task {
-			await activity.update(content)
+			await currentActivity!.update(content)
 		}
 	}
 	
@@ -252,6 +252,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		withAnimation {
 			albumArt = uiimage
 		}
+		FileManager.default.createFile(atPath: "coverart", contents: coverart)
 		updateLiveActivity()
 	}
 	
