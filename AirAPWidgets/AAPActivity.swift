@@ -1,0 +1,62 @@
+//
+//  AAPActivity.swift
+//  AirAP
+//
+//  Created by neon443 on 22/05/2025.
+//
+
+import SwiftUI
+import WidgetKit
+import ActivityKit
+
+struct AAPNowPlayingActivityAttributes: ActivityAttributes {
+	public struct ContentState: Codable, Hashable {
+		var title: String
+		var album: String
+		var artist: String
+
+		var albumArt: Data
+
+		var channels: Int
+		var sampleRate: Int
+		var bitDepth: Int
+	}
+}
+
+struct AAPActivity: Widget {
+	var body: some WidgetConfiguration {
+		ActivityConfiguration(for: AAPNowPlayingActivityAttributes.self) { context in
+			
+		} dynamicIsland: { context in
+			DynamicIsland {
+				DynamicIslandExpandedRegion(.leading) {
+					
+				}
+				DynamicIslandExpandedRegion(.trailing) {
+					if let uiimage = UIImage(data: context.state.albumArt) {
+						Image(uiImage: uiimage)
+					}
+				}
+				DynamicIslandExpandedRegion(.bottom) {
+					
+				}
+			} compactLeading: {
+				Image(systemName: "airplayaudio")
+					.rotationEffect(.degrees(180))
+			} compactTrailing: {
+				
+			} minimal: {
+				if let uiimage = UIImage(data: context.state.albumArt) {
+					Image(uiImage: uiimage)
+				}
+			}
+			.keylineTint(.blue)
+		}
+	}
+}
+
+//#Preview("Now Playing", as: .content) {
+//    AAPActivity()
+//} contentStates: {
+//
+//}

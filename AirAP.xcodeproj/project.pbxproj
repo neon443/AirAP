@@ -30,6 +30,8 @@
 		A9E741B62DDF556E005F47B5 /* AirAPWidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741AE2DDF556E005F47B5 /* AirAPWidgetsLiveActivity.swift */; };
 		A9E741B72DDF556E005F47B5 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741AF2DDF556E005F47B5 /* AppIntent.swift */; };
 		A9E741B82DDF556E005F47B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9E741B02DDF556E005F47B5 /* Assets.xcassets */; };
+		A9E741BB2DDF575C005F47B5 /* AAPActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741BA2DDF575C005F47B5 /* AAPActivity.swift */; };
+		A9E741BC2DDF575C005F47B5 /* AAPActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741BA2DDF575C005F47B5 /* AAPActivity.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,7 @@
 		A9E741AF2DDF556E005F47B5 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
 		A9E741B02DDF556E005F47B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A9E741B12DDF556E005F47B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9E741BA2DDF575C005F47B5 /* AAPActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPActivity.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +207,7 @@
 		A9E741B22DDF556E005F47B5 /* AirAPWidgets */ = {
 			isa = PBXGroup;
 			children = (
+				A9E741BA2DDF575C005F47B5 /* AAPActivity.swift */,
 				A9E741AB2DDF556E005F47B5 /* AirAPWidgets.swift */,
 				A9E741AC2DDF556E005F47B5 /* AirAPWidgetsBundle.swift */,
 				A9E741AD2DDF556E005F47B5 /* AirAPWidgetsControl.swift */,
@@ -327,6 +331,7 @@
 				A9904A322DDD0AD900816130 /* NowPlaying.swift in Sources */,
 				A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */,
 				A9904A302DDD098500816130 /* TPCircularBuffer.c in Sources */,
+				A9E741BC2DDF575C005F47B5 /* AAPActivity.swift in Sources */,
 				A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */,
 				A96A94342DDE80AC00C12751 /* MetadataView.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
@@ -345,6 +350,7 @@
 				A9E741B52DDF556E005F47B5 /* AirAPWidgetsControl.swift in Sources */,
 				A9E741B62DDF556E005F47B5 /* AirAPWidgetsLiveActivity.swift in Sources */,
 				A9E741B72DDF556E005F47B5 /* AppIntent.swift in Sources */,
+				A9E741BB2DDF575C005F47B5 /* AAPActivity.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +579,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 8JGND254B7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAPWidgets/Info.plist;
@@ -584,7 +590,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP.AirAPWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
@@ -600,7 +606,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 8JGND254B7;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAPWidgets/Info.plist;
@@ -611,7 +617,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = "$(VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP.AirAPWidgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;

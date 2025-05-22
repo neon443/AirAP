@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ActivityKit
 
 struct NowPlaying: View {
 	@ObservedObject var ASmanager: AirstreamManager
