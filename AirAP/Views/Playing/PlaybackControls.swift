@@ -43,7 +43,6 @@ struct PlaybackControls: View {
 			Spacer()
 		}
 		.disabled(!ASmanager.canControl)
-//		.opacity(ASmanager.canControl ? 1.0 : 0.5)
 	}
 }
 

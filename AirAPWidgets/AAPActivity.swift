@@ -32,6 +32,11 @@ struct AAPActivity: Widget {
 	var body: some WidgetConfiguration {
 		ActivityConfiguration(for: AAPNowPlayingActivityAttributes.self) { context in
 			Text(context.state.title)
+			Text("hiiiii")
+			Text("hiiiii")
+			Text("hiiiii")
+			Text("hiiiii")
+			Text("hiiiii")
 		} dynamicIsland: { context in
 			DynamicIsland {
 				DynamicIslandExpandedRegion(.leading) {
@@ -50,7 +55,11 @@ struct AAPActivity: Widget {
 					}
 				}
 				DynamicIslandExpandedRegion(.bottom) {
-					
+					Text("hiiiii")
+					Text("hiiiii")
+					Text("hiiiii")
+					Text("hiiiii")
+					Text("hiiiii")
 				}
 			} compactLeading: {
 				Image(systemName: "airplayaudio")

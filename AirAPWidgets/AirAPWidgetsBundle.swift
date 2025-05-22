@@ -11,9 +11,9 @@ import SwiftUI
 @main
 struct AirAPWidgetsBundle: WidgetBundle {
     var body: some Widget {
-        AirAPWidgets()
-        AirAPWidgetsControl()
-        AirAPWidgetsLiveActivity()
+//        AirAPWidgets()
+//        AirAPWidgetsControl()
+//        AirAPWidgetsLiveActivity()
 		
 		AirAPWidgetsLiveActivity()
     }
