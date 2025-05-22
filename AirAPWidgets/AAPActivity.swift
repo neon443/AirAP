@@ -14,12 +14,17 @@ struct AAPNowPlayingActivityAttributes: ActivityAttributes {
 		var title: String
 		var album: String
 		var artist: String
-
-		var albumArt: Data?
-
+		
+		var coverArt: Data?
+		
 		var channels: Int
 		var sampleRate: Int
 		var bitDepth: Int
+	}
+	var coverArt: Data?
+	
+	init() {
+		self.coverArt = UserDefaults(suiteName: "group.neon443.AirAP")?.data(forKey: "coverart")
 	}
 }
 
@@ -35,9 +40,12 @@ struct AAPActivity: Widget {
 						.bold()
 				}
 				DynamicIslandExpandedRegion(.trailing) {
-					if let albumart = context.state.albumArt {
+					if let albumart = context.state.coverArt {
 						if let uiimage = UIImage(data: albumart) {
 							Image(uiImage: uiimage)
+								.onAppear {
+									print(uiimage)
+								}
 						}
 					}
 				}
@@ -48,13 +56,13 @@ struct AAPActivity: Widget {
 				Image(systemName: "airplayaudio")
 					.rotationEffect(.degrees(180))
 			} compactTrailing: {
-				if let albumart = context.state.albumArt {
+				if let albumart = context.state.coverArt {
 					if let uiimage = UIImage(data: albumart) {
 						Image(uiImage: uiimage)
 					}
 				}
 			} minimal: {
-				if let albumart = context.state.albumArt {
+				if let albumart = context.state.coverArt {
 					if let uiimage = UIImage(data: albumart) {
 						Image(uiImage: uiimage)
 					}

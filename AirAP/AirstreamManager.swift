@@ -20,6 +20,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	var circularBuffer = TPCircularBuffer()
 	var buffering: Bool = false
 	
+	private let userdefaults = UserDefaults(suiteName: "group.neon443") ?? UserDefaults.standard
+	
 	@Published var running = false
 	@Published var name: String = UIDevice().model
 	@Published var canControl = false
@@ -252,7 +254,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		withAnimation {
 			albumArt = uiimage
 		}
-		FileManager.default.createFile(atPath: "coverart", contents: coverart)
+		userdefaults.set(coverart, forKey: "coverart")
 		updateLiveActivity()
 	}
 	
