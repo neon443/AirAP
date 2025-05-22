@@ -44,9 +44,11 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		TPCircularBufferClear(&circularBuffer)
 		
 		//stop audio unit
-		let status = AudioOutputUnitStop(audioUnit!)
-		if status != noErr {
-			print("failed to stop audio unit")
+		if let audioUnit = audioUnit {
+			let status = AudioOutputUnitStop(audioUnit)
+			if status != noErr {
+				print("failed to stop audio unit")
+			}
 		}
 		audioUnit = nil
 	}
