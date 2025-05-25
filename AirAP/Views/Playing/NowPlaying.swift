@@ -10,11 +10,12 @@ import ActivityKit
 
 struct NowPlaying: View {
 	@ObservedObject var ASmanager: AirstreamManager
+	@State var showBg: Bool
 	
 	var body: some View {
 		GeometryReader { geo in
 			ZStack(alignment: .center) {
-				if ASmanager.albumArt != nil, let art = ASmanager.albumArt {
+				if showBg && ASmanager.albumArt != nil, let art = ASmanager.albumArt {
 					Image(uiImage: art)
 						.resizable()
 						.ignoresSafeArea(.all)
@@ -46,6 +47,7 @@ struct NowPlaying: View {
 
 #Preview {
 	NowPlaying(
-		ASmanager: AirstreamManager()
+		ASmanager: AirstreamManager(),
+		showBg: true
 	)
 }

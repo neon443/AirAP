@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
 	@StateObject var ASmanager: AirstreamManager
+	@Binding var showBg: Bool
 	
 	var body: some View {
 		VStack {
@@ -20,6 +21,10 @@ struct SettingsView: View {
 					TextField("AirPlay Server Name", text: $ASmanager.name)
 						.textFieldStyle(RoundedBorderTextFieldStyle())
 				}
+				Section("appearance") {
+					Toggle("Show blurred album art as background", isOn: $showBg)
+					Slider(value: .constant(0.5), in: 0...1)
+				}
 			}
 			Spacer()
 			StartStopButton(ASmanager: ASmanager)
@@ -29,6 +34,7 @@ struct SettingsView: View {
 
 #Preview {
 	SettingsView(
-		ASmanager: AirstreamManager()
+		ASmanager: AirstreamManager(),
+		showBg: .constant(true)
 	)
 }

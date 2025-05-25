@@ -10,9 +10,11 @@ import Airstream
 
 struct ContentView: View {
 	@StateObject var ASmanager = AirstreamManager()
+	@State var showBg: Bool = true
+	
 	var body: some View {
 		TabView {
-			NowPlaying(ASmanager: ASmanager)
+			NowPlaying(ASmanager: ASmanager, showBg: showBg)
 				.tabItem {
 					Label("Now Playing", systemImage: "play.fill")
 				}
@@ -20,7 +22,7 @@ struct ContentView: View {
 				.tabItem {
 					Label("Help", systemImage: "questionmark.app")
 				}
-			SettingsView(ASmanager: ASmanager)
+			SettingsView(ASmanager: ASmanager, showBg: $showBg)
 				.tabItem {
 					Label("Settings", systemImage: "gear")
 				}
