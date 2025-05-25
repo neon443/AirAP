@@ -32,6 +32,7 @@ struct SettingsView: View {
 							.onChange(of: settingsModel.bgOpacity) {
 								settingsModel.saveSettings()
 							}
+							.disabled(!settingsModel.showBg)
 					}
 					HStack {
 						Text("Blur")
@@ -39,6 +40,7 @@ struct SettingsView: View {
 							.onChange(of: settingsModel.bgBlur) {
 								settingsModel.saveSettings()
 							}
+							.disabled(!settingsModel.showBg)
 					}
 				}
 				Section("metadata") {
