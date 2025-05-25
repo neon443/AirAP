@@ -13,6 +13,7 @@ struct StartStopButton: View {
     var body: some View {
 		Button() {
 			ASmanager.startStop()
+			print(ASmanager.airstream?.port)
 		} label: {
 			ZStack(alignment: .center) {
 				RoundedRectangle(cornerRadius: 10)
