@@ -29,7 +29,12 @@ struct NowPlaying: View {
 				VStack(alignment: .center) {
 					AlbumArtView(ASmanager: ASmanager, geoSize: geo.size)
 					
-					MetadataView(ASmanager: ASmanager)
+					if settingsModel.showMetadata {
+						MetadataView(
+							ASmanager: ASmanager,
+							settingsModel: settingsModel
+						)
+					}
 					
 					Spacer()
 					

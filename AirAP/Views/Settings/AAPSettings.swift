@@ -13,6 +13,8 @@ struct AAPSettings: Codable {
 	var showBg: Bool
 	var bgOpacity: CGFloat
 	var bgBlur: CGFloat
+	var showMetadata: Bool
+	var showAudioQuality: Bool
 }
 
 class AAPSettingsModel: ObservableObject {
@@ -20,6 +22,8 @@ class AAPSettingsModel: ObservableObject {
 	@Published var showBg: Bool = true
 	@Published var bgOpacity: CGFloat = 0.8
 	@Published var bgBlur: CGFloat = 75
+	@Published var showMetadata: Bool = true
+	@Published var showAudioQuality: Bool = true
 	
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
@@ -36,6 +40,8 @@ class AAPSettingsModel: ObservableObject {
 			showBg = decoded.showBg
 			bgOpacity = decoded.bgOpacity
 			bgBlur = decoded.bgBlur
+			showMetadata = decoded.showMetadata
+			showAudioQuality = decoded.showAudioQuality
 		}
 	}
 	
@@ -45,7 +51,9 @@ class AAPSettingsModel: ObservableObject {
 			name: name,
 			showBg: showBg,
 			bgOpacity: bgOpacity,
-			bgBlur: bgBlur
+			bgBlur: bgBlur,
+			showMetadata: showMetadata,
+			showAudioQuality: showAudioQuality
 		)
 		if let encoded = try? encoder.encode(settings) {
 			userdefaults.set(encoded, forKey: "settings")

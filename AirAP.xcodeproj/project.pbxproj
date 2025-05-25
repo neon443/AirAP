@@ -144,7 +144,7 @@
 			children = (
 				A9904A312DDD0AD900816130 /* NowPlaying.swift */,
 				A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */,
-				A96A94332DDE80AC00C12751 /* MetadataView.swift */,
+				A94BEC152DE34D4000D4811D /* Metadata */,
 				A90D496A2DDE73B300781124 /* PlaybackControls.swift */,
 			);
 			path = Playing;
@@ -194,6 +194,14 @@
 				A966B4B12DDF863B00C721A5 /* HelpView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A94BEC152DE34D4000D4811D /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				A96A94332DDE80AC00C12751 /* MetadataView.swift */,
+			);
+			path = Metadata;
 			sourceTree = "<group>";
 		};
 		A96EAF372DDA104200E13432 /* Frameworks */ = {

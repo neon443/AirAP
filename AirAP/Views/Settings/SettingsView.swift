@@ -21,28 +21,43 @@ struct SettingsView: View {
 					TextField("AirPlay Server Name", text: $ASmanager.name)
 						.textFieldStyle(RoundedBorderTextFieldStyle())
 				}
-				Section("appearance") {
+				Section("background") {
 					Toggle("Show blurred album art as background", isOn: $settingsModel.showBg)
 						.onChange(of: settingsModel.showBg) {
-							print("show bg is toggled \(settingsModel.showBg)")
 							settingsModel.saveSettings()
 						}
-					Slider(value: $settingsModel.bgOpacity, in: 0...1)
-						.onChange(of: settingsModel.bgOpacity) {
-							print("changed bgopacity \(settingsModel.bgOpacity)")
+					HStack {
+						Text("Opacity")
+						Slider(value: $settingsModel.bgOpacity, in: 0...1)
+							.onChange(of: settingsModel.bgOpacity) {
+								settingsModel.saveSettings()
+							}
+					}
+					HStack {
+						Text("Blur")
+						Slider(value: $settingsModel.bgBlur, in: 0...100, step: 10)
+							.onChange(of: settingsModel.bgBlur) {
+								settingsModel.saveSettings()
+							}
+					}
+				}
+				Section("metadata") {
+					Toggle("Show metadata", isOn: $settingsModel.showMetadata)
+						.onChange(of: settingsModel.showMetadata) { newVal, _ in
+							settingsModel.showAudioQuality = false
 							settingsModel.saveSettings()
 						}
-					Slider(value: $settingsModel.bgBlur, in: 0...100, step: 10)
-						.onChange(of: settingsModel.bgBlur) {
-							print("modified the blur \(settingsModel.bgBlur)")
+					Toggle("Show audio quality information", isOn: $settingsModel.showAudioQuality)
+						.onChange(of: settingsModel.showAudioQuality) {
 							settingsModel.saveSettings()
 						}
+						.disabled(!settingsModel.showMetadata)
 				}
 			}
 			Spacer()
 			StartStopButton(ASmanager: ASmanager)
 		}
-    }
+	}
 }
 
 #Preview {

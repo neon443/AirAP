@@ -9,6 +9,8 @@ import SwiftUI
 
 struct MetadataView: View {
 	@ObservedObject var ASmanager: AirstreamManager
+	@ObservedObject var settingsModel: AAPSettingsModel
+	
 	var body: some View {
 		ZStack {
 			Rectangle()
@@ -35,42 +37,44 @@ struct MetadataView: View {
 				Text(ASmanager.artist ?? " ")
 					.modifier(NEText())
 				
-				HStack {
-					Spacer()
-					VStack {
-						Text("sample rate")
-							.modifier(NEHeading())
-						Text(
-							ASmanager.airstream?.sampleRate == nil ||
-							ASmanager.airstream?.sampleRate == 0 ?
-							"" : "\(ASmanager.airstream!.sampleRate)Hz"
-						)
-						.modifier(NEText())
+				if settingsModel.showAudioQuality {
+					HStack {
+						Spacer()
+						VStack {
+							Text("sample rate")
+								.modifier(NEHeading())
+							Text(
+								ASmanager.airstream?.sampleRate == nil ||
+								ASmanager.airstream?.sampleRate == 0 ?
+								"" : "\(ASmanager.airstream!.sampleRate)Hz"
+							)
+							.modifier(NEText())
+						}
+						.padding()
+						
+						VStack {
+							Text("bit depth")
+								.modifier(NEHeading())
+							Text(
+								ASmanager.airstream?.bitsPerChannel == nil ||
+								ASmanager.airstream?.bitsPerChannel == 0 ?
+								"" : "\(ASmanager.airstream!.bitsPerChannel) bit"
+							)
+							.modifier(NEText())
+						}
+						VStack {
+							Text("channels")
+								.modifier(NEHeading())
+							Text(
+								ASmanager.airstream?.channelsPerFrame == nil ||
+								ASmanager.airstream?.channelsPerFrame == 0 ?
+								"" : "\(ASmanager.airstream!.channelsPerFrame)"
+							)
+							.modifier(NEText())
+						}
+						.padding()
+						Spacer()
 					}
-					.padding()
-					
-					VStack {
-						Text("bit depth")
-							.modifier(NEHeading())
-						Text(
-							ASmanager.airstream?.bitsPerChannel == nil ||
-							ASmanager.airstream?.bitsPerChannel == 0 ?
-							"" : "\(ASmanager.airstream!.bitsPerChannel) bit"
-						)
-						.modifier(NEText())
-					}
-					VStack {
-						Text("channels")
-							.modifier(NEHeading())
-						Text(
-							ASmanager.airstream?.channelsPerFrame == nil ||
-							ASmanager.airstream?.channelsPerFrame == 0 ?
-							"" : "\(ASmanager.airstream!.channelsPerFrame)"
-						)
-						.modifier(NEText())
-					}
-					.padding()
-					Spacer()
 				}
 			}
 			.padding(10)
@@ -80,7 +84,10 @@ struct MetadataView: View {
 }
 
 #Preview {
-    MetadataView(ASmanager: AirstreamManager())
+	MetadataView(
+		ASmanager: AirstreamManager(),
+		settingsModel: AAPSettingsModel()
+	)
 }
 
 fileprivate struct NEHeading: ViewModifier {
