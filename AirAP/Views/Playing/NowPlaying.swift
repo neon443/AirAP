@@ -10,19 +10,19 @@ import ActivityKit
 
 struct NowPlaying: View {
 	@ObservedObject var ASmanager: AirstreamManager
-	@State var showBg: Bool
+	@ObservedObject var settingsModel: AAPSettingsModel
 	
 	var body: some View {
 		GeometryReader { geo in
 			ZStack(alignment: .center) {
-				if showBg && ASmanager.albumArt != nil, let art = ASmanager.albumArt {
+				if ASmanager.albumArt != nil, let art = ASmanager.albumArt {
 					Image(uiImage: art)
 						.resizable()
 						.ignoresSafeArea(.all)
 						.scaledToFill()
-						.blur(radius: 75)
+						.blur(radius: settingsModel.bgBlur)
 						.clipped()
-						.opacity(0.8)
+						.opacity(settingsModel.showBg ? settingsModel.bgOpacity : 0)
 						.frame(maxWidth: geo.size.width, maxHeight: geo.size.height)
 				}
 				
@@ -48,6 +48,6 @@ struct NowPlaying: View {
 #Preview {
 	NowPlaying(
 		ASmanager: AirstreamManager(),
-		showBg: true
+		settingsModel: AAPSettingsModel()
 	)
 }

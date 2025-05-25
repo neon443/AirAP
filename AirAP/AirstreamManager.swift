@@ -20,7 +20,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	var circularBuffer = TPCircularBuffer()
 	var buffering: Bool = false
 	
-	private let userdefaults = UserDefaults(suiteName: "group.neon443") ?? UserDefaults.standard
+	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
 	@Published var running = false
 	@Published var name: String = UIDevice().model

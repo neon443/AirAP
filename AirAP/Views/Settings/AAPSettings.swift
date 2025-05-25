@@ -1,0 +1,56 @@
+//
+//  AAPSettings.swift
+//  AirAP
+//
+//  Created by neon443 on 25/05/2025.
+//
+
+import Foundation
+import UIKit
+
+struct AAPSettings: Codable {
+	var name: String
+	var showBg: Bool
+	var bgOpacity: CGFloat
+	var bgBlur: CGFloat
+}
+
+class AAPSettingsModel: ObservableObject {
+	@Published var name: String = UIDevice().model
+	@Published var showBg: Bool = true
+	@Published var bgOpacity: CGFloat = 0.8
+	@Published var bgBlur: CGFloat = 75
+	
+	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
+	
+	init() {
+		loadSettings()
+	}
+	
+	func loadSettings() {
+		guard let data = userdefaults.data(forKey: "settings") else { return }
+		
+		let decoder = JSONDecoder()
+		if let decoded = try? decoder.decode(AAPSettings.self, from: data) {
+			name = decoded.name
+			showBg = decoded.showBg
+			bgOpacity = decoded.bgOpacity
+			bgBlur = decoded.bgBlur
+		}
+	}
+	
+	func saveSettings() {
+		let encoder = JSONEncoder()
+		let settings = AAPSettings(
+			name: name,
+			showBg: showBg,
+			bgOpacity: bgOpacity,
+			bgBlur: bgBlur
+		)
+		if let encoded = try? encoder.encode(settings) {
+			userdefaults.set(encoded, forKey: "settings")
+		}
+//		loadSettings()
+		objectWillChange.send()
+	}
+}
