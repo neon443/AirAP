@@ -155,7 +155,6 @@
 			children = (
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
-				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
 				A9904A2F2DDD098500816130 /* TPCircularBuffer */,
 				A9E741B22DDF556E005F47B5 /* AirAPWidgets */,
 				A92DCAC62DD74EB000D82924 /* Products */,
@@ -175,6 +174,7 @@
 		A92DCADC2DD74F1800D82924 /* AirAP */ = {
 			isa = PBXGroup;
 			children = (
+				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
 				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
 				A99E25352DD7D3C500BF77D7 /* Info.plist */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
