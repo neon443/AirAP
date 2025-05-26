@@ -26,21 +26,45 @@ struct SettingsView: View {
 						.onChange(of: settingsModel.showBg) {
 							settingsModel.saveSettings()
 						}
-					HStack {
-						Text("Opacity")
-						Slider(value: $settingsModel.bgOpacity, in: 0...1)
-							.onChange(of: settingsModel.bgOpacity) {
-								settingsModel.saveSettings()
-							}
-							.disabled(!settingsModel.showBg)
+					VStack(alignment: .center) {
+						HStack {
+							Text("Opacity")
+							Spacer()
+							Text("\(Int(settingsModel.bgOpacity*100))%")
+								.monospaced()
+								.bold()
+						}
+						HStack {
+							Text("0%")
+								.monospaced()
+								.bold()
+							Slider(value: $settingsModel.bgOpacity, in: 0...1, step: 0.05)
+								.onChange(of: settingsModel.bgOpacity) {
+									settingsModel.saveSettings()
+								}
+								.disabled(!settingsModel.showBg)
+							Text("100%")
+								.monospaced()
+						}
 					}
-					HStack {
-						Text("Blur")
-						Slider(value: $settingsModel.bgBlur, in: 0...100, step: 10)
-							.onChange(of: settingsModel.bgBlur) {
-								settingsModel.saveSettings()
-							}
-							.disabled(!settingsModel.showBg)
+					VStack(alignment: .center) {
+						HStack {
+							Text("Blur")
+							Spacer()
+							Text("\(Int(settingsModel.bgBlur))")
+								.monospaced()
+						}
+						HStack {
+							Text("0 ")
+								.monospaced()
+							Slider(value: $settingsModel.bgBlur, in: 0...100, step: 5)
+								.onChange(of: settingsModel.bgBlur) {
+									settingsModel.saveSettings()
+								}
+								.disabled(!settingsModel.showBg)
+							Text("100")
+								.monospaced()
+						}
 					}
 				}
 				Section("metadata") {

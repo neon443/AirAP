@@ -40,7 +40,6 @@ struct MetadataView: View {
 					
 					if settingsModel.showAudioQuality {
 						HStack {
-							Spacer()
 							VStack {
 								Text("sample rate")
 									.modifier(NEHeading())
@@ -74,7 +73,6 @@ struct MetadataView: View {
 								.modifier(NEText())
 							}
 							.padding()
-							Spacer()
 						}
 					}
 					Spacer()
@@ -83,6 +81,7 @@ struct MetadataView: View {
 			}
 		}
 		.fixedSize(horizontal: false, vertical: true)
+		.frame(maxWidth: .infinity)
 	}
 }
 
