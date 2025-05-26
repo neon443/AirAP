@@ -4,8 +4,6 @@
 <dict>
 	<key>NSBonjourServiceType</key>
 	<string>_raop._tcp</string>
-	<key>NSSupportsLiveActivities</key>
-	<true/>
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_raop._tcp</string>

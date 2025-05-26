@@ -31,7 +31,6 @@ struct StartStopButton: View {
 		.buttonStyle(PlainButtonStyle())
 		.sensoryFeedback(.impact(weight: .heavy, intensity: 1.0), trigger: ASmanager.running)
 		.padding(.bottom, 5)
-		.frame(maxWidth: .infinity)
     }
 }
 

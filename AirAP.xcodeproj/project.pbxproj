@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A90D496B2DDE73B300781124 /* PlaybackControls.swift in Sources */ = {isa = PBXBuildFile; fileRef = A90D496A2DDE73B300781124 /* PlaybackControls.swift */; };
+		A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */; };
 		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
@@ -18,6 +19,8 @@
 		A966B4B42DDF8A6B00C721A5 /* AlbumArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */; };
 		A96A94342DDE80AC00C12751 /* MetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A94332DDE80AC00C12751 /* MetadataView.swift */; };
 		A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A96EAF312DDA005000E13432 /* Config.xcconfig */; };
+		A98C20C22DE4F7170008D61C /* Portrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98C20C12DE4F7170008D61C /* Portrait.swift */; };
+		A98C20C42DE4F7A40008D61C /* Landscape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98C20C32DE4F7A40008D61C /* Landscape.swift */; };
 		A9904A262DDD047500816130 /* Airstream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9904A242DDCFEE400816130 /* Airstream.xcframework */; };
 		A9904A272DDD047500816130 /* Airstream.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9904A242DDCFEE400816130 /* Airstream.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9904A302DDD098500816130 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A9904A2E2DDD098500816130 /* TPCircularBuffer.c */; };
@@ -76,6 +79,7 @@
 
 /* Begin PBXFileReference section */
 		A90D496A2DDE73B300781124 /* PlaybackControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControls.swift; sourceTree = "<group>"; };
+		A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAdjustments.swift; sourceTree = "<group>"; };
 		A92DCAC52DD74EB000D82924 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
 		A92DCADA2DD74F1800D82924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -87,6 +91,8 @@
 		A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtView.swift; sourceTree = "<group>"; };
 		A96A94332DDE80AC00C12751 /* MetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataView.swift; sourceTree = "<group>"; };
 		A96EAF312DDA005000E13432 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		A98C20C12DE4F7170008D61C /* Portrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Portrait.swift; path = AirAP/Views/Playing/Portrait.swift; sourceTree = SOURCE_ROOT; };
+		A98C20C32DE4F7A40008D61C /* Landscape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Landscape.swift; path = AirAP/Views/Playing/Landscape.swift; sourceTree = SOURCE_ROOT; };
 		A9904A242DDCFEE400816130 /* Airstream.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Airstream.xcframework; path = Carthage/Build/Airstream.xcframework; sourceTree = SOURCE_ROOT; };
 		A9904A2C2DDD098500816130 /* AirAP-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirAP-Bridging-Header.h"; sourceTree = "<group>"; };
 		A9904A2D2DDD098500816130 /* TPCircularBuffer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCircularBuffer.h; sourceTree = "<group>"; };
@@ -147,6 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				A9904A312DDD0AD900816130 /* NowPlaying.swift */,
+				A98C20C12DE4F7170008D61C /* Portrait.swift */,
+				A98C20C32DE4F7A40008D61C /* Landscape.swift */,
 				A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */,
 				A90D496A2DDE73B300781124 /* PlaybackControls.swift */,
 			);
@@ -197,6 +205,7 @@
 				A94BEC152DE34D4000D4811D /* Metadata */,
 				A90D49682DDE738C00781124 /* Settings */,
 				A966B4B12DDF863B00C721A5 /* HelpView.swift */,
+				A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -356,13 +365,16 @@
 			files = (
 				A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */,
 				A966B4B42DDF8A6B00C721A5 /* AlbumArtView.swift in Sources */,
+				A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */,
 				A966B4B22DDF863B00C721A5 /* HelpView.swift in Sources */,
 				A94BEC172DE45F4400D4811D /* PlaybackProgressView.swift in Sources */,
 				A9904A322DDD0AD900816130 /* NowPlaying.swift in Sources */,
 				A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */,
+				A98C20C42DE4F7A40008D61C /* Landscape.swift in Sources */,
 				A94BEC192DE4625C00D4811D /* DummyASM.swift in Sources */,
 				A94BEC122DE33A7C00D4811D /* AAPSettings.swift in Sources */,
 				A9904A302DDD098500816130 /* TPCircularBuffer.c in Sources */,
+				A98C20C22DE4F7170008D61C /* Portrait.swift in Sources */,
 				A9E741BC2DDF575C005F47B5 /* AAPActivity.swift in Sources */,
 				A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */,
 				A96A94342DDE80AC00C12751 /* MetadataView.swift in Sources */,
@@ -540,11 +552,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to recieve AirPlay Audio and broadcast the server";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -583,11 +595,11 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
 				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to recieve AirPlay Audio and broadcast the server";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

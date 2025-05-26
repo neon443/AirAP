@@ -96,9 +96,9 @@ struct MetadataView: View {
 fileprivate struct NEHeading: ViewModifier {
 	func body(content: Content) -> some View {
 		content
-			.foregroundStyle(.gray)
+			.foregroundStyle(.foreground)
 			.font(.subheadline)
-			.shadow(radius: 3)
+			.shadow(color: .secondary.opacity(0.5), radius: 3)
 	}
 }
 

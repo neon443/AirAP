@@ -9,37 +9,38 @@ import SwiftUI
 
 struct AlbumArtView: View {
 	@ObservedObject var ASmanager: AirstreamManager
-	@State var geoSize: CGSize
 	
 	var body: some View {
-		ZStack {
-			RoundedRectangle(cornerRadius: 25)
-				.frame(
-					width: geoSize.width*0.8,
-					height: geoSize.width*0.8
-				)
-				.foregroundStyle(.gray.opacity(0.5))
-			Image(systemName: "music.note")
-				.resizable()
-				.scaledToFit()
-				.frame(
-					width: geoSize.width*0.4,
-					height: geoSize.width*0.4
-				)
-				.foregroundStyle(.gray.opacity(0.8))
-			if let image = ASmanager.albumArt {
-				Image(uiImage: image)
+		GeometryReader { geo in
+			ZStack {
+				RoundedRectangle(cornerRadius: 25)
+					.frame(
+						maxWidth: .infinity,
+						maxHeight: .infinity
+					)
+					.foregroundStyle(.gray.opacity(0.5))
+				Image(systemName: "music.note")
 					.resizable()
 					.scaledToFit()
 					.frame(
-						width: geoSize.width*0.75,
-						height: geoSize.width*0.75
+						width: geo.size.width*0.5,
+						height: geo.size.height*0.5
 					)
-					.clipShape(RoundedRectangle(
-						cornerRadius: (25-geoSize.width*0.025)
-					))
-					.shadow(radius: 5)
-					.transition(.scale)
+					.foregroundStyle(.gray.opacity(0.8))
+				if let image = ASmanager.albumArt {
+					Image(uiImage: image)
+						.resizable()
+						.scaledToFit()
+						.frame(
+							width: geo.size.width*0.9,
+							height: geo.size.height*0.9
+						)
+						.clipShape(RoundedRectangle(
+							cornerRadius: (25-geo.size.width*0.05)
+						))
+						.shadow(radius: 5)
+						.transition(.scale)
+				}
 			}
 		}
 		.animation(.spring, value: ASmanager.album)
@@ -50,8 +51,7 @@ struct AlbumArtView: View {
 #Preview {
 	GeometryReader { geo in
 		AlbumArtView(
-			ASmanager: AirstreamManager(),
-			geoSize: geo.size
+			ASmanager: AirstreamManager()
 		)
 	}
 }

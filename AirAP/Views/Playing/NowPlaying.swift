@@ -14,39 +14,18 @@ struct NowPlaying: View {
 	
 	var body: some View {
 		GeometryReader { geo in
-			ZStack(alignment: .center) {
-				if ASmanager.albumArt != nil, let art = ASmanager.albumArt {
-					Image(uiImage: art)
-						.resizable()
-						.ignoresSafeArea(.all)
-						.scaledToFill()
-						.blur(radius: settingsModel.bgBlur)
-						.clipped()
-						.opacity(settingsModel.showBg ? settingsModel.bgOpacity : 0)
-						.frame(maxWidth: geo.size.width, maxHeight: geo.size.height)
-				}
-				
-				VStack(alignment: .center) {
-					AlbumArtView(ASmanager: ASmanager, geoSize: geo.size)
-					
-					
-					
-					if settingsModel.showMetadata {
-						MetadataView(
-							ASmanager: ASmanager,
-							settingsModel: settingsModel
-						)
-					}
-					
-					Spacer()
-					
-					if ASmanager.canControl {
-						PlaybackControls(ASmanager: ASmanager)
-					}
-					
-					Spacer()
-					StartStopButton(ASmanager: ASmanager)
-				}
+			if geo.size.width > geo.size.height {
+				Landscape(
+					ASmanager: ASmanager,
+					settingsModel: settingsModel,
+					geoSize: geo.size
+				)
+			} else {
+				Portrait(
+					ASmanager: ASmanager,
+					settingsModel: settingsModel,
+					geoSize: geo.size
+				)
 			}
 		}
 	}
