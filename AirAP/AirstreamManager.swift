@@ -259,8 +259,6 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		withAnimation {
 			albumArt = uiimage
 		}
-		userdefaults.set(coverart, forKey: "coverart")
-		updateLiveActivity()
 	}
 	
 	//recieved track info

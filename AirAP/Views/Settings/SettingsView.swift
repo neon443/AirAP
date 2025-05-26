@@ -31,13 +31,11 @@ struct SettingsView: View {
 							Text("Opacity")
 							Spacer()
 							Text("\(Int(settingsModel.bgOpacity*100))%")
-								.monospaced()
-								.bold()
+								.font(.system(.title3, design: .monospaced, weight: .black))
 						}
 						HStack {
 							Text("0%")
 								.monospaced()
-								.bold()
 							Slider(value: $settingsModel.bgOpacity, in: 0...1, step: 0.05)
 								.onChange(of: settingsModel.bgOpacity) {
 									settingsModel.saveSettings()
@@ -52,7 +50,7 @@ struct SettingsView: View {
 							Text("Blur")
 							Spacer()
 							Text("\(Int(settingsModel.bgBlur))")
-								.monospaced()
+								.font(.system(.title3, design: .monospaced, weight: .black))
 						}
 						HStack {
 							Text("0 ")
