@@ -12,7 +12,7 @@
     </p>
     <p>
         <a href="https://testflight.apple.com/join/8aeqD8Q2">
-            ✈️ testflight
+            testflight
         </a>
     </p>
     <br/>
