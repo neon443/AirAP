@@ -17,7 +17,6 @@ struct MetadataView: View {
 				.opacity(0.8)
 				.foregroundStyle(.clear)
 				.background(.ultraThinMaterial)
-//				.blur(radius: 5)
 			HStack {
 				VStack(alignment: .leading) {
 					Text(ASmanager.title ?? "Not Playing")
@@ -104,10 +103,10 @@ fileprivate struct NEHeading: ViewModifier {
 
 fileprivate struct NEText: ViewModifier {
 	func body(content: Content) -> some View {
-		content
-			.font(.title3)
-			.contentTransition(.numericText())
-			.multilineTextAlignment(.leading)
-			.shadow(radius: 3)
+			content
+				.font(.title3)
+				.modifier(contentTransitionIfAv())
+				.multilineTextAlignment(.leading)
+				.shadow(radius: 3)
 	}
 }

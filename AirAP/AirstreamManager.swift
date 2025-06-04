@@ -89,16 +89,24 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	//brefore stream setup
 	func airstream(_ airstream: Airstream, willStartStreamingWithStreamFormat streamFormat: AudioStreamBasicDescription) {
 		var streamFormat = streamFormat
-		
 		//create audio component
+		#if canImport(AppKit)
 		var desc = AudioComponentDescription(
 			componentType: kAudioUnitType_Output,
-			componentSubType: kAudioUnitSubType_RemoteIO,
-			//componentSubType: kAudioUnitSubType_DefaultOutput, //OS X only :cry
+			componentSubType: kAudioUnitSubType_DefaultOutput, //OS X only
 			componentManufacturer: kAudioUnitManufacturer_Apple,
 			componentFlags: 0,
 			componentFlagsMask: 0
 		)
+		#elseif canImport(UIKit)
+		var desc = AudioComponentDescription(
+			componentType: kAudioUnitType_Output,
+			componentSubType: kAudioUnitSubType_RemoteIO,
+			componentManufacturer: kAudioUnitManufacturer_Apple,
+			componentFlags: 0,
+			componentFlagsMask: 0
+		)
+		#endif
 		if let comp = AudioComponentFindNext(nil, &desc) {
 			let status = AudioComponentInstanceNew(comp, &audioUnit)
 			if status != noErr {
@@ -215,20 +223,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	//recieved track info
-	func airstream(_ airstream: Airstream, didSetMetadata metadata: [String : String]) {
-//		guard let gotTitle = metadata["minm"], !gotTitle.isEmpty else {
-//			title = nil
-//			return
-//		}
-//		guard let gotAlbum = metadata["minm"], !gotAlbum.isEmpty else {
-//			album = nil
-//			return
-//		}
-//		guard let gotArtist = metadata["minm"], !gotArtist.isEmpty else {
-//			artist = nil
-//			return
-//		}
-		
+	func airstream(_ airstream: Airstream, didSetMetadata metadata: [String : String]) {		
 		withAnimation {
 			title = metadata["minm"] //??
 			album = metadata["asal"] //airstream album

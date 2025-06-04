@@ -47,40 +47,6 @@ struct Landscape: View {
 				}
 			}
 		}
-//		ZStack(alignment: .center) {
-//			if ASmanager.albumArt != nil, let art = ASmanager.albumArt {
-//				Image(uiImage: art)
-//					.resizable()
-//					.ignoresSafeArea(.all)
-//					.scaledToFill()
-//					.blur(radius: settingsModel.bgBlur)
-//					.clipped()
-//					.opacity(settingsModel.showBg ? settingsModel.bgOpacity : 0)
-//					.frame(maxWidth: geoSize.width*0.5, maxHeight: geoSize.height)
-//			}
-//			
-//			HStack(alignment: .center) {
-//				AlbumArtView(ASmanager: ASmanager, geoSize: geoSize)
-//				
-//				
-//				
-//				if settingsModel.showMetadata {
-//					MetadataView(
-//						ASmanager: ASmanager,
-//						settingsModel: settingsModel
-//					)
-//				}
-//				
-//				Spacer()
-//				
-//				if ASmanager.canControl {
-//					PlaybackControls(ASmanager: ASmanager)
-//				}
-//				
-//				Spacer()
-//				StartStopButton(ASmanager: ASmanager)
-//			}
-//		}
 	}
 }
 

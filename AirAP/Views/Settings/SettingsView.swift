@@ -31,18 +31,20 @@ struct SettingsView: View {
 							Text("Opacity")
 							Spacer()
 							Text("\(Int(settingsModel.bgOpacity*100))%")
-								.font(.system(.title3, design: .monospaced, weight: .black))
+								.font(.title3)
+								.bold()
+								.modifier(monospacedIfAv())
 						}
 						HStack {
 							Text("0%")
-								.monospaced()
+								.modifier(monospacedIfAv())
 							Slider(value: $settingsModel.bgOpacity, in: 0...1, step: 0.05)
 								.onChange(of: settingsModel.bgOpacity) { _ in
 									settingsModel.saveSettings()
 								}
 								.disabled(!settingsModel.showBg)
 							Text("100%")
-								.monospaced()
+								.modifier(monospacedIfAv())
 						}
 					}
 					VStack(alignment: .center) {
@@ -50,18 +52,19 @@ struct SettingsView: View {
 							Text("Blur")
 							Spacer()
 							Text("\(Int(settingsModel.bgBlur))")
-								.font(.system(.title3, design: .monospaced, weight: .black))
+								.modifier(monospacedIfAv())
+								.font(.title3)
 						}
 						HStack {
 							Text("0 ")
-								.monospaced()
+								.modifier(monospacedIfAv())
 							Slider(value: $settingsModel.bgBlur, in: 0...100, step: 5)
 								.onChange(of: settingsModel.bgBlur) { _ in
 									settingsModel.saveSettings()
 								}
 								.disabled(!settingsModel.showBg)
 							Text("100")
-								.monospaced()
+								.modifier(monospacedIfAv())
 						}
 					}
 				}

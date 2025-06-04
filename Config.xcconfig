@@ -5,8 +5,8 @@
 //  Created by neon443 on 18/05/2025.
 //
 
-// Configuration settings file format documentation can be found at:
-// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
-
 VERSION = 2.5
 BUILD_NUMBER = 1
+
+// Configuration settings file format documentation can be found at:
+// https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project

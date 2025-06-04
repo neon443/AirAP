@@ -21,9 +21,9 @@ struct StartStopButton: View {
 						ASmanager.running ? .red : .green
 					)
 				Text(ASmanager.running ? "Stop" : "Start")
-					.contentTransition(.numericText())
 					.bold()
-					.monospaced()
+					.modifier(contentTransitionIfAv())
+					.modifier(monospacedIfAv())
 					.font(.title)
 					.padding(5)
 			}

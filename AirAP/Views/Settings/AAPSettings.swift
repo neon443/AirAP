@@ -58,7 +58,6 @@ class AAPSettingsModel: ObservableObject {
 		if let encoded = try? encoder.encode(settings) {
 			userdefaults.set(encoded, forKey: "settings")
 		}
-//		loadSettings()
 		objectWillChange.send()
 	}
 }
