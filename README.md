@@ -32,8 +32,9 @@ To try it out, [open this TestFlight link](https://testflight.apple.com/join/8ae
 
 ### thanks to
 
-https://github.com/qasim/Airstream
-would bit have been possible without this
+[qasim/Airstream](https://github.com/qasim/Airstream)
+[shairplay](https://github.com/juhovh/shairplay)
+would not have been possible without these
 
 ---
 
