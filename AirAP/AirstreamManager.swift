@@ -13,8 +13,7 @@ import SwiftUI
 
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
-	private var player = CircularBuffer()
-	
+
 	var audioUnit: AudioComponentInstance?
 	var circularBuffer = TPCircularBuffer()
 	var buffering: Bool = false
@@ -189,11 +188,12 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		TPCircularBufferProduceBytes(
 			&circularBuffer,
 			bufferList.mBuffers.mData,
-			Int32(bufferList.mBuffers.mDataByteSize)
+			UInt32(bufferList.mBuffers.mDataByteSize)
 		)
 		
 		//are we falling behind? checks if buffering is needed
-		self.buffering = circularBuffer.fillCount < 8192
+		
+		self.buffering = TPCircularBufferFillCount(&circularBuffer) < 8192
 	}
 	
 	//bro stopped airplaying
@@ -246,7 +246,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		ioData
 	) in
 		let manager = Unmanaged<AirstreamManager>.fromOpaque(inRefCon).takeUnretainedValue()
-		if manager.circularBuffer.fillCount == 0 || manager.buffering {
+		if TPCircularBufferFillCount(&manager.circularBuffer) == 0 || manager.buffering {
 			//TODO: fixme
 //			i think its just best to return???
 			for i in 0..<Int(ioData!.pointee.mNumberBuffers) {
@@ -266,7 +266,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		//copy audio from our circ buffer to audio unit's buffer
 		memcpy(ioData!.pointee.mBuffers.mData, sourceBuffer, Int(amount))
 		
-		TPCircularBufferConsume(&manager.circularBuffer, Int32(amount))
+		TPCircularBufferConsume(&manager.circularBuffer, amount)
 		
 		return noErr
 	}

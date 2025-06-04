@@ -5,7 +5,7 @@
 //  Created by neon443 on 18/05/2025.
 //
 
-VERSION = 2.6
+VERSION = 2.7
 BUILD_NUMBER = 1
 
 // Configuration settings file format documentation can be found at:
