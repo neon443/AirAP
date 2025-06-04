@@ -30,6 +30,11 @@ The concept might seem backwards at first - after all, we're used to streaming f
 
 To try it out, [open this TestFlight link](https://testflight.apple.com/join/8aeqD8Q2), install AirAP, and follow the instructions. After installation, simply launch AirAP and ensure your iPhone is connected to the same Wi-Fi network as the device you want to stream from. Your iPhone will automatically appear in AirPlay device lists, ready to receive audio - if it doesn't, try restarting the app.
 
+### thanks to
+
+https://github.com/qasim/Airstream
+would bit have been possible without this
+
 ---
 
 <sup>
