@@ -29,6 +29,8 @@
 		A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A332DDD0BE100816130 /* SettingsView.swift */; };
 		A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A3C2DDD1CD600816130 /* StartStopButton.swift */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
+		A9C8973D2DF0BCFB00EF9A5F /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A9C8973C2DF0BCFB00EF9A5F /* TPCircularBuffer */; };
+		A9C897572DF0BFD600EF9A5F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9C897562DF0BFD600EF9A5F /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,7 @@
 		A9904A3C2DDD1CD600816130 /* StartStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopButton.swift; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9C897562DF0BFD600EF9A5F /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -99,6 +102,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93C6A392DF0A2110006E216 /* Airstream.framework in Frameworks */,
+				A9C8973D2DF0BCFB00EF9A5F /* TPCircularBuffer in Frameworks */,
 				A93C6A302DF09F9D0006E216 /* TPCircularBuffer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -131,6 +135,7 @@
 		A92DCABC2DD74EB000D82924 = {
 			isa = PBXGroup;
 			children = (
+				A9C897562DF0BFD600EF9A5F /* README.md */,
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A93C6A362DF0A0980006E216 /* AirAP-Bridge.h */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
@@ -213,6 +218,7 @@
 			name = AirAP;
 			packageProductDependencies = (
 				A93C6A2F2DF09F9D0006E216 /* TPCircularBuffer */,
+				A9C8973C2DF0BCFB00EF9A5F /* TPCircularBuffer */,
 			);
 			productName = AirAP;
 			productReference = A92DCAC52DD74EB000D82924 /* AirAP.app */;
@@ -244,7 +250,7 @@
 			mainGroup = A92DCABC2DD74EB000D82924;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A93C6A2E2DF09F9D0006E216 /* XCLocalSwiftPackageReference "Carthage/Checkouts/Airstream/Carthage/Checkouts/TPCircularBuffer" */,
+				A9C8973B2DF0BCFB00EF9A5F /* XCRemoteSwiftPackageReference "TPCircularBuffer" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A92DCAC62DD74EB000D82924 /* Products */;
@@ -277,6 +283,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9C897572DF0BFD600EF9A5F /* README.md in Resources */,
 				A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */,
 				A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */,
 			);
@@ -545,16 +552,25 @@
 		};
 /* End XCConfigurationList section */
 
-/* Begin XCLocalSwiftPackageReference section */
-		A93C6A2E2DF09F9D0006E216 /* XCLocalSwiftPackageReference "Carthage/Checkouts/Airstream/Carthage/Checkouts/TPCircularBuffer" */ = {
-			isa = XCLocalSwiftPackageReference;
-			relativePath = Carthage/Checkouts/Airstream/Carthage/Checkouts/TPCircularBuffer;
+/* Begin XCRemoteSwiftPackageReference section */
+		A9C8973B2DF0BCFB00EF9A5F /* XCRemoteSwiftPackageReference "TPCircularBuffer" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/michaeltyson/TPCircularBuffer";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.6.2;
+			};
 		};
-/* End XCLocalSwiftPackageReference section */
+/* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		A93C6A2F2DF09F9D0006E216 /* TPCircularBuffer */ = {
 			isa = XCSwiftPackageProductDependency;
+			productName = TPCircularBuffer;
+		};
+		A9C8973C2DF0BCFB00EF9A5F /* TPCircularBuffer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9C8973B2DF0BCFB00EF9A5F /* XCRemoteSwiftPackageReference "TPCircularBuffer" */;
 			productName = TPCircularBuffer;
 		};
 /* End XCSwiftPackageProductDependency section */
