@@ -23,7 +23,7 @@ struct SettingsView: View {
 				}
 				Section("background") {
 					Toggle("Show blurred album art as background", isOn: $settingsModel.showBg)
-						.onChange(of: settingsModel.showBg) {
+						.onChange(of: settingsModel.showBg) { _ in
 							settingsModel.saveSettings()
 						}
 					VStack(alignment: .center) {
@@ -37,7 +37,7 @@ struct SettingsView: View {
 							Text("0%")
 								.monospaced()
 							Slider(value: $settingsModel.bgOpacity, in: 0...1, step: 0.05)
-								.onChange(of: settingsModel.bgOpacity) {
+								.onChange(of: settingsModel.bgOpacity) { _ in
 									settingsModel.saveSettings()
 								}
 								.disabled(!settingsModel.showBg)
@@ -56,7 +56,7 @@ struct SettingsView: View {
 							Text("0 ")
 								.monospaced()
 							Slider(value: $settingsModel.bgBlur, in: 0...100, step: 5)
-								.onChange(of: settingsModel.bgBlur) {
+								.onChange(of: settingsModel.bgBlur) { _ in
 									settingsModel.saveSettings()
 								}
 								.disabled(!settingsModel.showBg)
@@ -67,12 +67,12 @@ struct SettingsView: View {
 				}
 				Section("metadata") {
 					Toggle("Show metadata", isOn: $settingsModel.showMetadata)
-						.onChange(of: settingsModel.showMetadata) { newVal, _ in
+						.onChange(of: settingsModel.showMetadata) { _ in
 							settingsModel.showAudioQuality = false
 							settingsModel.saveSettings()
 						}
 					Toggle("Show audio quality information", isOn: $settingsModel.showAudioQuality)
-						.onChange(of: settingsModel.showAudioQuality) {
+						.onChange(of: settingsModel.showAudioQuality) { _ in
 							settingsModel.saveSettings()
 						}
 						.disabled(!settingsModel.showMetadata)

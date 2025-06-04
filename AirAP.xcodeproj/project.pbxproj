@@ -29,28 +29,7 @@
 		A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A3C2DDD1CD600816130 /* StartStopButton.swift */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
 		A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */; };
-		A9E741922DDF555E005F47B5 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E741912DDF555E005F47B5 /* WidgetKit.framework */; };
-		A9E741942DDF555E005F47B5 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9E741932DDF555E005F47B5 /* SwiftUI.framework */; };
-		A9E741A52DDF5560005F47B5 /* AirAPWidgetsExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A9E741902DDF555E005F47B5 /* AirAPWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		A9E741B32DDF556E005F47B5 /* AirAPWidgets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741AB2DDF556E005F47B5 /* AirAPWidgets.swift */; };
-		A9E741B42DDF556E005F47B5 /* AirAPWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741AC2DDF556E005F47B5 /* AirAPWidgetsBundle.swift */; };
-		A9E741B52DDF556E005F47B5 /* AirAPWidgetsControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741AD2DDF556E005F47B5 /* AirAPWidgetsControl.swift */; };
-		A9E741B62DDF556E005F47B5 /* AirAPWidgetsLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741AE2DDF556E005F47B5 /* AirAPWidgetsLiveActivity.swift */; };
-		A9E741B72DDF556E005F47B5 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741AF2DDF556E005F47B5 /* AppIntent.swift */; };
-		A9E741B82DDF556E005F47B5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A9E741B02DDF556E005F47B5 /* Assets.xcassets */; };
-		A9E741BB2DDF575C005F47B5 /* AAPActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741BA2DDF575C005F47B5 /* AAPActivity.swift */; };
-		A9E741BC2DDF575C005F47B5 /* AAPActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E741BA2DDF575C005F47B5 /* AAPActivity.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A9E741A32DDF5560005F47B5 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A92DCABD2DD74EB000D82924 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9E7418F2DDF555E005F47B5;
-			remoteInfo = AirAPWidgetsExtension;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A96EAF3D2DDA2B3500E13432 /* Embed Frameworks */ = {
@@ -70,7 +49,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				A9E741A52DDF5560005F47B5 /* AirAPWidgetsExtension.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -103,19 +81,9 @@
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9B2EC012DDB5FDC004CD6C3 /* CircularBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularBuffer.swift; sourceTree = "<group>"; };
-		A9E741902DDF555E005F47B5 /* AirAPWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = AirAPWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9E741912DDF555E005F47B5 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		A9E741932DDF555E005F47B5 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		A9E741AB2DDF556E005F47B5 /* AirAPWidgets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPWidgets.swift; sourceTree = "<group>"; };
-		A9E741AC2DDF556E005F47B5 /* AirAPWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPWidgetsBundle.swift; sourceTree = "<group>"; };
-		A9E741AD2DDF556E005F47B5 /* AirAPWidgetsControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPWidgetsControl.swift; sourceTree = "<group>"; };
-		A9E741AE2DDF556E005F47B5 /* AirAPWidgetsLiveActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPWidgetsLiveActivity.swift; sourceTree = "<group>"; };
-		A9E741AF2DDF556E005F47B5 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
-		A9E741B02DDF556E005F47B5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A9E741B12DDF556E005F47B5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9E741BA2DDF575C005F47B5 /* AAPActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPActivity.swift; sourceTree = "<group>"; };
 		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
-		A9E741BE2DDF7338005F47B5 /* AirAPWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAPWidgetsExtension.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,15 +92,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9904A262DDD047500816130 /* Airstream.xcframework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9E7418D2DDF555E005F47B5 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A9E741942DDF555E005F47B5 /* SwiftUI.framework in Frameworks */,
-				A9E741922DDF555E005F47B5 /* WidgetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -167,7 +126,6 @@
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
 				A9904A2F2DDD098500816130 /* TPCircularBuffer */,
-				A9E741B22DDF556E005F47B5 /* AirAPWidgets */,
 				A92DCAC62DD74EB000D82924 /* Products */,
 				A96EAF372DDA104200E13432 /* Frameworks */,
 			);
@@ -177,7 +135,6 @@
 			isa = PBXGroup;
 			children = (
 				A92DCAC52DD74EB000D82924 /* AirAP.app */,
-				A9E741902DDF555E005F47B5 /* AirAPWidgetsExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -239,22 +196,6 @@
 			path = TPCircularBuffer;
 			sourceTree = "<group>";
 		};
-		A9E741B22DDF556E005F47B5 /* AirAPWidgets */ = {
-			isa = PBXGroup;
-			children = (
-				A9E741BA2DDF575C005F47B5 /* AAPActivity.swift */,
-				A9E741AB2DDF556E005F47B5 /* AirAPWidgets.swift */,
-				A9E741AC2DDF556E005F47B5 /* AirAPWidgetsBundle.swift */,
-				A9E741AD2DDF556E005F47B5 /* AirAPWidgetsControl.swift */,
-				A9E741AE2DDF556E005F47B5 /* AirAPWidgetsLiveActivity.swift */,
-				A9E741AF2DDF556E005F47B5 /* AppIntent.swift */,
-				A9E741B02DDF556E005F47B5 /* Assets.xcassets */,
-				A9E741B12DDF556E005F47B5 /* Info.plist */,
-				A9E741BE2DDF7338005F47B5 /* AirAPWidgetsExtension.entitlements */,
-			);
-			path = AirAPWidgets;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -271,7 +212,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				A9E741A42DDF5560005F47B5 /* PBXTargetDependency */,
 			);
 			name = AirAP;
 			packageProductDependencies = (
@@ -279,25 +219,6 @@
 			productName = AirAP;
 			productReference = A92DCAC52DD74EB000D82924 /* AirAP.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A9E7418F2DDF555E005F47B5 /* AirAPWidgetsExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9E741AA2DDF5560005F47B5 /* Build configuration list for PBXNativeTarget "AirAPWidgetsExtension" */;
-			buildPhases = (
-				A9E7418C2DDF555E005F47B5 /* Sources */,
-				A9E7418D2DDF555E005F47B5 /* Frameworks */,
-				A9E7418E2DDF555E005F47B5 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = AirAPWidgetsExtension;
-			packageProductDependencies = (
-			);
-			productName = AirAPWidgetsExtension;
-			productReference = A9E741902DDF555E005F47B5 /* AirAPWidgetsExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -312,9 +233,6 @@
 					A92DCAC42DD74EB000D82924 = {
 						CreatedOnToolsVersion = 16.4;
 						LastSwiftMigration = 1640;
-					};
-					A9E7418F2DDF555E005F47B5 = {
-						CreatedOnToolsVersion = 16.4;
 					};
 				};
 			};
@@ -333,7 +251,6 @@
 			projectRoot = "";
 			targets = (
 				A92DCAC42DD74EB000D82924 /* AirAP */,
-				A9E7418F2DDF555E005F47B5 /* AirAPWidgetsExtension */,
 			);
 		};
 /* End PBXProject section */
@@ -345,14 +262,6 @@
 			files = (
 				A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */,
 				A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9E7418E2DDF555E005F47B5 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A9E741B82DDF556E005F47B5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +284,6 @@
 				A94BEC122DE33A7C00D4811D /* AAPSettings.swift in Sources */,
 				A9904A302DDD098500816130 /* TPCircularBuffer.c in Sources */,
 				A98C20C22DE4F7170008D61C /* Portrait.swift in Sources */,
-				A9E741BC2DDF575C005F47B5 /* AAPActivity.swift in Sources */,
 				A9B2EC022DDB5FDC004CD6C3 /* CircularBuffer.swift in Sources */,
 				A96A94342DDE80AC00C12751 /* MetadataView.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
@@ -385,28 +293,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		A9E7418C2DDF555E005F47B5 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A9E741B32DDF556E005F47B5 /* AirAPWidgets.swift in Sources */,
-				A9E741B42DDF556E005F47B5 /* AirAPWidgetsBundle.swift in Sources */,
-				A9E741B52DDF556E005F47B5 /* AirAPWidgetsControl.swift in Sources */,
-				A9E741B62DDF556E005F47B5 /* AirAPWidgetsLiveActivity.swift in Sources */,
-				A9E741B72DDF556E005F47B5 /* AppIntent.swift in Sources */,
-				A9E741BB2DDF575C005F47B5 /* AAPActivity.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		A9E741A42DDF5560005F47B5 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A9E7418F2DDF555E005F47B5 /* AirAPWidgetsExtension */;
-			targetProxy = A9E741A32DDF5560005F47B5 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A92DCACE2DD74EB100D82924 /* Debug */ = {
@@ -557,7 +444,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -600,7 +487,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 17;
+				IPHONEOS_DEPLOYMENT_TARGET = 16;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -614,64 +501,6 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OBJC_BRIDGING_HEADER = "TPCircularBuffer/AirAP-Bridging-Header.h";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		A9E741A72DDF5560005F47B5 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/AirAPWidgets/AirAPWidgetsExtension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AirAPWidgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AirAPWidgets;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = "$(VERSION)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP.AirAPWidgets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		A9E741A82DDF5560005F47B5 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = "$(SRCROOT)/AirAPWidgets/AirAPWidgetsExtension.entitlements";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = AirAPWidgets/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = AirAPWidgets;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = "$(VERSION)";
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP.AirAPWidgets;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -694,15 +523,6 @@
 			buildConfigurations = (
 				A92DCAD12DD74EB100D82924 /* Debug */,
 				A92DCAD22DD74EB100D82924 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A9E741AA2DDF5560005F47B5 /* Build configuration list for PBXNativeTarget "AirAPWidgetsExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9E741A72DDF5560005F47B5 /* Debug */,
-				A9E741A82DDF5560005F47B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -10,7 +10,6 @@ import Airstream
 import AVFoundation
 import UIKit
 import SwiftUI
-import ActivityKit
 
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
@@ -30,8 +29,6 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var album: String?
 	@Published var artist: String?
 	@Published var albumArt: UIImage?
-	
-	@Published var currentActivity: Activity<AAPNowPlayingActivityAttributes>?
 	
 	override init() {
 		super.init()
@@ -87,50 +84,6 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		title = nil
 		album = nil
 		artist = nil
-	}
-	
-	func startLiveActivity() {
-		let attrs = AAPNowPlayingActivityAttributes()
-		let contentState = AAPNowPlayingActivityAttributes.ContentState(
-			title: title ?? "",
-			album: album ?? "",
-			artist: artist ?? "",
-			channels: Int(airstream?.channelsPerFrame ?? 0),
-			sampleRate: Int(airstream?.sampleRate ?? 0),
-			bitDepth: Int(airstream?.bitsPerChannel ?? 0)
-		)
-		let content = ActivityContent(state: contentState, staleDate: nil)
-		
-		do {
-			currentActivity = try Activity<AAPNowPlayingActivityAttributes>.request(
-				attributes: attrs,
-				content: content,
-				pushType: nil
-			)
-			print(currentActivity)
-		} catch {
-			print("failed to start live activity")
-			print(error.localizedDescription)
-		}
-	}
-	
-	func updateLiveActivity() {
-//		guard currentActivity != nil else {
-//			startLiveActivity()
-//			return
-//		}
-//		let contentState = AAPNowPlayingActivityAttributes.ContentState(
-//			title: title ?? "",
-//			album: album ?? "",
-//			artist: artist ?? "",
-//			channels: Int(airstream?.channelsPerFrame ?? 2),
-//			sampleRate: Int(airstream?.sampleRate ?? 44_100),
-//			bitDepth: Int(airstream?.bitsPerChannel ?? 16)
-//		)
-//		let content = ActivityContent(state: contentState, staleDate: nil)
-//		Task {
-//			await currentActivity!.update(content)
-//		}
 	}
 	
 	//brefore stream setup
@@ -281,8 +234,6 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 			album = metadata["asal"] //airstream album
 			artist = metadata["asar"] //airstream artist
 		}
-		
-		updateLiveActivity()
 	}
 	
 	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {

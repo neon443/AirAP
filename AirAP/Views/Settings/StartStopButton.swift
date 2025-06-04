@@ -13,6 +13,7 @@ struct StartStopButton: View {
     var body: some View {
 		Button() {
 			ASmanager.startStop()
+			UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
 		} label: {
 			ZStack(alignment: .center) {
 				RoundedRectangle(cornerRadius: 10)
@@ -29,7 +30,6 @@ struct StartStopButton: View {
 			.fixedSize()
 		}
 		.buttonStyle(PlainButtonStyle())
-		.sensoryFeedback(.impact(weight: .heavy, intensity: 1.0), trigger: ASmanager.running)
 		.padding(.bottom, 5)
     }
 }
