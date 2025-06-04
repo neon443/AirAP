@@ -188,7 +188,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		TPCircularBufferProduceBytes(
 			&circularBuffer,
 			bufferList.mBuffers.mData,
-			UInt32(bufferList.mBuffers.mDataByteSize)
+			bufferList.mBuffers.mDataByteSize
 		)
 		
 		//are we falling behind? checks if buffering is needed
