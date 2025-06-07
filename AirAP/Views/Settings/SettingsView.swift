@@ -52,8 +52,9 @@ struct SettingsView: View {
 							Text("Blur")
 							Spacer()
 							Text("\(Int(settingsModel.bgBlur))")
-								.modifier(monospacedIfAv())
 								.font(.title3)
+								.bold()
+								.modifier(monospacedIfAv())
 						}
 						HStack {
 							Text("0 ")
