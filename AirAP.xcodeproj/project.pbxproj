@@ -81,6 +81,7 @@
 		A93C6A3C2DF0A2C00006E216 /* TPCircularBufferFillCount.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TPCircularBufferFillCount.c; sourceTree = "<group>"; };
 		A94BEC112DE33A7C00D4811D /* AAPSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPSettings.swift; sourceTree = "<group>"; };
 		A94BEC162DE45F4400D4811D /* PlaybackProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackProgressView.swift; sourceTree = "<group>"; };
+		A95FAA6F2DF4BE8C00DE2F5A /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
 		A966B4B12DDF863B00C721A5 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtView.swift; sourceTree = "<group>"; };
 		A96A94332DDE80AC00C12751 /* MetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataView.swift; sourceTree = "<group>"; };
@@ -135,6 +136,7 @@
 		A92DCABC2DD74EB000D82924 = {
 			isa = PBXGroup;
 			children = (
+				A95FAA6E2DF4BE7400DE2F5A /* ci_scripts */,
 				A9C897562DF0BFD600EF9A5F /* README.md */,
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
@@ -196,6 +198,14 @@
 				A96A94332DDE80AC00C12751 /* MetadataView.swift */,
 			);
 			path = Metadata;
+			sourceTree = "<group>";
+		};
+		A95FAA6E2DF4BE7400DE2F5A /* ci_scripts */ = {
+			isa = PBXGroup;
+			children = (
+				A95FAA6F2DF4BE8C00DE2F5A /* ci_post_clone.sh */,
+			);
+			path = ci_scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
