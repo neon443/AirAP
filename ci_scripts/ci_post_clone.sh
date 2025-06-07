@@ -8,4 +8,4 @@
 
 cd ..
 brew install carthage
-carthage update --use-xcframeworks
+carthage checkout
