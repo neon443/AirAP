@@ -463,10 +463,6 @@
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 8JGND254B7;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Carthage/Build\"",
-				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
@@ -507,10 +503,6 @@
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
 				DEVELOPMENT_TEAM = 8JGND254B7;
 				ENABLE_PREVIEWS = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/Carthage/Build\"",
-				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = AirAP/Info.plist;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
