@@ -6,6 +6,6 @@
 #  Created by neon443 on 07/06/2025.
 #  
 
-cd ..
+cd CI_PRIMARY_REPOSITORY_PATH
 brew install carthage
 carthage checkout
