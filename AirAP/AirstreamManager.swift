@@ -13,6 +13,8 @@ import SwiftUI
 
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
+	
+	@Published var settings: AAPSettingsModel
 
 	var audioUnit: AudioComponentInstance?
 	var circularBuffer = TPCircularBuffer()
@@ -21,7 +23,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
 	@Published var running = false
-	@Published var name: String = UIDevice().model
+	@Published var name: String = UIDevice.current.name
 	@Published var canControl = false
 	
 	@Published var title: String?
@@ -30,6 +32,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var albumArt: UIImage?
 	
 	override init() {
+		self.settings = AAPSettingsModel()
 		super.init()
 		_TPCircularBufferInit(&circularBuffer, 131_072, MemoryLayout.size(ofValue: circularBuffer))
 		start()

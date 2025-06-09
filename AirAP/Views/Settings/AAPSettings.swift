@@ -18,7 +18,7 @@ struct AAPSettings: Codable {
 }
 
 class AAPSettingsModel: ObservableObject {
-	@Published var name: String = UIDevice().model
+	@Published var name: String = UIDevice.current.name
 	@Published var showBg: Bool = true
 	@Published var bgOpacity: CGFloat = 0.8
 	@Published var bgBlur: CGFloat = 75
