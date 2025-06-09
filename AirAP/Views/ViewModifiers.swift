@@ -30,3 +30,19 @@ struct monospacedIfAv: ViewModifier {
 		}
 	}
 }
+
+struct foregroundColorStyle: ViewModifier {
+	var color: Color
+	
+	init(color: Color) {
+		self.color = color
+	}
+	
+	func body(content: Content) -> some View {
+		if #available(iOS 15, *) {
+			content.foregroundStyle(color)
+		} else {
+			content.foregroundColor(color)
+		}
+	}
+}
