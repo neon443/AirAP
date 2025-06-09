@@ -10,20 +10,17 @@ import ActivityKit
 
 struct NowPlaying: View {
 	@ObservedObject var ASmanager: AirstreamManager
-	@ObservedObject var settingsModel: AAPSettingsModel
 	
 	var body: some View {
 		GeometryReader { geo in
 			if geo.size.width > geo.size.height {
 				Landscape(
 					ASmanager: ASmanager,
-					settingsModel: settingsModel,
 					geoSize: geo.size
 				)
 			} else {
 				Portrait(
 					ASmanager: ASmanager,
-					settingsModel: settingsModel,
 					geoSize: geo.size
 				)
 			}
@@ -33,7 +30,6 @@ struct NowPlaying: View {
 
 #Preview {
 	NowPlaying(
-		ASmanager: AirstreamManager(),
-		settingsModel: AAPSettingsModel()
+		ASmanager: AirstreamManager()
 	)
 }

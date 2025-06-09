@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MetadataView: View {
 	@ObservedObject var ASmanager: AirstreamManager
-	@ObservedObject var settingsModel: AAPSettingsModel
 	
 	var body: some View {
 		ZStack {
@@ -37,7 +36,7 @@ struct MetadataView: View {
 					Text(ASmanager.artist ?? " ")
 						.modifier(MetadataBody())
 					
-					if settingsModel.showAudioQuality {
+					if ASmanager.settings.showAudioQuality {
 						HStack {
 							Spacer()
 							VStack {
@@ -87,7 +86,6 @@ struct MetadataView: View {
 
 #Preview {
 	MetadataView(
-		ASmanager: AirstreamManager(),
-		settingsModel: AAPSettingsModel()
+		ASmanager: AirstreamManager()
 	)
 }

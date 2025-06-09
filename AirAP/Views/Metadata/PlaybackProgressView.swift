@@ -9,7 +9,6 @@ import SwiftUI
 
 struct PlaybackProgressView: View {
 	@ObservedObject var ASmanager: AirstreamManager
-	@ObservedObject var settingsModel: AAPSettingsModel
 	
     var body: some View {
 		
@@ -18,7 +17,6 @@ struct PlaybackProgressView: View {
 
 #Preview {
     PlaybackProgressView(
-		ASmanager: AirstreamManager(),
-		settingsModel: AAPSettingsModel()
+		ASmanager: AirstreamManager()
 	)
 }

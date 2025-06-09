@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Landscape: View {
 	@ObservedObject var ASmanager: AirstreamManager
-	@ObservedObject var settingsModel: AAPSettingsModel
 	@State var geoSize: CGSize
 	
     var body: some View {
@@ -19,9 +18,9 @@ struct Landscape: View {
 					.resizable()
 					.ignoresSafeArea(.all)
 					.scaledToFill()
-					.blur(radius: settingsModel.bgBlur)
+					.blur(radius: ASmanager.settings.bgBlur)
 					.clipped()
-					.opacity(settingsModel.showBg ? settingsModel.bgOpacity : 0)
+					.opacity(ASmanager.settings.showBg ? ASmanager.settings.bgOpacity : 0)
 					.frame(maxWidth: geoSize.width, maxHeight: geoSize.height)
 			}
 			HStack(alignment: .center) {
@@ -30,10 +29,9 @@ struct Landscape: View {
 					.frame(maxWidth: geoSize.width*0.5, maxHeight: geoSize.width*0.5)
 				
 				VStack {
-					if settingsModel.showMetadata {
+					if ASmanager.settings.showMetadata {
 						MetadataView(
-							ASmanager: ASmanager,
-							settingsModel: settingsModel
+							ASmanager: ASmanager
 						)
 					}
 					
@@ -54,7 +52,6 @@ struct Landscape: View {
 	GeometryReader { geo in
 		Landscape(
 			ASmanager: AirstreamManager(),
-			settingsModel: AAPSettingsModel(),
 			geoSize: geo.size
 		)
 	}

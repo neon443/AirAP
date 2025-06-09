@@ -9,30 +9,34 @@ import SwiftUI
 
 struct SettingsView: View {
 	@ObservedObject var ASmanager: AirstreamManager
-	@ObservedObject var settingsModel: AAPSettingsModel
 	
 	var body: some View {
 		VStack {
 			Form {
 				Section(
 					header: Text("server"),
-					footer: Text("Restart the AirPlay Server to apply changes")
+					footer: Text("Changing the name will restart the AirPlay server")
 				) {
 					TextField("AirPlay Server Name", text: $ASmanager.name)
 						.textFieldStyle(RoundedBorderTextFieldStyle())
+						.onChange(of: ASmanager.settings.name) { _ in
+							ASmanager.settings.saveSettings()
+							ASmanager.startStop()
+							ASmanager.startStop()
+						}
 				}
 				Section(
 					header: Text("background")
 				) {
-					Toggle("Show blurred album art as background", isOn: $settingsModel.showBg)
-						.onChange(of: settingsModel.showBg) { _ in
-							settingsModel.saveSettings()
+					Toggle("Show blurred album art as background", isOn: $ASmanager.settings.showBg)
+						.onChange(of: ASmanager.settings.showBg) { _ in
+							ASmanager.settings.saveSettings()
 						}
 					VStack(alignment: .center) {
 						HStack {
 							Text("Opacity")
 							Spacer()
-							Text("\(Int(settingsModel.bgOpacity*100))%")
+							Text("\(Int(ASmanager.settings.bgOpacity*100))%")
 								.font(.title3)
 								.bold()
 								.modifier(monospacedIfAv())
@@ -40,11 +44,11 @@ struct SettingsView: View {
 						HStack {
 							Text("0%")
 								.modifier(monospacedIfAv())
-							Slider(value: $settingsModel.bgOpacity, in: 0...1, step: 0.05)
-								.onChange(of: settingsModel.bgOpacity) { _ in
-									settingsModel.saveSettings()
+							Slider(value: $ASmanager.settings.bgOpacity, in: 0...1, step: 0.05)
+								.onChange(of: ASmanager.settings.bgOpacity) { _ in
+									ASmanager.settings.saveSettings()
 								}
-								.disabled(!settingsModel.showBg)
+								.disabled(!ASmanager.settings.showBg)
 							Text("100%")
 								.modifier(monospacedIfAv())
 						}
@@ -53,7 +57,7 @@ struct SettingsView: View {
 						HStack {
 							Text("Blur")
 							Spacer()
-							Text("\(Int(settingsModel.bgBlur))")
+							Text("\(Int(ASmanager.settings.bgBlur))")
 								.font(.title3)
 								.bold()
 								.modifier(monospacedIfAv())
@@ -61,11 +65,11 @@ struct SettingsView: View {
 						HStack {
 							Text("0 ")
 								.modifier(monospacedIfAv())
-							Slider(value: $settingsModel.bgBlur, in: 0...100, step: 5)
-								.onChange(of: settingsModel.bgBlur) { _ in
-									settingsModel.saveSettings()
+							Slider(value: $ASmanager.settings.bgBlur, in: 0...100, step: 5)
+								.onChange(of: ASmanager.settings.bgBlur) { _ in
+									ASmanager.settings.saveSettings()
 								}
-								.disabled(!settingsModel.showBg)
+								.disabled(!ASmanager.settings.showBg)
 							Text("100")
 								.modifier(monospacedIfAv())
 						}
@@ -74,16 +78,16 @@ struct SettingsView: View {
 				Section(
 					header: Text("metadata")
 				) {
-					Toggle("Show metadata", isOn: $settingsModel.showMetadata)
-						.onChange(of: settingsModel.showMetadata) { _ in
-							settingsModel.showAudioQuality = false
-							settingsModel.saveSettings()
+					Toggle("Show metadata", isOn: $ASmanager.settings.showMetadata)
+						.onChange(of: ASmanager.settings.showMetadata) { _ in
+							ASmanager.settings.showAudioQuality = false
+							ASmanager.settings.saveSettings()
 						}
-					Toggle("Show audio quality information", isOn: $settingsModel.showAudioQuality)
-						.onChange(of: settingsModel.showAudioQuality) { _ in
-							settingsModel.saveSettings()
+					Toggle("Show audio quality information", isOn: $ASmanager.settings.showAudioQuality)
+						.onChange(of: ASmanager.settings.showAudioQuality) { _ in
+							ASmanager.settings.saveSettings()
 						}
-						.disabled(!settingsModel.showMetadata)
+						.disabled(!ASmanager.settings.showMetadata)
 				}
 			}
 			Spacer()
@@ -94,7 +98,6 @@ struct SettingsView: View {
 
 #Preview {
 	SettingsView(
-		ASmanager: AirstreamManager(),
-		settingsModel: AAPSettingsModel()
+		ASmanager: AirstreamManager()
 	)
 }

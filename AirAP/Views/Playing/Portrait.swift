@@ -9,7 +9,6 @@ import SwiftUI
 
 struct Portrait: View {
 	@ObservedObject var ASmanager: AirstreamManager
-	@ObservedObject var settingsModel: AAPSettingsModel
 	@State var geoSize: CGSize
 	
 	var body: some View {
@@ -19,9 +18,9 @@ struct Portrait: View {
 					.resizable()
 					.ignoresSafeArea(.all)
 					.scaledToFill()
-					.blur(radius: settingsModel.bgBlur)
+					.blur(radius: ASmanager.settings.bgBlur)
 					.clipped()
-					.opacity(settingsModel.showBg ? settingsModel.bgOpacity : 0)
+					.opacity(ASmanager.settings.showBg ? ASmanager.settings.bgOpacity : 0)
 					.frame(maxWidth: geoSize.width, maxHeight: geoSize.height)
 			}
 			
@@ -32,10 +31,9 @@ struct Portrait: View {
 						maxHeight: geoSize.width*0.8
 					)
 				
-				if settingsModel.showMetadata {
+				if ASmanager.settings.showMetadata {
 					MetadataView(
-						ASmanager: ASmanager,
-						settingsModel: settingsModel
+						ASmanager: ASmanager
 					)
 				}
 				
@@ -56,7 +54,6 @@ struct Portrait: View {
 	GeometryReader { geo in
 		Portrait(
 			ASmanager: AirstreamManager(),
-			settingsModel: AAPSettingsModel(),
 			geoSize: geo.size
 		)
 	}
