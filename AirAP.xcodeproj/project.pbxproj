@@ -92,7 +92,6 @@
 		A9904A332DDD0BE100816130 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A9904A3C2DDD1CD600816130 /* StartStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopButton.swift; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
-		A99E25352DD7D3C500BF77D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C897562DF0BFD600EF9A5F /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -161,7 +160,6 @@
 				A93C6A3C2DF0A2C00006E216 /* TPCircularBufferFillCount.c */,
 				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
 				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
-				A99E25352DD7D3C500BF77D7 /* Info.plist */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
 				A92DCAE02DD74F2000D82924 /* Views */,
