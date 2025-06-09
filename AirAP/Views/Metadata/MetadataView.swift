@@ -15,62 +15,62 @@ struct MetadataView: View {
 		ZStack {
 			Rectangle()
 				.opacity(0.8)
-				.foregroundStyle(.clear)
-				.background(.ultraThinMaterial)
+				.modifier(foregroundColorStyle(.clear))
+				.modifier(UltraThinMaterialIfAv())
 			HStack {
 				VStack(alignment: .leading) {
 					Text(ASmanager.title ?? "Not Playing")
 						.bold()
-						.modifier(NEText())
-						.foregroundStyle(
+						.modifier(MetadataBody())
+						.modifier(foregroundColorStyle(
 							.primary.opacity(ASmanager.title != nil ? 1 : 0.5)
-						)
+						))
 						.padding(.bottom)
 					
 					Text("album")
-						.modifier(NEHeading())
+						.modifier(MetadataHeading())
 					Text(ASmanager.album ?? " ")
-						.modifier(NEText())
+						.modifier(MetadataBody())
 					
 					Text("artist")
-						.modifier(NEHeading())
+						.modifier(MetadataHeading())
 					Text(ASmanager.artist ?? " ")
-						.modifier(NEText())
+						.modifier(MetadataBody())
 					
 					if settingsModel.showAudioQuality {
 						HStack {
 							Spacer()
 							VStack {
 								Text("sample rate")
-									.modifier(NEHeading())
+									.modifier(MetadataHeading())
 								Text(
 									ASmanager.airstream?.sampleRate == nil ||
 									ASmanager.airstream?.sampleRate == 0 ?
 									"" : "\(ASmanager.airstream!.sampleRate)Hz"
 								)
-								.modifier(NEText())
+								.modifier(MetadataBody())
 							}
 							.padding()
 							
 							VStack {
 								Text("bit depth")
-									.modifier(NEHeading())
+									.modifier(MetadataHeading())
 								Text(
 									ASmanager.airstream?.bitsPerChannel == nil ||
 									ASmanager.airstream?.bitsPerChannel == 0 ?
 									"" : "\(ASmanager.airstream!.bitsPerChannel) bit"
 								)
-								.modifier(NEText())
+								.modifier(MetadataBody())
 							}
 							VStack {
 								Text("channels")
-									.modifier(NEHeading())
+									.modifier(MetadataHeading())
 								Text(
 									ASmanager.airstream?.channelsPerFrame == nil ||
 									ASmanager.airstream?.channelsPerFrame == 0 ?
 									"" : "\(ASmanager.airstream!.channelsPerFrame)"
 								)
-								.modifier(NEText())
+								.modifier(MetadataBody())
 							}
 							.padding()
 							Spacer()
@@ -90,23 +90,4 @@ struct MetadataView: View {
 		ASmanager: AirstreamManager(),
 		settingsModel: AAPSettingsModel()
 	)
-}
-
-fileprivate struct NEHeading: ViewModifier {
-	func body(content: Content) -> some View {
-		content
-			.foregroundStyle(.foreground)
-			.font(.subheadline)
-			.shadow(color: .secondary.opacity(0.5), radius: 3)
-	}
-}
-
-fileprivate struct NEText: ViewModifier {
-	func body(content: Content) -> some View {
-			content
-				.font(.title3)
-				.modifier(contentTransitionIfAv())
-				.multilineTextAlignment(.leading)
-				.shadow(radius: 3)
-	}
 }

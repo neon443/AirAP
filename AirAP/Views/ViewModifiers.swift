@@ -46,3 +46,33 @@ struct foregroundColorStyle: ViewModifier {
 		}
 	}
 }
+
+struct UltraThinMaterialIfAv: ViewModifier {
+	func body(content: Content) -> some View {
+		if #available(iOS 15, *) {
+			content
+				.background(.ultraThinMaterial)
+		} else {
+			content
+		}
+	}
+}
+
+struct MetadataHeading: ViewModifier {
+	func body(content: Content) -> some View {
+		content
+			.modifier(foregroundColorStyle(Color.primary))
+			.font(.subheadline)
+			.shadow(color: .secondary.opacity(0.5), radius: 3)
+	}
+}
+
+struct MetadataBody: ViewModifier {
+	func body(content: Content) -> some View {
+		content
+			.font(.title3)
+			.modifier(contentTransitionIfAv())
+			.multilineTextAlignment(.leading)
+			.shadow(radius: 3)
+	}
+}
