@@ -34,7 +34,7 @@ struct monospacedIfAv: ViewModifier {
 struct foregroundColorStyle: ViewModifier {
 	var color: Color
 	
-	init(color: Color) {
+	init(_ color: Color) {
 		self.color = color
 	}
 	

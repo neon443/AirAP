@@ -18,7 +18,7 @@ struct AlbumArtView: View {
 						maxWidth: .infinity,
 						maxHeight: .infinity
 					)
-					.foregroundStyle(.gray.opacity(0.5))
+					.modifier(foregroundColorStyle(.gray.opacity(0.5)))
 				Image(systemName: "music.note")
 					.resizable()
 					.scaledToFit()
@@ -26,7 +26,7 @@ struct AlbumArtView: View {
 						width: geo.size.width*0.5,
 						height: geo.size.height*0.5
 					)
-					.foregroundStyle(.gray.opacity(0.8))
+					.modifier(foregroundColorStyle(.gray.opacity(0.8)))
 				if let image = ASmanager.albumArt {
 					Image(uiImage: image)
 						.resizable()

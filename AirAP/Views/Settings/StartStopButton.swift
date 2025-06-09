@@ -17,9 +17,9 @@ struct StartStopButton: View {
 		} label: {
 			ZStack(alignment: .center) {
 				RoundedRectangle(cornerRadius: 10)
-					.foregroundStyle(
+					.modifier(foregroundColorStyle(
 						ASmanager.running ? .red : .green
-					)
+					))
 				Text(ASmanager.running ? "Stop" : "Start")
 					.bold()
 					.modifier(contentTransitionIfAv())

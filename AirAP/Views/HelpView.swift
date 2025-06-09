@@ -10,7 +10,9 @@ import SwiftUI
 struct HelpView: View {
     var body: some View {
 		List {
-			Section(header: Text("Does not appear in AirPlay Picker")) {
+			Section(
+				header: Text("Does not appear in AirPlay Picker")
+			) {
 				Text("1. Open AirPlay picker on other device")
 				Text("2. Toggle server on and off")
 			}

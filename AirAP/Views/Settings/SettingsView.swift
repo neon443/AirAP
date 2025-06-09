@@ -21,7 +21,9 @@ struct SettingsView: View {
 					TextField("AirPlay Server Name", text: $ASmanager.name)
 						.textFieldStyle(RoundedBorderTextFieldStyle())
 				}
-				Section("background") {
+				Section(
+					header: Text("background")
+				) {
 					Toggle("Show blurred album art as background", isOn: $settingsModel.showBg)
 						.onChange(of: settingsModel.showBg) { _ in
 							settingsModel.saveSettings()
@@ -69,7 +71,9 @@ struct SettingsView: View {
 						}
 					}
 				}
-				Section("metadata") {
+				Section(
+					header: Text("metadata")
+				) {
 					Toggle("Show metadata", isOn: $settingsModel.showMetadata)
 						.onChange(of: settingsModel.showMetadata) { _ in
 							settingsModel.showAudioQuality = false
