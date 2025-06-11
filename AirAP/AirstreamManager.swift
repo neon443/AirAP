@@ -23,7 +23,6 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
 	@Published var running = false
-	@Published var name: String = UIDevice.current.name
 	@Published var canControl = false
 	
 	@Published var title: String?
@@ -55,7 +54,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	}
 	
 	func start() {
-		airstream = Airstream(name: name)
+		airstream = Airstream(name: settings.name)
 		airstream?.delegate = self
 		airstream?.startServer()
 		withAnimation {
