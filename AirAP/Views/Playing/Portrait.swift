@@ -13,6 +13,7 @@ struct Portrait: View {
 	
 	var body: some View {
 		ZStack(alignment: .center) {
+			//bg
 			if ASmanager.albumArt != nil, let art = ASmanager.albumArt {
 				Image(uiImage: art)
 					.resizable()
@@ -22,6 +23,7 @@ struct Portrait: View {
 					.clipped()
 					.opacity(ASmanager.settings.showBg ? ASmanager.settings.bgOpacity : 0)
 					.frame(maxWidth: geoSize.width, maxHeight: geoSize.height)
+					.modifier(backgroundExtensionEffectIfAv())
 			}
 			
 			VStack(alignment: .center) {

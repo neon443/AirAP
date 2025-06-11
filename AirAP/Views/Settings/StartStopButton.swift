@@ -12,20 +12,17 @@ struct StartStopButton: View {
 	
 	var body: some View {
 		if #available(iOS 19, *) {
-			Button() {
+			Button(
+				ASmanager.running ? "Stop" : "Start",
+				systemImage: ASmanager.running ? "stop.fill" : "airplayaudio"
+			) {
 				ASmanager.startStop()
 				UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-			} label: {
-				Text(ASmanager.running ? "Stop" : "Start")
-					.bold()
-					.foregroundStyle(.black)
-//					.modifier(contentTransitionIfAv())
-					.modifier(monospacedIfAv())
-					.font(.title)
-					.padding(5)
 			}
+			.buttonStyle(.glass)
+			.tint(ASmanager.running ? .red : .green)
 //			.glassEffect(.regular)
-			.glassEffect(.regular.interactive().tint(ASmanager.running ? .red : .green))
+//			.glassEffect(.regular.interactive().tint(ASmanager.running ? .red : .green))
 			.padding(.bottom, 5)
 		} else {
 			Button() {
@@ -65,6 +62,6 @@ struct StartStopButton: View {
 			}
 		}
 		StartStopButton(ASmanager: AirstreamManager())
-			.scaleEffect(4)
+			.scaleEffect(2)
 	}
 }

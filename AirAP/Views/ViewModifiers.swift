@@ -8,6 +8,16 @@
 import Foundation
 import SwiftUI
 
+struct AlbumArtGlassEffect: ViewModifier {
+	func body(content: Content) -> some View {
+		if #available(iOS 19, *) {
+			content.glassEffect(in: .rect(cornerRadius: 25))
+		} else {
+			content
+		}
+	}
+}
+
 struct contentTransitionIfAv: ViewModifier {
 	func body(content: Content) -> some View {
 		if #available(iOS 16, *) {
@@ -27,6 +37,16 @@ struct monospacedIfAv: ViewModifier {
 		} else {
 			content
 				.font(.system(.body, design: .monospaced))
+		}
+	}
+}
+
+struct backgroundExtensionEffectIfAv: ViewModifier {
+	func body(content: Content) -> some View {
+		if #available(iOS 19, *) {
+			content.backgroundExtensionEffect()
+		} else {
+			content
 		}
 	}
 }

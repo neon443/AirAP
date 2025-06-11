@@ -13,6 +13,7 @@ struct Landscape: View {
 	
     var body: some View {
 		ZStack(alignment: .center) {
+			//bg
 			if ASmanager.albumArt != nil, let art = ASmanager.albumArt {
 				Image(uiImage: art)
 					.resizable()
@@ -22,6 +23,7 @@ struct Landscape: View {
 					.clipped()
 					.opacity(ASmanager.settings.showBg ? ASmanager.settings.bgOpacity : 0)
 					.frame(maxWidth: geoSize.width, maxHeight: geoSize.height)
+					.modifier(backgroundExtensionEffectIfAv())
 			}
 			HStack(alignment: .center) {
 				AlbumArtView(ASmanager: ASmanager)
@@ -48,7 +50,8 @@ struct Landscape: View {
 	}
 }
 
-#Preview {
+@available(iOS 17, *)
+#Preview(traits: .landscapeRight) {
 	GeometryReader { geo in
 		Landscape(
 			ASmanager: AirstreamManager(),
