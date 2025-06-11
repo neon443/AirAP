@@ -35,7 +35,9 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		self.settings = AAPSettingsModel()
 		super.init()
 		_TPCircularBufferInit(&circularBuffer, 131_072, MemoryLayout.size(ofValue: circularBuffer))
+//		#if RELEASE
 		start()
+//		#endif
 	}
 	
 	deinit {

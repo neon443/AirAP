@@ -1,0 +1,96 @@
+{
+  "fill" : {
+    "automatic-gradient" : "display-p3:0.00000,0.19625,0.96611,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "blend-mode" : "normal",
+          "fill-specializations" : [
+            {
+              "value" : {
+                "automatic-gradient" : "display-p3:0.91986,0.08988,0.18219,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "automatic-gradient" : "srgb:1.00000,0.18039,0.45490,1.00000"
+              }
+            }
+          ],
+          "glass" : true,
+          "image-name" : "airplay.audio.png",
+          "name" : "airplay.audio",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0,
+              330
+            ]
+          }
+        },
+        {
+          "fill-specializations" : [
+            {
+              "appearance" : "dark",
+              "value" : {
+                "solid" : "extended-srgb:0.00000,0.47843,1.00000,1.00000"
+              }
+            }
+          ],
+          "glass" : false,
+          "image-name" : "Rounded Rectangle.png",
+          "name" : "Rounded Rectangle",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0.8984375,
+              -138.4921875
+            ]
+          }
+        },
+        {
+          "fill-specializations" : [
+            {
+              "value" : {
+                "automatic-gradient" : "display-p3:0.92801,0.22121,0.41932,1.00000"
+              }
+            },
+            {
+              "appearance" : "dark",
+              "value" : {
+                "automatic-gradient" : "display-p3:1.00000,0.18039,0.45490,1.00000"
+              }
+            }
+          ],
+          "glass" : false,
+          "image-name" : "Group copy.png",
+          "name" : "Group copy",
+          "position" : {
+            "scale" : 1,
+            "translation-in-points" : [
+              0,
+              46
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.5
+      },
+      "translucency" : {
+        "enabled" : true,
+        "value" : 0.5
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "circles" : [
+      "watchOS"
+    ],
+    "squares" : "shared"
+  }
+}
