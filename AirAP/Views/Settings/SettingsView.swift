@@ -17,7 +17,7 @@ struct SettingsView: View {
 					header: Text("server"),
 					footer: Text("Changing the name will restart the AirPlay server")
 				) {
-					TextField("AirPlay Server Name", text: $ASmanager.name)
+					TextField("AirPlay Server Name", text: $ASmanager.settings.name)
 						.textFieldStyle(RoundedBorderTextFieldStyle())
 						.onChange(of: ASmanager.settings.name) { _ in
 							ASmanager.settings.saveSettings()
