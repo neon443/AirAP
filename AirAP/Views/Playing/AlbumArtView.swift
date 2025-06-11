@@ -37,13 +37,13 @@ struct AlbumArtView: View {
 						.resizable()
 						.scaledToFit()
 						.frame(
-							width: geo.size.width*0.9,
-							height: geo.size.height*0.9
+							width: geo.size.width*0.97,
+							height: geo.size.height*0.97
 						)
 						.clipShape(RoundedRectangle(
-							cornerRadius: (25-geo.size.width*0.05)
+							cornerRadius: 25-((geo.size.width*0.015)/2)
 						))
-						.shadow(radius: 5)
+//						.shadow(radius: 5)
 						.transition(.scale)
 				}
 			}
