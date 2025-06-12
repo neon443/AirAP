@@ -17,13 +17,20 @@ struct SettingsView: View {
 					header: Text("server"),
 					footer: Text("Changing the name will restart the AirPlay server")
 				) {
-					TextField("AirPlay Server Name", text: $ASmanager.settings.name)
-						.textFieldStyle(RoundedBorderTextFieldStyle())
-						.onChange(of: ASmanager.settings.name) { _ in
+					HStack {
+						TextField("AirPlay Server Name", text: $ASmanager.settings.name)
+							.textFieldStyle(RoundedBorderTextFieldStyle())
+						Button() {
 							ASmanager.settings.saveSettings()
 							ASmanager.startStop()
 							ASmanager.startStop()
+						} label: {
+							Image(systemName: "checkmark.circle.fill")
+								.resizable()
+								.scaledToFit()
+								.frame(width: 40)
 						}
+					}
 				}
 				Section(
 					header: Text("background")
