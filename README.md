@@ -1,7 +1,7 @@
 <div align="center">
     <br/>
     <p>
-        <img src="https://files.catbox.moe/fdsqnk.png" title="cobalt" alt="cobalt logo" width="100" />
+        <img src="https://github.com/neon443/AirAP/blob/main/AirAP/Assets.xcassets/AppIcon.appiconset/Icon.png?raw=true" title="cobalt" alt="cobalt logo" width="100" />
     </p>
     <p>
         use your iphone as an airplay receiver
