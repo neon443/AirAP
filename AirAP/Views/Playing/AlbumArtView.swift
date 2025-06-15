@@ -13,12 +13,13 @@ struct AlbumArtView: View {
 	
 	var body: some View {
 		GeometryReader { geo in
+			let minWidthHeight = min(geo.size.width, geo.size.height)
 			ZStack {
 				if #unavailable(iOS 19) {
 					RoundedRectangle(cornerRadius: 25)
 						.frame(
-							maxWidth: min(geo.size.width, geo.size.height),
-							maxHeight: min(geo.size.width, geo.size.height)
+							maxWidth: minWidthHeight,
+							maxHeight: minWidthHeight
 						)
 						.modifier(foregroundColorStyle(.gray.opacity(0.5)))
 				}
@@ -26,11 +27,11 @@ struct AlbumArtView: View {
 					.resizable()
 					.scaledToFit()
 					.frame(
-						width: geo.size.width*0.25,
-						height: geo.size.height*0.25
+						width: minWidthHeight*0.25,
+						height: minWidthHeight*0.25
 					)
-					.padding(.horizontal, geo.size.width/2 - geo.size.width*0.125)
-					.padding(.vertical, geo.size.width/2 - geo.size.height*0.125)
+					.padding(.horizontal, minWidthHeight/2 - minWidthHeight*0.125)
+					.padding(.vertical, minWidthHeight/2 - minWidthHeight*0.125)
 					.modifier(AlbumArtGlassEffect())
 					.modifier(foregroundColorStyle(.gray.opacity(0.8)))
 				if let image = ASmanager.albumArt {
@@ -38,18 +39,17 @@ struct AlbumArtView: View {
 						.resizable()
 						.scaledToFit()
 						.frame(
-							width: geo.size.width-(2*padding),
-							height: geo.size.height-(2*padding)
+							width: minWidthHeight-(2*padding),
+							height: minWidthHeight-(2*padding)
 						)
 						.clipShape(RoundedRectangle(
 							cornerRadius: 25-padding
 						))
-//						.shadow(radius: 5)
 						.transition(.scale)
+						.animation(.spring, value: ASmanager.albumArt)
 				}
 			}
 		}
-		.animation(.spring, value: ASmanager.album)
 		.padding(.bottom)
 	}
 }

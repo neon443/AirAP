@@ -38,15 +38,6 @@ struct MetadataView: View {
 					
 					if ASmanager.settings.showAudioQuality {
 						HStack {
-							if ASmanager.airstream?.sampleRate == 44100 &&
-								ASmanager.airstream?.bitsPerChannel == 16 &&
-								ASmanager.airstream?.channelsPerFrame == 2 {
-								Spacer()
-								Image(systemName: "opticaldisc")
-									.resizable().scaledToFit()
-									.frame(width: 30)
-									.opacity(0.8)
-							}
 							Spacer()
 							VStack {
 								Text("sample rate")
