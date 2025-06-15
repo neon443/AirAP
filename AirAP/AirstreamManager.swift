@@ -25,6 +25,11 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var running = false
 	@Published var canControl = false
 	
+	/// Minimum amount of audio (in bytes) that must be present in the circular buffer before we
+	/// allow CoreAudio to start rendering.
+	/// The default value corresponds to ~2 s of 44.1 kHz, 16-bit, stereo PCM (44 100 * 2 s * 4 B).
+	private var minBufferBytes: Int32 = 352_800
+	
 	@Published var title: String?
 	@Published var album: String?
 	@Published var artist: String?
@@ -33,7 +38,9 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	override init() {
 		self.settings = AAPSettingsModel()
 		super.init()
-		_TPCircularBufferInit(&circularBuffer, 131_072, MemoryLayout.size(ofValue: circularBuffer))
+		// Allocate a generous 1 MiB circular buffer. This must be large enough to
+		// hold the minBufferBytes (≈350 kB) to allow playback to start.
+		_TPCircularBufferInit(&circularBuffer, 1_048_576, MemoryLayout.size(ofValue: circularBuffer))
 //		#if RELEASE
 		start()
 //		#endif
@@ -91,6 +98,14 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	//brefore stream setup
 	func airstream(_ airstream: Airstream, willStartStreamingWithStreamFormat streamFormat: AudioStreamBasicDescription) {
+		// Set a ~2s buffer based on the negotiated stream format.
+		let targetLatencySeconds: Double = 2.0
+		let bytesPerFrame = Double(streamFormat.mBytesPerFrame)
+		let bytesPerSecond = streamFormat.mSampleRate * bytesPerFrame
+		minBufferBytes = Int32(bytesPerSecond * targetLatencySeconds)
+		// Ensure we start in buffering mode.
+		self.buffering = true
+		
 		var streamFormat = streamFormat
 		//create audio component
 		#if canImport(AppKit)
@@ -196,8 +211,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		)
 		
 		//are we falling behind? checks if buffering is needed
-		
-		self.buffering = TPCircularBufferFillCount(&circularBuffer) < 8192
+		let fillCount = TPCircularBufferFillCount(&circularBuffer)
+		self.buffering = fillCount < minBufferBytes
 	}
 	
 	//bro stopped airplaying
