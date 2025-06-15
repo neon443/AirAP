@@ -5,7 +5,7 @@
 //  Created by neon443 on 18/05/2025.
 //
 
-VERSION = 2.9
+VERSION = 2.10
 BUILD_NUMBER = 4
 
 // Configuration settings file format documentation can be found at:
