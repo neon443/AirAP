@@ -27,8 +27,9 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	/// Minimum amount of audio (in bytes) that must be present in the circular buffer before we
 	/// allow CoreAudio to start rendering.
-	/// The default value corresponds to ~2 s of 44.1 kHz, 16-bit, stereo PCM (44 100 * 2 s * 4 B).
-	private var minBufferBytes: Int32 = 352_800
+	/// The default value corresponds to ~2 s of 44.1 kHz, 16-bit, stereo PCM (44 100 * 1 s * 4 B).
+	private var minBufferBytes: Int32 = 176_000
+	private let targetLatencySeconds: Double = 1.0
 	
 	@Published var title: String?
 	@Published var album: String?
@@ -99,7 +100,6 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	//brefore stream setup
 	func airstream(_ airstream: Airstream, willStartStreamingWithStreamFormat streamFormat: AudioStreamBasicDescription) {
 		// Set a ~2s buffer based on the negotiated stream format.
-		let targetLatencySeconds: Double = 2.0
 		let bytesPerFrame = Double(streamFormat.mBytesPerFrame)
 		let bytesPerSecond = streamFormat.mSampleRate * bytesPerFrame
 		minBufferBytes = Int32(bytesPerSecond * targetLatencySeconds)

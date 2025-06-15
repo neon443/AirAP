@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AlbumArtView: View {
 	@ObservedObject var ASmanager: AirstreamManager
+	let padding: CGFloat = 10
 	
 	var body: some View {
 		GeometryReader { geo in
@@ -16,8 +17,8 @@ struct AlbumArtView: View {
 				if #unavailable(iOS 19) {
 					RoundedRectangle(cornerRadius: 25)
 						.frame(
-							maxWidth: geo.size.width,
-							maxHeight: geo.size.height
+							maxWidth: min(geo.size.width, geo.size.height),
+							maxHeight: min(geo.size.width, geo.size.height)
 						)
 						.modifier(foregroundColorStyle(.gray.opacity(0.5)))
 				}
@@ -37,11 +38,11 @@ struct AlbumArtView: View {
 						.resizable()
 						.scaledToFit()
 						.frame(
-							width: geo.size.width*0.97,
-							height: geo.size.height*0.97
+							width: geo.size.width-(2*padding),
+							height: geo.size.height-(2*padding)
 						)
 						.clipShape(RoundedRectangle(
-							cornerRadius: 25-((geo.size.width*0.015)/2)
+							cornerRadius: 25-padding
 						))
 //						.shadow(radius: 5)
 						.transition(.scale)
@@ -49,7 +50,7 @@ struct AlbumArtView: View {
 			}
 		}
 		.animation(.spring, value: ASmanager.album)
-		.padding(.bottom)	
+		.padding(.bottom)
 	}
 }
 
