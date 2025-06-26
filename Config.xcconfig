@@ -6,7 +6,7 @@
 //
 
 VERSION = 2.10
-BUILD_NUMBER = 7
+BUILD_NUMBER = 8
 
 // Configuration settings file format documentation can be found at:
 // https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project
