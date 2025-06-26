@@ -19,7 +19,7 @@ struct StartStopButton: View {
 				ASmanager.startStop()
 				UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
 			}
-			.buttonStyle(.glass)
+			.buttonStyle(.glassProminent)
 			.tint(ASmanager.running ? .red : .green)
 //			.glassEffect(.regular)
 //			.glassEffect(.regular.interactive().tint(ASmanager.running ? .red : .green))

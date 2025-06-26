@@ -29,7 +29,6 @@
 		A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A332DDD0BE100816130 /* SettingsView.swift */; };
 		A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A3C2DDD1CD600816130 /* StartStopButton.swift */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
-		A9B78B7A2DF9C3BE00647399 /* AirAP.icon in Resources */ = {isa = PBXBuildFile; fileRef = A9B78B792DF9C3BE00647399 /* AirAP.icon */; };
 		A9C8973D2DF0BCFB00EF9A5F /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A9C8973C2DF0BCFB00EF9A5F /* TPCircularBuffer */; };
 		A9C897572DF0BFD600EF9A5F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9C897562DF0BFD600EF9A5F /* README.md */; };
 /* End PBXBuildFile section */
@@ -93,7 +92,6 @@
 		A9904A332DDD0BE100816130 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A9904A3C2DDD1CD600816130 /* StartStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopButton.swift; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
-		A9B78B792DF9C3BE00647399 /* AirAP.icon */ = {isa = PBXFileReference; lastKnownFileType = folder.iconcomposer.icon; name = AirAP.icon; path = Icon/AirAP.icon; sourceTree = SOURCE_ROOT; };
 		A9B78B8D2DF9D56300647399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9C897562DF0BFD600EF9A5F /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
@@ -162,7 +160,6 @@
 				A93C6A3B2DF0A2C00006E216 /* TPCircularBufferFillCount.h */,
 				A93C6A3C2DF0A2C00006E216 /* TPCircularBufferFillCount.c */,
 				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
-				A9B78B792DF9C3BE00647399 /* AirAP.icon */,
 				A9B78B8D2DF9D56300647399 /* Info.plist */,
 				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
@@ -298,7 +295,6 @@
 			files = (
 				A9C897572DF0BFD600EF9A5F /* README.md in Resources */,
 				A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */,
-				A9B78B7A2DF9C3BE00647399 /* AirAP.icon in Resources */,
 				A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
