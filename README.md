@@ -1,4 +1,4 @@
-<div align="center"> 
+<div align="center">
     <br/>
     <p>
         <img src="https://github.com/neon443/AirAP/blob/main/AirAP/Assets.xcassets/AppIcon.appiconset/Icon.png?raw=true" title="cobalt" alt="cobalt logo" width="100" />
