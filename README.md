@@ -18,6 +18,16 @@
     <br/>
 </div>
 
+<div align="center">
+  <a href="https://shipwrecked.hackclub.com/?t=ghrm" target="_blank">
+    <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/739361f1d440b17fc9e2f74e49fc185d86cbec14_badge.png" 
+         alt="This project is part of Shipwrecked, the world's first hackathon on an island!" 
+         style="width: 25%;">
+  </a>
+</div>
+
+<br/>
+
 AirAP is a fully native AirPlay server, written in Swift, for iOS. Essentially, AirAP allows you to use your iPhone as an AirPlay receiver in iTunes or on your Mac, meaning that you can use your iPhone to play your device's sound.
 
 ## What's AirAP?
