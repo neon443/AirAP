@@ -14,7 +14,7 @@ struct AlbumArtView: View {
 	var body: some View {
 		GeometryReader { geo in
 			let minWidthHeight = min(geo.size.width, geo.size.height)
-			ZStack {
+			ZStack(alignment: .center) {
 				if #unavailable(iOS 19) {
 					RoundedRectangle(cornerRadius: 25)
 						.frame(

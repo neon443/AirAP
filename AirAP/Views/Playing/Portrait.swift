@@ -46,6 +46,9 @@ struct Portrait: View {
 				}
 				
 				Spacer()
+				
+//				VolumeView()
+				
 				StartStopButton(ASmanager: ASmanager)
 			}
 		}

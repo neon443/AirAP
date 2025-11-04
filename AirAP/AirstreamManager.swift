@@ -29,7 +29,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	/// allow CoreAudio to start rendering.
 	/// The default value corresponds to ~2 s of 44.1 kHz, 16-bit, stereo PCM (44 100 * 1 s * 4 B).
 	private var minBufferBytes: Int32 = 176_000
-	private let targetLatencySeconds: Double = 1.0
+	private var targetLatencySeconds: Double  { settings.delay }
 	
 	@Published var title: String?
 	@Published var album: String?

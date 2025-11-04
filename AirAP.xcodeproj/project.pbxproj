@@ -128,7 +128,6 @@
 				A98C20C12DE4F7170008D61C /* Portrait.swift */,
 				A98C20C32DE4F7A40008D61C /* Landscape.swift */,
 				A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */,
-				A90D496A2DDE73B300781124 /* PlaybackControls.swift */,
 			);
 			path = Playing;
 			sourceTree = "<group>";
@@ -174,6 +173,7 @@
 			children = (
 				A92DCADB2DD74F1800D82924 /* ContentView.swift */,
 				A90D49692DDE739A00781124 /* Playing */,
+				A94912392E198C6600CB1A37 /* Control */,
 				A94BEC152DE34D4000D4811D /* Metadata */,
 				A90D49682DDE738C00781124 /* Settings */,
 				A966B4B12DDF863B00C721A5 /* HelpView.swift */,
@@ -189,6 +189,14 @@
 				A93C6A2D2DF09CBC0006E216 /* Airstream.framework */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		A94912392E198C6600CB1A37 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				A90D496A2DDE73B300781124 /* PlaybackControls.swift */,
+			);
+			path = Control;
 			sourceTree = "<group>";
 		};
 		A94BEC152DE34D4000D4811D /* Metadata */ = {
@@ -464,6 +472,7 @@
 				CODE_SIGN_ENTITLEMENTS = AirAP/AirAP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8JGND254B7;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -510,6 +519,7 @@
 				CODE_SIGN_ENTITLEMENTS = AirAP/AirAP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "$(BUILD_NUMBER)";
+				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 8JGND254B7;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;

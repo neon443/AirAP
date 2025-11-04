@@ -13,6 +13,8 @@ struct SettingsView: View {
 	var body: some View {
 		VStack {
 			Form {
+				Slider(value: $ASmanager.settings.delay, in: -2...2)
+				
 				Section(
 					header: Text("server"),
 					footer: Text("Changing the name will restart the AirPlay server")
