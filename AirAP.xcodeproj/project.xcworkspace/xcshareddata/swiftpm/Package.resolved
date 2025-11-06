@@ -1,13 +1,13 @@
 {
-  "originHash" : "da616663c2538ccdc944f491fc0b0edffc95e0cbe39542f39d80aca52a740554",
+  "originHash" : "1ee142c3dbca117f5610a2fcec2087307146391d199241a63cf4d16257b4a161",
   "pins" : [
     {
       "identity" : "tpcircularbuffer",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/michaeltyson/TPCircularBuffer",
+      "location" : "https://github.com/neon443/TPCircularBuffer",
       "state" : {
-        "revision" : "8833b3a73fab6530cc51e2063a85cced01714cfb",
-        "version" : "1.6.2"
+        "branch" : "master",
+        "revision" : "f037140572e099020520bfba1429e22ed3fc0350"
       }
     }
   ],

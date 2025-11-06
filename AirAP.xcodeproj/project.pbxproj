@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 77;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,7 +17,6 @@
 		A93C6A302DF09F9D0006E216 /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A93C6A2F2DF09F9D0006E216 /* TPCircularBuffer */; };
 		A93C6A392DF0A2110006E216 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; };
 		A93C6A3A2DF0A2430006E216 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A93C6A3D2DF0A2C00006E216 /* TPCircularBufferFillCount.c in Sources */ = {isa = PBXBuildFile; fileRef = A93C6A3C2DF0A2C00006E216 /* TPCircularBufferFillCount.c */; };
 		A94BEC122DE33A7C00D4811D /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BEC112DE33A7C00D4811D /* AAPSettings.swift */; };
 		A94BEC172DE45F4400D4811D /* PlaybackProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BEC162DE45F4400D4811D /* PlaybackProgressView.swift */; };
 		A966B4B22DDF863B00C721A5 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966B4B12DDF863B00C721A5 /* HelpView.swift */; };
@@ -30,7 +29,10 @@
 		A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A332DDD0BE100816130 /* SettingsView.swift */; };
 		A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A3C2DDD1CD600816130 /* StartStopButton.swift */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
-		A9C8973D2DF0BCFB00EF9A5F /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A9C8973C2DF0BCFB00EF9A5F /* TPCircularBuffer */; };
+		A9B1E25C2EBD46EE00AD7FAC /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A9B1E25B2EBD46EE00AD7FAC /* TPCircularBuffer */; };
+		A9B1E25F2EBD475500AD7FAC /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A9B1E25E2EBD475500AD7FAC /* TPCircularBuffer */; };
+		A9BBC55D2EB8FD5A00FFE82F /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; };
+		A9BBC55E2EB8FD5A00FFE82F /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9C897572DF0BFD600EF9A5F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9C897562DF0BFD600EF9A5F /* README.md */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,20 @@
 			remoteGlobalIDString = D1524B381DC562AF009C5D23;
 			remoteInfo = Airstream;
 		};
+		A9BBC5372EB8FB8300FFE82F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A92DCABD2DD74EB000D82924 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BBC5262EB8FB8200FFE82F;
+			remoteInfo = AirAPMac;
+		};
+		A9BBC5412EB8FB8300FFE82F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A92DCABD2DD74EB000D82924 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A9BBC5262EB8FB8200FFE82F;
+			remoteInfo = AirAPMac;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -52,6 +68,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				A93C6A3A2DF0A2430006E216 /* Airstream.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BBC55F2EB8FD5A00FFE82F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				A9BBC55E2EB8FD5A00FFE82F /* Airstream.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -95,9 +122,19 @@
 		A9904A3C2DDD1CD600816130 /* StartStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopButton.swift; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A9B78B8D2DF9D56300647399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A9BBC5272EB8FB8200FFE82F /* AirAPMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAPMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BBC5362EB8FB8300FFE82F /* AirAPMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirAPMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BBC5402EB8FB8300FFE82F /* AirAPMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirAPMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9BBC5552EB8FCD400FFE82F /* TPCircularBuffer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TPCircularBuffer; path = "/Users/neon443/Library/Developer/Xcode/DerivedData/AirAP-gqmetjhjvtcbaccgdwllkddhtwec/SourcePackages/checkouts/TPCircularBuffer"; sourceTree = "<absolute>"; };
 		A9C897562DF0BFD600EF9A5F /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		A9BBC5282EB8FB8300FFE82F /* AirAPMac */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AirAPMac; sourceTree = "<group>"; };
+		A9BBC5392EB8FB8300FFE82F /* AirAPMacTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AirAPMacTests; sourceTree = "<group>"; };
+		A9BBC5432EB8FB8300FFE82F /* AirAPMacUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AirAPMacUITests; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		A92DCAC22DD74EB000D82924 /* Frameworks */ = {
@@ -105,8 +142,31 @@
 			buildActionMask = 2147483647;
 			files = (
 				A93C6A392DF0A2110006E216 /* Airstream.framework in Frameworks */,
-				A9C8973D2DF0BCFB00EF9A5F /* TPCircularBuffer in Frameworks */,
+				A9B1E25C2EBD46EE00AD7FAC /* TPCircularBuffer in Frameworks */,
 				A93C6A302DF09F9D0006E216 /* TPCircularBuffer in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BBC5242EB8FB8200FFE82F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A9BBC55D2EB8FD5A00FFE82F /* Airstream.framework in Frameworks */,
+				A9B1E25F2EBD475500AD7FAC /* TPCircularBuffer in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BBC5332EB8FB8300FFE82F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BBC53D2EB8FB8300FFE82F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +202,12 @@
 				A9C897562DF0BFD600EF9A5F /* README.md */,
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
 				A92DCADC2DD74F1800D82924 /* AirAP */,
+				A9BBC5532EB8FC1E00FFE82F /* TPCircularBuffer */,
 				A93C6A152DF09C200006E216 /* Airstream.xcodeproj */,
+				A9BBC5282EB8FB8300FFE82F /* AirAPMac */,
+				A9BBC5392EB8FB8300FFE82F /* AirAPMacTests */,
+				A9BBC5432EB8FB8300FFE82F /* AirAPMacUITests */,
+				A9BBC5542EB8FCD300FFE82F /* Frameworks */,
 				A92DCAC62DD74EB000D82924 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -151,6 +216,9 @@
 			isa = PBXGroup;
 			children = (
 				A92DCAC52DD74EB000D82924 /* AirAP.app */,
+				A9BBC5272EB8FB8200FFE82F /* AirAPMac.app */,
+				A9BBC5362EB8FB8300FFE82F /* AirAPMacTests.xctest */,
+				A9BBC5402EB8FB8300FFE82F /* AirAPMacUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,9 +226,6 @@
 		A92DCADC2DD74F1800D82924 /* AirAP */ = {
 			isa = PBXGroup;
 			children = (
-				A93C6A362DF0A0980006E216 /* AirAP-Bridge.h */,
-				A93C6A3B2DF0A2C00006E216 /* TPCircularBufferFillCount.h */,
-				A93C6A3C2DF0A2C00006E216 /* TPCircularBufferFillCount.c */,
 				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
 				A9B78B8D2DF9D56300647399 /* Info.plist */,
 				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
@@ -219,6 +284,24 @@
 			path = ci_scripts;
 			sourceTree = "<group>";
 		};
+		A9BBC5532EB8FC1E00FFE82F /* TPCircularBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				A93C6A362DF0A0980006E216 /* AirAP-Bridge.h */,
+				A93C6A3B2DF0A2C00006E216 /* TPCircularBufferFillCount.h */,
+				A93C6A3C2DF0A2C00006E216 /* TPCircularBufferFillCount.c */,
+			);
+			path = TPCircularBuffer;
+			sourceTree = "<group>";
+		};
+		A9BBC5542EB8FCD300FFE82F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A9BBC5552EB8FCD400FFE82F /* TPCircularBuffer */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -239,11 +322,81 @@
 			name = AirAP;
 			packageProductDependencies = (
 				A93C6A2F2DF09F9D0006E216 /* TPCircularBuffer */,
-				A9C8973C2DF0BCFB00EF9A5F /* TPCircularBuffer */,
+				A9B1E25B2EBD46EE00AD7FAC /* TPCircularBuffer */,
 			);
 			productName = AirAP;
 			productReference = A92DCAC52DD74EB000D82924 /* AirAP.app */;
 			productType = "com.apple.product-type.application";
+		};
+		A9BBC5262EB8FB8200FFE82F /* AirAPMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BBC54F2EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMac" */;
+			buildPhases = (
+				A9BBC5232EB8FB8200FFE82F /* Sources */,
+				A9BBC5242EB8FB8200FFE82F /* Frameworks */,
+				A9BBC5252EB8FB8200FFE82F /* Resources */,
+				A9BBC55F2EB8FD5A00FFE82F /* Embed Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				A9BBC5282EB8FB8300FFE82F /* AirAPMac */,
+			);
+			name = AirAPMac;
+			packageProductDependencies = (
+				A9B1E25E2EBD475500AD7FAC /* TPCircularBuffer */,
+			);
+			productName = AirAPMac;
+			productReference = A9BBC5272EB8FB8200FFE82F /* AirAPMac.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A9BBC5352EB8FB8300FFE82F /* AirAPMacTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BBC5502EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMacTests" */;
+			buildPhases = (
+				A9BBC5322EB8FB8300FFE82F /* Sources */,
+				A9BBC5332EB8FB8300FFE82F /* Frameworks */,
+				A9BBC5342EB8FB8300FFE82F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9BBC5382EB8FB8300FFE82F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A9BBC5392EB8FB8300FFE82F /* AirAPMacTests */,
+			);
+			name = AirAPMacTests;
+			packageProductDependencies = (
+			);
+			productName = AirAPMacTests;
+			productReference = A9BBC5362EB8FB8300FFE82F /* AirAPMacTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		A9BBC53F2EB8FB8300FFE82F /* AirAPMacUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A9BBC5512EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMacUITests" */;
+			buildPhases = (
+				A9BBC53C2EB8FB8300FFE82F /* Sources */,
+				A9BBC53D2EB8FB8300FFE82F /* Frameworks */,
+				A9BBC53E2EB8FB8300FFE82F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9BBC5422EB8FB8300FFE82F /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A9BBC5432EB8FB8300FFE82F /* AirAPMacUITests */,
+			);
+			name = AirAPMacUITests;
+			packageProductDependencies = (
+			);
+			productName = AirAPMacUITests;
+			productReference = A9BBC5402EB8FB8300FFE82F /* AirAPMacUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -252,16 +405,28 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1640;
+				LastSwiftUpdateCheck = 2600;
 				LastUpgradeCheck = 1640;
 				TargetAttributes = {
 					A92DCAC42DD74EB000D82924 = {
 						CreatedOnToolsVersion = 16.4;
 						LastSwiftMigration = 1640;
 					};
+					A9BBC5262EB8FB8200FFE82F = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+					A9BBC5352EB8FB8300FFE82F = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = A9BBC5262EB8FB8200FFE82F;
+					};
+					A9BBC53F2EB8FB8300FFE82F = {
+						CreatedOnToolsVersion = 26.0.1;
+						TestTargetID = A9BBC5262EB8FB8200FFE82F;
+					};
 				};
 			};
 			buildConfigurationList = A92DCAC02DD74EB000D82924 /* Build configuration list for PBXProject "AirAP" */;
+			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -271,9 +436,8 @@
 			mainGroup = A92DCABC2DD74EB000D82924;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A9C8973B2DF0BCFB00EF9A5F /* XCRemoteSwiftPackageReference "TPCircularBuffer" */,
+				A9B1E25A2EBD46EE00AD7FAC /* XCRemoteSwiftPackageReference "TPCircularBuffer" */,
 			);
-			preferredProjectObjectVersion = 77;
 			productRefGroup = A92DCAC62DD74EB000D82924 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
@@ -285,6 +449,9 @@
 			projectRoot = "";
 			targets = (
 				A92DCAC42DD74EB000D82924 /* AirAP */,
+				A9BBC5262EB8FB8200FFE82F /* AirAPMac */,
+				A9BBC5352EB8FB8300FFE82F /* AirAPMacTests */,
+				A9BBC53F2EB8FB8300FFE82F /* AirAPMacUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -310,6 +477,27 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9BBC5252EB8FB8200FFE82F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BBC5342EB8FB8300FFE82F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BBC53E2EB8FB8300FFE82F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -329,7 +517,6 @@
 				A98C20C42DE4F7A40008D61C /* Landscape.swift in Sources */,
 				A94BEC122DE33A7C00D4811D /* AAPSettings.swift in Sources */,
 				A98C20C22DE4F7170008D61C /* Portrait.swift in Sources */,
-				A93C6A3D2DF0A2C00006E216 /* TPCircularBufferFillCount.c in Sources */,
 				A96A94342DDE80AC00C12751 /* MetadataView.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
 				A90D496B2DDE73B300781124 /* PlaybackControls.swift in Sources */,
@@ -338,7 +525,41 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A9BBC5232EB8FB8200FFE82F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BBC5322EB8FB8300FFE82F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BBC53C2EB8FB8300FFE82F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9BBC5382EB8FB8300FFE82F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BBC5262EB8FB8200FFE82F /* AirAPMac */;
+			targetProxy = A9BBC5372EB8FB8300FFE82F /* PBXContainerItemProxy */;
+		};
+		A9BBC5422EB8FB8300FFE82F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A9BBC5262EB8FB8200FFE82F /* AirAPMac */;
+			targetProxy = A9BBC5412EB8FB8300FFE82F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		A92DCACE2DD74EB100D82924 /* Debug */ = {
@@ -491,7 +712,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14;
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -506,7 +727,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AirAP/AirAP-Bridge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TPCircularBuffer/AirAP-Bridge.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -538,7 +759,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14;
+				IPHONEOS_DEPLOYMENT_TARGET = 26;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -553,9 +774,167 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "AirAP/AirAP-Bridge.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TPCircularBuffer/AirAP-Bridge.h";
 				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A9BBC5482EB8FB8300FFE82F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JGND254B7;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TPCircularBuffer/AirAP-Bridge.h";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		A9BBC5492EB8FB8300FFE82F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JGND254B7;
+				ENABLE_APP_SANDBOX = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_USER_SELECTED_FILES = readonly;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_NSMainStoryboardFile = Main;
+				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMac;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				REGISTER_APP_GROUPS = YES;
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TPCircularBuffer/AirAP-Bridge.h";
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		A9BBC54A2EB8FB8300FFE82F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JGND254B7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirAPMac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirAPMac";
+			};
+			name = Debug;
+		};
+		A9BBC54B2EB8FB8300FFE82F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JGND254B7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMacTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirAPMac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirAPMac";
+			};
+			name = Release;
+		};
+		A9BBC54C2EB8FB8300FFE82F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JGND254B7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AirAPMac;
+			};
+			name = Debug;
+		};
+		A9BBC54D2EB8FB8300FFE82F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 8JGND254B7;
+				GENERATE_INFOPLIST_FILE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 15.7;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMacUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				STRING_CATALOG_GENERATE_SYMBOLS = NO;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
+				SWIFT_VERSION = 5.0;
+				TEST_TARGET_NAME = AirAPMac;
 			};
 			name = Release;
 		};
@@ -580,15 +959,42 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		A9BBC54F2EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BBC5482EB8FB8300FFE82F /* Debug */,
+				A9BBC5492EB8FB8300FFE82F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BBC5502EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMacTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BBC54A2EB8FB8300FFE82F /* Debug */,
+				A9BBC54B2EB8FB8300FFE82F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A9BBC5512EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMacUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A9BBC54C2EB8FB8300FFE82F /* Debug */,
+				A9BBC54D2EB8FB8300FFE82F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A9C8973B2DF0BCFB00EF9A5F /* XCRemoteSwiftPackageReference "TPCircularBuffer" */ = {
+		A9B1E25A2EBD46EE00AD7FAC /* XCRemoteSwiftPackageReference "TPCircularBuffer" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/michaeltyson/TPCircularBuffer";
+			repositoryURL = "https://github.com/neon443/TPCircularBuffer";
 			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.6.2;
+				branch = master;
+				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -598,9 +1004,14 @@
 			isa = XCSwiftPackageProductDependency;
 			productName = TPCircularBuffer;
 		};
-		A9C8973C2DF0BCFB00EF9A5F /* TPCircularBuffer */ = {
+		A9B1E25B2EBD46EE00AD7FAC /* TPCircularBuffer */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A9C8973B2DF0BCFB00EF9A5F /* XCRemoteSwiftPackageReference "TPCircularBuffer" */;
+			package = A9B1E25A2EBD46EE00AD7FAC /* XCRemoteSwiftPackageReference "TPCircularBuffer" */;
+			productName = TPCircularBuffer;
+		};
+		A9B1E25E2EBD475500AD7FAC /* TPCircularBuffer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A9B1E25A2EBD46EE00AD7FAC /* XCRemoteSwiftPackageReference "TPCircularBuffer" */;
 			productName = TPCircularBuffer;
 		};
 /* End XCSwiftPackageProductDependency section */

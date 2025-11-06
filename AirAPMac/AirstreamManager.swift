@@ -1,0 +1,282 @@
+//
+//  AirstreamManager.swift
+//  AirAPMac
+//
+//  Created by neon443 on 03/11/2025.
+//
+
+import Foundation
+import Airstream
+import AVFoundation
+import AppKit
+import SwiftUI
+
+class AirstreamManager: NSObject, AirstreamDelegate {
+	var airstream: Airstream?
+	
+	var settings: AAPSettingsModel
+	
+	var audioUnit: AudioComponentInstance?
+	var circularBuffer = TPCircularBuffer()
+	var buffering: Bool = false
+	
+	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
+	
+	var running = false
+	var canControl = false
+	
+	/// Minimum amount of audio (in bytes) that must be present in the circular buffer before we
+	/// allow CoreAudio to start rendering.
+	/// The default value corresponds to ~2 s of 44.1 kHz, 16-bit, stereo PCM (44 100 * 1 s * 4 B).
+	private var minBufferBytes: Int32 = 176_000
+	private let targetLatencySeconds: Double = 1.0
+	
+	var title: String?
+	var album: String?
+	var artist: String?
+	var albumArt: NSImage?
+	
+	override init() {
+		self.settings = AAPSettingsModel()
+		super.init()
+		// Allocate a generous 1 MiB circular buffer. This must be large enough to
+		// hold the minBufferBytes (≈350 kB) to allow playback to start.
+		_TPCircularBufferInit(&circularBuffer, 1_048_576, MemoryLayout.size(ofValue: circularBuffer))
+		//		#if RELEASE
+		start()
+		//		#endif
+	}
+	
+	deinit {
+		//MARK: REFACTOR THIS LATER
+		TPCircularBufferClear(&circularBuffer)
+		
+		//stop audio unit
+		if let audioUnit = audioUnit {
+			let status = AudioOutputUnitStop(audioUnit)
+			if status != noErr {
+				print("failed to stop audio unit")
+			}
+		}
+		audioUnit = nil
+	}
+	
+	func start() {
+		airstream = Airstream(name: settings.name)
+		airstream?.delegate = self
+		airstream?.startServer()
+		running = true
+//		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+//		try? AVAudioSession.sharedInstance().setActive(true)
+	}
+	
+	func stop() {
+		
+		airstream?.stopServer()
+		running = false
+		clearMetadata()
+	}
+	
+	func startStop() {
+		switch running {
+		case true:
+			stop()
+		case false:
+			start()
+		}
+	}
+	
+	func clearMetadata() {
+		albumArt = nil
+		title = nil
+		album = nil
+		artist = nil
+	}
+	
+	//brefore stream setup
+	func airstream(_ airstream: Airstream, willStartStreamingWithStreamFormat streamFormat: AudioStreamBasicDescription) {
+		// Set a ~2s buffer based on the negotiated stream format.
+		let bytesPerFrame = Double(streamFormat.mBytesPerFrame)
+		let bytesPerSecond = streamFormat.mSampleRate * bytesPerFrame
+		minBufferBytes = Int32(bytesPerSecond * targetLatencySeconds)
+		// Ensure we start in buffering mode.
+		self.buffering = true
+		
+		var streamFormat = streamFormat
+		//create audio component
+#if canImport(AppKit)
+		var desc = AudioComponentDescription(
+			componentType: kAudioUnitType_Output,
+			componentSubType: kAudioUnitSubType_DefaultOutput, //OS X only
+			componentManufacturer: kAudioUnitManufacturer_Apple,
+			componentFlags: 0,
+			componentFlagsMask: 0
+		)
+#elseif canImport(UIKit)
+		var desc = AudioComponentDescription(
+			componentType: kAudioUnitType_Output,
+			componentSubType: kAudioUnitSubType_RemoteIO,
+			componentManufacturer: kAudioUnitManufacturer_Apple,
+			componentFlags: 0,
+			componentFlagsMask: 0
+		)
+#endif
+		if let comp = AudioComponentFindNext(nil, &desc) {
+			let status = AudioComponentInstanceNew(comp, &audioUnit)
+			if status != noErr {
+				print("error creating new audio component instance new")
+				print(status)
+				return
+			}
+		}
+		
+		guard let audioUnit = audioUnit else { return }
+		
+		//enable input
+		let status = AudioUnitSetProperty(
+			audioUnit,
+			kAudioUnitProperty_StreamFormat,
+			kAudioUnitScope_Input,
+			0,
+			&streamFormat,
+			UInt32(MemoryLayout.size(ofValue: streamFormat))
+		)
+		if status != noErr {
+			print("error enabling input")
+			print(status)
+			return
+		}
+		
+		//setup callbacks
+		var renderCallback: AURenderCallbackStruct = AURenderCallbackStruct(
+			inputProc: OutputRenderCallback,
+			inputProcRefCon: Unmanaged.passUnretained(self).toOpaque()
+		)
+		let setupStatus = AudioUnitSetProperty(
+			audioUnit,
+			kAudioUnitProperty_SetRenderCallback,
+			kAudioUnitScope_Global,
+			0,
+			&renderCallback,
+			UInt32(MemoryLayout.size(ofValue: renderCallback))
+		)
+		if setupStatus != noErr {
+			print("failed to setup callbacks")
+			print(setupStatus)
+			return
+		}
+		
+		//init audio unit
+		let initStatus = AudioUnitInitialize(audioUnit)
+		if initStatus != noErr {
+			print("failed to init audio unit")
+			print(initStatus)
+			return
+		}
+		
+		//start audio unit
+		let unitStatus = AudioOutputUnitStart(audioUnit)
+		if unitStatus != noErr {
+			print("failed to start audio unit")
+			print(unitStatus)
+			return
+		}
+	}
+	
+	//here's some audio
+	func airstream(
+		_ airstream: Airstream,
+		processAudio buffer: UnsafeMutablePointer<CChar>,
+		length: Int32
+	) {
+		//MARK: add volume changing later
+		let audioBuffer = AudioBuffer(
+			mNumberChannels: UInt32(airstream.channelsPerFrame),
+			mDataByteSize: UInt32(length),
+			mData: buffer
+		)
+		let bufferList = AudioBufferList(
+			mNumberBuffers: 1,
+			mBuffers: audioBuffer
+		)
+		
+		TPCircularBufferProduceBytes(
+			&circularBuffer,
+			bufferList.mBuffers.mData,
+			bufferList.mBuffers.mDataByteSize
+		)
+		
+		//are we falling behind? checks if buffering is needed
+		let fillCount = TPCircularBufferFillCount(&circularBuffer)
+		self.buffering = fillCount < minBufferBytes
+	}
+	
+	//bro stopped airplaying
+	func airstreamDidStopStreaming(_ airstream: Airstream) {
+		TPCircularBufferClear(&circularBuffer)
+		
+		//stop audio unit
+		if let audioUnit = audioUnit {
+			let status = AudioOutputUnitStop(audioUnit)
+			if status != noErr {
+				print("failed to stop audio unit")
+			}
+		}
+		audioUnit = nil
+	}
+	
+	//recieved cover art
+	func airstream(_ airstream: Airstream, didSetCoverart coverart: Data) {
+		guard let uiimage = NSImage(data: coverart) else {
+			albumArt = nil
+			return
+		}
+		guard uiimage != albumArt else { return } //con only if album art is diff
+		albumArt = uiimage
+	}
+	
+	//recieved track info
+	func airstream(_ airstream: Airstream, didSetMetadata metadata: [String : String]) {
+		title = metadata["minm"] //??
+		album = metadata["asal"] //airstream album
+		artist = metadata["asar"] //airstream artist
+	}
+	
+	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {
+		canControl = true
+	}
+	
+	let OutputRenderCallback: AURenderCallback = { (
+		inRefCon,
+		ioActionFlags,
+		inTimeStamp,
+		inBusNumber,
+		inNumberFrames,
+		ioData
+	) in
+		let manager = Unmanaged<AirstreamManager>.fromOpaque(inRefCon).takeUnretainedValue()
+		if TPCircularBufferFillCount(&manager.circularBuffer) == 0 || manager.buffering {
+			//TODO: fixme
+			//			i think its just best to return???
+			for i in 0..<Int(ioData!.pointee.mNumberBuffers) {
+				memset(
+					ioData!.pointee.mBuffers.mData,
+					0,
+					Int(ioData!.pointee.mBuffers.mDataByteSize)
+				)
+			}
+			return noErr
+		}
+		
+		var availableBytes: UInt32 = 0
+		let sourceBuffer = TPCircularBufferTail(&manager.circularBuffer, &availableBytes)
+		let amount = min(ioData!.pointee.mBuffers.mDataByteSize, availableBytes)
+		
+		//copy audio from our circ buffer to audio unit's buffer
+		memcpy(ioData!.pointee.mBuffers.mData, sourceBuffer, Int(amount))
+		
+		TPCircularBufferConsume(&manager.circularBuffer, amount)
+		
+		return noErr
+	}
+}

@@ -16,9 +16,9 @@ struct ContentView: View {
 			NowPlaying(
 				ASmanager: ASmanager
 			)
-				.tabItem {
-					Label("Now Playing", systemImage: "play.fill")
-				}
+			.tabItem {
+				Label("Now Playing", systemImage: "play.fill")
+			}
 			HelpView()
 				.tabItem {
 					Label("Help", systemImage: "questionmark.app")
@@ -26,9 +26,9 @@ struct ContentView: View {
 			SettingsView(
 				ASmanager: ASmanager
 			)
-				.tabItem {
-					Label("Settings", systemImage: "gear")
-				}
+			.tabItem {
+				Label("Settings", systemImage: "gear")
+			}
 		}
 	}
 }

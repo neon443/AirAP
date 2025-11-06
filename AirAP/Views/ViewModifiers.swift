@@ -8,6 +8,24 @@
 import Foundation
 import SwiftUI
 
+struct OverlayIfPossible<V: View>: ViewModifier{
+	var alignment: Alignment
+	var overlayContent: () -> V
+	
+	init(alignment: Alignment, overlayContent: @escaping () -> V) {
+		self.alignment = alignment
+		self.overlayContent = overlayContent
+	}
+	
+	func body(content: Content) -> some View {
+		if #available(iOS 15, *) {
+			content.overlay(alignment: alignment, content: overlayContent)
+		} else {
+			content
+		}
+	}
+}
+
 struct AlbumArtGlassEffect: ViewModifier {
 	func body(content: Content) -> some View {
 		if #available(iOS 19, *) {

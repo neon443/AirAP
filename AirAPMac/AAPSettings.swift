@@ -1,12 +1,17 @@
 //
 //  AAPSettings.swift
-//  AirAP
+//  AirAPMac
 //
-//  Created by neon443 on 25/05/2025.
+//  Created by neon443 on 03/11/2025.
 //
 
 import Foundation
+import Combine
+#if canImport(UIKit)
 import UIKit
+#else
+import AppKit
+#endif
 
 struct AAPSettings: Codable {
 	var name: String
@@ -15,17 +20,15 @@ struct AAPSettings: Codable {
 	var bgBlur: CGFloat
 	var showMetadata: Bool
 	var showAudioQuality: Bool
-	var delay: CGFloat
 }
 
-class AAPSettingsModel: ObservableObject {
-	@Published var name: String = "AirAP"
-	@Published var showBg: Bool = true
-	@Published var bgOpacity: CGFloat = 0.8
-	@Published var bgBlur: CGFloat = 75
-	@Published var showMetadata: Bool = true
-	@Published var showAudioQuality: Bool = true
-	@Published var delay: CGFloat = 0
+class AAPSettingsModel {
+	var name: String = "AirAP"
+	var showBg: Bool = true
+	var bgOpacity: CGFloat = 0.8
+	var bgBlur: CGFloat = 75
+	var showMetadata: Bool = true
+	var showAudioQuality: Bool = true
 	
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
@@ -44,7 +47,6 @@ class AAPSettingsModel: ObservableObject {
 			bgBlur = decoded.bgBlur
 			showMetadata = decoded.showMetadata
 			showAudioQuality = decoded.showAudioQuality
-			delay = decoded.delay
 		}
 	}
 	
@@ -56,8 +58,7 @@ class AAPSettingsModel: ObservableObject {
 			bgOpacity: bgOpacity,
 			bgBlur: bgBlur,
 			showMetadata: showMetadata,
-			showAudioQuality: showAudioQuality,
-			delay: delay
+			showAudioQuality: showAudioQuality
 		)
 		if let encoded = try? encoder.encode(settings) {
 			userdefaults.set(encoded, forKey: "settings")
