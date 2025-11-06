@@ -5,8 +5,8 @@
 //  Created by neon443 on 18/05/2025.
 //
 
-VERSION = 2.10
-BUILD_NUMBER = 8
+VERSION = 2.11
+BUILD_NUMBER = 14
 
 // Configuration settings file format documentation can be found at:
 // https://developer.apple.com/documentation/xcode/adding-a-build-configuration-file-to-your-project

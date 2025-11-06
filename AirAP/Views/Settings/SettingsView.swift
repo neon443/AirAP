@@ -47,7 +47,7 @@ struct SettingsView: View {
 						title: "Delay",
 						minLabel: "-2s",
 						maxLabel: " 2s",
-						disabled: $ASmanager.running
+						disabled: .constant(false)
 					)
 					.onChange(of: ASmanager.settings.delay) { _ in
 						ASmanager.settings.saveSettings()

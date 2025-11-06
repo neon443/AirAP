@@ -33,7 +33,7 @@ struct SliderDetailView: View {
 				Button("", systemImage: "arrow.uturn.backward") {
 					withAnimation { value = defaultValue }
 				}
-				.disabled(value == defaultValue)
+				.disabled(value == defaultValue || disabled)
 				.buttonStyle(.plain)
 				.padding(.horizontal, 5)
 				.padding(.trailing, -10)
