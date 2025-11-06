@@ -13,7 +13,19 @@ struct SettingsView: View {
 	var body: some View {
 		VStack {
 			Form {
-				Slider(value: $ASmanager.settings.delay, in: -2...2)
+				SliderDetailView(
+					value: $ASmanager.settings.delay,
+					range: -2...2,
+					defaultValue: 0,
+					step: 0.25,
+					title: "Delay",
+					minLabel: "-2s",
+					maxLabel: " 2s",
+					disabled: $ASmanager.running
+				)
+				.onChange(of: ASmanager.settings.delay) { _ in
+					ASmanager.settings.saveSettings()
+				}
 				
 				Section(
 					header: Text("server"),
@@ -41,48 +53,34 @@ struct SettingsView: View {
 						.onChange(of: ASmanager.settings.showBg) { _ in
 							ASmanager.settings.saveSettings()
 						}
-					VStack(alignment: .center) {
-						HStack {
-							Text("Opacity")
-							Spacer()
-							Text("\(Int(ASmanager.settings.bgOpacity*100))%")
-								.font(.title3)
-								.bold()
-								.modifier(monospacedIfAv())
-						}
-						HStack {
-							Text("0%")
-								.modifier(monospacedIfAv())
-							Slider(value: $ASmanager.settings.bgOpacity, in: 0...1, step: 0.05)
-								.onChange(of: ASmanager.settings.bgOpacity) { _ in
-									ASmanager.settings.saveSettings()
-								}
-								.disabled(!ASmanager.settings.showBg)
-							Text("100%")
-								.modifier(monospacedIfAv())
-						}
+					SliderDetailView(
+						value: $ASmanager.settings.bgOpacity,
+						range: 0...1,
+						defaultValue: 0.8,
+						step: 0.05,
+						title: "Opacity",
+						minLabel: "0%",
+						maxLabel: "100%",
+						disabled: Binding(get: {
+							!ASmanager.settings.showBg
+						}, set: { ASmanager.settings.showBg = $0 })
+					)
+					.onChange(of: ASmanager.settings.bgOpacity) { _ in
+						ASmanager.settings.saveSettings()
 					}
-					VStack(alignment: .center) {
-						HStack {
-							Text("Blur")
-							Spacer()
-							Text("\(Int(ASmanager.settings.bgBlur))")
-								.font(.title3)
-								.bold()
-								.modifier(monospacedIfAv())
-						}
-						HStack {
-							Text("0 ")
-								.modifier(monospacedIfAv())
-							Slider(value: $ASmanager.settings.bgBlur, in: 0...100, step: 5)
-								.onChange(of: ASmanager.settings.bgBlur) { _ in
-									ASmanager.settings.saveSettings()
-								}
-								.disabled(!ASmanager.settings.showBg)
-							Text("100")
-								.modifier(monospacedIfAv())
-						}
-					}
+
+					SliderDetailView(
+						value: $ASmanager.settings.bgBlur,
+						range: 0...100,
+						defaultValue: 75,
+						step: 5,
+						title: "Blur",
+						minLabel: "0" ,
+						maxLabel: "100",
+						disabled: Binding(get: {
+							!ASmanager.settings.showBg
+						}, set: { ASmanager.settings.showBg = $0 })
+					)
 				}
 				Section(
 					header: Text("metadata")
