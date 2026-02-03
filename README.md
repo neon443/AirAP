@@ -51,7 +51,7 @@
 </div>
 
 <div align="center">
-  <a href="https://github.com/neon443/AirAP" target="_blank">
+  <a href="https://github.com/neon443/AirAP/blob/main/Icon/shipwrecked.png?raw=true" target="_blank">
     <img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/739361f1d440b17fc9e2f74e49fc185d86cbec14_badge.png" 
          alt="This project is part of Shipwrecked, the world's first hackathon on an island!" 
          style="width: 25%;">
@@ -95,6 +95,7 @@ would not have been possible without these
 <sup>
 &copy; 2025 Nihaal Sharma. AirPlay, iPhone, iTunes, Mac, and Apple TV are trademarks of Apple Inc.
 </sup>
+
 
 
 
