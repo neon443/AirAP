@@ -33,7 +33,7 @@
 <div align="center"> 
     <br/>
     <p>
-        <img src="https://files.catbox.moe/f4jofb.png" title="icon" alt="icon" width="100" />
+        <img src="https://github.com/neon443/AirAP/blob/main/Icon/icon.png?raw=true" title="icon" alt="icon" width="100" />
     </p>
     <p>
         use your iphone as an airplay receiver
@@ -95,4 +95,5 @@ would not have been possible without these
 <sup>
 &copy; 2025 Nihaal Sharma. AirPlay, iPhone, iTunes, Mac, and Apple TV are trademarks of Apple Inc.
 </sup>
+
 
