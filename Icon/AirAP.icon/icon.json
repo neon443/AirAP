@@ -18,9 +18,16 @@
               "value" : {
                 "automatic-gradient" : "srgb:1.00000,0.18039,0.45490,1.00000"
               }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "display-p3:0.91986,0.88662,0.84101,1.00000"
+              }
             }
           ],
           "glass" : true,
+          "hidden" : false,
           "image-name" : "airplay.audio.png",
           "name" : "airplay.audio",
           "position" : {
@@ -38,15 +45,21 @@
               "value" : {
                 "solid" : "extended-srgb:0.00000,0.47843,1.00000,1.00000"
               }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "display-p3:0.98086,0.95773,1.00000,1.00000"
+              }
             }
           ],
-          "glass" : false,
+          "glass" : true,
           "image-name" : "Rounded Rectangle.png",
           "name" : "Rounded Rectangle",
           "position" : {
             "scale" : 1,
             "translation-in-points" : [
-              0.8984375,
+              0,
               -138.4921875
             ]
           }
@@ -63,9 +76,15 @@
               "value" : {
                 "automatic-gradient" : "display-p3:1.00000,0.18039,0.45490,1.00000"
               }
+            },
+            {
+              "appearance" : "tinted",
+              "value" : {
+                "solid" : "display-p3:0.99034,1.00000,0.94183,1.00000"
+              }
             }
           ],
-          "glass" : false,
+          "glass" : true,
           "image-name" : "Group copy.png",
           "name" : "Group copy",
           "position" : {

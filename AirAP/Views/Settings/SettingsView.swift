@@ -110,9 +110,6 @@ struct SettingsView: View {
 						.disabled(!ASmanager.settings.showMetadata)
 				}
 			}
-			.tabViewBottomAccessory(content: {
-				Text("i")
-			})
 			.modifier(OverlayIfPossible(alignment: .bottom, overlayContent: {
 				StartStopButton(ASmanager: ASmanager)
 			}))
