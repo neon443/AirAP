@@ -11,13 +11,23 @@ import SwiftUI
 class AirAPApp: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
-//		if #unavailable(iOS 14) {
+	@available(iOS 13, *)
+	func application(
+		_ application: UIApplication,
+		configurationForConnecting connectingSceneSession: UISceneSession,
+		options: UIScene.ConnectionOptions
+	) -> UISceneConfiguration {
 		if #available(iOS 14, *) {
-			window = UIWindow(frame: UIScreen.main.bounds)
-			let view = ContentView()
-			let hostingController = UIHostingController(rootView: view)
-			window?.rootViewController = hostingController
+			let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+			config.delegateClass = SceneDelegate.self
+			return config
+		} else {
+			fatalError()
+		}
+	}
+	
+	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
+		if #available(iOS 14, *) {
 		} else {
 			window = UIWindow(frame: UIScreen.main.bounds)
 			window?.rootViewController = UIViewController()

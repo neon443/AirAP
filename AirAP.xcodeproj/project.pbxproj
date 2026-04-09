@@ -23,8 +23,6 @@
 		A966B4B42DDF8A6B00C721A5 /* AlbumArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */; };
 		A96A94342DDE80AC00C12751 /* MetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A96A94332DDE80AC00C12751 /* MetadataView.swift */; };
 		A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A96EAF312DDA005000E13432 /* Config.xcconfig */; };
-		A98C20C22DE4F7170008D61C /* Portrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98C20C12DE4F7170008D61C /* Portrait.swift */; };
-		A98C20C42DE4F7A40008D61C /* Landscape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A98C20C32DE4F7A40008D61C /* Landscape.swift */; };
 		A9904A322DDD0AD900816130 /* NowPlaying.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A312DDD0AD900816130 /* NowPlaying.swift */; };
 		A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A332DDD0BE100816130 /* SettingsView.swift */; };
 		A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A3C2DDD1CD600816130 /* StartStopButton.swift */; };
@@ -34,6 +32,9 @@
 		A9BBC55D2EB8FD5A00FFE82F /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; };
 		A9BBC55E2EB8FD5A00FFE82F /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9C897572DF0BFD600EF9A5F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9C897562DF0BFD600EF9A5F /* README.md */; };
+		A9F424912F880C7E00C0BE3B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F424902F880C7E00C0BE3B /* SceneDelegate.swift */; };
+		A9F424942F8816ED00C0BE3B /* Landscape.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F424922F8816ED00C0BE3B /* Landscape.swift */; };
+		A9F424952F8816ED00C0BE3B /* Portrait.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F424932F8816ED00C0BE3B /* Portrait.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,8 +116,6 @@
 		A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtView.swift; sourceTree = "<group>"; };
 		A96A94332DDE80AC00C12751 /* MetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataView.swift; sourceTree = "<group>"; };
 		A96EAF312DDA005000E13432 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		A98C20C12DE4F7170008D61C /* Portrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Portrait.swift; path = AirAP/Views/Playing/Portrait.swift; sourceTree = SOURCE_ROOT; };
-		A98C20C32DE4F7A40008D61C /* Landscape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Landscape.swift; path = AirAP/Views/Playing/Landscape.swift; sourceTree = SOURCE_ROOT; };
 		A9904A312DDD0AD900816130 /* NowPlaying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlaying.swift; sourceTree = "<group>"; };
 		A9904A332DDD0BE100816130 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		A9904A3C2DDD1CD600816130 /* StartStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopButton.swift; sourceTree = "<group>"; };
@@ -128,6 +127,9 @@
 		A9BBC5552EB8FCD400FFE82F /* TPCircularBuffer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = TPCircularBuffer; path = "/Users/neon443/Library/Developer/Xcode/DerivedData/AirAP-gqmetjhjvtcbaccgdwllkddhtwec/SourcePackages/checkouts/TPCircularBuffer"; sourceTree = "<absolute>"; };
 		A9C897562DF0BFD600EF9A5F /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
+		A9F424902F880C7E00C0BE3B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		A9F424922F8816ED00C0BE3B /* Landscape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landscape.swift; sourceTree = "<group>"; };
+		A9F424932F8816ED00C0BE3B /* Portrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portrait.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -188,8 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				A9904A312DDD0AD900816130 /* NowPlaying.swift */,
-				A98C20C12DE4F7170008D61C /* Portrait.swift */,
-				A98C20C32DE4F7A40008D61C /* Landscape.swift */,
+				A9F424922F8816ED00C0BE3B /* Landscape.swift */,
+				A9F424932F8816ED00C0BE3B /* Portrait.swift */,
 				A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */,
 			);
 			path = Playing;
@@ -230,13 +232,14 @@
 				A9B78B8D2DF9D56300647399 /* Info.plist */,
 				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
+				A9F424902F880C7E00C0BE3B /* SceneDelegate.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
-				A92DCAE02DD74F2000D82924 /* Views */,
+				A92DCAE02DD74F2000D82924 /* SwiftUI */,
 			);
 			path = AirAP;
 			sourceTree = "<group>";
 		};
-		A92DCAE02DD74F2000D82924 /* Views */ = {
+		A92DCAE02DD74F2000D82924 /* SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
 				A92DCADB2DD74F1800D82924 /* ContentView.swift */,
@@ -248,7 +251,7 @@
 				A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */,
 				A92538D72DF0972B007E0A18 /* ViewModifiers.swift */,
 			);
-			path = Views;
+			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		A93C6A292DF09CBC0006E216 /* Products */ = {
@@ -514,9 +517,10 @@
 				A931D4122EBD1F22007BC75B /* SliderDetailView.swift in Sources */,
 				A9904A322DDD0AD900816130 /* NowPlaying.swift in Sources */,
 				A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */,
-				A98C20C42DE4F7A40008D61C /* Landscape.swift in Sources */,
 				A94BEC122DE33A7C00D4811D /* AAPSettings.swift in Sources */,
-				A98C20C22DE4F7170008D61C /* Portrait.swift in Sources */,
+				A9F424912F880C7E00C0BE3B /* SceneDelegate.swift in Sources */,
+				A9F424942F8816ED00C0BE3B /* Landscape.swift in Sources */,
+				A9F424952F8816ED00C0BE3B /* Portrait.swift in Sources */,
 				A96A94342DDE80AC00C12751 /* MetadataView.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
 				A90D496B2DDE73B300781124 /* PlaybackControls.swift in Sources */,
