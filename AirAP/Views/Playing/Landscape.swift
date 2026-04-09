@@ -26,11 +26,11 @@ struct Landscape: View {
 					.frame(maxWidth: geoSize.width, maxHeight: geoSize.height)
 					.modifier(backgroundExtensionEffectIfAv())
 			}
-			HStack(alignment: .center) {
+			HStack(alignment: .center, spacing: 5) {
 				AlbumArtView(ASmanager: ASmanager)
-//					.padding()
 					.frame(maxWidth: geoSize.width*0.5)
-					.border(.red)
+					.aspectRatio(1, contentMode: .fit)
+					.padding(.top)
 				
 				VStack {
 					if ASmanager.settings.showMetadata {
