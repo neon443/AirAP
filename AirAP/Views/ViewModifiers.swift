@@ -114,14 +114,3 @@ struct MetadataBody: ViewModifier {
 			.shadow(color: .secondary.opacity(0.5), radius: 3)
 	}
 }
-
-extension Color {
-	var inverted: Color {
-		let uiColor = UIColor(self)
-		var r: CGFloat = 0.0
-		var g: CGFloat = 0.0
-		var b: CGFloat = 0.0
-		uiColor.getRed(&r, green: &g, blue: &b, alpha: nil)
-		return Color(red: r, green: g, blue: b)
-	}
-}
