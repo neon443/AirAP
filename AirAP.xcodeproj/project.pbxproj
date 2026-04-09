@@ -14,7 +14,8 @@
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
 		A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCADB2DD74F1800D82924 /* ContentView.swift */; };
 		A931D4122EBD1F22007BC75B /* SliderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A931D4112EBD1F22007BC75B /* SliderDetailView.swift */; };
-		A93C6A302DF09F9D0006E216 /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A93C6A2F2DF09F9D0006E216 /* TPCircularBuffer */; };
+		A93470F62F8820AA00C04F7F /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A93C6A2F2DF09F9D0006E216 /* TPCircularBuffer */; };
+		A934710C2F8820BF00C04F7F /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A934710B2F8820BF00C04F7F /* TPCircularBuffer */; };
 		A93C6A392DF0A2110006E216 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; };
 		A93C6A3A2DF0A2430006E216 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A94BEC122DE33A7C00D4811D /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BEC112DE33A7C00D4811D /* AAPSettings.swift */; };
@@ -27,8 +28,6 @@
 		A9904A342DDD0BE100816130 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A332DDD0BE100816130 /* SettingsView.swift */; };
 		A9904A3D2DDD1CD600816130 /* StartStopButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9904A3C2DDD1CD600816130 /* StartStopButton.swift */; };
 		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
-		A9B1E25C2EBD46EE00AD7FAC /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A9B1E25B2EBD46EE00AD7FAC /* TPCircularBuffer */; };
-		A9B1E25F2EBD475500AD7FAC /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A9B1E25E2EBD475500AD7FAC /* TPCircularBuffer */; };
 		A9BBC55D2EB8FD5A00FFE82F /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; };
 		A9BBC55E2EB8FD5A00FFE82F /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9C897572DF0BFD600EF9A5F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9C897562DF0BFD600EF9A5F /* README.md */; };
@@ -143,9 +142,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A93470F62F8820AA00C04F7F /* TPCircularBuffer in Frameworks */,
+				A934710C2F8820BF00C04F7F /* TPCircularBuffer in Frameworks */,
 				A93C6A392DF0A2110006E216 /* Airstream.framework in Frameworks */,
-				A9B1E25C2EBD46EE00AD7FAC /* TPCircularBuffer in Frameworks */,
-				A93C6A302DF09F9D0006E216 /* TPCircularBuffer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,7 +153,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9BBC55D2EB8FD5A00FFE82F /* Airstream.framework in Frameworks */,
-				A9B1E25F2EBD475500AD7FAC /* TPCircularBuffer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +323,7 @@
 			name = AirAP;
 			packageProductDependencies = (
 				A93C6A2F2DF09F9D0006E216 /* TPCircularBuffer */,
-				A9B1E25B2EBD46EE00AD7FAC /* TPCircularBuffer */,
+				A934710B2F8820BF00C04F7F /* TPCircularBuffer */,
 			);
 			productName = AirAP;
 			productReference = A92DCAC52DD74EB000D82924 /* AirAP.app */;
@@ -349,7 +347,6 @@
 			);
 			name = AirAPMac;
 			packageProductDependencies = (
-				A9B1E25E2EBD475500AD7FAC /* TPCircularBuffer */,
 			);
 			productName = AirAPMac;
 			productReference = A9BBC5272EB8FB8200FFE82F /* AirAPMac.app */;
@@ -439,7 +436,7 @@
 			mainGroup = A92DCABC2DD74EB000D82924;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A9B1E25A2EBD46EE00AD7FAC /* XCRemoteSwiftPackageReference "TPCircularBuffer" */,
+				A934710A2F8820BF00C04F7F /* XCRemoteSwiftPackageReference "TPCircularBuffer" */,
 			);
 			productRefGroup = A92DCAC62DD74EB000D82924 /* Products */;
 			projectDirPath = "";
@@ -993,7 +990,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		A9B1E25A2EBD46EE00AD7FAC /* XCRemoteSwiftPackageReference "TPCircularBuffer" */ = {
+		A934710A2F8820BF00C04F7F /* XCRemoteSwiftPackageReference "TPCircularBuffer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/neon443/TPCircularBuffer";
 			requirement = {
@@ -1004,18 +1001,13 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A934710B2F8820BF00C04F7F /* TPCircularBuffer */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A934710A2F8820BF00C04F7F /* XCRemoteSwiftPackageReference "TPCircularBuffer" */;
+			productName = TPCircularBuffer;
+		};
 		A93C6A2F2DF09F9D0006E216 /* TPCircularBuffer */ = {
 			isa = XCSwiftPackageProductDependency;
-			productName = TPCircularBuffer;
-		};
-		A9B1E25B2EBD46EE00AD7FAC /* TPCircularBuffer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A9B1E25A2EBD46EE00AD7FAC /* XCRemoteSwiftPackageReference "TPCircularBuffer" */;
-			productName = TPCircularBuffer;
-		};
-		A9B1E25E2EBD475500AD7FAC /* TPCircularBuffer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A9B1E25A2EBD46EE00AD7FAC /* XCRemoteSwiftPackageReference "TPCircularBuffer" */;
 			productName = TPCircularBuffer;
 		};
 /* End XCSwiftPackageProductDependency section */
