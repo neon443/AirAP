@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@available(iOS 14, *)
 extension Color {
 	func luminance() -> Double {
 		let uiColor = UIColor(self)

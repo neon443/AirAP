@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct Portrait: View {
 	@ObservedObject var ASmanager: AirstreamManager
 	@State var geoSize: CGSize
@@ -28,10 +29,8 @@ struct Portrait: View {
 			
 			VStack(alignment: .center) {
 				AlbumArtView(ASmanager: ASmanager)
-					.frame(
-						maxWidth: geoSize.width*0.8,
-						maxHeight: geoSize.width*0.8
-					)
+					.frame(maxWidth: geoSize.width*0.8)
+					.aspectRatio(1, contentMode: .fit)
 				
 				if ASmanager.settings.showMetadata {
 					MetadataView(
@@ -55,6 +54,7 @@ struct Portrait: View {
 	}
 }
 
+@available(iOS 14, *)
 #Preview {
 	GeometryReader { geo in
 		Portrait(

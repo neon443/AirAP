@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct Landscape: View {
 	@ObservedObject var ASmanager: AirstreamManager
 	@State var geoSize: CGSize
@@ -27,8 +28,9 @@ struct Landscape: View {
 			}
 			HStack(alignment: .center) {
 				AlbumArtView(ASmanager: ASmanager)
-					.padding()
-					.frame(maxWidth: geoSize.width*0.5, maxHeight: geoSize.width*0.5)
+//					.padding()
+					.frame(maxWidth: geoSize.width*0.5)
+					.border(.red)
 				
 				VStack {
 					if ASmanager.settings.showMetadata {

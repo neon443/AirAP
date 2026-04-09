@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct SliderDetailView: View {
 	@Binding var value: CGFloat
 	@State var valueUnit: String

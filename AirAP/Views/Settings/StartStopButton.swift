@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct StartStopButton: View {
 	@ObservedObject var ASmanager: AirstreamManager
 	
@@ -49,6 +50,7 @@ struct StartStopButton: View {
 	}
 }
 
+@available(iOS 14, *)
 #Preview {
 	ZStack {
 		VStack {

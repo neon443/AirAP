@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct AlbumArtView: View {
 	@ObservedObject var ASmanager: AirstreamManager
 	let padding: CGFloat = 10
@@ -54,6 +55,7 @@ struct AlbumArtView: View {
 	}
 }
 
+@available(iOS 14, *)
 #Preview {
 	ZStack(alignment: .center) {
 		Color.orange

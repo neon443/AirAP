@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct SettingsView: View {
 	@ObservedObject var ASmanager: AirstreamManager
 	
@@ -117,6 +118,7 @@ struct SettingsView: View {
 	}
 }
 
+@available(iOS 14, *)
 #Preview {
 	SettingsView(
 		ASmanager: AirstreamManager()

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct PlaybackControls: View {
 	@ObservedObject var ASmanager: AirstreamManager
 	
@@ -46,6 +47,7 @@ struct PlaybackControls: View {
 	}
 }
 
+@available(iOS 14, *)
 #Preview {
 	PlaybackControls(
 		ASmanager: AirstreamManager()

@@ -11,6 +11,7 @@ import AVFoundation
 import UIKit
 import SwiftUI
 
+@available(iOS 14, *)
 class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	@Published var airstream: Airstream?
 	

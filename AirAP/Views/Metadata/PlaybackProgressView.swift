@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct PlaybackProgressView: View {
 	@ObservedObject var ASmanager: AirstreamManager
 	
@@ -15,6 +16,7 @@ struct PlaybackProgressView: View {
     }
 }
 
+@available(iOS 14, *)
 #Preview {
     PlaybackProgressView(
 		ASmanager: AirstreamManager()

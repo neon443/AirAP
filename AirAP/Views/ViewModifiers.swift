@@ -8,6 +8,7 @@
 import Foundation
 import SwiftUI
 
+@available(iOS 14, *)
 struct OverlayIfPossible<V: View>: ViewModifier{
 	var alignment: Alignment
 	var overlayContent: () -> V
@@ -26,6 +27,7 @@ struct OverlayIfPossible<V: View>: ViewModifier{
 	}
 }
 
+@available(iOS 14, *)
 struct AlbumArtGlassEffect: ViewModifier {
 	func body(content: Content) -> some View {
 		if #available(iOS 19, *) {
@@ -36,6 +38,7 @@ struct AlbumArtGlassEffect: ViewModifier {
 	}
 }
 
+@available(iOS 14, *)
 struct contentTransitionIfAv: ViewModifier {
 	func body(content: Content) -> some View {
 		if #available(iOS 16, *) {
@@ -47,6 +50,7 @@ struct contentTransitionIfAv: ViewModifier {
 	}
 }
 
+@available(iOS 14, *)
 struct monospacedIfAv: ViewModifier {
 	func body(content: Content) -> some View {
 		if #available(iOS 16, *) {
@@ -59,6 +63,7 @@ struct monospacedIfAv: ViewModifier {
 	}
 }
 
+@available(iOS 14, *)
 struct backgroundExtensionEffectIfAv: ViewModifier {
 	func body(content: Content) -> some View {
 		if #available(iOS 19, *) {
@@ -69,6 +74,7 @@ struct backgroundExtensionEffectIfAv: ViewModifier {
 	}
 }
 
+@available(iOS 14, *)
 struct foregroundColorStyle: ViewModifier {
 	var color: Color
 	
@@ -85,6 +91,7 @@ struct foregroundColorStyle: ViewModifier {
 	}
 }
 
+@available(iOS 14, *)
 struct UltraThinMaterialIfAv: ViewModifier {
 	func body(content: Content) -> some View {
 		if #available(iOS 15, *) {
@@ -96,6 +103,7 @@ struct UltraThinMaterialIfAv: ViewModifier {
 	}
 }
 
+@available(iOS 14, *)
 struct MetadataHeading: ViewModifier {
 	func body(content: Content) -> some View {
 		content
@@ -105,6 +113,7 @@ struct MetadataHeading: ViewModifier {
 	}
 }
 
+@available(iOS 14, *)
 struct MetadataBody: ViewModifier {
 	func body(content: Content) -> some View {
 		content

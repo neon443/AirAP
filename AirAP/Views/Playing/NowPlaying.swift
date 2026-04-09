@@ -8,6 +8,7 @@
 import SwiftUI
 import ActivityKit
 
+@available(iOS 14, *)
 struct NowPlaying: View {
 	@ObservedObject var ASmanager: AirstreamManager
 	
@@ -28,6 +29,7 @@ struct NowPlaying: View {
 	}
 }
 
+@available(iOS 14, *)
 #Preview {
 	NowPlaying(
 		ASmanager: AirstreamManager()

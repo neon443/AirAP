@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct HelpView: View {
     var body: some View {
 		List {
@@ -20,6 +21,7 @@ struct HelpView: View {
     }
 }
 
+@available(iOS 14, *)
 #Preview {
     HelpView()
 }

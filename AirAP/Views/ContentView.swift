@@ -8,6 +8,7 @@
 import SwiftUI
 import Airstream
 
+@available(iOS 14, *)
 struct ContentView: View {
 	@StateObject var ASmanager = AirstreamManager()
 	
@@ -33,6 +34,7 @@ struct ContentView: View {
 	}
 }
 
+@available(iOS 14, *)
 #Preview {
     ContentView()
 }

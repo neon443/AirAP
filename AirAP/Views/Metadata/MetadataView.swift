@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@available(iOS 14, *)
 struct MetadataView: View {
 	@ObservedObject var ASmanager: AirstreamManager
 	
@@ -84,6 +85,7 @@ struct MetadataView: View {
 	}
 }
 
+@available(iOS 14, *)
 #Preview {
 	MetadataView(
 		ASmanager: AirstreamManager()
