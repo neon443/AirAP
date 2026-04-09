@@ -5,10 +5,9 @@
 //  Created by neon443 on 16/05/2025.
 //
 
-import SwiftUI
+import UIKit
 
-@main
-class AirAPApp: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	
 	@available(iOS 13, *)
@@ -17,13 +16,9 @@ class AirAPApp: UIResponder, UIApplicationDelegate {
 		configurationForConnecting connectingSceneSession: UISceneSession,
 		options: UIScene.ConnectionOptions
 	) -> UISceneConfiguration {
-		if #available(iOS 14, *) {
-			let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
-			config.delegateClass = SceneDelegate.self
-			return config
-		} else {
-			fatalError()
-		}
+		let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
+		config.delegateClass = SceneDelegate.self
+		return config
 	}
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {

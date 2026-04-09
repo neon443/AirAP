@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI
 
-@available(iOS 14, *)
+@available(iOS 13, *)
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	var window: UIWindow?
 	

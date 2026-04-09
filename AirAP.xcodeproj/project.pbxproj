@@ -16,6 +16,7 @@
 		A931D4122EBD1F22007BC75B /* SliderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A931D4112EBD1F22007BC75B /* SliderDetailView.swift */; };
 		A93470F62F8820AA00C04F7F /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A93C6A2F2DF09F9D0006E216 /* TPCircularBuffer */; };
 		A934710C2F8820BF00C04F7F /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A934710B2F8820BF00C04F7F /* TPCircularBuffer */; };
+		A93471762F882E6700C04F7F /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93471752F882E6700C04F7F /* main.swift */; };
 		A93C6A392DF0A2110006E216 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; };
 		A93C6A3A2DF0A2430006E216 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A94BEC122DE33A7C00D4811D /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BEC112DE33A7C00D4811D /* AAPSettings.swift */; };
@@ -104,6 +105,7 @@
 		A92DCADA2DD74F1800D82924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A92DCADB2DD74F1800D82924 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A931D4112EBD1F22007BC75B /* SliderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDetailView.swift; sourceTree = "<group>"; };
+		A93471752F882E6700C04F7F /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		A93C6A152DF09C200006E216 /* Airstream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Airstream.xcodeproj; path = Carthage/Checkouts/Airstream/Airstream.xcodeproj; sourceTree = "<group>"; };
 		A93C6A362DF0A0980006E216 /* AirAP-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirAP-Bridge.h"; sourceTree = "<group>"; };
 		A93C6A3B2DF0A2C00006E216 /* TPCircularBufferFillCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCircularBufferFillCount.h; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
 				A9B78B8D2DF9D56300647399 /* Info.plist */,
 				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
+				A93471752F882E6700C04F7F /* main.swift */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
 				A9F424902F880C7E00C0BE3B /* SceneDelegate.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
@@ -520,6 +523,7 @@
 				A9F424952F8816ED00C0BE3B /* Portrait.swift in Sources */,
 				A96A94342DDE80AC00C12751 /* MetadataView.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
+				A93471762F882E6700C04F7F /* main.swift in Sources */,
 				A90D496B2DDE73B300781124 /* PlaybackControls.swift in Sources */,
 				A92DCADF2DD74F1800D82924 /* ContentView.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,

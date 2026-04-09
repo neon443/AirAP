@@ -18,7 +18,7 @@ struct AAPSettings: Codable {
 	var delay: CGFloat
 }
 
-@available(iOS 14, *)
+@available(iOS 13, *)
 class AAPSettingsModel: ObservableObject {
 	@Published var name: String = "AirAP"
 	@Published var showBg: Bool = true

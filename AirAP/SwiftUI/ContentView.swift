@@ -8,28 +8,32 @@
 import SwiftUI
 import Airstream
 
-@available(iOS 14, *)
+@available(iOS 13, *)
 struct ContentView: View {
-	@StateObject var ASmanager = AirstreamManager()
+	@State var ASmanager = AirstreamManager()
 	
 	var body: some View {
-		TabView {
-			NowPlaying(
-				ASmanager: ASmanager
-			)
-			.tabItem {
-				Label("Now Playing", systemImage: "play.fill")
-			}
-			HelpView()
+		if #available(iOS 14, *) {
+			TabView {
+				NowPlaying(
+					ASmanager: ASmanager
+				)
 				.tabItem {
-					Label("Help", systemImage: "questionmark.app")
+					Label("Now Playing", systemImage: "play.fill")
 				}
-			SettingsView(
-				ASmanager: ASmanager
-			)
-			.tabItem {
-				Label("Settings", systemImage: "gear")
+				HelpView()
+					.tabItem {
+						Label("Help", systemImage: "questionmark.app")
+					}
+				SettingsView(
+					ASmanager: ASmanager
+				)
+				.tabItem {
+					Label("Settings", systemImage: "gear")
+				}
 			}
+		} else {
+			Text("hi ios 13!")
 		}
 	}
 }
