@@ -6,36 +6,13 @@
 //
 
 import UIKit
+import SwiftUI
 
-class AppDelegate: UIResponder, UIApplicationDelegate {
-	var window: UIWindow?
-	
-	@available(iOS 13, *)
-	func application(
-		_ application: UIApplication,
-		configurationForConnecting connectingSceneSession: UISceneSession,
-		options: UIScene.ConnectionOptions
-	) -> UISceneConfiguration {
-		let config = UISceneConfiguration(name: nil, sessionRole: connectingSceneSession.role)
-		config.delegateClass = SceneDelegate.self
-		return config
-	}
-	
-	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
-		if #available(iOS 14, *) {
-		} else {
-			window = UIWindow(frame: UIScreen.main.bounds)
-			window?.rootViewController = UIViewController()
-			
-			let label = UILabel()
-			label.text = "hello uikit"
-			label.frame = window!.frame
-			label.translatesAutoresizingMaskIntoConstraints = false
-			
-			window?.rootViewController?.view.addSubview(label)
-			window?.rootViewController?.view.bringSubviewToFront(label)
+@main
+struct AirAPApp: App {
+	var body: some Scene {
+		WindowGroup {
+			ContentView()
 		}
-		window?.makeKeyAndVisible()
-		return true
 	}
 }
