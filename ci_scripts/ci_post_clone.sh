@@ -9,7 +9,8 @@
 cd ..
 brew install carthage
 carthage checkout
-sed -i 's/SKIP_INSTALL = NO/SKIP_INSTALL = YES/g' Carthage/Checkouts/Airstream/Carthage/Checkouts/shairplay/extras/xcode/alac/alac.xcodeproj/project.pbxproj
-sed -i 's/SKIP_INSTALL = NO/SKIP_INSTALL = YES/g' Carthage/Checkouts/Airstream/Carthage/Checkouts/shairplay/extras/xcode/crypto/crypto.xcodeproj/project.pbxproj
-sed -i 's/SKIP_INSTALL = NO/SKIP_INSTALL = YES/g' Carthage/Checkouts/Airstream/Carthage/Checkouts/shairplay/extras/xcode/shairplay/shairplay.xcodeproj/project.pbxproj
-sed -i 's/SKIP_INSTALL = NO/SKIP_INSTALL = YES/g' Carthage/Checkouts/Airstream/Airstream.xcodeproj/project.pbxproj
+
+sed -i '' 's/SKIP_INSTALL = NO/SKIP_INSTALL = YES/g' Carthage/Checkouts/Airstream/Carthage/Checkouts/shairplay/extras/xcode/alac/alac.xcodeproj/project.pbxproj
+sed -i '' 's/SKIP_INSTALL = NO/SKIP_INSTALL = YES/g' Carthage/Checkouts/Airstream/Carthage/Checkouts/shairplay/extras/xcode/crypto/crypto.xcodeproj/project.pbxproj
+sed -i '' 's/SKIP_INSTALL = NO/SKIP_INSTALL = YES/g' Carthage/Checkouts/Airstream/Carthage/Checkouts/shairplay/extras/xcode/shairplay/shairplay.xcodeproj/project.pbxproj
+sed -i '' 's/SKIP_INSTALL = NO/SKIP_INSTALL = YES/g' Carthage/Checkouts/Airstream/Airstream.xcodeproj/project.pbxproj
