@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 14, *)
 struct PlaybackControls: View {
-	@ObservedObject var ASmanager: AirstreamManager
+	var ASmanager: AirstreamManager
 	
 	var body: some View {
 		HStack {

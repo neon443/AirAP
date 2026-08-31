@@ -10,11 +10,11 @@ import Airstream
 
 @available(iOS 14, *)
 struct ContentView: View {
-	@StateObject var ASmanager = AirstreamManager()
+	var ASmanager = AirstreamManager()
 	
 	var body: some View {
 		TabView {
-			NowPlaying(
+			NowPlayingView(
 				ASmanager: ASmanager
 			)
 			.tabItem {

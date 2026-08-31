@@ -9,8 +9,8 @@ import SwiftUI
 import ActivityKit
 
 @available(iOS 14, *)
-struct NowPlaying: View {
-	@ObservedObject var ASmanager: AirstreamManager
+struct NowPlayingView: View {
+	var ASmanager: AirstreamManager
 	
 	var body: some View {
 		GeometryReader { geo in
@@ -31,7 +31,7 @@ struct NowPlaying: View {
 
 @available(iOS 14, *)
 #Preview {
-	NowPlaying(
+	NowPlayingView(
 		ASmanager: AirstreamManager()
 	)
 }

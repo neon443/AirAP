@@ -8,8 +8,8 @@
 import SwiftUI
 
 @available(iOS 14, *)
-struct AlbumArtView: View {
-	@ObservedObject var ASmanager: AirstreamManager
+struct AlbumArtViewSwiftUI: View {
+	var ASmanager: AirstreamManager
 	let padding: CGFloat = 10
 	
 	var body: some View {
@@ -60,9 +60,9 @@ struct AlbumArtView: View {
 	ZStack(alignment: .center) {
 		Color.orange
 		GeometryReader { geo in
-			AlbumArtView(
-				ASmanager: AirstreamManager()
-			)
+//			AlbumArtView(
+//				ASmanager: AirstreamManager()
+//			)
 		}
 	}
 }

@@ -8,8 +8,8 @@
 import SwiftUI
 
 @available(iOS 14, *)
-struct MetadataView: View {
-	@ObservedObject var ASmanager: AirstreamManager
+struct MetadataViewSwiftUI: View {
+	var ASmanager: AirstreamManager
 	
 	var body: some View {
 		ZStack {
@@ -87,7 +87,7 @@ struct MetadataView: View {
 
 @available(iOS 14, *)
 #Preview {
-	MetadataView(
-		ASmanager: AirstreamManager()
-	)
+//	MetadataView(
+//		ASmanager: AirstreamManager()
+//	)
 }

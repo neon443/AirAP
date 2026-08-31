@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 14, *)
 struct Portrait: View {
-	@ObservedObject var ASmanager: AirstreamManager
+	var ASmanager: AirstreamManager
 	@State var geoSize: CGSize
 	
 	var body: some View {
@@ -28,14 +28,14 @@ struct Portrait: View {
 			}
 			
 			VStack(alignment: .center) {
-				AlbumArtView(ASmanager: ASmanager)
-					.frame(maxWidth: geoSize.width*0.8)
-					.aspectRatio(1, contentMode: .fit)
+//				AlbumArtView(ASmanager: ASmanager)
+//					.frame(maxWidth: geoSize.width*0.8)
+//					.aspectRatio(1, contentMode: .fit)
 				
 				if ASmanager.settings.showMetadata {
-					MetadataView(
-						ASmanager: ASmanager
-					)
+//					MetadataView(
+//						ASmanager: ASmanager
+//					)
 				}
 				
 				Spacer()

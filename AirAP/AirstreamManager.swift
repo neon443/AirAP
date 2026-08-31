@@ -11,11 +11,10 @@ import AVFoundation
 import UIKit
 import SwiftUI
 
-@available(iOS 14, *)
-class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
-	@Published var airstream: Airstream?
+class AirstreamManager: NSObject, AirstreamDelegate {
+	var airstream: Airstream?
 	
-	@Published var settings: AAPSettingsModel
+	var settings: AAPSettingsModel
 
 	var audioUnit: AudioComponentInstance?
 	var circularBuffer = TPCircularBuffer()
@@ -23,8 +22,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
-	@Published var running = false
-	@Published var canControl = false
+	var running = false
+	var canControl = false
 	
 	/// Minimum amount of audio (in bytes) that must be present in the circular buffer before we
 	/// allow CoreAudio to start rendering.
@@ -32,10 +31,10 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	private var minBufferBytes: Int32 = 176_000
 	private var targetLatencySeconds: Double  { settings.delay }
 	
-	@Published var title: String?
-	@Published var album: String?
-	@Published var artist: String?
-	@Published var albumArt: UIImage?
+	var title: String?
+	var album: String?
+	var artist: String?
+	var albumArt: UIImage?
 	
 	override init() {
 		self.settings = AAPSettingsModel()

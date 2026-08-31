@@ -9,7 +9,7 @@ import SwiftUI
 
 @available(iOS 14, *)
 struct Landscape: View {
-	@ObservedObject var ASmanager: AirstreamManager
+	var ASmanager: AirstreamManager
 	@State var geoSize: CGSize
 	
     var body: some View {
