@@ -27,10 +27,10 @@ class NowPlayingViewController: UIViewController {
 		self.view.addSubview(npStack)
 		npStack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			npStack.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-			npStack.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-			npStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-			npStack.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+			npStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
+			npStack.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+			npStack.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+			npStack.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
 		])
 	}
 }

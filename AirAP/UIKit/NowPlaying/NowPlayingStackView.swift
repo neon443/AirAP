@@ -19,9 +19,11 @@ class NowPlayingStackView: UIStackView {
 		self.metadataView = MetadataView(asManager: asManager)
 		super.init(frame: .zero)
 		
+		self.spacing = 8
+		self.axis = .vertical
+		self.distribution = .equalSpacing
 		self.addArrangedSubview(self.albumArtView)
 		self.addArrangedSubview(self.metadataView)
-		self.axis = .vertical
 	}
 	
 	required init(coder: NSCoder) {

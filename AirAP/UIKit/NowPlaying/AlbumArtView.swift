@@ -40,7 +40,8 @@ class AlbumArtView: UIVisualEffectView {
 	func setup() {
 		self.layer.cornerRadius = 24
 		imageView.contentMode = .scaleAspectFit
-		imageView.layer.cornerRadius = 8
+		imageView.layer.cornerRadius = 16
+		imageView.layer.masksToBounds = true
 		
 		contentView.addSubview(imageView)
 		imageView.translatesAutoresizingMaskIntoConstraints = false
@@ -59,9 +60,10 @@ class AlbumArtView: UIVisualEffectView {
 		
 		if let newImage {
 			self.imageView.image = newImage
-			contentView.directionalLayoutMargins = .init(top: 16, leading: 16, bottom: 16, trailing: 16)
+			contentView.directionalLayoutMargins = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
 		} else {
 			self.imageView.image = UIImage(systemName: "music.note")
+			self.imageView.preferredSymbolConfiguration
 			contentView.directionalLayoutMargins = .init(top: 128, leading: 128, bottom: 128, trailing: 128)
 		}
 	}
