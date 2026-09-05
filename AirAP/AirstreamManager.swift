@@ -36,6 +36,9 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	var artist: String?
 	var albumArt: UIImage?
 	
+	var didSetAlbumArt: (() -> Void)?
+	var didSetMetadata: (() -> Void)?
+	
 	override init() {
 		self.settings = AAPSettingsModel()
 		super.init()
@@ -239,6 +242,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		withAnimation {
 			albumArt = uiimage
 		}
+		didSetAlbumArt?()
 	}
 	
 	//recieved track info
@@ -248,6 +252,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 			album = metadata["asal"] //airstream album
 			artist = metadata["asar"] //airstream artist
 		}
+		didSetMetadata?()
 	}
 	
 	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {

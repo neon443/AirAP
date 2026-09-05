@@ -12,7 +12,8 @@ class MetadataView: UIVisualEffectView {
 	var asManager: AirstreamManager
 	
 	var stack: UIStackView
-	var title: MetadataChunkView
+	var title: UILabel
+//	var title: MetadataChunkView
 	var album: MetadataChunkView
 	var artist: MetadataChunkView
 	
@@ -24,7 +25,8 @@ class MetadataView: UIVisualEffectView {
 	init(asManager: AirstreamManager) {
 		self.asManager = asManager
 		
-		self.title = MetadataChunkView(title: "title")
+		self.title = UILabel()
+//		self.title = MetadataChunkView(title: "title")
 		self.album = MetadataChunkView(title: "album")
 		self.artist = MetadataChunkView(title: "artist")
 		self.stack = UIStackView(arrangedSubviews: [title, album, artist])
@@ -42,10 +44,13 @@ class MetadataView: UIVisualEffectView {
 		} else {
 			effect = UIBlurEffect(style: .systemThinMaterial)
 		}
-		
 		super.init(effect: effect)
 		
+		asManager.didSetMetadata = { self.refreshUI() }
+		
 		setup()
+		
+		refreshUI()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -58,9 +63,10 @@ class MetadataView: UIVisualEffectView {
 		stack.layoutMargins = .init(top: 16, left: 8, bottom: 16, right: 8)
 		stack.isLayoutMarginsRelativeArrangement = true
 		
-		title.setContent(to: "hi")
-		album.setContent(to: "hi2")
-		artist.setContent(to: "artis")
+		title.font = UIFont.preferredFont(forTextStyle: .title2)
+		title.layer.shadowColor = UIColor(named: "background")?.cgColor
+		title.layer.shadowOpacity = 0.5
+		title.layer.shadowRadius = 3
 		
 		qualStack.axis = .horizontal
 		qualStack.distribution = .equalSpacing
@@ -68,11 +74,8 @@ class MetadataView: UIVisualEffectView {
 		qualStack.layoutMargins = .init(top: 16, left: 32, bottom: 16, right: 32)
 		qualStack.isLayoutMarginsRelativeArrangement = true
 		
-		sampleRate.setContent(to: "hi")
 		sampleRate.alignment = .center
-		bitDepth.setContent(to: "hi2")
 		bitDepth.alignment = .center
-		channels.setContent(to: "artis")
 		channels.alignment = .center
 		
 		self.contentView.addSubview(stack)
@@ -92,7 +95,14 @@ class MetadataView: UIVisualEffectView {
 	}
 	
 	func refreshUI() {
-		title.setContent(to: asManager.title)
+		album.setContent(to: "hi2")
+		artist.setContent(to: "artis")
+		sampleRate.setContent(to: "hi")
+		bitDepth.setContent(to: "hi2")
+		channels.setContent(to: "artis")
+		
+		title.text = asManager.title ?? "Not Playing"
+		title.textColor = .foreground.withAlphaComponent(asManager.title == nil ? 0.5 : 1)
 		album.setContent(to: asManager.album)
 		artist.setContent(to: asManager.artist)
 		
@@ -100,6 +110,7 @@ class MetadataView: UIVisualEffectView {
 			sampleRate.setContent(to: "\(asManager.airstream!.sampleRate)")
 			bitDepth.setContent(to: "\(asManager.airstream!.bitsPerChannel)")
 			channels.setContent(to: "\(asManager.airstream!.channelsPerFrame)")
+			
 		}
 	}
 }
