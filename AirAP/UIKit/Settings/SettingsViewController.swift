@@ -20,7 +20,7 @@ class SettingsViewController: UITableViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	enum Category: Int, CaseIterable {
+	enum Category: Int, CaseIterable, CustomStringConvertible {
 		case server
 		case audio
 		case background
@@ -38,34 +38,232 @@ class SettingsViewController: UITableViewController {
 				return 2
 			}
 		}
+		
+		var description: String {
+			switch self {
+			case .server:
+				return "Server"
+			case .audio:
+				return "Audio"
+			case .background:
+				return "Background"
+			case .metadata:
+				return "Metadata"
+			}
+		}
+		
+		var footnote: String? {
+			switch self {
+			case .server, .audio:
+				return "Restart server to apply changes"
+			case .background, .metadata:
+				return nil
+			}
+		}
+		
+		private func settingTypeFor(item itemIndex: Int) -> SettingType {
+			guard itemIndex <= self.contains-1 else { fatalError("item out of raneg") }
+			switch self {
+			case .server:
+				return .textField
+			case .audio:
+				return .slider
+			case .background:
+				if itemIndex == 0 {
+					return .toggle
+				} else {
+					return .slider
+				}
+			case .metadata:
+				return .toggle
+			}
+		}
+		
+		func settingsConfigFor(item itemIndex: Int) -> SettingsConfiguration {
+			guard itemIndex <= self.contains-1 else { fatalError("item out of raneg2") }
+			
+			let type = settingTypeFor(item: itemIndex)
+			var config = SettingsConfiguration(category: self, itemIndex: itemIndex, type: type, title: "uninitialised")
+			
+			let title: String
+			switch self {
+			case .server:
+				title = ""
+				config.onChange = { asManager, newValue in
+					let newValue = newValue as! String
+					asManager.settings.name = newValue
+				}
+			case .audio:
+				title = "Delay"
+				config.sliderConfig = .init(
+					range: -2...2,
+					step: 0.25,
+					unit: "s",
+					decimalPoints: 2,
+					defaultValue: 0
+				)
+				config.onChange = { asManager, newValue in
+					let newValue = newValue as! CGFloat
+					asManager.settings.delay = newValue
+				}
+			case .background:
+				if itemIndex == 0 {
+					title = "Show album art"
+					config.onChange = { asManager, newValue in
+						let newValue = newValue as! Bool
+						asManager.settings.showBg = newValue
+					}
+				} else if itemIndex == 1 {
+					title = "Opacity"
+					config.sliderConfig = .init(
+						range: 0...100,
+						step: 5,
+						unit: "%",
+						defaultValue: 80
+					)
+					config.onChange = { asManager, newValue in
+						let newValue = newValue as! CGFloat
+						asManager.settings.bgOpacity = newValue
+					}
+				} else {
+					title = "Blur"
+					config.sliderConfig = .init(
+						range: 0...100,
+						step: 5,
+						unit: "px",
+						defaultValue: 75
+					)
+					config.onChange = { asManager, newValue in
+						let newValue = newValue as! CGFloat
+						asManager.settings.bgBlur = newValue
+					}
+				}
+			case .metadata:
+				if itemIndex == 0 {
+					title = "Show metadata"
+					config.onChange = { asManager, newValue in
+						let newValue = newValue as! Bool
+						asManager.settings.showMetadata = newValue
+					}
+				} else {
+					title = "Show audio quality information"
+					config.onChange = { asManager, newValue in
+						let newValue = newValue as! Bool
+						asManager.settings.showAudioQuality = newValue
+					}
+				}
+			}
+			
+			config.title = title
+			
+			return config
+		}
+	}
+	struct SettingsConfiguration {
+		func currentValue(asManager: AirstreamManager) -> Any {
+			switch category {
+			case .server:
+				return asManager.settings.name
+			case .audio:
+				return asManager.settings.delay
+			case .background:
+				if itemIndex == 0 {
+					return asManager.settings.showBg
+				} else if itemIndex == 1 {
+					return asManager.settings.bgOpacity
+				} else {
+					return asManager.settings.bgBlur
+				}
+			case .metadata:
+				if itemIndex == 0 {
+					return asManager.settings.showMetadata
+				} else {
+					return asManager.settings.showAudioQuality
+				}
+			}
+		}
+		var category: Category
+		var type: SettingType
+		var itemIndex: Int
+		var title: String
+		var onChange: ((AirstreamManager, Any) -> Void)?
+		var sliderConfig: SliderConfiguration?
+		
+		init(category: Category, itemIndex: Int, type: SettingType, title: String) {
+			self.category = category
+			self.type = type
+			self.itemIndex = itemIndex
+			self.title = title
+		}
+	}
+	
+	enum SettingType: Int, RawRepresentable {
+		case toggle
+		case slider
+		case textField
+	}
+	
+	struct SliderConfiguration {
+		var range: ClosedRange<CGFloat>
+		var step: CGFloat
+		
+		var unit: String
+		var decimalPoints: Int
+		
+		var defaultValue: CGFloat
+		var leading: CGFloat
+		var trailing: CGFloat
+		
+		init(
+			range: ClosedRange<CGFloat>,
+			step: CGFloat,
+			unit: String,
+			decimalPoints: Int = 0,
+			defaultValue: CGFloat,
+			leading: CGFloat? = nil,
+			trailing: CGFloat? = nil
+		) {
+			self.range = range
+			self.step = step
+			self.unit = unit
+			self.decimalPoints = decimalPoints
+			self.defaultValue = defaultValue
+			self.leading = leading ?? range.lowerBound
+			self.trailing = trailing ?? range.upperBound
+		}
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let category = Category(rawValue: indexPath.section) else { fatalError("invalid section \(indexPath.section)") }
-		switch category {
-		case .server:
-			return ToggleSettingsCell(title: "a", state: false)
-		case .audio:
-			return ToggleSettingsCell(title: "a", state: false)
-		case .background:
-			return ToggleSettingsCell(title: "a", state: false)
-		case .metadata:
-			return ToggleSettingsCell(title: "a", state: false)
+		
+		let cell: SettingsCell
+	
+		let config = category.settingsConfigFor(item: indexPath.row)
+		switch config.type {
+		case .toggle:
+			let toggleCell = ToggleSettingsCell(asManager: asManager, config: config)
+			toggleCell.state = config.currentValue(asManager: asManager) as! Bool
+			cell = toggleCell
+		case .slider:
+			let sliderCell = SliderSettingsCell(asManager: asManager, config: config)
+//			sliderCell.state
+			cell = sliderCell
+		case .textField:
+			let textFieldCell = TextFieldSettingsCell(asManager: asManager, config: config)
+//			textFieldCell.state
+			cell = textFieldCell
 		}
+		cell.refreshUI()
+		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
 		guard let category = Category(rawValue: section) else { fatalError("invalid section \(section)") }
-		switch category {
-		case .server:
-			return "Server"
-		case .audio:
-			return "Audio"
-		case .background:
-			return "Background"
-		case .metadata:
-			return "Metadata"
-		}
+		return category.description
+	}
+	override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		guard let category = Category(rawValue: section) else { fatalError("invalid section \(section)") }
+		return category.footnote
 	}
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {

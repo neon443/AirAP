@@ -8,27 +8,33 @@
 import Foundation
 import UIKit
 
-class ToggleSettingsCell: UITableViewCell {
+class ToggleSettingsCell: SettingsCell {
 	var state: Bool
-	var title: String
-	var toggle: UISwitch!
-	var onChange: ((Bool) -> Void)?
 	
-	init(title: String, state: Bool) {
-		self.state = state
-		self.title = title
+	var titleLabel: UILabel
+	var toggle: UISwitch!
+	
+	var stack: UIStackView!
+	
+	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
+		self.state = false
+		self.titleLabel = UILabel()
 		
-		super.init(style: .default, reuseIdentifier: nil)
+		super.init(asManager: asManager, config: config)
 		
 		self.toggle = UISwitch(
 			frame: .zero,
 			primaryAction: UIAction(handler: { action in
 				self.state = self.toggle.isOn
-				self.onChange?(self.state)
+				self.config.onChange?(asManager, self.state)
+				asManager.settings.saveSettings()
 			})
 		)
+		self.stack = UIStackView(arrangedSubviews: [titleLabel, toggle])
 		
 		setup()
+		
+		refreshUI()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -36,13 +42,22 @@ class ToggleSettingsCell: UITableViewCell {
 	}
 	
 	func setup() {
-		self.contentView.addSubview(toggle)
-		toggle.translatesAutoresizingMaskIntoConstraints = false
+		stack.axis = .horizontal
+		stack.distribution = .equalSpacing
+		
+		self.contentView.addSubview(stack)
+		stack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			toggle.topAnchor.constraint(equalTo: contentView.topAnchor),
-			toggle.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-			toggle.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			toggle.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+			stack.topAnchor.constraint(equalTo: contentView.topAnchor),
+			stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+			stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
 		])
+	}
+	
+	override func refreshUI() {
+		super.refreshUI()
+		titleLabel.text = config.title
+		toggle.isOn = state
 	}
 }

@@ -12,6 +12,7 @@ import UIKit
 import SwiftUI
 
 class AirstreamManager: NSObject, AirstreamDelegate {
+	@MainActor static let shared = AirstreamManager()
 	var airstream: Airstream?
 	
 	var settings: AAPSettingsModel

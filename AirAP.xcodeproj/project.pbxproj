@@ -34,6 +34,7 @@
 		A9D53C33304CEAA700A975D6 /* SliderSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */; };
 		A9D53C35304CEAB900A975D6 /* ToggleSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */; };
 		A9D53C37304CEAD100A975D6 /* TextFieldSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */; };
+		A9D53C39304D945400A975D6 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C38304D945400A975D6 /* SettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +142,7 @@
 		A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderSettingsCell.swift; sourceTree = "<group>"; };
 		A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSettingsCell.swift; sourceTree = "<group>"; };
 		A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSettingsCell.swift; sourceTree = "<group>"; };
+		A9D53C38304D945400A975D6 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -350,6 +352,7 @@
 				A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */,
 				A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */,
 				A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */,
+				A9D53C38304D945400A975D6 /* SettingsCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -561,6 +564,7 @@
 				A9D53C37304CEAD100A975D6 /* TextFieldSettingsCell.swift in Sources */,
 				A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */,
 				A9BD86493045780B003B9074 /* InitialViewController.swift in Sources */,
+				A9D53C39304D945400A975D6 /* SettingsCell.swift in Sources */,
 				A9BD86573045803C003B9074 /* MetadataChunkView.swift in Sources */,
 				A9BD865230457D1C003B9074 /* AlbumArtView.swift in Sources */,
 				A92538D82DF0972B007E0A18 /* ViewModifiers.swift in Sources */,
