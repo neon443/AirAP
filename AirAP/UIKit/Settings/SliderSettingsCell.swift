@@ -46,12 +46,17 @@ class SliderSettingsCell: SettingsCell {
 	func setup() {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		
+		maxLabel.font = .preferredFont(forTextStyle: .caption1)
+		minLabel.font = .preferredFont(forTextStyle: .caption1)
+		maxLabel.textColor = .systemGray
+		minLabel.textColor = .systemGray
+		
 		infoStack.axis = .horizontal
 		infoStack.distribution = .equalSpacing
+		
 		sliderStack.axis = .horizontal
 		sliderStack.spacing = 4
 		stack.axis = .vertical
-		stack.spacing = 4
 		
 		slider.minimumValue = sliderConfig.range.lowerBound
 		slider.maximumValue = sliderConfig.range.upperBound
@@ -59,17 +64,19 @@ class SliderSettingsCell: SettingsCell {
 		slider.addAction(UIAction(handler: { action in
 			let value = round(self.slider.value / sliderConfig.step) * sliderConfig.step
 			self.slider.setValue(value, animated: false)
+			self.setValueLabel(to: value)
+			UIImpactFeedbackGenerator(style: .light).impactOccurred()
 			self.config.onChange?(self.asManager, value)
-			self.valueLabel.text = "\(self.slider.value)" + sliderConfig.unit
 			self.asManager.settings.saveSettings()
 		}), for: .valueChanged)
 		
 		contentView.addSubview(stack)
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			stack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+			stack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+			stack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
 			stack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-			stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
+			stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
 		])
 	}
 	
@@ -79,6 +86,19 @@ class SliderSettingsCell: SettingsCell {
 		self.slider.value = config.currentValue(asManager: asManager) as? Float ?? 0
 		self.minLabel.text = "\(sliderConfig.leading)" + sliderConfig.unit
 		self.maxLabel.text = "\(sliderConfig.trailing)" + sliderConfig.unit
-		self.valueLabel.text = "\(slider.value)" + sliderConfig.unit
+		self.titleLabel.text = config.title
+		setValueLabel(to: slider.value)
+	}
+	
+	func setValueLabel(to value: Float) {
+		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
+		
+		valueLabel.text = ""
+		if slider.value.rounded() == value {
+			self.valueLabel.text?.append("\(Int(value))")
+		} else {
+			self.valueLabel.text?.append("\(value)")
+		}
+		self.valueLabel.text?.append(sliderConfig.unit)
 	}
 }

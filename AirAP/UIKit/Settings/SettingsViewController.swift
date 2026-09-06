@@ -160,6 +160,20 @@ class SettingsViewController: UITableViewController {
 		}
 	}
 	struct SettingsConfiguration {
+		var category: Category
+		var type: SettingType
+		var itemIndex: Int
+		var title: String
+		var onChange: ((AirstreamManager, Any) -> Void)?
+		var sliderConfig: SliderConfiguration?
+		
+		init(category: Category, itemIndex: Int, type: SettingType, title: String) {
+			self.category = category
+			self.type = type
+			self.itemIndex = itemIndex
+			self.title = title
+		}
+		
 		func currentValue(asManager: AirstreamManager) -> Any {
 			switch category {
 			case .server:
@@ -182,19 +196,6 @@ class SettingsViewController: UITableViewController {
 				}
 			}
 		}
-		var category: Category
-		var type: SettingType
-		var itemIndex: Int
-		var title: String
-		var onChange: ((AirstreamManager, Any) -> Void)?
-		var sliderConfig: SliderConfiguration?
-		
-		init(category: Category, itemIndex: Int, type: SettingType, title: String) {
-			self.category = category
-			self.type = type
-			self.itemIndex = itemIndex
-			self.title = title
-		}
 	}
 	
 	enum SettingType: Int, RawRepresentable {
@@ -210,23 +211,23 @@ class SettingsViewController: UITableViewController {
 		var unit: String
 		
 		var defaultValue: Float
-		var leading: Float
-		var trailing: Float
+		var leading: String
+		var trailing: String
 		
 		init(
 			range: ClosedRange<Float>,
 			step: Float,
 			unit: String,
 			defaultValue: Float,
-			leading: Float? = nil,
-			trailing: Float? = nil
+			leading: String? = nil,
+			trailing: String? = nil
 		) {
 			self.range = range
 			self.step = step
 			self.unit = unit
 			self.defaultValue = defaultValue
-			self.leading = leading ?? range.lowerBound
-			self.trailing = trailing ?? range.upperBound
+			self.leading = leading ?? "\(Int(range.lowerBound))"
+			self.trailing = trailing ?? "\(Int(range.upperBound))"
 		}
 	}
 	
