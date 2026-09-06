@@ -12,6 +12,7 @@ class MetadataView: UIVisualEffectView {
 	var asManager: AirstreamManager
 	
 	var stack: UIStackView
+	
 	var title: UILabel
 //	var title: MetadataChunkView
 	var album: MetadataChunkView
@@ -38,7 +39,7 @@ class MetadataView: UIVisualEffectView {
 		
 		var effect: UIVisualEffect
 		if #available(iOS 19, *) {
-			let glassEffect = UIGlassEffect()
+			let glassEffect = UIGlassEffect(style: .clear)
 			glassEffect.isInteractive = true
 			effect = glassEffect
 		} else {
@@ -77,32 +78,46 @@ class MetadataView: UIVisualEffectView {
 		qualStack.layoutMargins = .init(top: 8, left: 32, bottom: 8, right: 32)
 		qualStack.isLayoutMarginsRelativeArrangement = true
 		
-		self.contentView.addSubview(stack)
-		self.contentView.addSubview(qualStack)
-		stack.translatesAutoresizingMaskIntoConstraints = false
-		qualStack.translatesAutoresizingMaskIntoConstraints = false
+		let container = UIStackView(arrangedSubviews: [stack, qualStack])
+		container.axis = .vertical
+		container.spacing = 0
+		
+		contentView.addSubview(container)
+		container.translatesAutoresizingMaskIntoConstraints = false
+		
 		NSLayoutConstraint.activate([
-			stack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-			stack.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-			stack.topAnchor.constraint(equalTo: self.topAnchor),
-			
-			qualStack.topAnchor.constraint(equalTo: stack.bottomAnchor),
-			qualStack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-			qualStack.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-			qualStack.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+			container.topAnchor.constraint(equalTo: contentView.topAnchor),
+			container.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+			container.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+			container.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
 		])
 	}
 	
 	func refreshUI() {
+		if !asManager.settings.showMetadata && !asManager.settings.showAudioQuality {
+			self.layer.opacity = 0
+			return
+		}
+		self.layer.opacity = 1
+		
+		setTrackInfoVisible(asManager.settings.showMetadata)
+		setQualityInfoVisibel(asManager.settings.showAudioQuality)
+		
 		title.text = asManager.title ?? "Not Playing"
 		title.textColor = .foreground.withAlphaComponent(asManager.title == nil ? 0.5 : 1)
-		album.setContent(to: asManager.album ?? "— ―")
-		artist.setContent(to: asManager.artist ?? "— ―")
+		album.setContent(to: asManager.album ?? "——")
+		artist.setContent(to: asManager.artist ?? "——")
 		
-		if asManager.settings.showAudioQuality {
-			sampleRate.setContent(to: "\(asManager.airstream!.sampleRate)")
-			bitDepth.setContent(to: "\(asManager.airstream!.bitsPerChannel)")
-			channels.setContent(to: "\(asManager.airstream!.channelsPerFrame)")
-		}
+		sampleRate.setContent(to: "\(asManager.airstream!.sampleRate)")
+		bitDepth.setContent(to: "\(asManager.airstream!.bitsPerChannel)")
+		channels.setContent(to: "\(asManager.airstream!.channelsPerFrame)")
+	}
+	
+	func setTrackInfoVisible(_ visible: Bool) {
+		stack.isHidden = !visible
+	}
+	
+	func setQualityInfoVisibel(_ visible: Bool) {
+		qualStack.isHidden = !visible
 	}
 }

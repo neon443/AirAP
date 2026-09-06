@@ -22,12 +22,17 @@ class NowPlayingViewController: UIViewController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		npStack.refresUI()
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.addSubview(npStack)
 		npStack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			npStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: 16),
+			npStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
 			npStack.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
 			npStack.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 			npStack.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -16)

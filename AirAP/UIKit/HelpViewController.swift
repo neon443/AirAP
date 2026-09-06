@@ -11,6 +11,7 @@ import UIKit
 class HelpViewController: UITableViewController {
 	init() {
 		super.init(style: .insetGrouped)
+		self.tableView.allowsSelection = false
 	}
 	
 	required init?(coder: NSCoder) {

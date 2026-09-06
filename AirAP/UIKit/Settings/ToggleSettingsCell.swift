@@ -9,15 +9,12 @@ import Foundation
 import UIKit
 
 class ToggleSettingsCell: SettingsCell {
-	var state: Bool
-	
 	var titleLabel: UILabel
 	var toggle: UISwitch!
 	
 	var stack: UIStackView!
 	
 	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
-		self.state = false
 		self.titleLabel = UILabel()
 		
 		super.init(asManager: asManager, config: config)
@@ -25,8 +22,7 @@ class ToggleSettingsCell: SettingsCell {
 		self.toggle = UISwitch(
 			frame: .zero,
 			primaryAction: UIAction(handler: { action in
-				self.state = self.toggle.isOn
-				self.config.onChange?(asManager, self.state)
+				self.config.onChange?(asManager, self.toggle.isOn)
 				asManager.settings.saveSettings()
 			})
 		)
@@ -48,16 +44,15 @@ class ToggleSettingsCell: SettingsCell {
 		self.contentView.addSubview(stack)
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			stack.topAnchor.constraint(equalTo: contentView.topAnchor),
-			stack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-			stack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-			stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
+			stack.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+			stack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+			stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor),
 		])
 	}
 	
 	override func refreshUI() {
 		super.refreshUI()
+		self.toggle.isOn = config.currentValue(asManager: asManager) as? Bool ?? false
 		titleLabel.text = config.title
-		toggle.isOn = state
 	}
 }

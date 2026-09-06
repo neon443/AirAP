@@ -14,6 +14,7 @@ class SettingsViewController: UITableViewController {
 	init(asManager: AirstreamManager) {
 		self.asManager = asManager
 		super.init(style: .insetGrouped)
+		self.tableView.allowsSelection = false
 	}
 	
 	required init?(coder: NSCoder) {
@@ -99,11 +100,10 @@ class SettingsViewController: UITableViewController {
 					range: -2...2,
 					step: 0.25,
 					unit: "s",
-					decimalPoints: 2,
 					defaultValue: 0
 				)
 				config.onChange = { asManager, newValue in
-					let newValue = newValue as! CGFloat
+					let newValue = newValue as! Float
 					asManager.settings.delay = newValue
 				}
 			case .background:
@@ -122,7 +122,7 @@ class SettingsViewController: UITableViewController {
 						defaultValue: 80
 					)
 					config.onChange = { asManager, newValue in
-						let newValue = newValue as! CGFloat
+						let newValue = newValue as! Float
 						asManager.settings.bgOpacity = newValue
 					}
 				} else {
@@ -134,7 +134,7 @@ class SettingsViewController: UITableViewController {
 						defaultValue: 75
 					)
 					config.onChange = { asManager, newValue in
-						let newValue = newValue as! CGFloat
+						let newValue = newValue as! Float
 						asManager.settings.bgBlur = newValue
 					}
 				}
@@ -204,29 +204,26 @@ class SettingsViewController: UITableViewController {
 	}
 	
 	struct SliderConfiguration {
-		var range: ClosedRange<CGFloat>
-		var step: CGFloat
+		var range: ClosedRange<Float>
+		var step: Float
 		
 		var unit: String
-		var decimalPoints: Int
 		
-		var defaultValue: CGFloat
-		var leading: CGFloat
-		var trailing: CGFloat
+		var defaultValue: Float
+		var leading: Float
+		var trailing: Float
 		
 		init(
-			range: ClosedRange<CGFloat>,
-			step: CGFloat,
+			range: ClosedRange<Float>,
+			step: Float,
 			unit: String,
-			decimalPoints: Int = 0,
-			defaultValue: CGFloat,
-			leading: CGFloat? = nil,
-			trailing: CGFloat? = nil
+			defaultValue: Float,
+			leading: Float? = nil,
+			trailing: Float? = nil
 		) {
 			self.range = range
 			self.step = step
 			self.unit = unit
-			self.decimalPoints = decimalPoints
 			self.defaultValue = defaultValue
 			self.leading = leading ?? range.lowerBound
 			self.trailing = trailing ?? range.upperBound
@@ -241,19 +238,12 @@ class SettingsViewController: UITableViewController {
 		let config = category.settingsConfigFor(item: indexPath.row)
 		switch config.type {
 		case .toggle:
-			let toggleCell = ToggleSettingsCell(asManager: asManager, config: config)
-			toggleCell.state = config.currentValue(asManager: asManager) as! Bool
-			cell = toggleCell
+			cell = ToggleSettingsCell(asManager: asManager, config: config)
 		case .slider:
-			let sliderCell = SliderSettingsCell(asManager: asManager, config: config)
-//			sliderCell.state
-			cell = sliderCell
+			cell = SliderSettingsCell(asManager: asManager, config: config)
 		case .textField:
-			let textFieldCell = TextFieldSettingsCell(asManager: asManager, config: config)
-//			textFieldCell.state
-			cell = textFieldCell
+			cell = TextFieldSettingsCell(asManager: asManager, config: config)
 		}
-		cell.refreshUI()
 		return cell
 	}
 	

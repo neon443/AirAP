@@ -11,21 +11,21 @@ import UIKit
 struct AAPSettings: Codable {
 	var name: String
 	var showBg: Bool
-	var bgOpacity: CGFloat
-	var bgBlur: CGFloat
+	var bgOpacity: Float
+	var bgBlur: Float
 	var showMetadata: Bool
 	var showAudioQuality: Bool
-	var delay: CGFloat
+	var delay: Float
 }
 
 class AAPSettingsModel {
 	var name: String = "AirAP"
 	var showBg: Bool = true
-	var bgOpacity: CGFloat = 0.8
-	var bgBlur: CGFloat = 75
+	var bgOpacity: Float = 0.8
+	var bgBlur: Float = 75
 	var showMetadata: Bool = true
 	var showAudioQuality: Bool = true
-	var delay: CGFloat = 0
+	var delay: Float = 0
 	
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	

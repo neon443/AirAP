@@ -9,5 +9,41 @@ import Foundation
 import UIKit
 
 class TextFieldSettingsCell: SettingsCell {
+	var textField: UITextField
 	
+	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
+		self.textField = UITextField()
+		
+		super.init(asManager: asManager, config: config)
+		
+		setup()
+		refreshUI()
+	}
+	
+	@MainActor required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	func setup() {
+		textField.placeholder = "Server Name"
+//		textField.rightView
+		textField.addAction(UIAction(handler: { action in
+			guard let text = self.textField.text else { return }
+			self.config.onChange?(self.asManager, text)
+			self.asManager.settings.saveSettings()
+		}), for: .editingChanged)
+		
+		self.contentView.addSubview(textField)
+		self.textField.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			textField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+			textField.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+			textField.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
+		])
+	}
+	
+	override func refreshUI() {
+		self.textField.text = config.currentValue(asManager: asManager) as? String
+		
+	}
 }

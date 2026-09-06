@@ -18,7 +18,7 @@ class AlbumArtView: UIVisualEffectView {
 		
 		var effect: UIVisualEffect
 		if #available(iOS 19, *) {
-			let glassEffect = UIGlassEffect()
+			let glassEffect = UIGlassEffect(style: .clear)
 			glassEffect.isInteractive = true
 			effect = glassEffect
 		} else {
@@ -63,7 +63,6 @@ class AlbumArtView: UIVisualEffectView {
 			contentView.directionalLayoutMargins = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
 		} else {
 			self.imageView.image = UIImage(systemName: "music.note")
-			self.imageView.preferredSymbolConfiguration
 			contentView.directionalLayoutMargins = .init(top: 128, leading: 128, bottom: 128, trailing: 128)
 		}
 	}

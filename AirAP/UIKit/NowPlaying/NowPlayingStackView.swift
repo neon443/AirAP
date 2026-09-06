@@ -29,4 +29,9 @@ class NowPlayingStackView: UIStackView {
 	required init(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
+	
+	func refresUI() {
+		albumArtView.refreshUI()
+		metadataView.refreshUI()
+	}
 }
