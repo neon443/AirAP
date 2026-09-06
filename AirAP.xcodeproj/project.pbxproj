@@ -30,6 +30,10 @@
 		A9BD865D3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BD865C3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png */; };
 		A9C897572DF0BFD600EF9A5F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9C897562DF0BFD600EF9A5F /* README.md */; };
 		A9D53C2D304CC6CE00A975D6 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C2C304CC6CE00A975D6 /* HelpViewController.swift */; };
+		A9D53C30304CCDEE00A975D6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C2F304CCDEE00A975D6 /* SettingsViewController.swift */; };
+		A9D53C33304CEAA700A975D6 /* SliderSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */; };
+		A9D53C35304CEAB900A975D6 /* ToggleSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */; };
+		A9D53C37304CEAD100A975D6 /* TextFieldSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -133,6 +137,10 @@
 		A9BD865E3045E2D0003B9074 /* cf9a619eb1cb065e4eadd1704a6115a76f8ebfeecc4b62e3acea6d0c68c3caef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cf9a619eb1cb065e4eadd1704a6115a76f8ebfeecc4b62e3acea6d0c68c3caef.png; path = /Users/neon443/Library/Caches/com.raycast.macos/Clipboard/cf9a619eb1cb065e4eadd1704a6115a76f8ebfeecc4b62e3acea6d0c68c3caef.png; sourceTree = "<absolute>"; };
 		A9C897562DF0BFD600EF9A5F /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A9D53C2C304CC6CE00A975D6 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		A9D53C2F304CCDEE00A975D6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderSettingsCell.swift; sourceTree = "<group>"; };
+		A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSettingsCell.swift; sourceTree = "<group>"; };
+		A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSettingsCell.swift; sourceTree = "<group>"; };
 		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -318,6 +326,7 @@
 				A9BD86483045780B003B9074 /* InitialViewController.swift */,
 				A9BD864A30457B1A003B9074 /* NowPlaying */,
 				A9D53C2C304CC6CE00A975D6 /* HelpViewController.swift */,
+				A9D53C31304CEA9100A975D6 /* Settings */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -332,6 +341,17 @@
 				A9BD86563045803C003B9074 /* MetadataChunkView.swift */,
 			);
 			path = NowPlaying;
+			sourceTree = "<group>";
+		};
+		A9D53C31304CEA9100A975D6 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				A9D53C2F304CCDEE00A975D6 /* SettingsViewController.swift */,
+				A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */,
+				A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */,
+				A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -538,6 +558,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D53C37304CEAD100A975D6 /* TextFieldSettingsCell.swift in Sources */,
 				A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */,
 				A9BD86493045780B003B9074 /* InitialViewController.swift in Sources */,
 				A9BD86573045803C003B9074 /* MetadataChunkView.swift in Sources */,
@@ -548,8 +569,11 @@
 				A9D53C2D304CC6CE00A975D6 /* HelpViewController.swift in Sources */,
 				A9BD864E30457C4E003B9074 /* NowPlayingStackView.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
+				A9D53C30304CCDEE00A975D6 /* SettingsViewController.swift in Sources */,
+				A9D53C35304CEAB900A975D6 /* ToggleSettingsCell.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
 				A9BD865430457DDB003B9074 /* MetadataView.swift in Sources */,
+				A9D53C33304CEAA700A975D6 /* SliderSettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

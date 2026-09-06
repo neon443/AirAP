@@ -17,10 +17,9 @@ class InitialViewController: UITabBarController {
 		let helpView = HelpViewController()
 		helpView.tabBarItem = .init(title: "Help", image: UIImage(systemName: "questionmark.circle"), tag: 1)
 		
-//		let settingsView = SettingsView(ASmanager: asManager)
-//		let settingsVC = UINavigationController(rootViewController: UIHostingController(rootView: settingsView))
-//		npVC.tabBarItem = .init(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
+		let settingsView = SettingsViewController(asManager: asManager)
+		settingsView.tabBarItem = .init(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
 		
-		self.setViewControllers([nowView, helpView/*, settingsVC*/], animated: false)
+		self.setViewControllers([nowView, helpView, settingsView], animated: false)
 	}
 }
