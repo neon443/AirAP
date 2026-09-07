@@ -84,7 +84,6 @@ class HelpViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		let topic = Topic(rawValue: section)
 		let button = UIButton(type: .custom)
-		button.titleLabel?.textAlignment = .left
 		switch topic {
 		case .doesNotAppear:
 			return nil
@@ -97,7 +96,7 @@ class HelpViewController: UITableViewController {
 		default:
 			fatalError("invalid section \(section) to topic")
 		}
-//		button.setTitleColor(.systemBlue, for: .normal)
+		button.setTitleColor(.systemBlue, for: .normal)
 		return button
 	}
 	

@@ -98,10 +98,10 @@ class SliderSettingsCell: SettingsCell {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		
 		self.slider.value = config.currentValue(asManager: asManager) as? Float ?? 0
+		sliderSet()
 		self.minLabel.text = "\(sliderConfig.leading)" + sliderConfig.unit
 		self.maxLabel.text = "\(sliderConfig.trailing)" + sliderConfig.unit
 		self.titleLabel.text = config.title
-		setValueLabel(to: slider.value)
 	}
 	
 	func sliderSet() {
@@ -126,9 +126,9 @@ class SliderSettingsCell: SettingsCell {
 	func setValueLabel(to value: Float) {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		let string: String = slider.value.rounded() == value ? "\(Int(value))" : "\(value)"
-//		UIView.transition(with: trailingStack, duration: 0.15, options: .transitionCrossDissolve) {
+		UIView.transition(with: trailingStack, duration: 0.15, options: .transitionCrossDissolve) {
 			self.valueLabel.text = string + sliderConfig.unit
-//			self.valueLabel.layoutIfNeeded()
-//		}
+			self.valueLabel.layoutIfNeeded()
+		}
 	}
 }
