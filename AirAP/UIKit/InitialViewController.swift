@@ -10,12 +10,25 @@ import UIKit
 import SwiftUI
 
 class InitialViewController: UITabBarController {
-	func setupTabs(with asManager: AirstreamManager) {
+	var asManager: AirstreamManager
+	
+	init(asManager: AirstreamManager) {
+		self.asManager = asManager
+		super.init(nibName: nil, bundle: nil)
+		
+		setup()
+	}
+	
+	required init?(coder: NSCoder) {
+		fatalError("init(coder:) has not been implemented")
+	}
+	
+	func setup() {
 		let nowView = NowPlayingViewController(asManager: asManager)
 		nowView.tabBarItem = .init(title: "Now Playing", image: UIImage(systemName: "play.fill"), tag: 0)
 		
 		let helpView = HelpViewController()
-		helpView.tabBarItem = .init(title: "Help", image: UIImage(systemName: "questionmark.circle"), tag: 1)
+		helpView.tabBarItem = .init(title: "Help", image: UIImage(systemName: "questionmark"), tag: 1)
 		
 		let settingsView = SettingsViewController(asManager: asManager)
 		settingsView.tabBarItem = .init(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)

@@ -11,10 +11,12 @@ import UIKit
 class NowPlayingViewController: UIViewController {
 	var asManager: AirstreamManager
 	var npStack: NowPlayingStackView
+	var startStopButton: ServerStateButton
 	
 	init(asManager: AirstreamManager) {
 		self.asManager = asManager
 		self.npStack = .init(asManager: asManager)
+		self.startStopButton = ServerStateButton(asManager: asManager)
 		super.init(nibName: nil, bundle: nil)
 	}
 	
@@ -30,12 +32,18 @@ class NowPlayingViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		self.view.addSubview(npStack)
+		self.view.addSubview(startStopButton)
 		npStack.translatesAutoresizingMaskIntoConstraints = false
+		startStopButton.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			npStack.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-			npStack.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-			npStack.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-			npStack.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+			npStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+			npStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+			npStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+			npStack.bottomAnchor.constraint(equalTo: startStopButton.topAnchor, constant: -16),
+			
+			startStopButton.heightAnchor.constraint(equalToConstant: 32),
+			startStopButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+			startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
 		])
 	}
 }

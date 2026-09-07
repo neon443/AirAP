@@ -18,7 +18,7 @@ class AlbumArtView: UIVisualEffectView {
 		
 		var effect: UIVisualEffect
 		if #available(iOS 19, *) {
-			let glassEffect = UIGlassEffect(style: .clear)
+			let glassEffect = UIGlassEffect()
 			glassEffect.isInteractive = true
 			effect = glassEffect
 		} else {

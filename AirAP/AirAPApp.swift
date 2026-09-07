@@ -15,8 +15,7 @@ class AirAPApp: UIResponder, UIApplicationDelegate {
 	
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]?) -> Bool {
 		window = UIWindow(frame: UIScreen.main.bounds)
-		let rootVC = InitialViewController()
-		rootVC.setupTabs(with: asManager)
+		let rootVC = InitialViewController(asManager: asManager)
 		window?.rootViewController = rootVC
 		window?.makeKeyAndVisible()
 		return true
