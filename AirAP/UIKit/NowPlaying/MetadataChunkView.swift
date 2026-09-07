@@ -19,14 +19,14 @@ class MetadataChunkView: UIStackView {
 	) {
 		self.title = UILabel()
 		self.title.text = title
-		self.title.font = UIFont.preferredFont(forTextStyle: .title3)
+		self.title.font = UIFont.preferredFont(forTextStyle: .title3, andWeight: .light)
 		self.title.layer.shadowColor = UIColor(named: "background")?.cgColor
 		self.title.layer.shadowOpacity = 0.5
 		self.title.layer.shadowRadius = 3
 		
 		self.content = UILabel()
 		self.content.text = title
-		self.title.font = UIFont.preferredFont(forTextStyle: .subheadline)
+		self.title.font = UIFont.preferredFont(forTextStyle: .subheadline, andWeight: .light)
 		self.content.layer.shadowColor = UIColor(named: "background")?.cgColor
 		self.content.layer.shadowOpacity = 0.5
 		self.content.layer.shadowRadius = 3

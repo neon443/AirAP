@@ -17,6 +17,7 @@ class SliderSettingsCell: SettingsCell {
 	var titleLabel: UILabel
 	var valueLabel: UILabel
 	var resetButton: UIButton
+	var trailingStack: UIStackView
 	var infoStack: UIStackView
 	
 	var stack: UIStackView
@@ -25,7 +26,8 @@ class SliderSettingsCell: SettingsCell {
 		titleLabel = UILabel()
 		valueLabel = UILabel()
 		resetButton = UIButton(type: .custom)
-		infoStack = UIStackView(arrangedSubviews: [titleLabel, valueLabel, resetButton])
+		trailingStack = UIStackView(arrangedSubviews: [valueLabel, resetButton])
+		infoStack = UIStackView(arrangedSubviews: [titleLabel, trailingStack])
 		
 		minLabel = UILabel()
 		slider = UISlider()
@@ -46,13 +48,28 @@ class SliderSettingsCell: SettingsCell {
 	func setup() {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		
+		titleLabel.textAlignment = .left
+		valueLabel.font = valueLabel.font.withWeight(.bold)
+		valueLabel.textAlignment = .center
+		
+		resetButton.setImage(UIImage(systemName: "arrow.uturn.backward"), for: .normal)
+		resetButton.addAction(UIAction(handler: { action in
+			guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
+			self.slider.setValue(sliderConfig.defaultValue, animated: true)
+			self.sliderSet()
+		}), for: .touchUpInside)
+		trailingStack.axis = .horizontal
+		trailingStack.spacing = 8
+//		infoStack.distribution = .equalSpacing
+		infoStack.axis = .horizontal
+		infoStack.distribution = .equalSpacing
+		
 		maxLabel.font = .preferredFont(forTextStyle: .caption1)
 		minLabel.font = .preferredFont(forTextStyle: .caption1)
 		maxLabel.textColor = .systemGray
 		minLabel.textColor = .systemGray
-		
-		infoStack.axis = .horizontal
-		infoStack.distribution = .equalSpacing
+		maxLabel.textAlignment = .center
+		minLabel.textAlignment = .left
 		
 		sliderStack.axis = .horizontal
 		sliderStack.spacing = 4
@@ -62,19 +79,16 @@ class SliderSettingsCell: SettingsCell {
 		slider.maximumValue = sliderConfig.range.upperBound
 		
 		slider.addAction(UIAction(handler: { action in
-			let value = round(self.slider.value / sliderConfig.step) * sliderConfig.step
-			self.slider.setValue(value, animated: false)
-			self.setValueLabel(to: value)
-			UIImpactFeedbackGenerator(style: .light).impactOccurred()
-			self.config.onChange?(self.asManager, value)
-			self.asManager.settings.saveSettings()
+			self.sliderSet()
 		}), for: .valueChanged)
 		
 		contentView.addSubview(stack)
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			stack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
-			stack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+			minLabel.widthAnchor.constraint(equalTo: maxLabel.widthAnchor),
+			
+			stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
+			stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
 			stack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
 			stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
 		])
@@ -90,15 +104,27 @@ class SliderSettingsCell: SettingsCell {
 		setValueLabel(to: slider.value)
 	}
 	
-	func setValueLabel(to value: Float) {
+	func sliderSet() {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		
-		valueLabel.text = ""
-		if slider.value.rounded() == value {
-			self.valueLabel.text?.append("\(Int(value))")
-		} else {
-			self.valueLabel.text?.append("\(value)")
+		let value = round(self.slider.value / sliderConfig.step) * sliderConfig.step
+		
+		self.slider.setValue(value, animated: false)
+		self.setValueLabel(to: value)
+		UIView.transition(with: trailingStack, duration: 0.15, options: .transitionCrossDissolve) {
+			self.resetButton.isEnabled = value != sliderConfig.defaultValue
+			self.trailingStack.layoutIfNeeded()
 		}
-		self.valueLabel.text?.append(sliderConfig.unit)
+		
+		UIImpactFeedbackGenerator(style: .light).impactOccurred()
+		
+		self.config.onChange?(self.asManager, value)
+		self.asManager.settings.saveSettings()
+	}
+	
+	func setValueLabel(to value: Float) {
+		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
+		let string: String = slider.value.rounded() == value ? "\(Int(value))" : "\(value)"
+		self.valueLabel.text = string + sliderConfig.unit
 	}
 }

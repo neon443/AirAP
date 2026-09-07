@@ -67,7 +67,7 @@ class MetadataView: UIVisualEffectView {
 		stack.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
 		stack.isLayoutMarginsRelativeArrangement = true
 		
-		title.font = UIFont.preferredFont(forTextStyle: .title1)
+		title.font = UIFont.preferredFont(forTextStyle: .title1, andWeight: .bold)
 		title.layer.shadowColor = UIColor(named: "background")?.cgColor
 		title.layer.shadowOpacity = 0.5
 		title.layer.shadowRadius = 3

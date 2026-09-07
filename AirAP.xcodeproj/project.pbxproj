@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A92538D82DF0972B007E0A18 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92538D72DF0972B007E0A18 /* ViewModifiers.swift */; };
 		A925EA0F304DECD10060691C /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A925EA0E304DECD10060691C /* TPCircularBuffer */; };
+		A925EA50304EF5560060691C /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA4F304EF5560060691C /* UIFont.swift */; };
 		A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */; };
 		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
@@ -97,6 +98,7 @@
 /* Begin PBXFileReference section */
 		A90D496A2DDE73B300781124 /* PlaybackControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControls.swift; sourceTree = "<group>"; };
 		A92538D72DF0972B007E0A18 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		A925EA4F304EF5560060691C /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAdjustments.swift; sourceTree = "<group>"; };
 		A92DCAC52DD74EB000D82924 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
@@ -206,6 +208,14 @@
 			path = Playing;
 			sourceTree = "<group>";
 		};
+		A925EA4E304EF5190060691C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A925EA4F304EF5560060691C /* UIFont.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A92DCABC2DD74EB000D82924 = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +255,7 @@
 				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
+				A925EA4E304EF5190060691C /* Extensions */,
 				A9BD8647304577FB003B9074 /* UIKit */,
 				A92DCAE02DD74F2000D82924 /* SwiftUI */,
 			);
@@ -343,10 +354,10 @@
 			isa = PBXGroup;
 			children = (
 				A9D53C2F304CCDEE00A975D6 /* SettingsViewController.swift */,
+				A9D53C38304D945400A975D6 /* SettingsCell.swift */,
 				A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */,
 				A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */,
 				A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */,
-				A9D53C38304D945400A975D6 /* SettingsCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -561,6 +572,7 @@
 				A9BD865230457D1C003B9074 /* AlbumArtView.swift in Sources */,
 				A92538D82DF0972B007E0A18 /* ViewModifiers.swift in Sources */,
 				A9BD864C30457B28003B9074 /* NowPlayingViewController.swift in Sources */,
+				A925EA50304EF5560060691C /* UIFont.swift in Sources */,
 				A9BD865A3045828F003B9074 /* AAPSettings.swift in Sources */,
 				A9D53C2D304CC6CE00A975D6 /* HelpViewController.swift in Sources */,
 				A9BD864E30457C4E003B9074 /* NowPlayingStackView.swift in Sources */,
