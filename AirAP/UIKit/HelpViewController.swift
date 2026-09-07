@@ -83,24 +83,22 @@ class HelpViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
 		let topic = Topic(rawValue: section)
+		let button = UIButton(type: .custom)
+		button.titleLabel?.textAlignment = .left
 		switch topic {
 		case .doesNotAppear:
 			return nil
 		case .runOnOldDevice:
-			let button = UIButton(type: .custom)
 			button.addTarget(self, action: #selector(openReleses), for: .touchUpInside)
 			button.setTitle("Open GitHub", for: .normal)
-			button.setTitleColor(.systemBlue, for: .normal)
-			return button
 		case .iHaveFeedback:
-			let button = UIButton(type: .custom)
 			button.addTarget(self, action: #selector(createAnIssue), for: .touchUpInside)
 			button.setTitle("Create a GitHub issue", for: .normal)
-			button.setTitleColor(.systemBlue, for: .normal)
-			return button
-		case nil:
+		default:
 			fatalError("invalid section \(section) to topic")
 		}
+//		button.setTitleColor(.systemBlue, for: .normal)
+		return button
 	}
 	
 	@objc func openReleses() {

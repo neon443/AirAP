@@ -50,9 +50,7 @@ class SliderSettingsCell: SettingsCell {
 		
 		titleLabel.textAlignment = .left
 		valueLabel.font = valueLabel.font.withWeight(.bold)
-		valueLabel.textAlignment = .right
-		let maxWidth = maxSize(forFont: valueLabel.font, string: maxString()).width
-		valueLabel.widthAnchor.constraint(equalToConstant: maxWidth).isActive = true
+		valueLabel.textAlignment = .center
 		
 		resetButton.setImage(UIImage(systemName: "arrow.uturn.backward"), for: .normal)
 		resetButton.addAction(UIAction(handler: { action in
@@ -128,21 +126,9 @@ class SliderSettingsCell: SettingsCell {
 	func setValueLabel(to value: Float) {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		let string: String = slider.value.rounded() == value ? "\(Int(value))" : "\(value)"
-		UIView.transition(with: trailingStack, duration: 0.15, options: .transitionCrossDissolve) {
+//		UIView.transition(with: trailingStack, duration: 0.15, options: .transitionCrossDissolve) {
 			self.valueLabel.text = string + sliderConfig.unit
-			self.valueLabel.layoutIfNeeded()
-		}
-	}
-	
-	func maxSize(forFont font: UIFont, string: String) -> CGSize {
-		let fontAttrs = [NSAttributedString.Key.font: font]
-		let size = (string as NSString).size(withAttributes: fontAttrs)
-		return size
-	}
-	
-	func maxString() -> String {
-		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
-		let mid = (sliderConfig.range.upperBound + sliderConfig.range.lowerBound) / 2
-		return "\(mid-sliderConfig.step)" + sliderConfig.unit
+//			self.valueLabel.layoutIfNeeded()
+//		}
 	}
 }
