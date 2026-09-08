@@ -26,8 +26,6 @@ class AlbumArtView: UIVisualEffectView {
 		}
 		super.init(effect: effect)
 		
-		asManager.didSetAlbumArt = { self.refreshUI() }
-		
 		setup()
 		
 		refreshUI()

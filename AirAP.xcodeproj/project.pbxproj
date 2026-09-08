@@ -11,6 +11,7 @@
 		A925EA0F304DECD10060691C /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A925EA0E304DECD10060691C /* TPCircularBuffer */; };
 		A925EA50304EF5560060691C /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA4F304EF5560060691C /* UIFont.swift */; };
 		A925EA73304F2CB50060691C /* ServerStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA72304F2CB50060691C /* ServerStateButton.swift */; };
+		A925EA75304F816B0060691C /* SegmentedSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA74304F816B0060691C /* SegmentedSettingsCell.swift */; };
 		A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */; };
 		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
@@ -101,6 +102,7 @@
 		A92538D72DF0972B007E0A18 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		A925EA4F304EF5560060691C /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		A925EA72304F2CB50060691C /* ServerStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStateButton.swift; sourceTree = "<group>"; };
+		A925EA74304F816B0060691C /* SegmentedSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedSettingsCell.swift; sourceTree = "<group>"; };
 		A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAdjustments.swift; sourceTree = "<group>"; };
 		A92DCAC52DD74EB000D82924 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
@@ -361,6 +363,7 @@
 				A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */,
 				A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */,
 				A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */,
+				A925EA74304F816B0060691C /* SegmentedSettingsCell.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -586,6 +589,7 @@
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
 				A9BD865430457DDB003B9074 /* MetadataView.swift in Sources */,
 				A9D53C33304CEAA700A975D6 /* SliderSettingsCell.swift in Sources */,
+				A925EA75304F816B0060691C /* SegmentedSettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

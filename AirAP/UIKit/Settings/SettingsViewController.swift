@@ -10,9 +10,11 @@ import UIKit
 
 class SettingsViewController: UITableViewController {
 	var asManager: AirstreamManager
+	var startStopButton: ServerStateButton
 	
 	init(asManager: AirstreamManager) {
 		self.asManager = asManager
+		self.startStopButton = ServerStateButton(asManager: asManager)
 		super.init(style: .insetGrouped)
 		self.tableView.allowsSelection = false
 	}
@@ -72,8 +74,10 @@ class SettingsViewController: UITableViewController {
 			case .background:
 				if itemIndex == 0 {
 					return .toggle
-				} else {
+				} else if itemIndex == 1 {
 					return .slider
+				} else {
+					return .segment
 				}
 			case .metadata:
 				return .toggle
@@ -127,15 +131,15 @@ class SettingsViewController: UITableViewController {
 					}
 				} else {
 					title = "Blur"
-					config.sliderConfig = .init(
-						range: 0...100,
-						step: 5,
-						unit: "px",
-						defaultValue: 75
+					config.segmentConfig = .init(
+						numberOfSegments: 4,
+						titleFor: { index in
+							AAPSettings.bgBlurStrengths(rawValue: index)!.description
+						}
 					)
 					config.onChange = { asManager, newValue in
-						let newValue = newValue as! Float
-						asManager.settings.bgBlur = newValue
+						let newValue = newValue as! Int
+						asManager.settings.bgBlur = AAPSettings.bgBlurStrengths(rawValue: newValue)!
 					}
 				}
 			case .metadata:
@@ -166,6 +170,7 @@ class SettingsViewController: UITableViewController {
 		var title: String
 		var onChange: ((AirstreamManager, Any) -> Void)?
 		var sliderConfig: SliderConfiguration?
+		var segmentConfig: SegmentedControlConfiguration?
 		
 		init(category: Category, itemIndex: Int, type: SettingType, title: String) {
 			self.category = category
@@ -202,6 +207,7 @@ class SettingsViewController: UITableViewController {
 		case toggle
 		case slider
 		case textField
+		case segment
 	}
 	
 	struct SliderConfiguration {
@@ -230,6 +236,22 @@ class SettingsViewController: UITableViewController {
 			self.trailing = trailing ?? "\(Int(range.upperBound))"
 		}
 	}
+	struct SegmentedControlConfiguration {
+		var numberOfSegments: Int
+		var titleFor: ((Int) -> String)
+		var titles: [String] {
+			var result: [String] = []
+			for i in 0..<numberOfSegments {
+				result.append(titleFor(i))
+			}
+			return result
+		}
+		
+		init(numberOfSegments: Int, titleFor: @escaping (Int) -> String) {
+			self.numberOfSegments = numberOfSegments
+			self.titleFor = titleFor
+		}
+	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let category = Category(rawValue: indexPath.section) else { fatalError("invalid section \(indexPath.section)") }
@@ -244,6 +266,8 @@ class SettingsViewController: UITableViewController {
 			cell = SliderSettingsCell(asManager: asManager, config: config)
 		case .textField:
 			cell = TextFieldSettingsCell(asManager: asManager, config: config)
+		case .segment:
+			cell = SegmentedSettingsCell(asManager: asManager, config: config)
 		}
 		return cell
 	}
@@ -264,5 +288,19 @@ class SettingsViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		guard let category = Category(rawValue: section) else { fatalError("invalid section \(section)") }
 		return category.contains
+	}
+	
+	override func viewDidLayoutSubviews() {
+		self.tableView.contentInset.bottom = 48
+	}
+	
+	override func viewDidLoad() {
+		self.view.addSubview(startStopButton)
+		startStopButton.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			startStopButton.heightAnchor.constraint(equalToConstant: 32),
+			startStopButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+			startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+		])
 	}
 }

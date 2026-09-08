@@ -12,17 +12,50 @@ struct AAPSettings: Codable {
 	var name: String
 	var showBg: Bool
 	var bgOpacity: Float
-	var bgBlur: Float
+	var bgBlur: AAPSettings.bgBlurStrengths
 	var showMetadata: Bool
 	var showAudioQuality: Bool
 	var delay: Float
+	
+	enum bgBlurStrengths: Int, CaseIterable, Codable, CustomStringConvertible {
+		case systemUltraThinMaterial = 0
+		case systemThinMaterial = 1
+		case systemChromeMaterial = 2
+		case systemMaterial = 3
+		
+		var uiBlurEffectStyle: UIBlurEffect.Style {
+			switch self {
+			case .systemUltraThinMaterial:
+				return .systemUltraThinMaterial
+			case .systemThinMaterial:
+				return .systemThinMaterial
+			case .systemChromeMaterial:
+				return .systemChromeMaterial
+			case .systemMaterial:
+				return .systemMaterial
+			}
+		}
+		
+		var description: String {
+			switch self {
+			case .systemUltraThinMaterial:
+				return "Very Low"
+			case .systemThinMaterial:
+				return "Low"
+			case .systemChromeMaterial:
+				return "Medium"
+			case .systemMaterial:
+				return "High"
+			}
+		}
+	}
 }
 
 class AAPSettingsModel {
 	var name: String = "AirAP"
 	var showBg: Bool = true
 	var bgOpacity: Float = 0.8
-	var bgBlur: Float = 75
+	var bgBlur: AAPSettings.bgBlurStrengths = .systemUltraThinMaterial
 	var showMetadata: Bool = true
 	var showAudioQuality: Bool = true
 	var delay: Float = 0

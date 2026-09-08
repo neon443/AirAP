@@ -82,13 +82,14 @@ class SliderSettingsCell: SettingsCell {
 			self.sliderSet()
 		}), for: .valueChanged)
 		
+		stack.spacing = 2
 		contentView.addSubview(stack)
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			minLabel.widthAnchor.constraint(equalTo: maxLabel.widthAnchor),
 			
-			stack.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 8),
-			stack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -8),
+			stack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+			stack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
 			stack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
 			stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
 		])
@@ -108,7 +109,9 @@ class SliderSettingsCell: SettingsCell {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		
 		let value = round(self.slider.value / sliderConfig.step) * sliderConfig.step
-		print(value, self.slider.value)
+		if config.currentValue(asManager: asManager) as! Float != value {
+			UIImpactFeedbackGenerator(style: .light).impactOccurred()
+		}
 		
 		self.slider.setValue(value, animated: false)
 		self.setValueLabel(to: value)
@@ -116,8 +119,6 @@ class SliderSettingsCell: SettingsCell {
 			self.resetButton.isEnabled = value != sliderConfig.defaultValue
 			self.resetButton.layoutIfNeeded()
 		}
-		
-		UIImpactFeedbackGenerator(style: .light).impactOccurred()
 		
 		self.config.onChange?(self.asManager, value)
 		self.asManager.settings.saveSettings()

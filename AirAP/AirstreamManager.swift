@@ -77,7 +77,6 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	}
 	
 	func stop() {
-		
 		airstream?.stopServer()
 		withAnimation {
 			running = false
@@ -99,6 +98,8 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		title = nil
 		album = nil
 		artist = nil
+		didSetAlbumArt?()
+		didSetMetadata?()
 	}
 	
 	//brefore stream setup

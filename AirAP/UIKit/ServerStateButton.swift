@@ -46,7 +46,7 @@ class ServerStateButton: UIVisualEffectView {
 		button.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			contentView.topAnchor.constraint(equalTo: button.topAnchor, constant: -8),
-			contentView.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: -12),
+			contentView.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: -8),
 			contentView.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 12),
 			contentView.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 8)
 		])

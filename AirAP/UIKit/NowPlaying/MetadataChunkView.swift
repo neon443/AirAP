@@ -19,17 +19,21 @@ class MetadataChunkView: UIStackView {
 	) {
 		self.title = UILabel()
 		self.title.text = title
-		self.title.font = UIFont.preferredFont(forTextStyle: .title3, andWeight: .light)
+		self.title.font = UIFont.preferredFont(forTextStyle: .subheadline, andWeight: .light)
 		self.title.layer.shadowColor = UIColor(named: "background")?.cgColor
 		self.title.layer.shadowOpacity = 0.5
 		self.title.layer.shadowRadius = 3
+		self.title.clipsToBounds = true
+		self.title.layer.masksToBounds = true
 		
 		self.content = UILabel()
 		self.content.text = title
-		self.title.font = UIFont.preferredFont(forTextStyle: .subheadline, andWeight: .light)
+		self.content.font = UIFont.preferredFont(forTextStyle: .title3)
 		self.content.layer.shadowColor = UIColor(named: "background")?.cgColor
 		self.content.layer.shadowOpacity = 0.5
 		self.content.layer.shadowRadius = 3
+		self.content.clipsToBounds = true
+		self.content.layer.masksToBounds = true
 		
 //		super.init(arrangedSubviews: [self.title, self.content])
 		super.init(frame: .zero)
@@ -45,8 +49,9 @@ class MetadataChunkView: UIStackView {
 	
 	func setTitle(to newTitle: String, animated: Bool = true) {
 		if animated {
-			UIView.transition(with: title, duration: 0.2) {
+			UIView.transition(with: title, duration: 0.2, options: .transitionCrossDissolve) {
 				self.title.text = newTitle
+				self.layoutIfNeeded()
 			}
 		} else {
 			title.text = newTitle
@@ -55,11 +60,12 @@ class MetadataChunkView: UIStackView {
 	
 	func setContent(to newContent: String?, animated: Bool = true) {
 		if animated {
-			UIView.transition(with: title, duration: 0.2) {
-				self.content.text = newContent
-			}
-		} else {
-			content.text = newContent
+			let animation: CATransition = .init()
+			animation.duration = 0.3
+			animation.type = .fade
+			animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+			content.layer.add(animation, forKey: "changeTextTransition")
 		}
+		self.content.text = newContent
 	}
 }
