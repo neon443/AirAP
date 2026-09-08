@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A92538D82DF0972B007E0A18 /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92538D72DF0972B007E0A18 /* ViewModifiers.swift */; };
+		A9023E1A305011160074FF9A /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9023E19305011160074FF9A /* AAPSettings.swift */; };
 		A925EA0F304DECD10060691C /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A925EA0E304DECD10060691C /* TPCircularBuffer */; };
 		A925EA50304EF5560060691C /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA4F304EF5560060691C /* UIFont.swift */; };
 		A925EA73304F2CB50060691C /* ServerStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA72304F2CB50060691C /* ServerStateButton.swift */; };
@@ -16,7 +16,6 @@
 		A925EA79304FF2420060691C /* UIBlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA78304FF2420060691C /* UIBlurEffect.swift */; };
 		A925EA7B304FF30D0060691C /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA7A304FF30D0060691C /* UITableView.swift */; };
 		A925EA7D305001F80060691C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA7C305001F80060691C /* UIColor.swift */; };
-		A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */; };
 		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
 		A93C6A392DF0A2110006E216 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; };
@@ -31,7 +30,6 @@
 		A9BD865230457D1C003B9074 /* AlbumArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD865130457D1C003B9074 /* AlbumArtView.swift */; };
 		A9BD865430457DDB003B9074 /* MetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD865330457DDB003B9074 /* MetadataView.swift */; };
 		A9BD86573045803C003B9074 /* MetadataChunkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD86563045803C003B9074 /* MetadataChunkView.swift */; };
-		A9BD865A3045828F003B9074 /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94BEC112DE33A7C00D4811D /* AAPSettings.swift */; };
 		A9BD865D3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BD865C3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png */; };
 		A9C897572DF0BFD600EF9A5F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9C897562DF0BFD600EF9A5F /* README.md */; };
 		A9D53C2D304CC6CE00A975D6 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C2C304CC6CE00A975D6 /* HelpViewController.swift */; };
@@ -102,8 +100,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A90D496A2DDE73B300781124 /* PlaybackControls.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControls.swift; sourceTree = "<group>"; };
-		A92538D72DF0972B007E0A18 /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
+		A9023E19305011160074FF9A /* AAPSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPSettings.swift; sourceTree = "<group>"; };
 		A925EA4F304EF5560060691C /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		A925EA72304F2CB50060691C /* ServerStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStateButton.swift; sourceTree = "<group>"; };
 		A925EA74304F816B0060691C /* SegmentedSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedSettingsCell.swift; sourceTree = "<group>"; };
@@ -111,33 +108,20 @@
 		A925EA78304FF2420060691C /* UIBlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurEffect.swift; sourceTree = "<group>"; };
 		A925EA7A304FF30D0060691C /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		A925EA7C305001F80060691C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAdjustments.swift; sourceTree = "<group>"; };
 		A92DCAC52DD74EB000D82924 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
 		A92DCADA2DD74F1800D82924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A92DCADB2DD74F1800D82924 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A931D4112EBD1F22007BC75B /* SliderDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderDetailView.swift; sourceTree = "<group>"; };
 		A93C6A152DF09C200006E216 /* Airstream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Airstream.xcodeproj; path = Carthage/Checkouts/Airstream/Airstream.xcodeproj; sourceTree = "<group>"; };
 		A93C6A362DF0A0980006E216 /* AirAP-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirAP-Bridge.h"; sourceTree = "<group>"; };
 		A93C6A3B2DF0A2C00006E216 /* TPCircularBufferFillCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCircularBufferFillCount.h; sourceTree = "<group>"; };
 		A93C6A3C2DF0A2C00006E216 /* TPCircularBufferFillCount.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TPCircularBufferFillCount.c; sourceTree = "<group>"; };
-		A94BEC112DE33A7C00D4811D /* AAPSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPSettings.swift; sourceTree = "<group>"; };
-		A94BEC162DE45F4400D4811D /* PlaybackProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackProgressView.swift; sourceTree = "<group>"; };
 		A95FAA6F2DF4BE8C00DE2F5A /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
-		A966B4B12DDF863B00C721A5 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
-		A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtView.swift; sourceTree = "<group>"; };
-		A96A94332DDE80AC00C12751 /* MetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataView.swift; sourceTree = "<group>"; };
 		A96EAF312DDA005000E13432 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		A9904A312DDD0AD900816130 /* NowPlayingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingView.swift; sourceTree = "<group>"; };
-		A9904A332DDD0BE100816130 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		A9904A3C2DDD1CD600816130 /* StartStopButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartStopButton.swift; sourceTree = "<group>"; };
 		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A9B78B8D2DF9D56300647399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A9BBC5272EB8FB8200FFE82F /* AirAPMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAPMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BBC5362EB8FB8300FFE82F /* AirAPMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirAPMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9BBC5402EB8FB8300FFE82F /* AirAPMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirAPMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9BD8643304577D4003B9074 /* Landscape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Landscape.swift; sourceTree = "<group>"; };
-		A9BD8644304577D4003B9074 /* Portrait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Portrait.swift; sourceTree = "<group>"; };
 		A9BD86483045780B003B9074 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
 		A9BD864B30457B28003B9074 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
 		A9BD864D30457C4E003B9074 /* NowPlayingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingStackView.swift; sourceTree = "<group>"; };
@@ -198,28 +182,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A90D49682DDE738C00781124 /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				A94BEC112DE33A7C00D4811D /* AAPSettings.swift */,
-				A9904A332DDD0BE100816130 /* SettingsView.swift */,
-				A9904A3C2DDD1CD600816130 /* StartStopButton.swift */,
-				A931D4112EBD1F22007BC75B /* SliderDetailView.swift */,
-			);
-			path = Settings;
-			sourceTree = "<group>";
-		};
-		A90D49692DDE739A00781124 /* Playing */ = {
-			isa = PBXGroup;
-			children = (
-				A9904A312DDD0AD900816130 /* NowPlayingView.swift */,
-				A9BD8644304577D4003B9074 /* Portrait.swift */,
-				A9BD8643304577D4003B9074 /* Landscape.swift */,
-				A966B4B32DDF8A6B00C721A5 /* AlbumArtView.swift */,
-			);
-			path = Playing;
-			sourceTree = "<group>";
-		};
 		A925EA4E304EF5190060691C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -270,26 +232,11 @@
 				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
 				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
 				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
+				A9023E19305011160074FF9A /* AAPSettings.swift */,
 				A925EA4E304EF5190060691C /* Extensions */,
 				A9BD8647304577FB003B9074 /* UIKit */,
-				A92DCAE02DD74F2000D82924 /* SwiftUI */,
 			);
 			path = AirAP;
-			sourceTree = "<group>";
-		};
-		A92DCAE02DD74F2000D82924 /* SwiftUI */ = {
-			isa = PBXGroup;
-			children = (
-				A92DCADB2DD74F1800D82924 /* ContentView.swift */,
-				A90D49692DDE739A00781124 /* Playing */,
-				A94912392E198C6600CB1A37 /* Control */,
-				A94BEC152DE34D4000D4811D /* Metadata */,
-				A90D49682DDE738C00781124 /* Settings */,
-				A966B4B12DDF863B00C721A5 /* HelpView.swift */,
-				A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */,
-				A92538D72DF0972B007E0A18 /* ViewModifiers.swift */,
-			);
-			path = SwiftUI;
 			sourceTree = "<group>";
 		};
 		A93C6A292DF09CBC0006E216 /* Products */ = {
@@ -298,23 +245,6 @@
 				A93C6A2D2DF09CBC0006E216 /* Airstream.framework */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		A94912392E198C6600CB1A37 /* Control */ = {
-			isa = PBXGroup;
-			children = (
-				A90D496A2DDE73B300781124 /* PlaybackControls.swift */,
-			);
-			path = Control;
-			sourceTree = "<group>";
-		};
-		A94BEC152DE34D4000D4811D /* Metadata */ = {
-			isa = PBXGroup;
-			children = (
-				A94BEC162DE45F4400D4811D /* PlaybackProgressView.swift */,
-				A96A94332DDE80AC00C12751 /* MetadataView.swift */,
-			);
-			path = Metadata;
 			sourceTree = "<group>";
 		};
 		A95FAA6E2DF4BE7400DE2F5A /* ci_scripts */ = {
@@ -583,16 +513,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9D53C37304CEAD100A975D6 /* TextFieldSettingsCell.swift in Sources */,
-				A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */,
 				A9BD86493045780B003B9074 /* InitialViewController.swift in Sources */,
 				A9D53C39304D945400A975D6 /* SettingsCell.swift in Sources */,
 				A9BD86573045803C003B9074 /* MetadataChunkView.swift in Sources */,
 				A9BD865230457D1C003B9074 /* AlbumArtView.swift in Sources */,
 				A925EA73304F2CB50060691C /* ServerStateButton.swift in Sources */,
-				A92538D82DF0972B007E0A18 /* ViewModifiers.swift in Sources */,
 				A9BD864C30457B28003B9074 /* NowPlayingViewController.swift in Sources */,
 				A925EA50304EF5560060691C /* UIFont.swift in Sources */,
-				A9BD865A3045828F003B9074 /* AAPSettings.swift in Sources */,
 				A9D53C2D304CC6CE00A975D6 /* HelpViewController.swift in Sources */,
 				A925EA77304F94240060691C /* HelpViewCell.swift in Sources */,
 				A925EA7D305001F80060691C /* UIColor.swift in Sources */,
@@ -602,6 +529,7 @@
 				A9D53C35304CEAB900A975D6 /* ToggleSettingsCell.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
 				A925EA7B304FF30D0060691C /* UITableView.swift in Sources */,
+				A9023E1A305011160074FF9A /* AAPSettings.swift in Sources */,
 				A9BD865430457DDB003B9074 /* MetadataView.swift in Sources */,
 				A9D53C33304CEAA700A975D6 /* SliderSettingsCell.swift in Sources */,
 				A925EA75304F816B0060691C /* SegmentedSettingsCell.swift in Sources */,
