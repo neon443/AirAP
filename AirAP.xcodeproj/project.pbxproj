@@ -3,582 +3,348 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A9023E1A305011160074FF9A /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9023E19305011160074FF9A /* AAPSettings.swift */; };
-		A925EA0F304DECD10060691C /* TPCircularBuffer in Frameworks */ = {isa = PBXBuildFile; productRef = A925EA0E304DECD10060691C /* TPCircularBuffer */; };
-		A925EA50304EF5560060691C /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA4F304EF5560060691C /* UIFont.swift */; };
-		A925EA73304F2CB50060691C /* ServerStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA72304F2CB50060691C /* ServerStateButton.swift */; };
-		A925EA75304F816B0060691C /* SegmentedSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA74304F816B0060691C /* SegmentedSettingsCell.swift */; };
-		A925EA77304F94240060691C /* HelpViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA76304F94240060691C /* HelpViewCell.swift */; };
-		A925EA79304FF2420060691C /* UIBlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA78304FF2420060691C /* UIBlurEffect.swift */; };
-		A925EA7B304FF30D0060691C /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA7A304FF30D0060691C /* UITableView.swift */; };
-		A925EA7D305001F80060691C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA7C305001F80060691C /* UIColor.swift */; };
-		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
-		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
-		A93C6A392DF0A2110006E216 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; };
-		A93C6A3A2DF0A2430006E216 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = A96EAF312DDA005000E13432 /* Config.xcconfig */; };
-		A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */; };
-		A9BBC55D2EB8FD5A00FFE82F /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; };
-		A9BBC55E2EB8FD5A00FFE82F /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A93C6A2D2DF09CBC0006E216 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A9BD86493045780B003B9074 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD86483045780B003B9074 /* InitialViewController.swift */; };
-		A9BD864C30457B28003B9074 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD864B30457B28003B9074 /* NowPlayingViewController.swift */; };
-		A9BD864E30457C4E003B9074 /* NowPlayingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD864D30457C4E003B9074 /* NowPlayingStackView.swift */; };
-		A9BD865230457D1C003B9074 /* AlbumArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD865130457D1C003B9074 /* AlbumArtView.swift */; };
-		A9BD865430457DDB003B9074 /* MetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD865330457DDB003B9074 /* MetadataView.swift */; };
-		A9BD86573045803C003B9074 /* MetadataChunkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD86563045803C003B9074 /* MetadataChunkView.swift */; };
-		A9C897572DF0BFD600EF9A5F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9C897562DF0BFD600EF9A5F /* README.md */; };
-		A9D53C2D304CC6CE00A975D6 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C2C304CC6CE00A975D6 /* HelpViewController.swift */; };
-		A9D53C30304CCDEE00A975D6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C2F304CCDEE00A975D6 /* SettingsViewController.swift */; };
-		A9D53C33304CEAA700A975D6 /* SliderSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */; };
-		A9D53C35304CEAB900A975D6 /* ToggleSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */; };
-		A9D53C37304CEAD100A975D6 /* TextFieldSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */; };
-		A9D53C39304D945400A975D6 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C38304D945400A975D6 /* SettingsCell.swift */; };
-		A9E2CE3B30501E8100330FE9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E2CE3A30501E8100330FE9 /* Launch Screen.storyboard */; };
+		A96E630E3050917C006F7533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A96E630D3050917C006F7533 /* Assets.xcassets */; };
+		A96E63113050917C006F7533 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96E630F3050917C006F7533 /* LaunchScreen.storyboard */; };
+		A96E632630509BE8006F7533 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96E632430509B90006F7533 /* Airstream.framework */; };
+		A96E63373050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */; };
+		A96E63383050AA42006F7533 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63363050AA42006F7533 /* TPCircularBuffer.c */; };
+		A96E63393050AA50006F7533 /* TPCircularBuffer+FillCount.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEDC3050A0A200330FE9 /* TPCircularBuffer+FillCount.c */; };
+		A9E2CE89305095E900330FE9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE85305095E900330FE9 /* UIColor.swift */; };
+		A9E2CE8A305095E900330FE9 /* UIBlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE84305095E900330FE9 /* UIBlurEffect.swift */; };
+		A9E2CE8B305095E900330FE9 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE86305095E900330FE9 /* UIFont.swift */; };
+		A9E2CE8C305095E900330FE9 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE87305095E900330FE9 /* UITableView.swift */; };
+		A9E2CEA93050960C00330FE9 /* HelpViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEA43050960C00330FE9 /* HelpViewCell.swift */; };
+		A9E2CEAB3050960C00330FE9 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEA53050960C00330FE9 /* HelpViewController.swift */; };
+		A9E2CEAC3050960C00330FE9 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEA63050960C00330FE9 /* InitialViewController.swift */; };
+		A9E2CEAD3050960C00330FE9 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE9E3050960C00330FE9 /* SettingsCell.swift */; };
+		A9E2CEAE3050960C00330FE9 /* NowPlayingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE993050960C00330FE9 /* NowPlayingStackView.swift */; };
+		A9E2CEAF3050960C00330FE9 /* AlbumArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE963050960C00330FE9 /* AlbumArtView.swift */; };
+		A9E2CEB03050960C00330FE9 /* MetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE983050960C00330FE9 /* MetadataView.swift */; };
+		A9E2CEB13050960C00330FE9 /* NowPlayingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE9A3050960C00330FE9 /* NowPlayingViewController.swift */; };
+		A9E2CEB23050960C00330FE9 /* TextFieldSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEA13050960C00330FE9 /* TextFieldSettingsCell.swift */; };
+		A9E2CEB33050960C00330FE9 /* ToggleSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEA23050960C00330FE9 /* ToggleSettingsCell.swift */; };
+		A9E2CEB43050960C00330FE9 /* SliderSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEA03050960C00330FE9 /* SliderSettingsCell.swift */; };
+		A9E2CEB53050960C00330FE9 /* MetadataChunkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE973050960C00330FE9 /* MetadataChunkView.swift */; };
+		A9E2CEB63050960C00330FE9 /* SegmentedSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE9D3050960C00330FE9 /* SegmentedSettingsCell.swift */; };
+		A9E2CEB73050960C00330FE9 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE9F3050960C00330FE9 /* SettingsViewController.swift */; };
+		A9E2CEB83050960C00330FE9 /* ServerStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEA73050960C00330FE9 /* ServerStateButton.swift */; };
+		A9E2CEBD3050961D00330FE9 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */; };
+		A9E2CEBE3050961D00330FE9 /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEB93050961D00330FE9 /* AAPSettings.swift */; };
+		A9E2CEBF3050961D00330FE9 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBB3050961D00330FE9 /* AirAPApp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		A93C6A2C2DF09CBC0006E216 /* PBXContainerItemProxy */ = {
+		A96E632330509B90006F7533 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = A93C6A152DF09C200006E216 /* Airstream.xcodeproj */;
+			containerPortal = A96E631830509B90006F7533 /* Airstream.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D1524B381DC562AF009C5D23;
 			remoteInfo = Airstream;
 		};
-		A9BBC5372EB8FB8300FFE82F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A92DCABD2DD74EB000D82924 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9BBC5262EB8FB8200FFE82F;
-			remoteInfo = AirAPMac;
-		};
-		A9BBC5412EB8FB8300FFE82F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A92DCABD2DD74EB000D82924 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = A9BBC5262EB8FB8200FFE82F;
-			remoteInfo = AirAPMac;
-		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		A96EAF3D2DDA2B3500E13432 /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A93C6A3A2DF0A2430006E216 /* Airstream.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC55F2EB8FD5A00FFE82F /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				A9BBC55E2EB8FD5A00FFE82F /* Airstream.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9E741A62DDF5560005F47B5 /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		A9023E19305011160074FF9A /* AAPSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPSettings.swift; sourceTree = "<group>"; };
-		A925EA4F304EF5560060691C /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
-		A925EA72304F2CB50060691C /* ServerStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStateButton.swift; sourceTree = "<group>"; };
-		A925EA74304F816B0060691C /* SegmentedSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedSettingsCell.swift; sourceTree = "<group>"; };
-		A925EA76304F94240060691C /* HelpViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewCell.swift; sourceTree = "<group>"; };
-		A925EA78304FF2420060691C /* UIBlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurEffect.swift; sourceTree = "<group>"; };
-		A925EA7A304FF30D0060691C /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
-		A925EA7C305001F80060691C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
-		A92DCAC52DD74EB000D82924 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
-		A92DCADA2DD74F1800D82924 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A93C6A152DF09C200006E216 /* Airstream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Airstream.xcodeproj; path = Carthage/Checkouts/Airstream/Airstream.xcodeproj; sourceTree = "<group>"; };
-		A93C6A362DF0A0980006E216 /* AirAP-Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AirAP-Bridge.h"; sourceTree = "<group>"; };
-		A93C6A3B2DF0A2C00006E216 /* TPCircularBufferFillCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TPCircularBufferFillCount.h; sourceTree = "<group>"; };
-		A93C6A3C2DF0A2C00006E216 /* TPCircularBufferFillCount.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = TPCircularBufferFillCount.c; sourceTree = "<group>"; };
-		A95FAA6F2DF4BE8C00DE2F5A /* ci_post_clone.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = ci_post_clone.sh; sourceTree = "<group>"; };
-		A96EAF312DDA005000E13432 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
-		A9B78B8D2DF9D56300647399 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A9BBC5272EB8FB8200FFE82F /* AirAPMac.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAPMac.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9BBC5362EB8FB8300FFE82F /* AirAPMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirAPMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9BBC5402EB8FB8300FFE82F /* AirAPMacUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AirAPMacUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		A9BD86483045780B003B9074 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
-		A9BD864B30457B28003B9074 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
-		A9BD864D30457C4E003B9074 /* NowPlayingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingStackView.swift; sourceTree = "<group>"; };
-		A9BD865130457D1C003B9074 /* AlbumArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtView.swift; sourceTree = "<group>"; };
-		A9BD865330457DDB003B9074 /* MetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataView.swift; sourceTree = "<group>"; };
-		A9BD86563045803C003B9074 /* MetadataChunkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataChunkView.swift; sourceTree = "<group>"; };
-		A9C897562DF0BFD600EF9A5F /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		A9D53C2C304CC6CE00A975D6 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
-		A9D53C2F304CCDEE00A975D6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
-		A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderSettingsCell.swift; sourceTree = "<group>"; };
-		A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSettingsCell.swift; sourceTree = "<group>"; };
-		A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSettingsCell.swift; sourceTree = "<group>"; };
-		A9D53C38304D945400A975D6 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
-		A9E2CE3A30501E8100330FE9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
+		A96E63033050917B006F7533 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A96E630D3050917C006F7533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A96E63103050917C006F7533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		A96E63123050917C006F7533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A96E631830509B90006F7533 /* Airstream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Airstream.xcodeproj; path = Carthage/Checkouts/Airstream/Airstream.xcodeproj; sourceTree = "<group>"; };
+		A96E632A30509D6E006F7533 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
+		A96E63323050AA42006F7533 /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPCircularBuffer.h; path = Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer.h; sourceTree = SOURCE_ROOT; };
+		A96E63343050AA42006F7533 /* TPCircularBuffer+AudioBufferList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TPCircularBuffer+AudioBufferList.h"; path = "Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h"; sourceTree = SOURCE_ROOT; };
+		A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "TPCircularBuffer+AudioBufferList.c"; path = "Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer+AudioBufferList.c"; sourceTree = SOURCE_ROOT; };
+		A96E63363050AA42006F7533 /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = TPCircularBuffer.c; path = Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer.c; sourceTree = SOURCE_ROOT; };
+		A9E2CE84305095E900330FE9 /* UIBlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurEffect.swift; sourceTree = "<group>"; };
+		A9E2CE85305095E900330FE9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		A9E2CE86305095E900330FE9 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		A9E2CE87305095E900330FE9 /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		A9E2CE963050960C00330FE9 /* AlbumArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtView.swift; sourceTree = "<group>"; };
+		A9E2CE973050960C00330FE9 /* MetadataChunkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataChunkView.swift; sourceTree = "<group>"; };
+		A9E2CE983050960C00330FE9 /* MetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataView.swift; sourceTree = "<group>"; };
+		A9E2CE993050960C00330FE9 /* NowPlayingStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingStackView.swift; sourceTree = "<group>"; };
+		A9E2CE9A3050960C00330FE9 /* NowPlayingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowPlayingViewController.swift; sourceTree = "<group>"; };
+		A9E2CE9D3050960C00330FE9 /* SegmentedSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedSettingsCell.swift; sourceTree = "<group>"; };
+		A9E2CE9E3050960C00330FE9 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		A9E2CE9F3050960C00330FE9 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		A9E2CEA03050960C00330FE9 /* SliderSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderSettingsCell.swift; sourceTree = "<group>"; };
+		A9E2CEA13050960C00330FE9 /* TextFieldSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSettingsCell.swift; sourceTree = "<group>"; };
+		A9E2CEA23050960C00330FE9 /* ToggleSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSettingsCell.swift; sourceTree = "<group>"; };
+		A9E2CEA43050960C00330FE9 /* HelpViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewCell.swift; sourceTree = "<group>"; };
+		A9E2CEA53050960C00330FE9 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		A9E2CEA63050960C00330FE9 /* InitialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		A9E2CEA73050960C00330FE9 /* ServerStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStateButton.swift; sourceTree = "<group>"; };
+		A9E2CEB93050961D00330FE9 /* AAPSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPSettings.swift; sourceTree = "<group>"; };
+		A9E2CEBA3050961D00330FE9 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
+		A9E2CEBB3050961D00330FE9 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
+		A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
+		A9E2CEDB3050A0A200330FE9 /* TPCircularBuffer+FillCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPCircularBuffer+FillCount.h"; sourceTree = "<group>"; };
+		A9E2CEDC3050A0A200330FE9 /* TPCircularBuffer+FillCount.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "TPCircularBuffer+FillCount.c"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		A9BBC5282EB8FB8300FFE82F /* AirAPMac */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AirAPMac; sourceTree = "<group>"; };
-		A9BBC5392EB8FB8300FFE82F /* AirAPMacTests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AirAPMacTests; sourceTree = "<group>"; };
-		A9BBC5432EB8FB8300FFE82F /* AirAPMacUITests */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = AirAPMacUITests; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
-		A92DCAC22DD74EB000D82924 /* Frameworks */ = {
+		A96E63003050917B006F7533 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A93C6A392DF0A2110006E216 /* Airstream.framework in Frameworks */,
-				A925EA0F304DECD10060691C /* TPCircularBuffer in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC5242EB8FB8200FFE82F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				A9BBC55D2EB8FD5A00FFE82F /* Airstream.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC5332EB8FB8300FFE82F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC53D2EB8FB8300FFE82F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A96E632630509BE8006F7533 /* Airstream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A925EA4E304EF5190060691C /* Extensions */ = {
+		A96E62FA3050917B006F7533 = {
 			isa = PBXGroup;
 			children = (
-				A925EA4F304EF5560060691C /* UIFont.swift */,
-				A925EA78304FF2420060691C /* UIBlurEffect.swift */,
-				A925EA7A304FF30D0060691C /* UITableView.swift */,
-				A925EA7C305001F80060691C /* UIColor.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		A92DCABC2DD74EB000D82924 = {
-			isa = PBXGroup;
-			children = (
-				A95FAA6E2DF4BE7400DE2F5A /* ci_scripts */,
-				A9C897562DF0BFD600EF9A5F /* README.md */,
-				A96EAF312DDA005000E13432 /* Config.xcconfig */,
-				A92DCADC2DD74F1800D82924 /* AirAP */,
-				A9BBC5532EB8FC1E00FFE82F /* TPCircularBuffer */,
-				A93C6A152DF09C200006E216 /* Airstream.xcodeproj */,
-				A9BBC5282EB8FB8300FFE82F /* AirAPMac */,
-				A9BBC5392EB8FB8300FFE82F /* AirAPMacTests */,
-				A9BBC5432EB8FB8300FFE82F /* AirAPMacUITests */,
-				A9BBC5542EB8FCD300FFE82F /* Frameworks */,
-				A92DCAC62DD74EB000D82924 /* Products */,
+				A9E2CED83050A06800330FE9 /* TPCircularBuffer */,
+				A96E63053050917B006F7533 /* AirAP */,
+				A96E631830509B90006F7533 /* Airstream.xcodeproj */,
+				A96E63043050917B006F7533 /* Products */,
+				A96E632530509BE8006F7533 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		A92DCAC62DD74EB000D82924 /* Products */ = {
+		A96E63043050917B006F7533 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A92DCAC52DD74EB000D82924 /* AirAP.app */,
-				A9BBC5272EB8FB8200FFE82F /* AirAPMac.app */,
-				A9BBC5362EB8FB8300FFE82F /* AirAPMacTests.xctest */,
-				A9BBC5402EB8FB8300FFE82F /* AirAPMacUITests.xctest */,
+				A96E63033050917B006F7533 /* AirAP.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A92DCADC2DD74F1800D82924 /* AirAP */ = {
+		A96E63053050917B006F7533 /* AirAP */ = {
 			isa = PBXGroup;
 			children = (
-				A9E2CE3A30501E8100330FE9 /* Launch Screen.storyboard */,
-				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
-				A9B78B8D2DF9D56300647399 /* Info.plist */,
-				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
-				A92DCAD92DD74F1800D82924 /* AirAPApp.swift */,
-				A99E25302DD7D1A900BF77D7 /* AirstreamManager.swift */,
-				A9023E19305011160074FF9A /* AAPSettings.swift */,
-				A925EA4E304EF5190060691C /* Extensions */,
-				A9BD8647304577FB003B9074 /* UIKit */,
+				A96E632A30509D6E006F7533 /* Bridge.h */,
+				A96E630D3050917C006F7533 /* Assets.xcassets */,
+				A96E630F3050917C006F7533 /* LaunchScreen.storyboard */,
+				A96E63123050917C006F7533 /* Info.plist */,
+				A9E2CEB93050961D00330FE9 /* AAPSettings.swift */,
+				A9E2CEBA3050961D00330FE9 /* AirAP.entitlements */,
+				A9E2CEBB3050961D00330FE9 /* AirAPApp.swift */,
+				A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */,
+				A9E2CEA83050960C00330FE9 /* UIKit */,
+				A9E2CE88305095E900330FE9 /* Extensions */,
 			);
 			path = AirAP;
 			sourceTree = "<group>";
 		};
-		A93C6A292DF09CBC0006E216 /* Products */ = {
+		A96E631930509B90006F7533 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A93C6A2D2DF09CBC0006E216 /* Airstream.framework */,
+				A96E632430509B90006F7533 /* Airstream.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A95FAA6E2DF4BE7400DE2F5A /* ci_scripts */ = {
-			isa = PBXGroup;
-			children = (
-				A95FAA6F2DF4BE8C00DE2F5A /* ci_post_clone.sh */,
-			);
-			path = ci_scripts;
-			sourceTree = "<group>";
-		};
-		A9BBC5532EB8FC1E00FFE82F /* TPCircularBuffer */ = {
-			isa = PBXGroup;
-			children = (
-				A93C6A362DF0A0980006E216 /* AirAP-Bridge.h */,
-				A93C6A3B2DF0A2C00006E216 /* TPCircularBufferFillCount.h */,
-				A93C6A3C2DF0A2C00006E216 /* TPCircularBufferFillCount.c */,
-			);
-			path = TPCircularBuffer;
-			sourceTree = "<group>";
-		};
-		A9BBC5542EB8FCD300FFE82F /* Frameworks */ = {
+		A96E632530509BE8006F7533 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		A9BD8647304577FB003B9074 /* UIKit */ = {
+		A9E2CE88305095E900330FE9 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A9BD86483045780B003B9074 /* InitialViewController.swift */,
-				A9BD864A30457B1A003B9074 /* NowPlaying */,
-				A9D53C2C304CC6CE00A975D6 /* HelpViewController.swift */,
-				A925EA76304F94240060691C /* HelpViewCell.swift */,
-				A9D53C31304CEA9100A975D6 /* Settings */,
-				A925EA72304F2CB50060691C /* ServerStateButton.swift */,
+				A9E2CE84305095E900330FE9 /* UIBlurEffect.swift */,
+				A9E2CE85305095E900330FE9 /* UIColor.swift */,
+				A9E2CE86305095E900330FE9 /* UIFont.swift */,
+				A9E2CE87305095E900330FE9 /* UITableView.swift */,
 			);
-			path = UIKit;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
-		A9BD864A30457B1A003B9074 /* NowPlaying */ = {
+		A9E2CE9C3050960C00330FE9 /* NowPlaying */ = {
 			isa = PBXGroup;
 			children = (
-				A9BD864B30457B28003B9074 /* NowPlayingViewController.swift */,
-				A9BD864D30457C4E003B9074 /* NowPlayingStackView.swift */,
-				A9BD865130457D1C003B9074 /* AlbumArtView.swift */,
-				A9BD865330457DDB003B9074 /* MetadataView.swift */,
-				A9BD86563045803C003B9074 /* MetadataChunkView.swift */,
+				A9E2CE963050960C00330FE9 /* AlbumArtView.swift */,
+				A9E2CE973050960C00330FE9 /* MetadataChunkView.swift */,
+				A9E2CE983050960C00330FE9 /* MetadataView.swift */,
+				A9E2CE993050960C00330FE9 /* NowPlayingStackView.swift */,
+				A9E2CE9A3050960C00330FE9 /* NowPlayingViewController.swift */,
 			);
 			path = NowPlaying;
 			sourceTree = "<group>";
 		};
-		A9D53C31304CEA9100A975D6 /* Settings */ = {
+		A9E2CEA33050960C00330FE9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A9D53C2F304CCDEE00A975D6 /* SettingsViewController.swift */,
-				A9D53C38304D945400A975D6 /* SettingsCell.swift */,
-				A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */,
-				A9D53C32304CEAA700A975D6 /* SliderSettingsCell.swift */,
-				A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */,
-				A925EA74304F816B0060691C /* SegmentedSettingsCell.swift */,
+				A9E2CE9D3050960C00330FE9 /* SegmentedSettingsCell.swift */,
+				A9E2CE9E3050960C00330FE9 /* SettingsCell.swift */,
+				A9E2CE9F3050960C00330FE9 /* SettingsViewController.swift */,
+				A9E2CEA03050960C00330FE9 /* SliderSettingsCell.swift */,
+				A9E2CEA13050960C00330FE9 /* TextFieldSettingsCell.swift */,
+				A9E2CEA23050960C00330FE9 /* ToggleSettingsCell.swift */,
 			);
 			path = Settings;
+			sourceTree = "<group>";
+		};
+		A9E2CEA83050960C00330FE9 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2CE9C3050960C00330FE9 /* NowPlaying */,
+				A9E2CEA33050960C00330FE9 /* Settings */,
+				A9E2CEA43050960C00330FE9 /* HelpViewCell.swift */,
+				A9E2CEA53050960C00330FE9 /* HelpViewController.swift */,
+				A9E2CEA63050960C00330FE9 /* InitialViewController.swift */,
+				A9E2CEA73050960C00330FE9 /* ServerStateButton.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		A9E2CED83050A06800330FE9 /* TPCircularBuffer */ = {
+			isa = PBXGroup;
+			children = (
+				A96E63363050AA42006F7533 /* TPCircularBuffer.c */,
+				A96E63323050AA42006F7533 /* TPCircularBuffer.h */,
+				A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */,
+				A96E63343050AA42006F7533 /* TPCircularBuffer+AudioBufferList.h */,
+				A9E2CEDC3050A0A200330FE9 /* TPCircularBuffer+FillCount.c */,
+				A9E2CEDB3050A0A200330FE9 /* TPCircularBuffer+FillCount.h */,
+			);
+			path = TPCircularBuffer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A92DCAC42DD74EB000D82924 /* AirAP */ = {
+		A96E63023050917B006F7533 /* AirAP */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A92DCAD02DD74EB100D82924 /* Build configuration list for PBXNativeTarget "AirAP" */;
+			buildConfigurationList = A96E63153050917C006F7533 /* Build configuration list for PBXNativeTarget "AirAP" */;
 			buildPhases = (
-				A92DCAC12DD74EB000D82924 /* Sources */,
-				A92DCAC22DD74EB000D82924 /* Frameworks */,
-				A92DCAC32DD74EB000D82924 /* Resources */,
-				A96EAF3D2DDA2B3500E13432 /* Embed Frameworks */,
-				A9E741A62DDF5560005F47B5 /* Embed Foundation Extensions */,
+				A96E62FF3050917B006F7533 /* Sources */,
+				A96E63003050917B006F7533 /* Frameworks */,
+				A96E63013050917B006F7533 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = AirAP;
-			packageProductDependencies = (
-				A925EA0E304DECD10060691C /* TPCircularBuffer */,
-			);
 			productName = AirAP;
-			productReference = A92DCAC52DD74EB000D82924 /* AirAP.app */;
+			productReference = A96E63033050917B006F7533 /* AirAP.app */;
 			productType = "com.apple.product-type.application";
-		};
-		A9BBC5262EB8FB8200FFE82F /* AirAPMac */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9BBC54F2EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMac" */;
-			buildPhases = (
-				A9BBC5232EB8FB8200FFE82F /* Sources */,
-				A9BBC5242EB8FB8200FFE82F /* Frameworks */,
-				A9BBC5252EB8FB8200FFE82F /* Resources */,
-				A9BBC55F2EB8FD5A00FFE82F /* Embed Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				A9BBC5282EB8FB8300FFE82F /* AirAPMac */,
-			);
-			name = AirAPMac;
-			packageProductDependencies = (
-			);
-			productName = AirAPMac;
-			productReference = A9BBC5272EB8FB8200FFE82F /* AirAPMac.app */;
-			productType = "com.apple.product-type.application";
-		};
-		A9BBC5352EB8FB8300FFE82F /* AirAPMacTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9BBC5502EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMacTests" */;
-			buildPhases = (
-				A9BBC5322EB8FB8300FFE82F /* Sources */,
-				A9BBC5332EB8FB8300FFE82F /* Frameworks */,
-				A9BBC5342EB8FB8300FFE82F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A9BBC5382EB8FB8300FFE82F /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				A9BBC5392EB8FB8300FFE82F /* AirAPMacTests */,
-			);
-			name = AirAPMacTests;
-			packageProductDependencies = (
-			);
-			productName = AirAPMacTests;
-			productReference = A9BBC5362EB8FB8300FFE82F /* AirAPMacTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		A9BBC53F2EB8FB8300FFE82F /* AirAPMacUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = A9BBC5512EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMacUITests" */;
-			buildPhases = (
-				A9BBC53C2EB8FB8300FFE82F /* Sources */,
-				A9BBC53D2EB8FB8300FFE82F /* Frameworks */,
-				A9BBC53E2EB8FB8300FFE82F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				A9BBC5422EB8FB8300FFE82F /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				A9BBC5432EB8FB8300FFE82F /* AirAPMacUITests */,
-			);
-			name = AirAPMacUITests;
-			packageProductDependencies = (
-			);
-			productName = AirAPMacUITests;
-			productReference = A9BBC5402EB8FB8300FFE82F /* AirAPMacUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A92DCABD2DD74EB000D82924 /* Project object */ = {
+		A96E62FB3050917B006F7533 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 2600;
-				LastUpgradeCheck = 1640;
+				LastSwiftUpdateCheck = 1030;
+				LastUpgradeCheck = 1030;
 				TargetAttributes = {
-					A92DCAC42DD74EB000D82924 = {
-						CreatedOnToolsVersion = 16.4;
-						LastSwiftMigration = 1640;
-					};
-					A9BBC5262EB8FB8200FFE82F = {
-						CreatedOnToolsVersion = 26.0.1;
-					};
-					A9BBC5352EB8FB8300FFE82F = {
-						CreatedOnToolsVersion = 26.0.1;
-						TestTargetID = A9BBC5262EB8FB8200FFE82F;
-					};
-					A9BBC53F2EB8FB8300FFE82F = {
-						CreatedOnToolsVersion = 26.0.1;
-						TestTargetID = A9BBC5262EB8FB8200FFE82F;
+					A96E63023050917B006F7533 = {
+						CreatedOnToolsVersion = 10.3;
 					};
 				};
 			};
-			buildConfigurationList = A92DCAC02DD74EB000D82924 /* Build configuration list for PBXProject "AirAP" */;
-			compatibilityVersion = "Xcode 12.0";
+			buildConfigurationList = A96E62FE3050917B006F7533 /* Build configuration list for PBXProject "AirAP" */;
+			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 				Base,
 			);
-			mainGroup = A92DCABC2DD74EB000D82924;
-			minimizedProjectReferenceProxies = 1;
-			packageReferences = (
-				A925EA0A304DEC5F0060691C /* XCRemoteSwiftPackageReference "TPCircularBuffer" */,
-			);
-			productRefGroup = A92DCAC62DD74EB000D82924 /* Products */;
+			mainGroup = A96E62FA3050917B006F7533;
+			productRefGroup = A96E63043050917B006F7533 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = A93C6A292DF09CBC0006E216 /* Products */;
-					ProjectRef = A93C6A152DF09C200006E216 /* Airstream.xcodeproj */;
+					ProductGroup = A96E631930509B90006F7533 /* Products */;
+					ProjectRef = A96E631830509B90006F7533 /* Airstream.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				A92DCAC42DD74EB000D82924 /* AirAP */,
-				A9BBC5262EB8FB8200FFE82F /* AirAPMac */,
-				A9BBC5352EB8FB8300FFE82F /* AirAPMacTests */,
-				A9BBC53F2EB8FB8300FFE82F /* AirAPMacUITests */,
+				A96E63023050917B006F7533 /* AirAP */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		A93C6A2D2DF09CBC0006E216 /* Airstream.framework */ = {
+		A96E632430509B90006F7533 /* Airstream.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
 			path = Airstream.framework;
-			remoteRef = A93C6A2C2DF09CBC0006E216 /* PBXContainerItemProxy */;
+			remoteRef = A96E632330509B90006F7533 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		A92DCAC32DD74EB000D82924 /* Resources */ = {
+		A96E63013050917B006F7533 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9C897572DF0BFD600EF9A5F /* README.md in Resources */,
-				A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */,
-				A9E2CE3B30501E8100330FE9 /* Launch Screen.storyboard in Resources */,
-				A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC5252EB8FB8200FFE82F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC5342EB8FB8300FFE82F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC53E2EB8FB8300FFE82F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A96E63113050917C006F7533 /* LaunchScreen.storyboard in Resources */,
+				A96E630E3050917C006F7533 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A92DCAC12DD74EB000D82924 /* Sources */ = {
+		A96E62FF3050917B006F7533 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9D53C37304CEAD100A975D6 /* TextFieldSettingsCell.swift in Sources */,
-				A9BD86493045780B003B9074 /* InitialViewController.swift in Sources */,
-				A9D53C39304D945400A975D6 /* SettingsCell.swift in Sources */,
-				A9BD86573045803C003B9074 /* MetadataChunkView.swift in Sources */,
-				A9BD865230457D1C003B9074 /* AlbumArtView.swift in Sources */,
-				A925EA73304F2CB50060691C /* ServerStateButton.swift in Sources */,
-				A9BD864C30457B28003B9074 /* NowPlayingViewController.swift in Sources */,
-				A925EA50304EF5560060691C /* UIFont.swift in Sources */,
-				A9D53C2D304CC6CE00A975D6 /* HelpViewController.swift in Sources */,
-				A925EA77304F94240060691C /* HelpViewCell.swift in Sources */,
-				A925EA7D305001F80060691C /* UIColor.swift in Sources */,
-				A9BD864E30457C4E003B9074 /* NowPlayingStackView.swift in Sources */,
-				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
-				A9D53C30304CCDEE00A975D6 /* SettingsViewController.swift in Sources */,
-				A9D53C35304CEAB900A975D6 /* ToggleSettingsCell.swift in Sources */,
-				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
-				A925EA7B304FF30D0060691C /* UITableView.swift in Sources */,
-				A9023E1A305011160074FF9A /* AAPSettings.swift in Sources */,
-				A9BD865430457DDB003B9074 /* MetadataView.swift in Sources */,
-				A9D53C33304CEAA700A975D6 /* SliderSettingsCell.swift in Sources */,
-				A925EA75304F816B0060691C /* SegmentedSettingsCell.swift in Sources */,
-				A925EA79304FF2420060691C /* UIBlurEffect.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC5232EB8FB8200FFE82F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC5322EB8FB8300FFE82F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		A9BBC53C2EB8FB8300FFE82F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				A9E2CEA93050960C00330FE9 /* HelpViewCell.swift in Sources */,
+				A9E2CEAB3050960C00330FE9 /* HelpViewController.swift in Sources */,
+				A9E2CEAC3050960C00330FE9 /* InitialViewController.swift in Sources */,
+				A9E2CEAD3050960C00330FE9 /* SettingsCell.swift in Sources */,
+				A9E2CEAE3050960C00330FE9 /* NowPlayingStackView.swift in Sources */,
+				A9E2CEAF3050960C00330FE9 /* AlbumArtView.swift in Sources */,
+				A96E63383050AA42006F7533 /* TPCircularBuffer.c in Sources */,
+				A9E2CEB03050960C00330FE9 /* MetadataView.swift in Sources */,
+				A9E2CEB13050960C00330FE9 /* NowPlayingViewController.swift in Sources */,
+				A9E2CEB23050960C00330FE9 /* TextFieldSettingsCell.swift in Sources */,
+				A9E2CEB33050960C00330FE9 /* ToggleSettingsCell.swift in Sources */,
+				A9E2CEB43050960C00330FE9 /* SliderSettingsCell.swift in Sources */,
+				A9E2CEB53050960C00330FE9 /* MetadataChunkView.swift in Sources */,
+				A96E63373050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c in Sources */,
+				A9E2CEBD3050961D00330FE9 /* AirstreamManager.swift in Sources */,
+				A9E2CEBE3050961D00330FE9 /* AAPSettings.swift in Sources */,
+				A9E2CEBF3050961D00330FE9 /* AirAPApp.swift in Sources */,
+				A96E63393050AA50006F7533 /* TPCircularBuffer+FillCount.c in Sources */,
+				A9E2CEB63050960C00330FE9 /* SegmentedSettingsCell.swift in Sources */,
+				A9E2CEB73050960C00330FE9 /* SettingsViewController.swift in Sources */,
+				A9E2CEB83050960C00330FE9 /* ServerStateButton.swift in Sources */,
+				A9E2CE89305095E900330FE9 /* UIColor.swift in Sources */,
+				A9E2CE8A305095E900330FE9 /* UIBlurEffect.swift in Sources */,
+				A9E2CE8B305095E900330FE9 /* UIFont.swift in Sources */,
+				A9E2CE8C305095E900330FE9 /* UITableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		A9BBC5382EB8FB8300FFE82F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A9BBC5262EB8FB8200FFE82F /* AirAPMac */;
-			targetProxy = A9BBC5372EB8FB8300FFE82F /* PBXContainerItemProxy */;
+/* Begin PBXVariantGroup section */
+		A96E630F3050917C006F7533 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A96E63103050917C006F7533 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
 		};
-		A9BBC5422EB8FB8300FFE82F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = A9BBC5262EB8FB8200FFE82F /* AirAPMac */;
-			targetProxy = A9BBC5412EB8FB8300FFE82F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		A92DCACE2DD74EB100D82924 /* Debug */ = {
+		A96E63133050917C006F7533 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A96EAF312DDA005000E13432 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -597,20 +363,18 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEVELOPMENT_TEAM = 8JGND254B7;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -624,27 +388,24 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
-				SWIFT_OBJC_BRIDGING_HEADER = "TPCircularBuffer/AirAP-Bridging-Header.h";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
-		A92DCACF2DD74EB100D82924 /* Release */ = {
+		A96E63143050917C006F7533 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A96EAF312DDA005000E13432 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
@@ -663,20 +424,18 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = 8JGND254B7;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
@@ -684,338 +443,88 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 18.5;
-				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "TPCircularBuffer/AirAP-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
 		};
-		A92DCAD12DD74EB100D82924 /* Debug */ = {
+		A96E63163050917C006F7533 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AirAP/AirAP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = $BUILD_NUMBER;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				CURRENT_PROJECT_VERSION = 23;
+				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Checkouts/TPCircularBuffer",
+					"$(SRCROOT)/TPCircularBuffer",
+				);
 				INFOPLIST_FILE = AirAP/Info.plist;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to recieve AirPlay Audio and broadcast the server";
-				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = "$(VERSION)";
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TPCircularBuffer/AirAP-Bridge.h";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 6.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AirAP/Bridge.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		A92DCAD22DD74EB100D82924 /* Release */ = {
+		A96E63173050917C006F7533 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
-				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = AirAP/AirAP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = $BUILD_NUMBER;
-				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_OUTGOING_NETWORK_CONNECTIONS = YES;
-				ENABLE_PREVIEWS = YES;
-				GENERATE_INFOPLIST_FILE = YES;
+				CURRENT_PROJECT_VERSION = 23;
+				DEVELOPMENT_TEAM = "";
+				HEADER_SEARCH_PATHS = (
+					"$(SRCROOT)/Carthage/Checkouts/TPCircularBuffer",
+					"$(SRCROOT)/TPCircularBuffer",
+				);
 				INFOPLIST_FILE = AirAP/Info.plist;
-				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
-				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Needed to recieve AirPlay Audio and broadcast the server";
-				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
-				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
-				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MACOSX_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = "$(VERSION)";
+				MARKETING_VERSION = 2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = NO;
-				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TPCircularBuffer/AirAP-Bridge.h";
-				SWIFT_VERSION = 6.0;
+				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AirAP/Bridge.h";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		A9BBC5482EB8FB8300FFE82F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TPCircularBuffer/AirAP-Bridge.h";
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Debug;
-		};
-		A9BBC5492EB8FB8300FFE82F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				ENABLE_APP_SANDBOX = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				ENABLE_USER_SELECTED_FILES = readonly;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				INFOPLIST_KEY_NSMainStoryboardFile = Main;
-				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMac;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				REGISTER_APP_GROUPS = YES;
-				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/TPCircularBuffer/AirAP-Bridge.h";
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		A9BBC54A2EB8FB8300FFE82F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMacTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirAPMac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirAPMac";
-			};
-			name = Debug;
-		};
-		A9BBC54B2EB8FB8300FFE82F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMacTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AirAPMac.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/AirAPMac";
-			};
-			name = Release;
-		};
-		A9BBC54C2EB8FB8300FFE82F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMacUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = AirAPMac;
-			};
-			name = Debug;
-		};
-		A9BBC54D2EB8FB8300FFE82F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JGND254B7;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 15.7;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAPMacUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-				STRING_CATALOG_GENERATE_SYMBOLS = NO;
-				SWIFT_APPROACHABLE_CONCURRENCY = YES;
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = AirAPMac;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A92DCAC02DD74EB000D82924 /* Build configuration list for PBXProject "AirAP" */ = {
+		A96E62FE3050917B006F7533 /* Build configuration list for PBXProject "AirAP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A92DCACE2DD74EB100D82924 /* Debug */,
-				A92DCACF2DD74EB100D82924 /* Release */,
+				A96E63133050917C006F7533 /* Debug */,
+				A96E63143050917C006F7533 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A92DCAD02DD74EB100D82924 /* Build configuration list for PBXNativeTarget "AirAP" */ = {
+		A96E63153050917C006F7533 /* Build configuration list for PBXNativeTarget "AirAP" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A92DCAD12DD74EB100D82924 /* Debug */,
-				A92DCAD22DD74EB100D82924 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A9BBC54F2EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMac" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9BBC5482EB8FB8300FFE82F /* Debug */,
-				A9BBC5492EB8FB8300FFE82F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A9BBC5502EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMacTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9BBC54A2EB8FB8300FFE82F /* Debug */,
-				A9BBC54B2EB8FB8300FFE82F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		A9BBC5512EB8FB8300FFE82F /* Build configuration list for PBXNativeTarget "AirAPMacUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				A9BBC54C2EB8FB8300FFE82F /* Debug */,
-				A9BBC54D2EB8FB8300FFE82F /* Release */,
+				A96E63163050917C006F7533 /* Debug */,
+				A96E63173050917C006F7533 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		A925EA0A304DEC5F0060691C /* XCRemoteSwiftPackageReference "TPCircularBuffer" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/neon443/TPCircularBuffer";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		A925EA0E304DECD10060691C /* TPCircularBuffer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = A925EA0A304DEC5F0060691C /* XCRemoteSwiftPackageReference "TPCircularBuffer" */;
-			productName = TPCircularBuffer;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = A92DCABD2DD74EB000D82924 /* Project object */;
+	rootObject = A96E62FB3050917B006F7533 /* Project object */;
 }

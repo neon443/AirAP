@@ -9,7 +9,6 @@ import Foundation
 import Airstream
 import AVFoundation
 import UIKit
-import SwiftUI
 
 class AirstreamManager: NSObject, AirstreamDelegate {
 	@MainActor static let shared = AirstreamManager()
@@ -262,6 +261,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		ioData
 	) in
 		let manager = Unmanaged<AirstreamManager>.fromOpaque(inRefCon).takeUnretainedValue()
+		
 		if TPCircularBufferFillCount(&manager.circularBuffer) == 0 || manager.buffering {
 			//TODO: fixme
 //			i think its just best to return???

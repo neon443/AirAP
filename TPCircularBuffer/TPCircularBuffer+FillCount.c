@@ -6,7 +6,7 @@
 //
 
 #include "TPCircularBuffer.h"
-#include "TPCircularBufferFillCount.h"
+#include "TPCircularBuffer+FillCount.h"
 
 int TPCircularBufferFillCount(TPCircularBuffer *buffer) {
 	return buffer->fillCount;

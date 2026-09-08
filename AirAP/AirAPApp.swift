@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import SwiftUI
 
 @main
 class AirAPApp: UIResponder, UIApplicationDelegate {

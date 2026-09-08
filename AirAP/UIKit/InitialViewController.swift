@@ -7,7 +7,6 @@
 
 import Foundation
 import UIKit
-import SwiftUI
 
 class InitialViewController: UITabBarController {
 	var asManager: AirstreamManager
