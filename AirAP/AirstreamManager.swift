@@ -11,7 +11,7 @@ import AVFoundation
 import UIKit
 
 class AirstreamManager: NSObject, AirstreamDelegate {
-	@MainActor static let shared = AirstreamManager()
+	static let shared = AirstreamManager()
 	var airstream: Airstream?
 	
 	var settings: AAPSettingsModel

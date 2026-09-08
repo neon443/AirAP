@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 extension UIColor {
-	@MainActor static var foreground: UIColor {
+	static var foreground: UIColor {
 		let color = UIColor.black
 		if #available(iOS 13, *),
 		   UIApplication.shared.windows.first!.traitCollection.userInterfaceStyle == .dark {
@@ -18,7 +18,7 @@ extension UIColor {
 		return color
 	}
 	
-	@MainActor static var background: UIColor {
+	static var background: UIColor {
 		let color = UIColor.white
 		if #available(iOS 13, *),
 		   UIApplication.shared.windows.first!.traitCollection.userInterfaceStyle == .dark {

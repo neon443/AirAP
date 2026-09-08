@@ -5,9 +5,10 @@
 //  Created by neon443 on 16/05/2025.
 //
 
+import Foundation
 import UIKit
 
-@main
+@UIApplicationMain
 class AirAPApp: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	var asManager: AirstreamManager = .init()

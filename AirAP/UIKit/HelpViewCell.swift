@@ -66,8 +66,8 @@ class HelpViewCell: UITableViewCell {
 	
 	override func layoutSubviews() {
 		super.layoutSubviews()
-		if let stepLabel,
-		   let leadingStack {
+		if let stepLabel = stepLabel,
+		   let leadingStack = leadingStack {
 			self.separatorInset.left = self.layoutMargins.left + stepLabel.bounds.width + leadingStack.spacing
 		}
 	}
