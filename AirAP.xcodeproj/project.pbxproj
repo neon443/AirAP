@@ -30,7 +30,6 @@
 		A9BD865230457D1C003B9074 /* AlbumArtView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD865130457D1C003B9074 /* AlbumArtView.swift */; };
 		A9BD865430457DDB003B9074 /* MetadataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD865330457DDB003B9074 /* MetadataView.swift */; };
 		A9BD86573045803C003B9074 /* MetadataChunkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9BD86563045803C003B9074 /* MetadataChunkView.swift */; };
-		A9BD865D3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png in Resources */ = {isa = PBXBuildFile; fileRef = A9BD865C3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png */; };
 		A9C897572DF0BFD600EF9A5F /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = A9C897562DF0BFD600EF9A5F /* README.md */; };
 		A9D53C2D304CC6CE00A975D6 /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C2C304CC6CE00A975D6 /* HelpViewController.swift */; };
 		A9D53C30304CCDEE00A975D6 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C2F304CCDEE00A975D6 /* SettingsViewController.swift */; };
@@ -129,9 +128,6 @@
 		A9BD865130457D1C003B9074 /* AlbumArtView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumArtView.swift; sourceTree = "<group>"; };
 		A9BD865330457DDB003B9074 /* MetadataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataView.swift; sourceTree = "<group>"; };
 		A9BD86563045803C003B9074 /* MetadataChunkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataChunkView.swift; sourceTree = "<group>"; };
-		A9BD865B3045E2BB003B9074 /* 7db9f3c3e1f7af5f5c354cde6258eb24d24eaacc54fca2f3ec7fe9e16fcccf60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 7db9f3c3e1f7af5f5c354cde6258eb24d24eaacc54fca2f3ec7fe9e16fcccf60.png; path = /Users/neon443/Library/Caches/com.raycast.macos/Clipboard/7db9f3c3e1f7af5f5c354cde6258eb24d24eaacc54fca2f3ec7fe9e16fcccf60.png; sourceTree = "<absolute>"; };
-		A9BD865C3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png; path = /Users/neon443/Library/Caches/com.raycast.macos/Clipboard/6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png; sourceTree = "<absolute>"; };
-		A9BD865E3045E2D0003B9074 /* cf9a619eb1cb065e4eadd1704a6115a76f8ebfeecc4b62e3acea6d0c68c3caef.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cf9a619eb1cb065e4eadd1704a6115a76f8ebfeecc4b62e3acea6d0c68c3caef.png; path = /Users/neon443/Library/Caches/com.raycast.macos/Clipboard/cf9a619eb1cb065e4eadd1704a6115a76f8ebfeecc4b62e3acea6d0c68c3caef.png; sourceTree = "<absolute>"; };
 		A9C897562DF0BFD600EF9A5F /* README.md */ = {isa = PBXFileReference; explicitFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		A9D53C2C304CC6CE00A975D6 /* HelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
 		A9D53C2F304CCDEE00A975D6 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
@@ -198,9 +194,6 @@
 		A92DCABC2DD74EB000D82924 = {
 			isa = PBXGroup;
 			children = (
-				A9BD865B3045E2BB003B9074 /* 7db9f3c3e1f7af5f5c354cde6258eb24d24eaacc54fca2f3ec7fe9e16fcccf60.png */,
-				A9BD865C3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png */,
-				A9BD865E3045E2D0003B9074 /* cf9a619eb1cb065e4eadd1704a6115a76f8ebfeecc4b62e3acea6d0c68c3caef.png */,
 				A95FAA6E2DF4BE7400DE2F5A /* ci_scripts */,
 				A9C897562DF0BFD600EF9A5F /* README.md */,
 				A96EAF312DDA005000E13432 /* Config.xcconfig */,
@@ -482,7 +475,6 @@
 			files = (
 				A9C897572DF0BFD600EF9A5F /* README.md in Resources */,
 				A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */,
-				A9BD865D3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png in Resources */,
 				A9E2CE3B30501E8100330FE9 /* Launch Screen.storyboard in Resources */,
 				A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */,
 			);

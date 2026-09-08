@@ -99,8 +99,14 @@ class MetadataView: UIVisualEffectView {
 		setTrackInfoVisible(asManager.settings.showMetadata)
 		setQualityInfoVisibel(asManager.settings.showAudioQuality)
 		
+		let animation: CATransition = .init()
+		animation.duration = 0.3
+		animation.type = .fade
+		animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+		title.layer.add(animation, forKey: "changeTextTransition")
 		title.text = asManager.title ?? "Not Playing"
 		title.textColor = .foreground.withAlphaComponent(asManager.title == nil ? 0.5 : 1)
+		
 		album.setContent(to: asManager.album ?? "——")
 		artist.setContent(to: asManager.artist ?? "——")
 		

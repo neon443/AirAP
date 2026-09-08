@@ -16,7 +16,7 @@ class SettingsViewController: UITableViewController {
 		self.asManager = asManager
 		self.startStopButton = ServerStateButton(asManager: asManager)
 		super.init(style: .insetGroupedSafe)
-		self.tableView.allowsSelection = false
+		setup()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -288,6 +288,11 @@ class SettingsViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		guard let category = Category(rawValue: section) else { fatalError("invalid section \(section)") }
 		return category.contains
+	}
+	
+	func setup() {
+		self.tableView.allowsSelection = false
+		self.navigationItem.title = "Settings"
 	}
 	
 	override func viewDidLayoutSubviews() {

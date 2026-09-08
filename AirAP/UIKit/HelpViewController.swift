@@ -25,6 +25,7 @@ class HelpViewController: UITableViewController {
 	}
 	
 	func setup() {
+		self.navigationItem.title = "Help"
 		self.tableView.allowsSelection = false
 		self.view.addSubview(startStopButton)
 		startStopButton.translatesAutoresizingMaskIntoConstraints = false
