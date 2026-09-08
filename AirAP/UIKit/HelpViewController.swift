@@ -31,9 +31,9 @@ class HelpViewController: UITableViewController {
 		switch topic {
 		case .doesNotAppear:
 			if indexPath.row == 0 {
-				cell = .init(title: "Open AirPlay picker on other device", image: UIImage(systemName: "1.circle"))
+				cell = .init(title: "Open AirPlay picker on other device", stepNumber: 1)
 			} else {
-				cell = .init(title: "Toggle server on and off", image: UIImage(systemName: "2.circle"))
+				cell = .init(title: "Toggle server on and off", stepNumber: 2)
 			}
 		case .runOnOldDevice:
 			cell = .init(title: "Sideload the .ipa file from GitHub")
