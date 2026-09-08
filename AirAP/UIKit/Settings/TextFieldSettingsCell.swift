@@ -24,14 +24,15 @@ class TextFieldSettingsCell: SettingsCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	@objc func textChanged() {
+		guard let text = self.textField.text else { return }
+		self.config.onChange?(self.asManager, text)
+		self.asManager.settings.saveSettings()
+	}
+	
 	func setup() {
 		textField.placeholder = "Server Name"
-//		textField.rightView
-		textField.addAction(UIAction(handler: { action in
-			guard let text = self.textField.text else { return }
-			self.config.onChange?(self.asManager, text)
-			self.asManager.settings.saveSettings()
-		}), for: .editingChanged)
+		textField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
 		
 		self.contentView.addSubview(textField)
 		self.textField.translatesAutoresizingMaskIntoConstraints = false

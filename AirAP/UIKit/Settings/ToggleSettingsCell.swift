@@ -19,13 +19,7 @@ class ToggleSettingsCell: SettingsCell {
 		
 		super.init(asManager: asManager, config: config)
 		
-		self.toggle = UISwitch(
-			frame: .zero,
-			primaryAction: UIAction(handler: { action in
-				self.config.onChange?(asManager, self.toggle.isOn)
-				asManager.settings.saveSettings()
-			})
-		)
+		self.toggle = UISwitch(frame: .zero)
 		self.stack = UIStackView(arrangedSubviews: [titleLabel, toggle])
 		
 		setup()
@@ -37,7 +31,14 @@ class ToggleSettingsCell: SettingsCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	@objc func toggleToggled() {
+		self.config.onChange?(asManager, self.toggle.isOn)
+		asManager.settings.saveSettings()
+	}
+	
 	func setup() {
+		toggle.addTarget(self, action: #selector(toggleToggled), for: .valueChanged)
+		
 		stack.axis = .horizontal
 		stack.distribution = .equalSpacing
 		

@@ -25,29 +25,24 @@ class HelpViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = UITableViewCell()
-		
-		var config = cell.defaultContentConfiguration()
+		let cell: HelpViewCell
 		
 		let topic = Topic(rawValue: indexPath.section)
 		switch topic {
 		case .doesNotAppear:
 			if indexPath.row == 0 {
-				config.image = UIImage(systemName: "1.circle")
-				config.text = "Open AirPlay picker on other device"
+				cell = .init(title: "Open AirPlay picker on other device", image: UIImage(systemName: "1.circle"))
 			} else {
-				config.image = UIImage(systemName: "2.circle")
-				config.text = "Toggle server on and off"
+				cell = .init(title: "Toggle server on and off", image: UIImage(systemName: "2.circle"))
 			}
 		case .runOnOldDevice:
-			config.text = "Sideload the .ipa file from GitHub"
+			cell = .init(title: "Sideload the .ipa file from GitHub")
 		case .iHaveFeedback:
-			config.text = "Submit feedback via TestFlight, or open a GitHub issue"
+			cell = .init(title: "Submit feedback via TestFlight, or open a GitHub issue")
 		case nil:
 			fatalError("invalid section \(indexPath) to topic")
 		}
 		
-		cell.contentConfiguration = config
 		return cell
 	}
 	

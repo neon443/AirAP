@@ -33,6 +33,11 @@ class SegmentedSettingsCell: SettingsCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	@objc func segmentChanged() {
+		self.config.onChange?(self.asManager, self.segmentedControl.selectedSegmentIndex)
+		self.asManager.settings.saveSettings()
+	}
+	
 	func setup() {
 //		infoStack.axis = .horizontal
 //		infoStack.distribution = .equalSpacing
@@ -40,10 +45,7 @@ class SegmentedSettingsCell: SettingsCell {
 		stack.axis = .vertical
 		stack.spacing = 12
 		
-		segmentedControl.addAction(UIAction(handler: { action in
-			self.config.onChange?(self.asManager, self.segmentedControl.selectedSegmentIndex)
-			self.asManager.settings.saveSettings()
-		}), for: .valueChanged)
+		segmentedControl.addTarget(self, action: #selector(segmentChanged), for: .valueChanged)
 		
 		contentView.addSubview(stack)
 		stack.translatesAutoresizingMaskIntoConstraints = false

@@ -45,67 +45,7 @@ class SliderSettingsCell: SettingsCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func setup() {
-		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
-		
-		titleLabel.textAlignment = .left
-		valueLabel.font = valueLabel.font.withWeight(.bold)
-		valueLabel.textAlignment = .center
-		
-		resetButton.setImage(UIImage(systemName: "arrow.uturn.backward"), for: .normal)
-		resetButton.addAction(UIAction(handler: { action in
-			guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
-			self.slider.setValue(sliderConfig.defaultValue, animated: true)
-			self.sliderSet()
-		}), for: .touchUpInside)
-		trailingStack.axis = .horizontal
-		trailingStack.spacing = 8
-//		infoStack.distribution = .equalSpacing
-		infoStack.axis = .horizontal
-		infoStack.distribution = .equalSpacing
-		
-		maxLabel.font = .preferredFont(forTextStyle: .caption1)
-		minLabel.font = .preferredFont(forTextStyle: .caption1)
-		maxLabel.textColor = .systemGray
-		minLabel.textColor = .systemGray
-		maxLabel.textAlignment = .center
-		minLabel.textAlignment = .left
-		
-		sliderStack.axis = .horizontal
-		sliderStack.spacing = 4
-		stack.axis = .vertical
-		
-		slider.minimumValue = sliderConfig.range.lowerBound
-		slider.maximumValue = sliderConfig.range.upperBound
-		
-		slider.addAction(UIAction(handler: { action in
-			self.sliderSet()
-		}), for: .valueChanged)
-		
-		stack.spacing = 2
-		contentView.addSubview(stack)
-		stack.translatesAutoresizingMaskIntoConstraints = false
-		NSLayoutConstraint.activate([
-			minLabel.widthAnchor.constraint(equalTo: maxLabel.widthAnchor),
-			
-			stack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
-			stack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
-			stack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
-			stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
-		])
-	}
-	
-	override func refreshUI() {
-		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
-		
-		self.slider.value = config.currentValue(asManager: asManager) as? Float ?? 0
-		sliderSet()
-		self.minLabel.text = "\(sliderConfig.leading)" + sliderConfig.unit
-		self.maxLabel.text = "\(sliderConfig.trailing)" + sliderConfig.unit
-		self.titleLabel.text = config.title
-	}
-	
-	func sliderSet() {
+	@objc func sliderSet() {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		
 		let value = round(self.slider.value / sliderConfig.step) * sliderConfig.step
@@ -131,5 +71,65 @@ class SliderSettingsCell: SettingsCell {
 			self.valueLabel.text = string + sliderConfig.unit
 			self.valueLabel.layoutIfNeeded()
 		}
+	}
+	
+	@objc func resetTapped() {
+		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
+		self.slider.setValue(sliderConfig.defaultValue, animated: true)
+		self.sliderSet()
+	}
+	
+	func setup() {
+		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
+		
+		titleLabel.textAlignment = .left
+		valueLabel.font = valueLabel.font.withWeight(.bold)
+		valueLabel.textAlignment = .center
+		
+		resetButton.setImage(UIImage(systemName: "arrow.uturn.backward"), for: .normal)
+		resetButton.addTarget(self, action: #selector(resetTapped), for: .touchUpInside)
+		trailingStack.axis = .horizontal
+		trailingStack.spacing = 8
+//		infoStack.distribution = .equalSpacing
+		infoStack.axis = .horizontal
+		infoStack.distribution = .equalSpacing
+		
+		maxLabel.font = .preferredFont(forTextStyle: .caption1)
+		minLabel.font = .preferredFont(forTextStyle: .caption1)
+		maxLabel.textColor = .systemGray
+		minLabel.textColor = .systemGray
+		maxLabel.textAlignment = .center
+		minLabel.textAlignment = .left
+		
+		sliderStack.axis = .horizontal
+		sliderStack.spacing = 4
+		stack.axis = .vertical
+		
+		slider.minimumValue = sliderConfig.range.lowerBound
+		slider.maximumValue = sliderConfig.range.upperBound
+		
+		slider.addTarget(self, action: #selector(sliderSet), for: .valueChanged)
+		
+		stack.spacing = 2
+		contentView.addSubview(stack)
+		stack.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			minLabel.widthAnchor.constraint(equalTo: maxLabel.widthAnchor),
+			
+			stack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+			stack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+			stack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+			stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
+		])
+	}
+	
+	override func refreshUI() {
+		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
+		
+		self.slider.value = config.currentValue(asManager: asManager) as? Float ?? 0
+		sliderSet()
+		self.minLabel.text = "\(sliderConfig.leading)" + sliderConfig.unit
+		self.maxLabel.text = "\(sliderConfig.trailing)" + sliderConfig.unit
+		self.titleLabel.text = config.title
 	}
 }
