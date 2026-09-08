@@ -58,10 +58,10 @@ class AlbumArtView: UIVisualEffectView {
 		
 		if let newImage {
 			self.imageView.image = newImage
-			contentView.directionalLayoutMargins = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
+			contentView.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
 		} else {
 			self.imageView.image = UIImage(named: "music.note")
-			contentView.directionalLayoutMargins = .init(top: 128, leading: 128, bottom: 128, trailing: 128)
+			contentView.layoutMargins = .init(top: 128, left: 128, bottom: 128, right: 128)
 		}
 	}
 }

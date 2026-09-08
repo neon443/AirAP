@@ -28,11 +28,19 @@ class HelpViewController: UITableViewController {
 		self.tableView.allowsSelection = false
 		self.view.addSubview(startStopButton)
 		startStopButton.translatesAutoresizingMaskIntoConstraints = false
-		NSLayoutConstraint.activate([
-			startStopButton.heightAnchor.constraint(equalToConstant: 32),
-			startStopButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-			startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
-		])
+		
+		startStopButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+		if #available(iOS 11, *) {
+			NSLayoutConstraint.activate([
+				startStopButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+				startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+			])
+		} else {
+			NSLayoutConstraint.activate([
+				startStopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+				startStopButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
+			])
+		}
 	}
 	
 	func refreshUI() {

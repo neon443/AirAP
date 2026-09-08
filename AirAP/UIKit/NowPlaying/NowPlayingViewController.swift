@@ -69,14 +69,28 @@ class NowPlayingViewController: UIViewController {
 			bgBlur.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 			bgBlur.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 			
-			npStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-			npStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-			npStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+			//
 			npStack.bottomAnchor.constraint(equalTo: startStopButton.topAnchor, constant: -16),
-			
-			startStopButton.heightAnchor.constraint(equalToConstant: 32),
-			startStopButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-			startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+			startStopButton.heightAnchor.constraint(equalToConstant: 32)
 		])
+		if #available(iOS 11, *) {
+			NSLayoutConstraint.activate([
+				npStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+				npStack.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
+				npStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
+				
+				startStopButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+				startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+			])
+		} else {
+			NSLayoutConstraint.activate([
+				npStack.topAnchor.constraint(equalTo: view.topAnchor),
+				npStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+				npStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+				
+				startStopButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+				startStopButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -16)
+			])
+		}
 	}
 }

@@ -15,6 +15,7 @@
 		A925EA77304F94240060691C /* HelpViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA76304F94240060691C /* HelpViewCell.swift */; };
 		A925EA79304FF2420060691C /* UIBlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA78304FF2420060691C /* UIBlurEffect.swift */; };
 		A925EA7B304FF30D0060691C /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA7A304FF30D0060691C /* UITableView.swift */; };
+		A925EA7D305001F80060691C /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA7C305001F80060691C /* UIColor.swift */; };
 		A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */; };
 		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
@@ -109,6 +110,7 @@
 		A925EA76304F94240060691C /* HelpViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewCell.swift; sourceTree = "<group>"; };
 		A925EA78304FF2420060691C /* UIBlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurEffect.swift; sourceTree = "<group>"; };
 		A925EA7A304FF30D0060691C /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		A925EA7C305001F80060691C /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAdjustments.swift; sourceTree = "<group>"; };
 		A92DCAC52DD74EB000D82924 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
@@ -224,6 +226,7 @@
 				A925EA4F304EF5560060691C /* UIFont.swift */,
 				A925EA78304FF2420060691C /* UIBlurEffect.swift */,
 				A925EA7A304FF30D0060691C /* UITableView.swift */,
+				A925EA7C305001F80060691C /* UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -592,6 +595,7 @@
 				A9BD865A3045828F003B9074 /* AAPSettings.swift in Sources */,
 				A9D53C2D304CC6CE00A975D6 /* HelpViewController.swift in Sources */,
 				A925EA77304F94240060691C /* HelpViewCell.swift in Sources */,
+				A925EA7D305001F80060691C /* UIColor.swift in Sources */,
 				A9BD864E30457C4E003B9074 /* NowPlayingStackView.swift in Sources */,
 				A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */,
 				A9D53C30304CCDEE00A975D6 /* SettingsViewController.swift in Sources */,
@@ -792,7 +796,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -839,7 +843,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 11;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
