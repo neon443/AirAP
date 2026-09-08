@@ -37,15 +37,14 @@ class MetadataView: UIVisualEffectView {
 		self.channels = MetadataChunkView(title: "channels", alignment: .center)
 		self.qualStack = UIStackView(arrangedSubviews: [sampleRate, bitDepth, channels])
 		
-		var effect: UIVisualEffect
 		if #available(iOS 19, *) {
-			let glassEffect = UIGlassEffect()
+			let glassEffect = UIGlassEffect(style: .clear)
 			glassEffect.isInteractive = true
-			effect = glassEffect
+			super.init(effect: glassEffect)
 		} else {
-			effect = UIBlurEffect(style: .systemThinMaterialSafe)
+			super.init(effect: UIBlurEffect(style: .systemUltraThinMaterialSafe))
+			self.layer.masksToBounds = true
 		}
-		super.init(effect: effect)
 		
 		asManager.didSetMetadata = { self.refreshUI() }
 		

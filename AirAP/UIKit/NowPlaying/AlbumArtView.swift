@@ -16,15 +16,14 @@ class AlbumArtView: UIVisualEffectView {
 		self.asManager = asManager
 		self.imageView = UIImageView()
 		
-		var effect: UIVisualEffect
 		if #available(iOS 19, *) {
-			let glassEffect = UIGlassEffect()
+			let glassEffect = UIGlassEffect(style: .clear)
 			glassEffect.isInteractive = true
-			effect = glassEffect
+			super.init(effect: glassEffect)
 		} else {
-			effect = UIBlurEffect(style: .systemThinMaterialSafe)
+			super.init(effect: UIBlurEffect(style: .systemUltraThinMaterialSafe))
+			self.layer.masksToBounds = true
 		}
-		super.init(effect: effect)
 		
 		setup()
 		

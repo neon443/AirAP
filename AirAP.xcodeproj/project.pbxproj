@@ -38,6 +38,7 @@
 		A9D53C35304CEAB900A975D6 /* ToggleSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */; };
 		A9D53C37304CEAD100A975D6 /* TextFieldSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */; };
 		A9D53C39304D945400A975D6 /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D53C38304D945400A975D6 /* SettingsCell.swift */; };
+		A9E2CE3B30501E8100330FE9 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A9E2CE3A30501E8100330FE9 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +139,7 @@
 		A9D53C34304CEAB900A975D6 /* ToggleSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToggleSettingsCell.swift; sourceTree = "<group>"; };
 		A9D53C36304CEAD100A975D6 /* TextFieldSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldSettingsCell.swift; sourceTree = "<group>"; };
 		A9D53C38304D945400A975D6 /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		A9E2CE3A30501E8100330FE9 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -227,6 +229,7 @@
 		A92DCADC2DD74F1800D82924 /* AirAP */ = {
 			isa = PBXGroup;
 			children = (
+				A9E2CE3A30501E8100330FE9 /* Launch Screen.storyboard */,
 				A92DCADA2DD74F1800D82924 /* Assets.xcassets */,
 				A9B78B8D2DF9D56300647399 /* Info.plist */,
 				A9E741BD2DDF731E005F47B5 /* AirAP.entitlements */,
@@ -480,6 +483,7 @@
 				A9C897572DF0BFD600EF9A5F /* README.md in Resources */,
 				A96EAF322DDA005000E13432 /* Config.xcconfig in Resources */,
 				A9BD865D3045E2CA003B9074 /* 6f595e541dad2793ab6300411726aec8f308072a5699cb7418a04a9e784e05f1.png in Resources */,
+				A9E2CE3B30501E8100330FE9 /* Launch Screen.storyboard in Resources */,
 				A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -722,7 +726,8 @@
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -769,7 +774,8 @@
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = NO;
+				INFOPLIST_KEY_UILaunchStoryboardName = "Launch Screen";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (

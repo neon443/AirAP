@@ -21,16 +21,14 @@ class ServerStateButton: UIVisualEffectView {
 		self.label = UILabel()
 		self.stack = UIStackView(arrangedSubviews: [image, label])
 		
-		var effect: UIVisualEffect
 		if #available(iOS 19, *) {
 			let glassEffect = UIGlassEffect()
 			glassEffect.isInteractive = true
-			effect = glassEffect
+			super.init(effect: glassEffect)
 		} else {
-			effect = UIBlurEffect(style: .systemThinMaterialSafe)
+			super.init(effect: UIBlurEffect(style: .systemUltraThinMaterialSafe))
+			self.layer.masksToBounds = true
 		}
-		
-		super.init(effect: effect)
 
 		setup()
 		refreshUI()
@@ -73,12 +71,7 @@ class ServerStateButton: UIVisualEffectView {
 	}
 	
 	func setTint(to color: UIColor) {
-		if #available(iOS 19, *),
-		   let effect = self.effect as? UIGlassEffect {
-			effect.tintColor = color
-		} else {
-			self.backgroundColor = color.withAlphaComponent(0.5)
-		}
+		self.backgroundColor = color.withAlphaComponent(0.8)
 	}
 	
 	@objc func tapped() {
