@@ -19,7 +19,7 @@ class NowPlayingViewController: UIViewController {
 		self.asManager = asManager
 		self.npStack = .init(asManager: asManager)
 		self.startStopButton = ServerStateButton(asManager: asManager)
-		self.bgBlur = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterial))
+		self.bgBlur = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialSafe))
 		self.bgImage = UIImageView()
 		super.init(nibName: nil, bundle: nil)
 		refreshUI()
@@ -36,6 +36,7 @@ class NowPlayingViewController: UIViewController {
 		
 		bgBlur.effect = UIBlurEffect(style: asManager.settings.bgBlur.uiBlurEffectStyle)
 		
+		startStopButton.refreshUI()
 		npStack.refresUI()
 	}
 	

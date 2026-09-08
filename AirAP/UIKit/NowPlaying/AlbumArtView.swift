@@ -22,7 +22,7 @@ class AlbumArtView: UIVisualEffectView {
 			glassEffect.isInteractive = true
 			effect = glassEffect
 		} else {
-			effect = UIBlurEffect(style: .systemThinMaterial)
+			effect = UIBlurEffect(style: .systemThinMaterialSafe)
 		}
 		super.init(effect: effect)
 		
@@ -60,7 +60,7 @@ class AlbumArtView: UIVisualEffectView {
 			self.imageView.image = newImage
 			contentView.directionalLayoutMargins = .init(top: 8, leading: 8, bottom: 8, trailing: 8)
 		} else {
-			self.imageView.image = UIImage(systemName: "music.note")
+			self.imageView.image = UIImage(named: "music.note")
 			contentView.directionalLayoutMargins = .init(top: 128, leading: 128, bottom: 128, trailing: 128)
 		}
 	}

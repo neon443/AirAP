@@ -86,7 +86,7 @@ class SliderSettingsCell: SettingsCell {
 		valueLabel.font = valueLabel.font.withWeight(.bold)
 		valueLabel.textAlignment = .center
 		
-		resetButton.setImage(UIImage(systemName: "arrow.uturn.backward"), for: .normal)
+		resetButton.setImage(UIImage(named: "arrow.uturn.backward"), for: .normal)
 		resetButton.addTarget(self, action: #selector(resetTapped), for: .touchUpInside)
 		trailingStack.axis = .horizontal
 		trailingStack.spacing = 8

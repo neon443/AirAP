@@ -25,13 +25,13 @@ class InitialViewController: UITabBarController {
 	
 	func setup() {
 		let nowView = NowPlayingViewController(asManager: asManager)
-		nowView.tabBarItem = .init(title: "Now Playing", image: UIImage(systemName: "play.fill"), tag: 0)
+		nowView.tabBarItem = .init(title: "Now Playing", image: UIImage(named: "play.fill"), tag: 0)
 		
-		let helpView = HelpViewController()
-		helpView.tabBarItem = .init(title: "Help", image: UIImage(systemName: "questionmark"), tag: 1)
+		let helpView = HelpViewController(asManager: asManager)
+		helpView.tabBarItem = .init(title: "Help", image: UIImage(named: "questionmark"), tag: 1)
 		
 		let settingsView = SettingsViewController(asManager: asManager)
-		settingsView.tabBarItem = .init(title: "Settings", image: UIImage(systemName: "gear"), tag: 2)
+		settingsView.tabBarItem = .init(title: "Settings", image: UIImage(named: "gear"), tag: 2)
 		
 		self.setViewControllers([nowView, helpView, settingsView], animated: false)
 	}

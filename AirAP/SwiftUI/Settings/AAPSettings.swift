@@ -26,13 +26,13 @@ struct AAPSettings: Codable {
 		var uiBlurEffectStyle: UIBlurEffect.Style {
 			switch self {
 			case .systemUltraThinMaterial:
-				return .systemUltraThinMaterial
+				return .systemUltraThinMaterialSafe
 			case .systemThinMaterial:
-				return .systemThinMaterial
+				return .systemThinMaterialSafe
 			case .systemChromeMaterial:
-				return .systemChromeMaterial
+				return .systemChromeMaterialSafe
 			case .systemMaterial:
-				return .systemMaterial
+				return .systemMaterialSafe
 			}
 		}
 		

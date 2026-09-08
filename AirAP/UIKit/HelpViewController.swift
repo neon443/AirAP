@@ -9,13 +9,42 @@ import Foundation
 import UIKit
 
 class HelpViewController: UITableViewController {
-	init() {
-		super.init(style: .insetGrouped)
-		self.tableView.allowsSelection = false
+	var asManager: AirstreamManager
+	var startStopButton: ServerStateButton
+	
+	init(asManager: AirstreamManager) {
+		self.asManager = asManager
+		self.startStopButton = .init(asManager: asManager)
+		super.init(style: .insetGroupedSafe)
+		setup()
+		refreshUI()
 	}
 	
 	required init?(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
+	}
+	
+	func setup() {
+		self.tableView.allowsSelection = false
+		self.view.addSubview(startStopButton)
+		startStopButton.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			startStopButton.heightAnchor.constraint(equalToConstant: 32),
+			startStopButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
+			startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+		])
+	}
+	
+	func refreshUI() {
+		startStopButton.refreshUI()
+	}
+	
+	@objc func openReleses() {
+		UIApplication.shared.open(URL(string: "https://github.com/neon443/AirAP/releases/latest")!)
+	}
+	
+	@objc func createAnIssue() {
+		UIApplication.shared.open(URL(string: "https://github.com/neon443/AirAP/issues/new/choose")!)
 	}
 	
 	enum Topic: Int, CaseIterable {
@@ -95,11 +124,8 @@ class HelpViewController: UITableViewController {
 		return button
 	}
 	
-	@objc func openReleses() {
-		UIApplication.shared.open(URL(string: "https://github.com/neon443/AirAP/releases/latest")!)
-	}
-	
-	@objc func createAnIssue() {
-		UIApplication.shared.open(URL(string: "https://github.com/neon443/AirAP/issues/new/choose")!)
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		self.refreshUI()
 	}
 }

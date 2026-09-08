@@ -69,19 +69,15 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		airstream = Airstream(name: settings.name)
 		airstream?.delegate = self
 		airstream?.startServer()
-		withAnimation {
-			running = true
-		}
+		running = true
 		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
 		try? AVAudioSession.sharedInstance().setActive(true)
 	}
 	
 	func stop() {
 		airstream?.stopServer()
-		withAnimation {
-			running = false
-			clearMetadata()
-		}
+		running = false
+		clearMetadata()
 	}
 	
 	func startStop() {
@@ -241,26 +237,20 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 			return
 		} //con only if the data is an image
 		guard uiimage != albumArt else { return } //con only if album art is diff
-		withAnimation {
-			albumArt = uiimage
-		}
+		albumArt = uiimage
 		didSetAlbumArt?()
 	}
 	
 	//recieved track info
 	func airstream(_ airstream: Airstream, didSetMetadata metadata: [String : String]) {		
-		withAnimation {
-			title = metadata["minm"] //??
-			album = metadata["asal"] //airstream album
-			artist = metadata["asar"] //airstream artist
-		}
+		title = metadata["minm"] //??
+		album = metadata["asal"] //airstream album
+		artist = metadata["asar"] //airstream artist
 		didSetMetadata?()
 	}
 	
 	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {
-		withAnimation {
-			canControl = true
-		}
+		canControl = true
 	}
 	
 	let OutputRenderCallback: AURenderCallback = { (

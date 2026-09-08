@@ -10,11 +10,16 @@ import UIKit
 
 class ServerStateButton: UIVisualEffectView {
 	var asManager: AirstreamManager
-	var button: UIButton
+	
+	var image: UIImageView
+	var label: UILabel
+	var stack: UIStackView
 	
 	init(asManager: AirstreamManager) {
 		self.asManager = asManager
-		self.button = UIButton(type: .system)
+		self.image = UIImageView()
+		self.label = UILabel()
+		self.stack = UIStackView(arrangedSubviews: [image, label])
 		
 		var effect: UIVisualEffect
 		if #available(iOS 19, *) {
@@ -22,8 +27,9 @@ class ServerStateButton: UIVisualEffectView {
 			glassEffect.isInteractive = true
 			effect = glassEffect
 		} else {
-			effect = UIBlurEffect(style: .systemThinMaterial)
+			effect = UIBlurEffect(style: .systemThinMaterialSafe)
 		}
+		
 		super.init(effect: effect)
 
 		setup()
@@ -38,27 +44,31 @@ class ServerStateButton: UIVisualEffectView {
 		self.isUserInteractionEnabled = true
 		addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped)))
 		
-		button.isUserInteractionEnabled = false
-		button.imageView?.contentMode = .scaleAspectFit
-		button.tintColor = .foreground
+		image.contentMode = .scaleAspectFit
 		
-		self.contentView.addSubview(button)
-		button.translatesAutoresizingMaskIntoConstraints = false
+		stack.axis = .horizontal
+		stack.spacing = 4
+		stack.layoutMargins = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+		stack.isLayoutMarginsRelativeArrangement = true
+		
+		self.contentView.addSubview(stack)
+		stack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			contentView.topAnchor.constraint(equalTo: button.topAnchor, constant: -8),
-			contentView.leadingAnchor.constraint(equalTo: button.leadingAnchor, constant: -8),
-			contentView.trailingAnchor.constraint(equalTo: button.trailingAnchor, constant: 12),
-			contentView.bottomAnchor.constraint(equalTo: button.bottomAnchor, constant: 8)
+			contentView.topAnchor.constraint(equalTo: stack.topAnchor),
+			contentView.leadingAnchor.constraint(equalTo: stack.leadingAnchor),
+			contentView.trailingAnchor.constraint(equalTo: stack.trailingAnchor),
+			contentView.bottomAnchor.constraint(equalTo: stack.bottomAnchor)
 		])
-		self.layer.cornerRadius = button.bounds.height/2
+		self.layer.cornerRadius = stack.bounds.height/2
 		self.layer.masksToBounds = true
 	}
 	
 	func refreshUI() {
 		let isRunning = asManager.running
 		
-		button.setImage(UIImage(systemName: isRunning ? "square.fill" : "airplay.audio"), for: .normal)
-		button.setTitle(isRunning ? "Stop" : "Start", for: .normal)
+		self.image.image = UIImage(named: isRunning ? "square.fill" : "airplay.audio")
+		self.label.text = isRunning ? "Stop" : "Start"
+		stack.layoutMargins.left = isRunning ? 12 : 8
 		setTint(to: (isRunning ? UIColor.systemRed : UIColor.systemGreen))
 	}
 	

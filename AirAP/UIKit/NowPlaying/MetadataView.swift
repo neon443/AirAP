@@ -43,7 +43,7 @@ class MetadataView: UIVisualEffectView {
 			glassEffect.isInteractive = true
 			effect = glassEffect
 		} else {
-			effect = UIBlurEffect(style: .systemThinMaterial)
+			effect = UIBlurEffect(style: .systemThinMaterialSafe)
 		}
 		super.init(effect: effect)
 		

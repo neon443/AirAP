@@ -13,6 +13,8 @@
 		A925EA73304F2CB50060691C /* ServerStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA72304F2CB50060691C /* ServerStateButton.swift */; };
 		A925EA75304F816B0060691C /* SegmentedSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA74304F816B0060691C /* SegmentedSettingsCell.swift */; };
 		A925EA77304F94240060691C /* HelpViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA76304F94240060691C /* HelpViewCell.swift */; };
+		A925EA79304FF2420060691C /* UIBlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA78304FF2420060691C /* UIBlurEffect.swift */; };
+		A925EA7B304FF30D0060691C /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A925EA7A304FF30D0060691C /* UITableView.swift */; };
 		A927C31C2DE4EA84009DC31E /* ColorAdjustments.swift in Sources */ = {isa = PBXBuildFile; fileRef = A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */; };
 		A92DCADD2DD74F1800D82924 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A92DCADA2DD74F1800D82924 /* Assets.xcassets */; };
 		A92DCADE2DD74F1800D82924 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92DCAD92DD74F1800D82924 /* AirAPApp.swift */; };
@@ -105,6 +107,8 @@
 		A925EA72304F2CB50060691C /* ServerStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStateButton.swift; sourceTree = "<group>"; };
 		A925EA74304F816B0060691C /* SegmentedSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentedSettingsCell.swift; sourceTree = "<group>"; };
 		A925EA76304F94240060691C /* HelpViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpViewCell.swift; sourceTree = "<group>"; };
+		A925EA78304FF2420060691C /* UIBlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurEffect.swift; sourceTree = "<group>"; };
+		A925EA7A304FF30D0060691C /* UITableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		A927C31B2DE4EA84009DC31E /* ColorAdjustments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorAdjustments.swift; sourceTree = "<group>"; };
 		A92DCAC52DD74EB000D82924 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A92DCAD92DD74F1800D82924 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
@@ -218,6 +222,8 @@
 			isa = PBXGroup;
 			children = (
 				A925EA4F304EF5560060691C /* UIFont.swift */,
+				A925EA78304FF2420060691C /* UIBlurEffect.swift */,
+				A925EA7A304FF30D0060691C /* UITableView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -591,9 +597,11 @@
 				A9D53C30304CCDEE00A975D6 /* SettingsViewController.swift in Sources */,
 				A9D53C35304CEAB900A975D6 /* ToggleSettingsCell.swift in Sources */,
 				A99E25312DD7D1A900BF77D7 /* AirstreamManager.swift in Sources */,
+				A925EA7B304FF30D0060691C /* UITableView.swift in Sources */,
 				A9BD865430457DDB003B9074 /* MetadataView.swift in Sources */,
 				A9D53C33304CEAA700A975D6 /* SliderSettingsCell.swift in Sources */,
 				A925EA75304F816B0060691C /* SegmentedSettingsCell.swift in Sources */,
+				A925EA79304FF2420060691C /* UIBlurEffect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -784,7 +792,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -831,7 +839,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 13;
+				IPHONEOS_DEPLOYMENT_TARGET = 12;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

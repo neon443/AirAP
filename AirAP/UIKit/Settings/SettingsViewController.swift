@@ -15,7 +15,7 @@ class SettingsViewController: UITableViewController {
 	init(asManager: AirstreamManager) {
 		self.asManager = asManager
 		self.startStopButton = ServerStateButton(asManager: asManager)
-		super.init(style: .insetGrouped)
+		super.init(style: .insetGroupedSafe)
 		self.tableView.allowsSelection = false
 	}
 	
@@ -292,6 +292,11 @@ class SettingsViewController: UITableViewController {
 	
 	override func viewDidLayoutSubviews() {
 		self.tableView.contentInset.bottom = 48
+	}
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		startStopButton.refreshUI()
 	}
 	
 	override func viewDidLoad() {
