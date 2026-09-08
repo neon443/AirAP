@@ -49,13 +49,13 @@ class MetadataChunkView: UIStackView {
 	
 	func setTitle(to newTitle: String, animated: Bool = true) {
 		if animated {
-			UIView.transition(with: title, duration: 0.2, options: .transitionCrossDissolve) {
-				self.title.text = newTitle
-				self.layoutIfNeeded()
-			}
-		} else {
-			title.text = newTitle
+			let animation: CATransition = .init()
+			animation.duration = 0.3
+			animation.type = .fade
+			animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+			title.layer.add(animation, forKey: "changeTextTransition")
 		}
+		title.text = newTitle
 	}
 	
 	func setContent(to newContent: String?, animated: Bool = true) {
