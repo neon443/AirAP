@@ -61,6 +61,9 @@ class MetadataView: UIVisualEffectView {
 	func setup() {
 		self.layer.masksToBounds = true
 		self.layer.cornerRadius = 24
+		if #available(iOS 13, *) {
+			self.layer.cornerCurve = .continuous
+		}
 		
 		stack.axis = .vertical
 		stack.spacing = 8

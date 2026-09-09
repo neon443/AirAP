@@ -84,6 +84,9 @@ class ServerStateButton: UIVisualEffectView {
 	override func layoutSubviews() {
 		super.layoutSubviews()
 		self.layer.cornerRadius = self.bounds.height/2
+		if #available(iOS 13, *) {
+			self.layer.cornerCurve = .continuous
+		}
 		self.layer.masksToBounds = true
 	}
 }

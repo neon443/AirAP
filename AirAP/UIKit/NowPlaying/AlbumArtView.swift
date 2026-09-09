@@ -37,6 +37,9 @@ class AlbumArtView: UIVisualEffectView {
 	
 	func setup() {
 		self.layer.cornerRadius = 24
+		if #available(iOS 13, *) {
+			self.layer.cornerCurve = .continuous
+		}
 		self.layer.masksToBounds = true
 		imageView.contentMode = .scaleAspectFit
 		imageView.layer.cornerRadius = 16
