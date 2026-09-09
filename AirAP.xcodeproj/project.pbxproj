@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,8 @@
 		A96E63373050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */; };
 		A96E63383050AA42006F7533 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63363050AA42006F7533 /* TPCircularBuffer.c */; };
 		A96E63393050AA50006F7533 /* TPCircularBuffer+FillCount.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEDC3050A0A200330FE9 /* TPCircularBuffer+FillCount.c */; };
+		A9E0C23230516BFB00A102F8 /* Airstream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92130D130514AB400C1C2DB /* Airstream.xcframework */; };
+		A9E0C23330516BFB00A102F8 /* Airstream.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A92130D130514AB400C1C2DB /* Airstream.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9E2CE89305095E900330FE9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE85305095E900330FE9 /* UIColor.swift */; };
 		A9E2CE8A305095E900330FE9 /* UIBlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE84305095E900330FE9 /* UIBlurEffect.swift */; };
 		A9E2CE8B305095E900330FE9 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE86305095E900330FE9 /* UIFont.swift */; };
@@ -34,19 +36,7 @@
 		A9E2CEBD3050961D00330FE9 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */; };
 		A9E2CEBE3050961D00330FE9 /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEB93050961D00330FE9 /* AAPSettings.swift */; };
 		A9E2CEBF3050961D00330FE9 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBB3050961D00330FE9 /* AirAPApp.swift */; };
-		A9E2CF2A3050DE8B00330FE9 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A96E632430509B90006F7533 /* Airstream.framework */; };
-		A9E2CF2B3050DE8B00330FE9 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A96E632430509B90006F7533 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		A96E632330509B90006F7533 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = A96E631830509B90006F7533 /* Airstream.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D1524B381DC562AF009C5D23;
-			remoteInfo = Airstream;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		A9E2CF2C3050DE8B00330FE9 /* Embed Frameworks */ = {
@@ -55,7 +45,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A9E2CF2B3050DE8B00330FE9 /* Airstream.framework in Embed Frameworks */,
+				A9E0C23330516BFB00A102F8 /* Airstream.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -63,11 +53,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		A92130D130514AB400C1C2DB /* Airstream.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Airstream.xcframework; path = Carthage/Build/Airstream.xcframework; sourceTree = "<group>"; };
 		A96E63033050917B006F7533 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96E630D3050917C006F7533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A96E63103050917C006F7533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A96E63123050917C006F7533 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A96E631830509B90006F7533 /* Airstream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Airstream.xcodeproj; path = Carthage/Checkouts/Airstream/Airstream.xcodeproj; sourceTree = "<group>"; };
 		A96E632A30509D6E006F7533 /* Bridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bridge.h; sourceTree = "<group>"; };
 		A96E63323050AA42006F7533 /* TPCircularBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TPCircularBuffer.h; path = Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer.h; sourceTree = SOURCE_ROOT; };
 		A96E63343050AA42006F7533 /* TPCircularBuffer+AudioBufferList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TPCircularBuffer+AudioBufferList.h"; path = "Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h"; sourceTree = SOURCE_ROOT; };
@@ -105,7 +95,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9E2CF2A3050DE8B00330FE9 /* Airstream.framework in Frameworks */,
+				A9E0C23230516BFB00A102F8 /* Airstream.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +107,6 @@
 			children = (
 				A9E2CED83050A06800330FE9 /* TPCircularBuffer */,
 				A96E63053050917B006F7533 /* AirAP */,
-				A96E631830509B90006F7533 /* Airstream.xcodeproj */,
 				A96E63043050917B006F7533 /* Products */,
 				A96E632530509BE8006F7533 /* Frameworks */,
 			);
@@ -148,17 +137,10 @@
 			path = AirAP;
 			sourceTree = "<group>";
 		};
-		A96E631930509B90006F7533 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				A96E632430509B90006F7533 /* Airstream.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		A96E632530509BE8006F7533 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A92130D130514AB400C1C2DB /* Airstream.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -271,28 +253,12 @@
 			mainGroup = A96E62FA3050917B006F7533;
 			productRefGroup = A96E63043050917B006F7533 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = A96E631930509B90006F7533 /* Products */;
-					ProjectRef = A96E631830509B90006F7533 /* Airstream.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				A96E63023050917B006F7533 /* AirAP */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		A96E632430509B90006F7533 /* Airstream.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = Airstream.framework;
-			remoteRef = A96E632330509B90006F7533 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A96E63013050917B006F7533 /* Resources */ = {
@@ -481,6 +447,7 @@
 					"$(SRCROOT)/TPCircularBuffer",
 				);
 				INFOPLIST_FILE = AirAP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -506,6 +473,7 @@
 					"$(SRCROOT)/TPCircularBuffer",
 				);
 				INFOPLIST_FILE = AirAP/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
