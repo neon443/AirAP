@@ -46,7 +46,8 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		// hold the minBufferBytes (≈350 kB) to allow playback to start.
 		_TPCircularBufferInit(&circularBuffer, 1_048_576, MemoryLayout.size(ofValue: circularBuffer))
 //		#if RELEASE
-		start()
+		airstream = Airstream(name: settings.name)
+//		start()
 //		#endif
 	}
 	
