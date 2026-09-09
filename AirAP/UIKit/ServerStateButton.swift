@@ -21,14 +21,16 @@ class ServerStateButton: UIVisualEffectView {
 		self.label = UILabel()
 		self.stack = UIStackView(arrangedSubviews: [image, label])
 		
+		var effect: UIVisualEffect
+		effect = UIBlurEffect(style: .systemUltraThinMaterialSafe)
+#if compiler(>=6.2)
 		if #available(iOS 19, *) {
-			let glassEffect = UIGlassEffect()
+			let glassEffect = UIGlassEffect(style: .clear)
 			glassEffect.isInteractive = true
-			super.init(effect: glassEffect)
-		} else {
-			super.init(effect: UIBlurEffect(style: .systemUltraThinMaterialSafe))
-			self.layer.masksToBounds = true
+			effect = glassEffect
 		}
+#endif
+		super.init(effect: effect)
 
 		setup()
 		refreshUI()

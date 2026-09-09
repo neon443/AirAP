@@ -55,10 +55,10 @@ class SliderSettingsCell: SettingsCell {
 		
 		self.slider.setValue(value, animated: false)
 		self.setValueLabel(to: value)
-		UIView.transition(with: trailingStack, duration: 0.15, options: .transitionCrossDissolve) {
+		UIView.transition(with: trailingStack, duration: 0.15, options: .transitionCrossDissolve, animations: {
 			self.resetButton.isEnabled = value != sliderConfig.defaultValue
 			self.resetButton.layoutIfNeeded()
-		}
+		}, completion: nil)
 		
 		self.config.onChange?(self.asManager, value)
 		self.asManager.settings.saveSettings()
@@ -67,10 +67,10 @@ class SliderSettingsCell: SettingsCell {
 	func setValueLabel(to value: Float) {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		let string: String = slider.value.rounded() == value ? "\(Int(value))" : "\(value)"
-		UIView.transition(with: trailingStack, duration: 0.15, options: .transitionCrossDissolve) {
+		UIView.transition(with: trailingStack, duration: 0.15, options: .transitionCrossDissolve, animations: {
 			self.valueLabel.text = string + sliderConfig.unit
 			self.valueLabel.layoutIfNeeded()
-		}
+		}, completion: nil)
 	}
 	
 	@objc func resetTapped() {

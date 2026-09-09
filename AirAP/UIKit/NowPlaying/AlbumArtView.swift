@@ -16,17 +16,18 @@ class AlbumArtView: UIVisualEffectView {
 		self.asManager = asManager
 		self.imageView = UIImageView()
 		
+		var effect: UIVisualEffect
+		effect = UIBlurEffect(style: .systemUltraThinMaterialSafe)
+#if compiler(>=6.2)
 		if #available(iOS 19, *) {
 			let glassEffect = UIGlassEffect(style: .clear)
 			glassEffect.isInteractive = true
-			super.init(effect: glassEffect)
-		} else {
-			super.init(effect: UIBlurEffect(style: .systemUltraThinMaterialSafe))
-			self.layer.masksToBounds = true
+			effect = glassEffect
 		}
+#endif
+		super.init(effect: effect)
 		
 		setup()
-		
 		refreshUI()
 	}
 	
@@ -36,6 +37,7 @@ class AlbumArtView: UIVisualEffectView {
 	
 	func setup() {
 		self.layer.cornerRadius = 24
+		self.layer.masksToBounds = true
 		imageView.contentMode = .scaleAspectFit
 		imageView.layer.cornerRadius = 16
 		imageView.layer.masksToBounds = true
