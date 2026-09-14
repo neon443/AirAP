@@ -50,7 +50,9 @@ class SliderSettingsCell: SettingsCell {
 		
 		let value = round(self.slider.value / sliderConfig.step) * sliderConfig.step
 		if config.currentValue(asManager: asManager) as! Float != value {
-			UIImpactFeedbackGenerator(style: .light).impactOccurred()
+			if #available(iOS 10, *) {
+				UIImpactFeedbackGenerator(style: .light).impactOccurred()
+			}
 		}
 		
 		self.slider.setValue(value, animated: false)

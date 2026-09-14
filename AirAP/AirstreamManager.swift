@@ -70,7 +70,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		airstream?.delegate = self
 		airstream?.startServer()
 		running = true
-		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+		try? AVAudioSession.sharedInstance().setCategory(.playback)
 		try? AVAudioSession.sharedInstance().setActive(true)
 	}
 	

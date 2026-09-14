@@ -36,6 +36,7 @@
 		A9E2CEBD3050961D00330FE9 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */; };
 		A9E2CEBE3050961D00330FE9 /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEB93050961D00330FE9 /* AAPSettings.swift */; };
 		A9E2CEBF3050961D00330FE9 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBB3050961D00330FE9 /* AirAPApp.swift */; };
+		A9FA620A3052ADD80007EBEB /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA62093052ADD80007EBEB /* UIApplication.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -88,6 +89,7 @@
 		A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A9E2CEDB3050A0A200330FE9 /* TPCircularBuffer+FillCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPCircularBuffer+FillCount.h"; sourceTree = "<group>"; };
 		A9E2CEDC3050A0A200330FE9 /* TPCircularBuffer+FillCount.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "TPCircularBuffer+FillCount.c"; sourceTree = "<group>"; };
+		A9FA62093052ADD80007EBEB /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +154,7 @@
 				A9E2CE85305095E900330FE9 /* UIColor.swift */,
 				A9E2CE86305095E900330FE9 /* UIFont.swift */,
 				A9E2CE87305095E900330FE9 /* UITableView.swift */,
+				A9FA62093052ADD80007EBEB /* UIApplication.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,6 +280,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9FA620A3052ADD80007EBEB /* UIApplication.swift in Sources */,
 				A9E2CEA93050960C00330FE9 /* HelpViewCell.swift in Sources */,
 				A9E2CEAB3050960C00330FE9 /* HelpViewController.swift in Sources */,
 				A9E2CEAC3050960C00330FE9 /* InitialViewController.swift in Sources */,
@@ -447,7 +451,7 @@
 					"$(SRCROOT)/TPCircularBuffer",
 				);
 				INFOPLIST_FILE = AirAP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -473,7 +477,7 @@
 					"$(SRCROOT)/TPCircularBuffer",
 				);
 				INFOPLIST_FILE = AirAP/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10;
+				IPHONEOS_DEPLOYMENT_TARGET = 9;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

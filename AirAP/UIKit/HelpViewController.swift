@@ -16,6 +16,7 @@ class HelpViewController: UITableViewController {
 		self.asManager = asManager
 		self.startStopButton = .init(asManager: asManager)
 		super.init(style: .insetGroupedSafe)
+		self.tableView.register(HelpViewCell.self, forCellReuseIdentifier: "helpCell")
 		setup()
 		refreshUI()
 	}
@@ -49,11 +50,11 @@ class HelpViewController: UITableViewController {
 	}
 	
 	@objc func openReleses() {
-		UIApplication.shared.open(URL(string: "https://github.com/neon443/AirAP/releases/latest")!)
+		UIApplication.shared.safeOpenURL(URL(string: "https://github.com/neon443/AirAP/releases/latest")!)
 	}
 	
 	@objc func createAnIssue() {
-		UIApplication.shared.open(URL(string: "https://github.com/neon443/AirAP/issues/new/choose")!)
+		UIApplication.shared.safeOpenURL(URL(string: "https://github.com/neon443/AirAP/issues/new/choose")!)
 	}
 	
 	enum Topic: Int, CaseIterable {
@@ -61,6 +62,8 @@ class HelpViewController: UITableViewController {
 		case runOnOldDevice = 1
 		case iHaveFeedback = 2
 	}
+	
+	
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: HelpViewCell
