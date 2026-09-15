@@ -28,8 +28,8 @@ class MetadataView: UIVisualEffectView {
 		
 		self.title = UILabel()
 //		self.title = MetadataChunkView(title: "title")
-		self.album = MetadataChunkView(title: "album")
-		self.artist = MetadataChunkView(title: "artist")
+		self.album = MetadataChunkView(title: "", image: UIImage(named: "square.stack"))
+		self.artist = MetadataChunkView(title: "", image: UIImage(named: "music.microphone"))
 		self.stack = UIStackView(arrangedSubviews: [title, album, artist])
 		
 		self.sampleRate = MetadataChunkView(title: "sample rate", alignment: .center)
@@ -64,6 +64,13 @@ class MetadataView: UIVisualEffectView {
 		if #available(iOS 13, *) {
 			self.layer.cornerCurve = .continuous
 		}
+		
+		album.axis = .horizontal
+		album.spacing = 4
+		album.addArrangedSubview(UIView())
+		artist.axis = .horizontal
+		artist.spacing = 4
+		artist.addArrangedSubview(UIView())
 		
 		stack.axis = .vertical
 		stack.spacing = 8

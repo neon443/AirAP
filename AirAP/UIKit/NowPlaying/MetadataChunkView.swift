@@ -9,22 +9,26 @@ import Foundation
 import UIKit
 
 class MetadataChunkView: UIStackView {
-	var title: UILabel
+	var title: UILabel?
 	var content: UILabel
+	var image: UIImageView?
 	
 	init(
-		title: String,
+		title: String? = nil,
 		content: String? = nil,
+		image: UIImage? = nil,
 		alignment: UIStackView.Alignment = .leading
 	) {
-		self.title = UILabel()
-		self.title.text = title
-		self.title.font = UIFont.preferredFont(forTextStyle: .subheadline, andWeight: .light)
-		self.title.layer.shadowColor = UIColor.background.cgColor
-		self.title.layer.shadowOpacity = 0.5
-		self.title.layer.shadowRadius = 3
-		self.title.clipsToBounds = true
-		self.title.layer.masksToBounds = true
+		if let title = title {
+			self.title = UILabel()
+			self.title!.text = title
+			self.title!.font = UIFont.preferredFont(forTextStyle: .subheadline, andWeight: .light)
+			self.title!.layer.shadowColor = UIColor.background.cgColor
+			self.title!.layer.shadowOpacity = 0.5
+			self.title!.layer.shadowRadius = 3
+			self.title!.clipsToBounds = true
+			self.title!.layer.masksToBounds = true
+		}
 		
 		self.content = UILabel()
 		self.content.text = title
@@ -37,25 +41,23 @@ class MetadataChunkView: UIStackView {
 		
 //		super.init(arrangedSubviews: [self.title, self.content])
 		super.init(frame: .zero)
+		
+		if let image = image {
+			self.image = .init(image: image)
+			self.image!.contentMode = .scaleAspectFit
+			self.addArrangedSubview(self.image!)
+		}
+		
 		self.axis = .vertical
 		self.alignment = alignment
-		self.addArrangedSubview(self.title)
+		if title != nil {
+			self.addArrangedSubview(self.title!)
+		}
 		self.addArrangedSubview(self.content)
 	}
 	
 	required init(coder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
-	
-	func setTitle(to newTitle: String, animated: Bool = true) {
-		if animated {
-			let animation: CATransition = .init()
-			animation.duration = 0.3
-			animation.type = .fade
-			animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
-			title.layer.add(animation, forKey: "changeTextTransition")
-		}
-		title.text = newTitle
 	}
 	
 	func setContent(to newContent: String?, animated: Bool = true) {

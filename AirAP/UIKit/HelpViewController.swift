@@ -79,7 +79,7 @@ class HelpViewController: UITableViewController {
 		case .runOnOldDevice:
 			cell = .init(title: "Sideload the .ipa file from GitHub")
 		case .iHaveFeedback:
-			cell = .init(title: "Submit feedback via TestFlight, or open a GitHub issue")
+			cell = .init(title: "Submit on TestFlight, or open a GitHub issue")
 		case nil:
 			fatalError("invalid section \(indexPath) to topic")
 		}

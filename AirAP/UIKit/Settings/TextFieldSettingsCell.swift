@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class TextFieldSettingsCell: SettingsCell {
+class TextFieldSettingsCell: SettingsCell, UITextFieldDelegate {
 	var textField: UITextField
 	
 	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
@@ -31,6 +31,8 @@ class TextFieldSettingsCell: SettingsCell {
 	}
 	
 	func setup() {
+		textField.delegate = self
+		textField.returnKeyType = .done
 		textField.placeholder = "Server Name"
 		textField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
 		
@@ -45,6 +47,10 @@ class TextFieldSettingsCell: SettingsCell {
 	
 	override func refreshUI() {
 		self.textField.text = config.currentValue(asManager: asManager) as? String
-		
+	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
 	}
 }
