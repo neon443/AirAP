@@ -9,13 +9,12 @@ import Foundation
 import Airstream
 import AVFoundation
 import UIKit
-import SwiftUI
 
-@available(iOS 13, *)
-class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
-	@Published var airstream: Airstream?
+class AirstreamManager: NSObject, AirstreamDelegate {
+	static let shared = AirstreamManager()
+	var airstream: Airstream?
 	
-	@Published var settings: AAPSettingsModel
+	var settings: AAPSettingsModel
 
 	var audioUnit: AudioComponentInstance?
 	var circularBuffer = TPCircularBuffer()
@@ -23,19 +22,22 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 	
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
-	@Published var running = false
-	@Published var canControl = false
+	var running = false
+	var canControl = false
 	
 	/// Minimum amount of audio (in bytes) that must be present in the circular buffer before we
 	/// allow CoreAudio to start rendering.
 	/// The default value corresponds to ~2 s of 44.1 kHz, 16-bit, stereo PCM (44 100 * 1 s * 4 B).
 	private var minBufferBytes: Int32 = 176_000
-	private var targetLatencySeconds: Double  { settings.delay }
+	private var targetLatencySeconds: Double  { Double(settings.delay) }
 	
-	@Published var title: String?
-	@Published var album: String?
-	@Published var artist: String?
-	@Published var albumArt: UIImage?
+	var title: String?
+	var album: String?
+	var artist: String?
+	var albumArt: UIImage?
+	
+	var didSetAlbumArt: (() -> Void)?
+	var didSetMetadata: (() -> Void)?
 	
 	override init() {
 		self.settings = AAPSettingsModel()
@@ -44,7 +46,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		// hold the minBufferBytes (≈350 kB) to allow playback to start.
 		_TPCircularBufferInit(&circularBuffer, 1_048_576, MemoryLayout.size(ofValue: circularBuffer))
 //		#if RELEASE
-		start()
+		airstream = Airstream(name: settings.name)
+//		start()
 //		#endif
 	}
 	
@@ -66,20 +69,15 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		airstream = Airstream(name: settings.name)
 		airstream?.delegate = self
 		airstream?.startServer()
-		withAnimation {
-			running = true
-		}
-		try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .default)
+		running = true
+		try? AVAudioSession.sharedInstance().setCategory(.playback)
 		try? AVAudioSession.sharedInstance().setActive(true)
 	}
 	
 	func stop() {
-		
 		airstream?.stopServer()
-		withAnimation {
-			running = false
-			clearMetadata()
-		}
+		running = false
+		clearMetadata()
 	}
 	
 	func startStop() {
@@ -96,6 +94,8 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		title = nil
 		album = nil
 		artist = nil
+		didSetAlbumArt?()
+		didSetMetadata?()
 	}
 	
 	//brefore stream setup
@@ -237,24 +237,20 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 			return
 		} //con only if the data is an image
 		guard uiimage != albumArt else { return } //con only if album art is diff
-		withAnimation {
-			albumArt = uiimage
-		}
+		albumArt = uiimage
+		didSetAlbumArt?()
 	}
 	
 	//recieved track info
 	func airstream(_ airstream: Airstream, didSetMetadata metadata: [String : String]) {		
-		withAnimation {
-			title = metadata["minm"] //??
-			album = metadata["asal"] //airstream album
-			artist = metadata["asar"] //airstream artist
-		}
+		title = metadata["minm"] //??
+		album = metadata["asal"] //airstream album
+		artist = metadata["asar"] //airstream artist
+		didSetMetadata?()
 	}
 	
 	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {
-		withAnimation {
-			canControl = true
-		}
+		canControl = true
 	}
 	
 	let OutputRenderCallback: AURenderCallback = { (
@@ -266,6 +262,7 @@ class AirstreamManager: NSObject, ObservableObject, AirstreamDelegate {
 		ioData
 	) in
 		let manager = Unmanaged<AirstreamManager>.fromOpaque(inRefCon).takeUnretainedValue()
+		
 		if TPCircularBufferFillCount(&manager.circularBuffer) == 0 || manager.buffering {
 			//TODO: fixme
 //			i think its just best to return???
