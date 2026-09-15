@@ -51,17 +51,6 @@ struct AAPSettings: Codable {
 	}
 }
 
-<<<<<<<< HEAD:AirAP/SwiftUI/Settings/AAPSettings.swift
-@available(iOS 13, *)
-class AAPSettingsModel: ObservableObject {
-	@Published var name: String = "AirAP"
-	@Published var showBg: Bool = true
-	@Published var bgOpacity: CGFloat = 0.8
-	@Published var bgBlur: CGFloat = 75
-	@Published var showMetadata: Bool = true
-	@Published var showAudioQuality: Bool = true
-	@Published var delay: CGFloat = 0
-========
 class AAPSettingsModel {
 	var name: String = "AirAP"
 	var showBg: Bool = true
@@ -70,7 +59,6 @@ class AAPSettingsModel {
 	var showMetadata: Bool = true
 	var showAudioQuality: Bool = true
 	var delay: Float = 0
->>>>>>>> uikit:AirAP/AAPSettings.swift
 	
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
