@@ -9,13 +9,16 @@ import Foundation
 import UIKit
 
 struct AAPSettings: Codable {
-	var name: String
-	var showBg: Bool
-	var bgOpacity: Float
-	var bgBlur: AAPSettings.bgBlurStrengths
-	var showMetadata: Bool
-	var showAudioQuality: Bool
-	var delay: Float
+	var name: String							= "AirAP"
+	var password: String?						= nil
+	var showBg: Bool							= true
+	var bgOpacity: Float						= 0.8
+	var bgBlur: AAPSettings.bgBlurStrengths		= .systemUltraThinMaterial
+	var showMetadata: Bool						= true
+	var showAudioQuality: Bool					= true
+	var delay: Float							= 0
+	
+	private static let userDefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
 	enum bgBlurStrengths: Int, CaseIterable, Codable, CustomStringConvertible {
 		case systemUltraThinMaterial = 0
@@ -49,25 +52,9 @@ struct AAPSettings: Codable {
 			}
 		}
 	}
-}
-
-class AAPSettingsModel {
-	var name: String = "AirAP"
-	var showBg: Bool = true
-	var bgOpacity: Float = 0.8
-	var bgBlur: AAPSettings.bgBlurStrengths = .systemUltraThinMaterial
-	var showMetadata: Bool = true
-	var showAudioQuality: Bool = true
-	var delay: Float = 0
 	
-	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
-	
-	init() {
-		loadSettings()
-	}
-	
-	func loadSettings() {
-		guard let data = userdefaults.data(forKey: "settings") else { return }
+	init(clean: Bool = false) {
+		guard let data = AAPSettings.userDefaults.data(forKey: "settings") else { return }
 		
 		let decoder = JSONDecoder()
 		if let decoded = try? decoder.decode(AAPSettings.self, from: data) {
@@ -83,17 +70,12 @@ class AAPSettingsModel {
 	
 	func saveSettings() {
 		let encoder = JSONEncoder()
-		let settings = AAPSettings(
-			name: name,
-			showBg: showBg,
-			bgOpacity: bgOpacity,
-			bgBlur: bgBlur,
-			showMetadata: showMetadata,
-			showAudioQuality: showAudioQuality,
-			delay: delay
-		)
-		if let encoded = try? encoder.encode(settings) {
-			userdefaults.set(encoded, forKey: "settings")
+		if let encoded = try? encoder.encode(self) {
+			AAPSettings.userDefaults.set(encoded, forKey: "settings")
 		}
+	}
+	
+	static func defaults() -> AAPSettings {
+		AAPSettings(clean: true)
 	}
 }

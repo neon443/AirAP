@@ -12,6 +12,8 @@
 		A96E63373050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */; };
 		A96E63383050AA42006F7533 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63363050AA42006F7533 /* TPCircularBuffer.c */; };
 		A96E63393050AA50006F7533 /* TPCircularBuffer+FillCount.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEDC3050A0A200330FE9 /* TPCircularBuffer+FillCount.c */; };
+		A9D10731305BE7DA0075D08B /* SettingsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10730305BE7DA0075D08B /* SettingsCategory.swift */; };
+		A9D10733305BE8000075D08B /* SettingsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10732305BE8000075D08B /* SettingsConfiguration.swift */; };
 		A9E0C23230516BFB00A102F8 /* Airstream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92130D130514AB400C1C2DB /* Airstream.xcframework */; };
 		A9E0C23330516BFB00A102F8 /* Airstream.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A92130D130514AB400C1C2DB /* Airstream.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9E2CE89305095E900330FE9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE85305095E900330FE9 /* UIColor.swift */; };
@@ -64,6 +66,8 @@
 		A96E63343050AA42006F7533 /* TPCircularBuffer+AudioBufferList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TPCircularBuffer+AudioBufferList.h"; path = "Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h"; sourceTree = SOURCE_ROOT; };
 		A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "TPCircularBuffer+AudioBufferList.c"; path = "Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer+AudioBufferList.c"; sourceTree = SOURCE_ROOT; };
 		A96E63363050AA42006F7533 /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = TPCircularBuffer.c; path = Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer.c; sourceTree = SOURCE_ROOT; };
+		A9D10730305BE7DA0075D08B /* SettingsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCategory.swift; sourceTree = "<group>"; };
+		A9D10732305BE8000075D08B /* SettingsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfiguration.swift; sourceTree = "<group>"; };
 		A9E2CE84305095E900330FE9 /* UIBlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurEffect.swift; sourceTree = "<group>"; };
 		A9E2CE85305095E900330FE9 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
 		A9E2CE86305095E900330FE9 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
@@ -180,6 +184,8 @@
 				A9E2CEA03050960C00330FE9 /* SliderSettingsCell.swift */,
 				A9E2CEA13050960C00330FE9 /* TextFieldSettingsCell.swift */,
 				A9E2CEA23050960C00330FE9 /* ToggleSettingsCell.swift */,
+				A9D10730305BE7DA0075D08B /* SettingsCategory.swift */,
+				A9D10732305BE8000075D08B /* SettingsConfiguration.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -302,10 +308,12 @@
 				A9E2CEB63050960C00330FE9 /* SegmentedSettingsCell.swift in Sources */,
 				A9E2CEB73050960C00330FE9 /* SettingsViewController.swift in Sources */,
 				A9E2CEB83050960C00330FE9 /* ServerStateButton.swift in Sources */,
+				A9D10731305BE7DA0075D08B /* SettingsCategory.swift in Sources */,
 				A9E2CE89305095E900330FE9 /* UIColor.swift in Sources */,
 				A9E2CE8A305095E900330FE9 /* UIBlurEffect.swift in Sources */,
 				A9E2CE8B305095E900330FE9 /* UIFont.swift in Sources */,
 				A9E2CE8C305095E900330FE9 /* UITableView.swift in Sources */,
+				A9D10733305BE8000075D08B /* SettingsConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

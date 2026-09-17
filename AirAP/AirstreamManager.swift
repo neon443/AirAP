@@ -14,7 +14,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	static let shared = AirstreamManager()
 	var airstream: Airstream?
 	
-	var settings: AAPSettingsModel
+	var settings: AAPSettings
 
 	var audioUnit: AudioComponentInstance?
 	var circularBuffer = TPCircularBuffer()
@@ -22,7 +22,6 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
-	var running = false
 	var canControl = false
 	
 	/// Minimum amount of audio (in bytes) that must be present in the circular buffer before we
@@ -38,17 +37,16 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	
 	var didSetAlbumArt: (() -> Void)?
 	var didSetMetadata: (() -> Void)?
+	var updatePosition: ((UInt) -> Void)?
 	
 	override init() {
-		self.settings = AAPSettingsModel()
+		self.settings = .init()
 		super.init()
-		// Allocate a generous 1 MiB circular buffer. This must be large enough to
-		// hold the minBufferBytes (≈350 kB) to allow playback to start.
+		// 1 mib circular buffer
+		// hold minBufferBytes is ~350 kb
 		_TPCircularBufferInit(&circularBuffer, 1_048_576, MemoryLayout.size(ofValue: circularBuffer))
-//		#if RELEASE
 		airstream = Airstream(name: settings.name)
 		start()
-//		#endif
 	}
 	
 	deinit {
@@ -69,19 +67,17 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		airstream = Airstream(name: settings.name)
 		airstream?.delegate = self
 		airstream?.startServer()
-		running = true
 		try? AVAudioSession.sharedInstance().setCategory(.playback)
 		try? AVAudioSession.sharedInstance().setActive(true)
 	}
 	
 	func stop() {
 		airstream?.stopServer()
-		running = false
 		clearMetadata()
 	}
 	
 	func startStop() {
-		switch running {
+		switch airstream!.running {
 		case true:
 			stop()
 		case false:
@@ -194,6 +190,10 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		processAudio buffer: UnsafeMutablePointer<CChar>,
 		length: Int32
 	) {
+		DispatchQueue.main.async {
+			self.updatePosition?(airstream.position)
+//			self.updateVisualiser(buffer.pointee)
+		}
 		
 		if airstream.volume < 1 {
 			buffer.withMemoryRebound(to: CShort.self, capacity: Int(length)/2) { pointer in
@@ -251,9 +251,9 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	
 	//recieved track info
 	func airstream(_ airstream: Airstream, didSetMetadata metadata: [String : String]) {		
-		title = metadata["minm"] //??
-		album = metadata["asal"] //airstream album
-		artist = metadata["asar"] //airstream artist
+		title = metadata[ASMetadataSongTitleKey]
+		album = metadata[ASMetadataSongAlbumKey]
+		artist = metadata[ASMetadataSongArtistKey]
 		didSetMetadata?()
 	}
 	
