@@ -47,7 +47,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		_TPCircularBufferInit(&circularBuffer, 1_048_576, MemoryLayout.size(ofValue: circularBuffer))
 //		#if RELEASE
 		airstream = Airstream(name: settings.name)
-//		start()
+		start()
 //		#endif
 	}
 	
@@ -194,7 +194,15 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		processAudio buffer: UnsafeMutablePointer<CChar>,
 		length: Int32
 	) {
-		//MARK: add volume changing later
+		
+		if airstream.volume < 1 {
+			buffer.withMemoryRebound(to: CShort.self, capacity: Int(length)/2) { pointer in
+				for i in 0 ..< Int(length)/2 {
+					pointer[i] = CShort(Float(pointer[i]) * airstream.volume)
+				}
+			}
+		}
+		
 		let audioBuffer = AudioBuffer(
 			mNumberChannels: UInt32(airstream.channelsPerFrame),
 			mDataByteSize: UInt32(length),

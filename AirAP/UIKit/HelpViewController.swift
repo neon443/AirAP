@@ -139,5 +139,7 @@ class HelpViewController: UITableViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.refreshUI()
+		
+		print(asManager.airstream!.volume)
 	}
 }
