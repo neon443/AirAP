@@ -64,7 +64,7 @@ class ServerStateButton: UIVisualEffectView {
 	}
 	
 	func refreshUI() {
-		let isRunning = asManager.running
+		let isRunning = asManager.airstream!.running
 		
 		self.image.image = UIImage(named: isRunning ? "square.fill" : "airplay.audio")
 		self.label.text = isRunning ? "Stop" : "Start"

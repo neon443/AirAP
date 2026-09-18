@@ -39,6 +39,7 @@
 		A9E2CEBE3050961D00330FE9 /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEB93050961D00330FE9 /* AAPSettings.swift */; };
 		A9E2CEBF3050961D00330FE9 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBB3050961D00330FE9 /* AirAPApp.swift */; };
 		A9FA620A3052ADD80007EBEB /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA62093052ADD80007EBEB /* UIApplication.swift */; };
+		A9FBDB73305CA68C00963953 /* StatsSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBDB72305CA68C00963953 /* StatsSettingsCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -94,6 +95,7 @@
 		A9E2CEDB3050A0A200330FE9 /* TPCircularBuffer+FillCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPCircularBuffer+FillCount.h"; sourceTree = "<group>"; };
 		A9E2CEDC3050A0A200330FE9 /* TPCircularBuffer+FillCount.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "TPCircularBuffer+FillCount.c"; sourceTree = "<group>"; };
 		A9FA62093052ADD80007EBEB /* UIApplication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIApplication.swift; sourceTree = "<group>"; };
+		A9FBDB72305CA68C00963953 /* StatsSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsSettingsCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,14 +180,10 @@
 		A9E2CEA33050960C00330FE9 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
-				A9E2CE9D3050960C00330FE9 /* SegmentedSettingsCell.swift */,
-				A9E2CE9E3050960C00330FE9 /* SettingsCell.swift */,
 				A9E2CE9F3050960C00330FE9 /* SettingsViewController.swift */,
-				A9E2CEA03050960C00330FE9 /* SliderSettingsCell.swift */,
-				A9E2CEA13050960C00330FE9 /* TextFieldSettingsCell.swift */,
-				A9E2CEA23050960C00330FE9 /* ToggleSettingsCell.swift */,
 				A9D10730305BE7DA0075D08B /* SettingsCategory.swift */,
 				A9D10732305BE8000075D08B /* SettingsConfiguration.swift */,
+				A9FBDB71305CA65A00963953 /* Cells */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -214,6 +212,19 @@
 				A9E2CEDB3050A0A200330FE9 /* TPCircularBuffer+FillCount.h */,
 			);
 			path = TPCircularBuffer;
+			sourceTree = "<group>";
+		};
+		A9FBDB71305CA65A00963953 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2CE9E3050960C00330FE9 /* SettingsCell.swift */,
+				A9E2CEA03050960C00330FE9 /* SliderSettingsCell.swift */,
+				A9E2CEA23050960C00330FE9 /* ToggleSettingsCell.swift */,
+				A9E2CE9D3050960C00330FE9 /* SegmentedSettingsCell.swift */,
+				A9FBDB72305CA68C00963953 /* StatsSettingsCell.swift */,
+				A9E2CEA13050960C00330FE9 /* TextFieldSettingsCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -304,6 +315,7 @@
 				A9E2CEBD3050961D00330FE9 /* AirstreamManager.swift in Sources */,
 				A9E2CEBE3050961D00330FE9 /* AAPSettings.swift in Sources */,
 				A9E2CEBF3050961D00330FE9 /* AirAPApp.swift in Sources */,
+				A9FBDB73305CA68C00963953 /* StatsSettingsCell.swift in Sources */,
 				A96E63393050AA50006F7533 /* TPCircularBuffer+FillCount.c in Sources */,
 				A9E2CEB63050960C00330FE9 /* SegmentedSettingsCell.swift in Sources */,
 				A9E2CEB73050960C00330FE9 /* SettingsViewController.swift in Sources */,

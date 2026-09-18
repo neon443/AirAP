@@ -23,6 +23,8 @@ class MetadataView: UIVisualEffectView {
 	var bitDepth: MetadataChunkView
 	var channels: MetadataChunkView
 	
+	var volume: UISlider
+	
 	init(asManager: AirstreamManager) {
 		self.asManager = asManager
 		
@@ -36,6 +38,8 @@ class MetadataView: UIVisualEffectView {
 		self.bitDepth = MetadataChunkView(title: "bit depth", alignment: .center)
 		self.channels = MetadataChunkView(title: "channels", alignment: .center)
 		self.qualStack = UIStackView(arrangedSubviews: [sampleRate, bitDepth, channels])
+		
+		self.volume = UISlider(frame: .zero)
 		
 		var effect: UIVisualEffect
 		effect = UIBlurEffect(style: .systemUltraThinMaterialSafe)
@@ -75,8 +79,6 @@ class MetadataView: UIVisualEffectView {
 		stack.axis = .vertical
 		stack.spacing = 8
 		stack.distribution = .equalSpacing
-		stack.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
-		stack.isLayoutMarginsRelativeArrangement = true
 		
 		title.font = UIFont.preferredFont(forTextStyle: .title1, andWeight: .bold)
 		
@@ -86,9 +88,17 @@ class MetadataView: UIVisualEffectView {
 		qualStack.layoutMargins = .init(top: 8, left: 32, bottom: 8, right: 32)
 		qualStack.isLayoutMarginsRelativeArrangement = true
 		
-		let container = UIStackView(arrangedSubviews: [stack, qualStack])
+		if #available(iOS 26, *) {
+			volume.sliderStyle = .thumbless
+		}
+		volume.addTarget(self, action: #selector(setVolume), for: .valueChanged)
+		asManager.updateVolume = { self.volume.value = $0 }
+		
+		let container = UIStackView(arrangedSubviews: [stack, qualStack, volume])
 		container.axis = .vertical
-		container.spacing = 0
+		container.spacing = 4
+		container.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
+		container.isLayoutMarginsRelativeArrangement = true
 		
 		contentView.addSubview(container)
 		container.translatesAutoresizingMaskIntoConstraints = false
@@ -125,6 +135,8 @@ class MetadataView: UIVisualEffectView {
 		sampleRate.setContent(to: "\(asManager.airstream!.sampleRate)")
 		bitDepth.setContent(to: "\(asManager.airstream!.bitsPerChannel)")
 		channels.setContent(to: "\(asManager.airstream!.channelsPerFrame)")
+		
+		asManager.updateVolume?(asManager.airstream!.volume)
 	}
 	
 	func setTrackInfoVisible(_ visible: Bool) {
@@ -133,5 +145,9 @@ class MetadataView: UIVisualEffectView {
 	
 	func setQualityInfoVisibel(_ visible: Bool) {
 		qualStack.isHidden = !visible
+	}
+	
+	@objc func setVolume() {
+		asManager.airstream?.remote?.decreaseVolume()
 	}
 }

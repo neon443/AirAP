@@ -38,7 +38,8 @@ class SettingsViewController: UITableViewController {
 			cell = TextFieldSettingsCell(asManager: asManager, config: config)
 		case .segment:
 			cell = SegmentedSettingsCell(asManager: asManager, config: config)
-//		case .
+		case .stats:
+			cell = StatsSettingsCell(asManager: asManager, config: config)
 		}
 		return cell
 	}

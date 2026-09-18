@@ -38,6 +38,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	var didSetAlbumArt: (() -> Void)?
 	var didSetMetadata: (() -> Void)?
 	var updatePosition: ((UInt) -> Void)?
+	var updateVolume: ((Float) -> Void)?
 	
 	override init() {
 		self.settings = .init()
@@ -192,6 +193,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	) {
 		DispatchQueue.main.async {
 			self.updatePosition?(airstream.position)
+			self.updateVolume?(airstream.volume)
 //			self.updateVisualiser(buffer.pointee)
 		}
 		

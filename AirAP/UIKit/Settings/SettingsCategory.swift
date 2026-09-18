@@ -148,6 +148,9 @@ extension SettingsViewController {
 						asManager.settings.showAudioQuality = newValue
 					}
 				}
+			case .stats:
+				title = "nil"
+				print("idk :)")
 			}
 			
 			config.title = title
