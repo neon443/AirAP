@@ -10,12 +10,16 @@ import UIKit
 
 class StatsSettingsCell: SettingsCell {
 	var portLabel: UILabel
+	var serverIP: UILabel
+	var clientIP: UILabel
 	
 	var stack: UIStackView
 	
 	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
 		self.portLabel = UILabel()
-		self.stack = UIStackView(arrangedSubviews: [portLabel])
+		self.serverIP = UILabel()
+		self.clientIP = UILabel()
+		self.stack = UIStackView()
 		
 		super.init(asManager: asManager, config: config)
 		
@@ -28,6 +32,21 @@ class StatsSettingsCell: SettingsCell {
 	}
 	
 	func setup() {
+		stack.axis = .vertical
+		
+		let serverIPLabel = UILabel()
+		serverIPLabel.text = "Server IP"
+		let serverIPStack = UIStackView(arrangedSubviews: [serverIPLabel, serverIP])
+		serverIPStack.distribution = .equalSpacing
+		
+		let clientIPLabel = UILabel()
+		clientIPLabel.text = "Client IP"
+		let clientIPStack = UIStackView(arrangedSubviews: [clientIPLabel, clientIP])
+		clientIPStack.distribution = .equalSpacing
+		
+		stack.addArrangedSubview(serverIPLabel)
+		stack.addArrangedSubview(clientIPLabel)
+		stack.addArrangedSubview(portLabel)
 		contentView.addSubview(stack)
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
@@ -40,6 +59,7 @@ class StatsSettingsCell: SettingsCell {
 	
 	override func refreshUI() {
 		super.refreshUI()
+//		clientIP = asManager.airstream
 		portLabel.text = "\(asManager.airstream!.port)"
 	}
 }
