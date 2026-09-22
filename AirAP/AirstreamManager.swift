@@ -37,7 +37,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	
 	var didSetAlbumArt: (() -> Void)?
 	var didSetMetadata: (() -> Void)?
-	var updatePosition: ((UInt) -> Void)?
+	var updatePosition: ((UInt, UInt) -> Void)?
 	var updateVolume: ((Float) -> Void)?
 	
 	override init() {
@@ -73,7 +73,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	
 	func stop() {
 		airstream?.stopServer()
-		clearMetadata()
+		cleanup()
 		try? AVAudioSession.sharedInstance().setActive(false)
 	}
 	
@@ -86,6 +86,11 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		}
 	}
 	
+	func cleanup() {
+		clearMetadata()
+		clearSliders()
+	}
+	
 	func clearMetadata() {
 		albumArt = nil
 		title = nil
@@ -93,6 +98,14 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		artist = nil
 		didSetAlbumArt?()
 		didSetMetadata?()
+	}
+	
+	func clearSliders() {
+		if let airstream = airstream,
+		   let delegate = airstream.delegate {
+			delegate.airstream?(airstream, didSetVolume: 0)
+			delegate.airstream?(airstream, didSetPosition: 0, duration: 0)
+		}
 	}
 	
 	//brefore stream setup
@@ -191,12 +204,6 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		processAudio buffer: UnsafeMutablePointer<CChar>,
 		length: Int32
 	) {
-		DispatchQueue.main.async {
-			self.updatePosition?(airstream.position)
-			self.updateVolume?(airstream.volume)
-//			self.updateVisualiser(buffer.pointee)
-		}
-		
 		if airstream.volume < 1 {
 			buffer.withMemoryRebound(to: CShort.self, capacity: Int(length)/2) { pointer in
 				for i in 0 ..< Int(length)/2 {
@@ -257,6 +264,18 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		album = metadata[ASMetadataSongAlbumKey]
 		artist = metadata[ASMetadataSongArtistKey]
 		didSetMetadata?()
+	}
+	
+	func airstream(_ airstream: Airstream, didSetVolume volume: Float) {
+		DispatchQueue.main.async {
+			self.updateVolume?(airstream.volume)
+		}
+	}
+	
+	func airstream(_ airstream: Airstream, didSetPosition position: UInt, duration: UInt) {
+		DispatchQueue.main.async {
+//			self.updatePosition?(position, duration)
+		}
 	}
 	
 	func airstream(_ airstream: Airstream, didGainAccessTo remote: AirstreamRemote) {
