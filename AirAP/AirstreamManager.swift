@@ -74,6 +74,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	func stop() {
 		airstream?.stopServer()
 		clearMetadata()
+		try? AVAudioSession.sharedInstance().setActive(false)
 	}
 	
 	func startStop() {
