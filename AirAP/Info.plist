@@ -9,7 +9,10 @@
 	<key>NSBonjourServices</key>
 	<array>
 		<string>_raop._tcp</string>
+		<string>_dacp._tcp</string>
 	</array>
+	<key>NSLocalNetworkUsageDescription</key>
+	<string>App would like to use network discovery</string>
 	<key>NSBonjourServiceType</key>
 	<string>_raop._tcp</string>
 	<key>CFBundleDevelopmentRegion</key>
