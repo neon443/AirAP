@@ -92,7 +92,8 @@ class MetadataView: UIVisualEffectView {
 			volume.sliderStyle = .thumbless
 		}
 		volume.addTarget(self, action: #selector(setVolume), for: .valueChanged)
-		asManager.updateVolume = { self.volume.value = $0 }
+		volume.isUserInteractionEnabled = false
+		asManager.updateVolume = { self.volume.setValue($0, animated: true) }
 		
 		let container = UIStackView(arrangedSubviews: [stack, qualStack, volume])
 		container.axis = .vertical

@@ -30,7 +30,13 @@ class NowPlayingViewController: UIViewController {
 	}
 	
 	func refreshUI() {
+		let animation: CATransition = .init()
+		animation.duration = 0.3
+		animation.type = .fade
+		animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+		bgImage.layer.add(animation, forKey: "changeBackgroundTransition")
 		bgImage.image = asManager.albumArt
+		
 		let showBg = asManager.settings.showBg
 		bgImage.alpha = showBg ? CGFloat(asManager.settings.bgOpacity/100) : 0
 		

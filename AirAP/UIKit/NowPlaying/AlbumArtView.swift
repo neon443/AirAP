@@ -58,12 +58,18 @@ class AlbumArtView: UIVisualEffectView {
 	}
 	
 	func refreshUI() {
-//		if let newImage = asManager.albumArt {
-//			self.imageView.image = newImage
-//			contentView.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
-//		} else {
-//			self.imageView.image = UIImage(named: "music.note")
-//			contentView.layoutMargins = .init(top: 128, left: 128, bottom: 128, right: 128)
-//		}
+		let animation: CATransition = .init()
+		animation.duration = 0.3
+		animation.type = .fade
+		animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+		imageView.layer.add(animation, forKey: "changeImageTransition")
+		
+		if let newImage = asManager.albumArt {
+			self.imageView.image = newImage
+			contentView.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
+		} else {
+			self.imageView.image = UIImage(named: "music.note")
+			contentView.layoutMargins = .init(top: 128, left: 128, bottom: 128, right: 128)
+		}
 	}
 }

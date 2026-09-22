@@ -63,8 +63,6 @@ class HelpViewController: UITableViewController {
 		case iHaveFeedback = 2
 	}
 	
-	
-	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell: HelpViewCell
 		

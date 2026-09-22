@@ -67,7 +67,7 @@ extension SettingsViewController {
 					return .toggle
 				} else if itemIndex == 1 {
 					return .slider
-				} else if itemIndex == 1 {
+				} else if itemIndex == 2 {
 					return .segment
 				} else {
 					return .toggle

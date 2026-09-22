@@ -46,6 +46,10 @@ class TextFieldSettingsCell: SettingsCell, UITextFieldDelegate {
 		
 		textField.delegate = self
 		textField.returnKeyType = .done
+		textField.clearButtonMode = .whileEditing
+		textField.autocapitalizationType = .none
+		textField.autocorrectionType = .no
+		textField.spellCheckingType = .no
 		textField.placeholder = "Enter a \(config.title.lowercased())"
 		textField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
 		
