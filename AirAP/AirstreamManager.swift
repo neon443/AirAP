@@ -37,7 +37,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	
 	var didSetAlbumArt: (() -> Void)?
 	var didSetMetadata: (() -> Void)?
-	var updatePosition: ((UInt, UInt) -> Void)?
+	var updatePosition: ((Float, Float) -> Void)?
 	var updateVolume: ((Float) -> Void)?
 	
 	override init() {
@@ -204,6 +204,13 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		processAudio buffer: UnsafeMutablePointer<CChar>,
 		length: Int32
 	) {
+		DispatchQueue.main.async {
+			self.updatePosition?(
+				Float(airstream.position),
+				Float(airstream.duration)
+			)
+		}
+		
 		if airstream.volume < 1 {
 			buffer.withMemoryRebound(to: CShort.self, capacity: Int(length)/2) { pointer in
 				for i in 0 ..< Int(length)/2 {
@@ -274,7 +281,10 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	
 	func airstream(_ airstream: Airstream, didSetPosition position: UInt, duration: UInt) {
 		DispatchQueue.main.async {
-//			self.updatePosition?(position, duration)
+			self.updatePosition?(
+				Float(position),
+				Float(duration)
+			)
 		}
 	}
 	

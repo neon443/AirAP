@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A94EC6D3306284C000D3A980 /* PlaybackControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC6D2306284C000D3A980 /* PlaybackControlsView.swift */; };
 		A96E630E3050917C006F7533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A96E630D3050917C006F7533 /* Assets.xcassets */; };
 		A96E63113050917C006F7533 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96E630F3050917C006F7533 /* LaunchScreen.storyboard */; };
 		A96E63373050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */; };
@@ -58,6 +59,7 @@
 
 /* Begin PBXFileReference section */
 		A92130D130514AB400C1C2DB /* Airstream.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Airstream.xcframework; path = Carthage/Build/Airstream.xcframework; sourceTree = "<group>"; };
+		A94EC6D2306284C000D3A980 /* PlaybackControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControlsView.swift; sourceTree = "<group>"; };
 		A96E63033050917B006F7533 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96E630D3050917C006F7533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A96E63103050917C006F7533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				A9E2CE983050960C00330FE9 /* MetadataView.swift */,
 				A9E2CE993050960C00330FE9 /* NowPlayingStackView.swift */,
 				A9E2CE9A3050960C00330FE9 /* NowPlayingViewController.swift */,
+				A94EC6D2306284C000D3A980 /* PlaybackControlsView.swift */,
 			);
 			path = NowPlaying;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				A9E2CEAB3050960C00330FE9 /* HelpViewController.swift in Sources */,
 				A9E2CEAC3050960C00330FE9 /* InitialViewController.swift in Sources */,
 				A9E2CEAD3050960C00330FE9 /* SettingsCell.swift in Sources */,
+				A94EC6D3306284C000D3A980 /* PlaybackControlsView.swift in Sources */,
 				A9E2CEAE3050960C00330FE9 /* NowPlayingStackView.swift in Sources */,
 				A9E2CEAF3050960C00330FE9 /* AlbumArtView.swift in Sources */,
 				A96E63383050AA42006F7533 /* TPCircularBuffer.c in Sources */,

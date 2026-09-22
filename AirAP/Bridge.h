@@ -12,4 +12,6 @@
 #import "TPCircularBuffer+AudioBufferList.h"
 #import "TPCircularBuffer+FillCount.h"
 
+#include <ifaddrs.h>
+
 #endif /* Bridge_h */
