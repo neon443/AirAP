@@ -31,51 +31,58 @@ class StatsSettingsCell: SettingsCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	// Source - https://stackoverflow.com/a/25627545
-	func getIFAddresses() -> [String] {
-		var addresses = [String]()
-
+	// Source - https://stackoverflow.com/a/73853768
+	func getIPAddress() -> String? {
+		var address : String?
 		var ifaddr : UnsafeMutablePointer<ifaddrs>?
-		guard getifaddrs(&ifaddr) == 0 else { return [] }
-		guard let firstAddr = ifaddr else { return [] }
+		guard getifaddrs(&ifaddr) == 0 else { return nil }
+		guard let firstAddr = ifaddr else { return nil }
 
-		for ptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
-			let flags = Int32(ptr.pointee.ifa_flags)
-			let addr = ptr.pointee.ifa_addr.pointee
+		for ifptr in sequence(first: firstAddr, next: { $0.pointee.ifa_next }) {
+			let interface = ifptr.pointee
+			let addrFamily = interface.ifa_addr.pointee.sa_family
+			if addrFamily == UInt8(AF_INET) || addrFamily == UInt8(AF_INET6) {
 
-			if (flags & (IFF_UP|IFF_RUNNING|IFF_LOOPBACK)) == (IFF_UP|IFF_RUNNING) {
-				if addr.sa_family == UInt8(AF_INET){
-
+				// wifi = ["en0"]
+				// wired = ["en2", "en3", "en4"]
+				// cellular = ["pdp_ip0","pdp_ip1","pdp_ip2","pdp_ip3"]
+				let name = String(cString: interface.ifa_name)
+				if  name == "en0" {
 					var hostname = [CChar](repeating: 0, count: Int(NI_MAXHOST))
-					if (getnameinfo(ptr.pointee.ifa_addr, socklen_t(addr.sa_len), &hostname, socklen_t(hostname.count),
-									nil, socklen_t(0), NI_NUMERICHOST) == 0) {
-						let address = String(cString: hostname)
-						addresses.append(address)
-					}
+					getnameinfo(interface.ifa_addr, socklen_t(interface.ifa_addr.pointee.sa_len),
+								&hostname, socklen_t(hostname.count),
+								nil, socklen_t(0), NI_NUMERICHOST)
+					address = String(cString: hostname)
 				}
 			}
 		}
-
 		freeifaddrs(ifaddr)
-		return addresses
+		return address
 	}
+
 	
 	func setup() {
 		stack.axis = .vertical
 		
+		serverIP.textColor = .gray
+		clientIP.textColor = .gray
+		
 		let serverIPLabel = UILabel()
-		serverIPLabel.text = "Server IP"
+		serverIPLabel.text = "Server"
 		let serverIPStack = UIStackView(arrangedSubviews: [serverIPLabel, serverIP])
+		serverIPStack.axis = .horizontal
 		serverIPStack.distribution = .equalSpacing
 		
 		let clientIPLabel = UILabel()
-		clientIPLabel.text = "Client IP"
+		clientIPLabel.text = "Client"
 		let clientIPStack = UIStackView(arrangedSubviews: [clientIPLabel, clientIP])
+		clientIPStack.axis = .horizontal
 		clientIPStack.distribution = .equalSpacing
 		
-		stack.addArrangedSubview(serverIPLabel)
-		stack.addArrangedSubview(clientIPLabel)
+		stack.addArrangedSubview(serverIPStack)
+		stack.addArrangedSubview(clientIPStack)
 		stack.addArrangedSubview(portLabel)
+		
 		contentView.addSubview(stack)
 		stack.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
@@ -88,8 +95,30 @@ class StatsSettingsCell: SettingsCell {
 	
 	override func refreshUI() {
 		super.refreshUI()
-//		clientIP = asManager.airstream
 		portLabel.text = "\(asManager.airstream!.port)"
-		self.serverIP.text = getIFAddresses().joined(separator: "_")
+		serverIP.text = getIPAddress() ?? "_"
+		clientIP.text = asManager.airstream?.remote?.hostName
+	}
+	
+	private class StatRow: UIStackView {
+		var title: UILabel = .init()
+		var content: UILabel = .init()
+		
+		init(title: String) {
+			super.init(frame: .zero)
+			self.addArrangedSubview(self.title)
+			self.addArrangedSubview(self.content)
+		}
+		
+		required init(coder: NSCoder) {
+			fatalError("init(coder:) has not been implemented")
+		}
+		
+		func setTitle(to newTitle: String) {
+			title.text = newTitle
+		}
+		
+		func setContent(to newTitle: String) {
+		}
 	}
 }

@@ -23,6 +23,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	private let userdefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
 	var canControl = false
+	var positionSet: Date?
 	
 	/// Minimum amount of audio (in bytes) that must be present in the circular buffer before we
 	/// allow CoreAudio to start rendering.
@@ -205,8 +206,9 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		length: Int32
 	) {
 		DispatchQueue.main.async {
+			let newPosition = airstream.position + UInt(Date().timeIntervalSince(self.positionSet ?? Date()))
 			self.updatePosition?(
-				Float(airstream.position),
+				Float(newPosition > airstream.duration ? airstream.duration : newPosition),
 				Float(airstream.duration)
 			)
 		}
@@ -280,6 +282,8 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	}
 	
 	func airstream(_ airstream: Airstream, didSetPosition position: UInt, duration: UInt) {
+		positionSet = Date()
+		print(position)
 		DispatchQueue.main.async {
 			self.updatePosition?(
 				Float(position),
