@@ -12,6 +12,12 @@ class PlaybackControlsView: UIStackView {
 	var asManager: AirstreamManager
 	
 	var position: UISlider
+	
+	var back: UIButton
+	var pause: UIButton
+	var forawrd: UIButton
+	var trackStack: UIStackView
+	
 	var volume: UISlider
 	
 	init(asManager: AirstreamManager) {
@@ -20,9 +26,15 @@ class PlaybackControlsView: UIStackView {
 		self.position = UISlider(frame: .zero)
 		self.volume = UISlider(frame: .zero)
 		
+		self.back = UIButton(type: .custom)
+		self.pause = UIButton(type: .custom)
+		self.forawrd = UIButton(type: .custom)
+		self.trackStack = UIStackView(arrangedSubviews: [UIView(), back, pause, forawrd, UIView()])
+		
 		super.init(frame: .zero)
 		
 		self.addArrangedSubview(position)
+		self.addArrangedSubview(trackStack)
 		self.addArrangedSubview(volume)
 		
 		setup()
@@ -33,9 +45,37 @@ class PlaybackControlsView: UIStackView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	@objc func backTapped() {
+		asManager.airstream?.remote?.nextItem()
+	}
+	
+	@objc func pauseTapped() {
+		asManager.airstream?.remote?.playPause()
+		
+	}
+	
+	@objc func skipTapped() {
+		asManager.airstream?.remote?.previousItem()
+	}
+	
 	func setup() {
+		back.setImage(UIImage(named: "backward.fill"), for: .normal)
+		forawrd.setImage(UIImage(named: "forward.fill"), for: .normal)
+		pause.setImage(UIImage(named: "play.fill"), for: .normal)
+		
+		back.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
+		forawrd.addTarget(self, action: #selector(skipTapped), for: .touchUpInside)
+		pause.addTarget(self, action: #selector(pauseTapped), for: .touchUpInside)
+		
+		trackStack.axis = .horizontal
+		trackStack.distribution = .equalSpacing
+		
 		self.axis = .vertical
 		self.spacing = .zero
+//		self.layoutMargins.top = -8
+		self.layoutMargins.left = 8
+		self.layoutMargins.right = 8
+		self.isLayoutMarginsRelativeArrangement = true
 		
 		if #available(iOS 26, *) {
 			volume.sliderStyle = .thumbless

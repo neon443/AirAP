@@ -19,9 +19,9 @@ class MetadataView: UIVisualEffectView {
 	var artist: MetadataChunkView
 	
 	var qualStack: UIStackView
-	var sampleRate: MetadataChunkView
-	var bitDepth: MetadataChunkView
-	var channels: MetadataChunkView
+	var sampleRate: MetadataAudioChunk
+	var bitDepth: MetadataAudioChunk
+	var channels: MetadataAudioChunk
 	
 	var playbackControls: PlaybackControlsView
 	
@@ -29,14 +29,13 @@ class MetadataView: UIVisualEffectView {
 		self.asManager = asManager
 		
 		self.title = UILabel()
-//		self.title = MetadataChunkView(title: "title")
-		self.album = MetadataChunkView(title: "", image: UIImage(named: "square.stack"))
-		self.artist = MetadataChunkView(title: "", image: UIImage(named: "music.microphone"))
+		self.album = MetadataChunkView(image: UIImage(named: "square.stack"))
+		self.artist = MetadataChunkView(image: UIImage(named: "music.microphone"))
 		self.stack = UIStackView(arrangedSubviews: [title, album, artist])
 		
-		self.sampleRate = MetadataChunkView(title: "sample rate", alignment: .center)
-		self.bitDepth = MetadataChunkView(title: "bit depth", alignment: .center)
-		self.channels = MetadataChunkView(title: "channels", alignment: .center)
+		self.sampleRate = MetadataAudioChunk(type: .sampleRate)
+		self.bitDepth = MetadataAudioChunk(type: .bitDepth)
+		self.channels = MetadataAudioChunk(type: .channels)
 		self.qualStack = UIStackView(arrangedSubviews: [sampleRate, bitDepth, channels])
 		
 		var effect: UIVisualEffect
@@ -100,7 +99,7 @@ class MetadataView: UIVisualEffectView {
 		let container = UIStackView(arrangedSubviews: [stack, qualStack, playbackControls])
 		container.axis = .vertical
 		container.spacing = 4
-		container.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
+		container.layoutMargins = .init(top: 8, left: 8, bottom: 2, right: 8)
 		container.isLayoutMarginsRelativeArrangement = true
 		
 		contentView.addSubview(container)

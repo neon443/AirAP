@@ -147,7 +147,7 @@ extension SettingsViewController.Category {
 			}
 		case .display:
 			if itemIndex == 0 {
-				title = "Show album art"
+				title = "Theme background"
 				config.onChange = { asManager, newValue in
 					let newValue = newValue as! Bool
 					asManager.settings.showBg = newValue

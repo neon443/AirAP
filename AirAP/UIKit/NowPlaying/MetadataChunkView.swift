@@ -9,50 +9,27 @@ import Foundation
 import UIKit
 
 class MetadataChunkView: UIStackView {
-	var title: UILabel?
+	var image: UIImageView
 	var content: UILabel
-	var image: UIImageView?
 	
-	init(
-		title: String? = nil,
-		content: String? = nil,
-		image: UIImage? = nil,
-		alignment: UIStackView.Alignment = .leading
-	) {
-		if let title = title {
-			self.title = UILabel()
-			self.title!.text = title
-			self.title!.font = UIFont.preferredFont(forTextStyle: .subheadline, andWeight: .light)
-			self.title!.layer.shadowColor = UIColor.background.cgColor
-			self.title!.layer.shadowOpacity = 0.5
-			self.title!.layer.shadowRadius = 3
-			self.title!.clipsToBounds = true
-			self.title!.layer.masksToBounds = true
-		}
-		
+	init(image: UIImage?) {
 		self.content = UILabel()
-		self.content.text = title
-		self.content.font = UIFont.preferredFont(forTextStyle: .title3)
+		self.content.text = "._."
+		self.content.font = UIFont.preferredFont(forTextStyle: .headline)
 		self.content.layer.shadowColor = UIColor.background.cgColor
 		self.content.layer.shadowOpacity = 0.5
 		self.content.layer.shadowRadius = 3
 		self.content.clipsToBounds = true
 		self.content.layer.masksToBounds = true
 		
-//		super.init(arrangedSubviews: [self.title, self.content])
-		super.init(frame: .zero)
+		self.image = .init(image: image)
+		self.image.contentMode = .scaleAspectFit
 		
-		if let image = image {
-			self.image = .init(image: image)
-			self.image!.contentMode = .scaleAspectFit
-			self.addArrangedSubview(self.image!)
-		}
+		super.init(frame: .zero)
 		
 		self.axis = .vertical
 		self.alignment = alignment
-		if title != nil {
-			self.addArrangedSubview(self.title!)
-		}
+		self.addArrangedSubview(self.image)
 		self.addArrangedSubview(self.content)
 	}
 	

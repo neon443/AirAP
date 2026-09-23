@@ -206,10 +206,12 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		length: Int32
 	) {
 		DispatchQueue.main.async {
-			let newPosition = airstream.position + UInt(Date().timeIntervalSince(self.positionSet ?? Date()))
+			let position = Float(airstream.position)
+			let duration = Float(airstream.duration)
+			let newPosition = position + Float(Date().timeIntervalSince(self.positionSet ?? Date()))
 			self.updatePosition?(
-				Float(newPosition > airstream.duration ? airstream.duration : newPosition),
-				Float(airstream.duration)
+				newPosition < duration ? newPosition : duration,
+				duration
 			)
 		}
 		

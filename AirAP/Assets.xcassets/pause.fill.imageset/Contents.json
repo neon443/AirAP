@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "music.note dark.png",
+      "filename" : "pause.fill.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -12,12 +12,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "music.note.png",
+      "filename" : "pause.fill dark.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "music.note@2x dark.png",
+      "filename" : "pause.fill@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
@@ -28,12 +28,12 @@
           "value" : "dark"
         }
       ],
-      "filename" : "music.note@2x.png",
+      "filename" : "pause.fill@2x dark.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "music.note@3x dark.png",
+      "filename" : "pause.fill@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     },
@@ -44,7 +44,7 @@
           "value" : "dark"
         }
       ],
-      "filename" : "music.note@3x.png",
+      "filename" : "pause.fill@3x dark.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
