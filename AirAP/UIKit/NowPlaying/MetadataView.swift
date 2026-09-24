@@ -99,7 +99,7 @@ class MetadataView: UIVisualEffectView {
 		let container = UIStackView(arrangedSubviews: [stack, qualStack, playbackControls])
 		container.axis = .vertical
 		container.spacing = 4
-		container.layoutMargins = .init(top: 8, left: 8, bottom: 2, right: 8)
+		container.layoutMargins = .init(top: 4, left: 8, bottom: 4, right: 8)
 		container.isLayoutMarginsRelativeArrangement = true
 		
 		contentView.addSubview(container)
@@ -114,12 +114,6 @@ class MetadataView: UIVisualEffectView {
 	}
 	
 	func refreshUI() {
-		if !asManager.settings.showMetadata && !asManager.settings.showAudioQuality {
-			self.layer.opacity = 0
-			return
-		}
-		self.layer.opacity = 1
-		
 		setTrackInfoVisible(asManager.settings.showMetadata)
 		setQualityInfoVisibel(asManager.settings.showAudioQuality)
 		

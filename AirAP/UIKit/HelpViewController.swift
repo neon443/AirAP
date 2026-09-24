@@ -105,7 +105,7 @@ class HelpViewController: UITableViewController {
 		let topic = Topic(rawValue: section)
 		switch topic {
 		case .doesNotAppear:
-			return "Does not appear in AirPlay picker"
+			return "Not appearing in AirPlay picker"
 		case .runOnOldDevice:
 			return "Run server on old iOS devices"
 		case .iHaveFeedback:

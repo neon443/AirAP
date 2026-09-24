@@ -35,7 +35,7 @@ class MetadataAudioChunk: UIStackView {
 	) {
 		self.title = UILabel()
 		self.title.text = type.description
-		self.title.font = UIFont.preferredFont(forTextStyle: .subheadline, andWeight: .light)
+		self.title.font = UIFont.preferredFont(forTextStyle: .caption1, andWeight: .light)
 		self.title.layer.shadowColor = UIColor.background.cgColor
 		self.title.layer.shadowOpacity = 0.5
 		self.title.layer.shadowRadius = 3
@@ -44,7 +44,7 @@ class MetadataAudioChunk: UIStackView {
 		
 		self.content = UILabel()
 		self.content.text = "._."
-		self.content.font = UIFont.preferredFont(forTextStyle: .title3)
+		self.content.font = UIFont.preferredFont(forTextStyle: .callout)
 		self.content.layer.shadowColor = UIColor.background.cgColor
 		self.content.layer.shadowOpacity = 0.5
 		self.content.layer.shadowRadius = 3
