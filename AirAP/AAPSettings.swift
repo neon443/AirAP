@@ -89,7 +89,7 @@ struct AAPSettings: Codable {
 			self.bgOpacity = 0.8
 			self.bgBlur = .systemUltraThinMaterial
 			self.showMetadata = true
-			self.showAudioQuality = true
+			self.showAudioQuality = false
 			self.delay = 0
 			return
 		}

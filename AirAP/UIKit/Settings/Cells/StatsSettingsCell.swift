@@ -9,16 +9,16 @@ import Foundation
 import UIKit
 
 class StatsSettingsCell: SettingsCell {
-	var portLabel: UILabel
-	var serverIP: UILabel
-	var clientIP: UILabel
+	var port: StatRow
+	var serverIP: StatRow
+	var clientIP: StatRow
 	
 	var stack: UIStackView
 	
 	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
-		self.portLabel = UILabel()
-		self.serverIP = UILabel()
-		self.clientIP = UILabel()
+		self.port = StatRow(title: "Port")
+		self.serverIP = StatRow(title: "Server")
+		self.clientIP = StatRow(title: "Client")
 		self.stack = UIStackView()
 		
 		super.init(asManager: asManager, config: config)
@@ -64,24 +64,9 @@ class StatsSettingsCell: SettingsCell {
 	func setup() {
 		stack.axis = .vertical
 		
-		serverIP.textColor = .gray
-		clientIP.textColor = .gray
-		
-		let serverIPLabel = UILabel()
-		serverIPLabel.text = "Server"
-		let serverIPStack = UIStackView(arrangedSubviews: [serverIPLabel, serverIP])
-		serverIPStack.axis = .horizontal
-		serverIPStack.distribution = .equalSpacing
-		
-		let clientIPLabel = UILabel()
-		clientIPLabel.text = "Client"
-		let clientIPStack = UIStackView(arrangedSubviews: [clientIPLabel, clientIP])
-		clientIPStack.axis = .horizontal
-		clientIPStack.distribution = .equalSpacing
-		
-		stack.addArrangedSubview(serverIPStack)
-		stack.addArrangedSubview(clientIPStack)
-		stack.addArrangedSubview(portLabel)
+		stack.addArrangedSubview(serverIP)
+		stack.addArrangedSubview(clientIP)
+		stack.addArrangedSubview(port)
 		
 		contentView.addSubview(stack)
 		stack.translatesAutoresizingMaskIntoConstraints = false
@@ -95,12 +80,12 @@ class StatsSettingsCell: SettingsCell {
 	
 	override func refreshUI() {
 		super.refreshUI()
-		portLabel.text = "\(asManager.airstream!.port)"
-		serverIP.text = getIPAddress() ?? "_"
-		clientIP.text = asManager.airstream?.remote?.hostName
+		port.setContent(to: "\(asManager.airstream!.port)")
+		serverIP.setContent(to: getIPAddress())
+		clientIP.setContent(to: asManager.airstream?.remote?.hostName)
 	}
 	
-	private class StatRow: UIStackView {
+	class StatRow: UIStackView {
 		var title: UILabel = .init()
 		var content: UILabel = .init()
 		
@@ -108,17 +93,18 @@ class StatsSettingsCell: SettingsCell {
 			super.init(frame: .zero)
 			self.addArrangedSubview(self.title)
 			self.addArrangedSubview(self.content)
+			self.axis = .horizontal
+			self.distribution = .equalSpacing
+			self.title.text = title
+			self.content.textColor = .gray
 		}
 		
 		required init(coder: NSCoder) {
 			fatalError("init(coder:) has not been implemented")
 		}
 		
-		func setTitle(to newTitle: String) {
-			title.text = newTitle
-		}
-		
-		func setContent(to newTitle: String) {
+		func setContent(to newContent: String?) {
+			content.text = newContent
 		}
 	}
 }

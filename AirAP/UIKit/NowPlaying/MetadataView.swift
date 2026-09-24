@@ -93,7 +93,7 @@ class MetadataView: UIVisualEffectView {
 		qualStack.axis = .horizontal
 		qualStack.distribution = .equalSpacing
 		qualStack.alignment = .lastBaseline
-		qualStack.layoutMargins = .init(top: 8, left: 32, bottom: 8, right: 32)
+		qualStack.layoutMargins = .init(top: 8, left: 32, bottom: 0, right: 32)
 		qualStack.isLayoutMarginsRelativeArrangement = true
 		
 		let container = UIStackView(arrangedSubviews: [stack, qualStack, playbackControls])

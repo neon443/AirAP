@@ -29,7 +29,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	/// allow CoreAudio to start rendering.
 	/// The default value corresponds to ~2 s of 44.1 kHz, 16-bit, stereo PCM (44 100 * 1 s * 4 B).
 	private var minBufferBytes: Int32 = 176_000
-	private var targetLatencySeconds: Double  { Double(settings.delay) }
+	private var targetLatencySeconds: Double { Double(settings.delay) }
 	
 	var title: String?
 	var album: String?
@@ -40,6 +40,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	var didSetMetadata: (() -> Void)?
 	var updatePosition: ((Float, Float) -> Void)?
 	var updateVolume: ((Float) -> Void)?
+	var updatePauseButton: ((Bool) -> Void)?
 	
 	override init() {
 		self.settings = .init()
@@ -205,16 +206,6 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		processAudio buffer: UnsafeMutablePointer<CChar>,
 		length: Int32
 	) {
-		DispatchQueue.main.async {
-			let position = Float(airstream.position)
-			let duration = Float(airstream.duration)
-			let newPosition = position + Float(Date().timeIntervalSince(self.positionSet ?? Date()))
-			self.updatePosition?(
-				newPosition < duration ? newPosition : duration,
-				duration
-			)
-		}
-		
 		if airstream.volume < 1 {
 			buffer.withMemoryRebound(to: CShort.self, capacity: Int(length)/2) { pointer in
 				for i in 0 ..< Int(length)/2 {
@@ -242,6 +233,23 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		//are we falling behind? checks if buffering is needed
 		let fillCount = TPCircularBufferFillCount(&circularBuffer)
 		self.buffering = fillCount < minBufferBytes
+		
+		DispatchQueue.main.async {
+			self.updatePauseButton?(true)
+			let position = Float(airstream.position)
+			let duration = Float(airstream.duration)
+			let newPosition = position + Float(Date().timeIntervalSince(self.positionSet ?? Date()))
+			self.updatePosition?(
+				newPosition < duration ? newPosition : duration,
+				duration
+			)
+		}
+	}
+	
+	func airstreamFlushAudio(_ airstream: Airstream) {
+		DispatchQueue.main.async {
+			self.updatePauseButton?(false)
+		}
 	}
 	
 	//bro stopped airplaying
@@ -279,7 +287,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	
 	func airstream(_ airstream: Airstream, didSetVolume volume: Float) {
 		DispatchQueue.main.async {
-			self.updateVolume?(airstream.volume)
+			self.updateVolume?(1 - (log(volume) / -3.4504302))
 		}
 	}
 	

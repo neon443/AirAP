@@ -39,7 +39,7 @@ class PlaybackControlsView: UIStackView {
 		self.back = UIButton(type: .custom)
 		self.pause = UIButton(type: .custom)
 		self.forawrd = UIButton(type: .custom)
-		self.trackStack = UIStackView(arrangedSubviews: [UIView(), back, pause, forawrd, UIView()])
+		self.trackStack = UIStackView(arrangedSubviews: [UIView(), back, UIView(), pause, UIView(), forawrd, UIView()])
 		
 		self.volume = UISlider(frame: .zero)
 		self.volumeLeading = UIImageView(image: UIImage(named: "speaker.fill"))
@@ -49,7 +49,6 @@ class PlaybackControlsView: UIStackView {
 		super.init(frame: .zero)
 		
 		setup()
-		refreshUI()
 	}
 	
 	required init(coder: NSCoder) {
@@ -62,7 +61,6 @@ class PlaybackControlsView: UIStackView {
 	
 	@objc func pauseTapped() {
 		asManager.airstream?.remote?.playPause()
-		
 	}
 	
 	@objc func skipTapped() {
@@ -96,6 +94,10 @@ class PlaybackControlsView: UIStackView {
 		forawrd.imageView?.contentMode = .scaleAspectFit
 		pause.imageView?.contentMode = .scaleAspectFit
 		
+		back.layer.opacity = 0.8
+		forawrd.layer.opacity = 0.8
+		pause.layer.opacity = 0.8
+		
 		back.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
 		forawrd.addTarget(self, action: #selector(skipTapped), for: .touchUpInside)
 		pause.addTarget(self, action: #selector(pauseTapped), for: .touchUpInside)
@@ -116,12 +118,16 @@ class PlaybackControlsView: UIStackView {
 		volume.isUserInteractionEnabled = false
 		position.isUserInteractionEnabled = false
 		
-		asManager.updateVolume = { self.volume.setValue($0, animated: true) }
 		asManager.updatePosition = { position, duration in
 			self.positionLabel.text = self.minutesAndSeconds(from: position)
 			self.durationLabel.text = self.minutesAndSeconds(from: duration)
-			self.position.setValue(position/duration, animated: true)
+			let frac = position/duration
+			self.position.setValue(frac.isNaN ? 0 : frac, animated: true)
 		}
+		asManager.updatePauseButton = {
+			self.pause.setImage(UIImage(named: $0 ? "pause.fill" : "play.fill"), for: .normal)
+		}
+		asManager.updateVolume = { self.volume.setValue($0, animated: true) }
 		
 		self.addArrangedSubview(positionStack)
 		self.addArrangedSubview(trackStack)
@@ -132,9 +138,5 @@ class PlaybackControlsView: UIStackView {
 		self.layoutMargins.left = 8
 		self.layoutMargins.right = 8
 		self.isLayoutMarginsRelativeArrangement = true
-	}
-	
-	func refreshUI() {
-//		asManager.updateVolume?(asManager.airstream!.volume)
 	}
 }

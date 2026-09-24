@@ -58,6 +58,7 @@ class AlbumArtView: UIVisualEffectView {
 	}
 	
 	func refreshUI() {
+		return
 		let animation: CATransition = .init()
 		animation.duration = 0.3
 		animation.type = .fade
