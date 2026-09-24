@@ -16,9 +16,6 @@ class MetadataChunkView: UIStackView {
 		self.content = UILabel()
 		self.content.text = "._."
 		self.content.font = UIFont.preferredFont(forTextStyle: .headline)
-		self.content.layer.shadowColor = UIColor.background.cgColor
-		self.content.layer.shadowOpacity = 0.5
-		self.content.layer.shadowRadius = 3
 		self.content.clipsToBounds = true
 		self.content.layer.masksToBounds = true
 		

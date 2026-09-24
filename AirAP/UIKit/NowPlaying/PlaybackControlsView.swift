@@ -79,11 +79,11 @@ class PlaybackControlsView: UIStackView {
 		labelStack.axis = .horizontal
 		labelStack.distribution = .equalSpacing
 		
-		positionLabel.textColor = .gray
 		positionLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
-		positionLabel.textAlignment = .left
-		durationLabel.textColor = .gray
 		durationLabel.font = UIFont.preferredFont(forTextStyle: .footnote)
+		positionLabel.textColor = UIColor.foreground.withAlphaComponent(0.75)
+		durationLabel.textColor = UIColor.foreground.withAlphaComponent(0.75)
+		positionLabel.textAlignment = .left
 		durationLabel.textAlignment = .right
 		
 		back.setImage(UIImage(named: "backward.fill"), for: .normal)
@@ -138,5 +138,7 @@ class PlaybackControlsView: UIStackView {
 		self.layoutMargins.left = 8
 		self.layoutMargins.right = 8
 		self.isLayoutMarginsRelativeArrangement = true
+		
+		asManager.updatePosition?(0,0)
 	}
 }

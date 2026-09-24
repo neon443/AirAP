@@ -24,7 +24,7 @@ class InitialViewController: UITabBarController {
 	
 	func setup() {
 		let nowView = NowPlayingViewController(asManager: asManager)
-		nowView.tabBarItem = .init(title: "Now Playing", image: UIImage(named: "play.fill"), tag: 0)
+		nowView.tabBarItem = .init(title: "Now Playing", image: UIImage(named: "play.fill.mini"), tag: 0)
 		
 		let helpView = HelpViewController(asManager: asManager)
 		helpView.tabBarItem = .init(title: "Help", image: UIImage(named: "questionmark"), tag: 1)
