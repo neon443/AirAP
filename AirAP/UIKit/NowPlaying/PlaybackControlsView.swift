@@ -94,10 +94,6 @@ class PlaybackControlsView: UIStackView {
 		forawrd.imageView?.contentMode = .scaleAspectFit
 		pause.imageView?.contentMode = .scaleAspectFit
 		
-		back.layer.opacity = 0.8
-		forawrd.layer.opacity = 0.8
-		pause.layer.opacity = 0.8
-		
 		back.addTarget(self, action: #selector(backTapped), for: .touchUpInside)
 		forawrd.addTarget(self, action: #selector(skipTapped), for: .touchUpInside)
 		pause.addTarget(self, action: #selector(pauseTapped), for: .touchUpInside)
@@ -111,10 +107,12 @@ class PlaybackControlsView: UIStackView {
 		volumeLeading.contentMode = .scaleAspectFit
 		volumeTrailing.contentMode = .scaleAspectFit
 		
+#if compiler(>=6.2)
 		if #available(iOS 26, *) {
 			volume.sliderStyle = .thumbless
 			position.sliderStyle = .thumbless
 		}
+#endif
 		volume.isUserInteractionEnabled = false
 		position.isUserInteractionEnabled = false
 		
