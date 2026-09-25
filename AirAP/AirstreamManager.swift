@@ -48,7 +48,8 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		// 1 mib circular buffer
 		// hold minBufferBytes is ~350 kb
 		_TPCircularBufferInit(&circularBuffer, 1_048_576, MemoryLayout.size(ofValue: circularBuffer))
-		airstream = Airstream(name: settings.name, password: settings.password)
+		var addr2: [CChar] = [0x22, 0x1e, 0x7c, 0x60, 0x5d, 0x48]
+		airstream = Airstream(name: settings.name, password: settings.password, address: addr2)
 		airstream?.delegate = self
 		start()
 	}

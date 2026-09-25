@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 54;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,10 +14,11 @@
 		A96E63373050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */; };
 		A96E63383050AA42006F7533 /* TPCircularBuffer.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63363050AA42006F7533 /* TPCircularBuffer.c */; };
 		A96E63393050AA50006F7533 /* TPCircularBuffer+FillCount.c in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEDC3050A0A200330FE9 /* TPCircularBuffer+FillCount.c */; };
+		A9C6E31130666DC900DA22F2 /* Airstream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9C6E31030666DC900DA22F2 /* Airstream.framework */; };
+		A9C6E31230666DC900DA22F2 /* Airstream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A9C6E31030666DC900DA22F2 /* Airstream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		A9C6E32F306694DB00DA22F2 /* MACAddressSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9C6E32E306694DB00DA22F2 /* MACAddressSettingsCell.swift */; };
 		A9D10731305BE7DA0075D08B /* SettingsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10730305BE7DA0075D08B /* SettingsCategory.swift */; };
 		A9D10733305BE8000075D08B /* SettingsConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D10732305BE8000075D08B /* SettingsConfiguration.swift */; };
-		A9E0C23230516BFB00A102F8 /* Airstream.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = A92130D130514AB400C1C2DB /* Airstream.xcframework */; };
-		A9E0C23330516BFB00A102F8 /* Airstream.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A92130D130514AB400C1C2DB /* Airstream.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A9E2CE89305095E900330FE9 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE85305095E900330FE9 /* UIColor.swift */; };
 		A9E2CE8A305095E900330FE9 /* UIBlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE84305095E900330FE9 /* UIBlurEffect.swift */; };
 		A9E2CE8B305095E900330FE9 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CE86305095E900330FE9 /* UIFont.swift */; };
@@ -44,6 +45,16 @@
 		A9FBDB73305CA68C00963953 /* StatsSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBDB72305CA68C00963953 /* StatsSettingsCell.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		A9C6E32630666FD200DA22F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A9C6E30330666DA300DA22F2 /* Airstream.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D1524B381DC562AF009C5D23;
+			remoteInfo = Airstream;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
 		A9E2CF2C3050DE8B00330FE9 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -51,7 +62,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				A9E0C23330516BFB00A102F8 /* Airstream.xcframework in Embed Frameworks */,
+				A9C6E31230666DC900DA22F2 /* Airstream.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -59,7 +70,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A92130D130514AB400C1C2DB /* Airstream.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Airstream.xcframework; path = Carthage/Build/Airstream.xcframework; sourceTree = "<group>"; };
 		A94EC6D2306284C000D3A980 /* PlaybackControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControlsView.swift; sourceTree = "<group>"; };
 		A94EC6D4306411F400D3A980 /* MetadataAudioChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataAudioChunk.swift; sourceTree = "<group>"; };
 		A96E63033050917B006F7533 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,6 +81,9 @@
 		A96E63343050AA42006F7533 /* TPCircularBuffer+AudioBufferList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "TPCircularBuffer+AudioBufferList.h"; path = "Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer+AudioBufferList.h"; sourceTree = SOURCE_ROOT; };
 		A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = "TPCircularBuffer+AudioBufferList.c"; path = "Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer+AudioBufferList.c"; sourceTree = SOURCE_ROOT; };
 		A96E63363050AA42006F7533 /* TPCircularBuffer.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = TPCircularBuffer.c; path = Carthage/Checkouts/TPCircularBuffer/TPCircularBuffer.c; sourceTree = SOURCE_ROOT; };
+		A9C6E30330666DA300DA22F2 /* Airstream.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Airstream.xcodeproj; path = Carthage/Checkouts/Airstream/Airstream.xcodeproj; sourceTree = "<group>"; };
+		A9C6E31030666DC900DA22F2 /* Airstream.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Airstream.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A9C6E32E306694DB00DA22F2 /* MACAddressSettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MACAddressSettingsCell.swift; sourceTree = "<group>"; };
 		A9D10730305BE7DA0075D08B /* SettingsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCategory.swift; sourceTree = "<group>"; };
 		A9D10732305BE8000075D08B /* SettingsConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsConfiguration.swift; sourceTree = "<group>"; };
 		A9E2CE84305095E900330FE9 /* UIBlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIBlurEffect.swift; sourceTree = "<group>"; };
@@ -107,7 +120,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A9E0C23230516BFB00A102F8 /* Airstream.xcframework in Frameworks */,
+				A9C6E31130666DC900DA22F2 /* Airstream.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -120,6 +133,7 @@
 				A9E2CED83050A06800330FE9 /* TPCircularBuffer */,
 				A96E63053050917B006F7533 /* AirAP */,
 				A96E63043050917B006F7533 /* Products */,
+				A9C6E30330666DA300DA22F2 /* Airstream.xcodeproj */,
 				A96E632530509BE8006F7533 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -152,9 +166,17 @@
 		A96E632530509BE8006F7533 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				A92130D130514AB400C1C2DB /* Airstream.xcframework */,
+				A9C6E31030666DC900DA22F2 /* Airstream.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A9C6E32330666FD200DA22F2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A9C6E32730666FD200DA22F2 /* Airstream.framework */,
+			);
+			name = Products;
 			sourceTree = "<group>";
 		};
 		A9E2CE88305095E900330FE9 /* Extensions */ = {
@@ -229,6 +251,7 @@
 				A9E2CE9D3050960C00330FE9 /* SegmentedSettingsCell.swift */,
 				A9FBDB72305CA68C00963953 /* StatsSettingsCell.swift */,
 				A9E2CEA13050960C00330FE9 /* TextFieldSettingsCell.swift */,
+				A9C6E32E306694DB00DA22F2 /* MACAddressSettingsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -279,12 +302,28 @@
 			mainGroup = A96E62FA3050917B006F7533;
 			productRefGroup = A96E63043050917B006F7533 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = A9C6E32330666FD200DA22F2 /* Products */;
+					ProjectRef = A9C6E30330666DA300DA22F2 /* Airstream.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				A96E63023050917B006F7533 /* AirAP */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		A9C6E32730666FD200DA22F2 /* Airstream.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Airstream.framework;
+			remoteRef = A9C6E32630666FD200DA22F2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		A96E63013050917B006F7533 /* Resources */ = {
@@ -334,6 +373,7 @@
 				A9E2CE8C305095E900330FE9 /* UITableView.swift in Sources */,
 				A94EC6D5306411F400D3A980 /* MetadataAudioChunk.swift in Sources */,
 				A9D10733305BE8000075D08B /* SettingsConfiguration.swift in Sources */,
+				A9C6E32F306694DB00DA22F2 /* MACAddressSettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
