@@ -19,7 +19,7 @@ extension SettingsViewController {
 		var contains: Int {
 			switch self {
 			case .server:
-				return 2
+				return 3
 			case .audio:
 				return 1
 			case .display:
@@ -48,7 +48,9 @@ extension SettingsViewController {
 		
 		var footnote: String? {
 			switch self {
-			case .server, .audio:
+			case .server:
+				return "Restart server to apply changes"
+			case .audio:
 				return "Restart server to apply changes"
 			case .display, .metadata, .stats:
 				return nil
@@ -59,7 +61,13 @@ extension SettingsViewController {
 			guard itemIndex <= self.contains-1 else { fatalError("item out of raneg") }
 			switch self {
 			case .server:
-				return .textField
+				if itemIndex == 0 {
+					return .textField
+				} else if itemIndex == 1 {
+					return .textField
+				} else {
+					return .macAddress
+				}
 			case .audio:
 				return .slider
 			case .display:

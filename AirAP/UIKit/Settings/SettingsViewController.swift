@@ -40,6 +40,8 @@ class SettingsViewController: UITableViewController {
 			cell = SegmentedSettingsCell(asManager: asManager, config: config)
 		case .stats:
 			cell = StatsSettingsCell(asManager: asManager, config: config)
+		case .macAddress:
+			cell = MACAddressSettingsCell(asManager: asManager, config: config)
 		}
 		return cell
 	}

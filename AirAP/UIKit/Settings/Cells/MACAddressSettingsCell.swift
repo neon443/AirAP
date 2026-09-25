@@ -28,13 +28,19 @@ class MACAddressSettingsCell: SettingsCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	
+	@objc func textFieldChanged() {
+		for textField in textFields {
+			debugPrint(textField.text ?? "")
+		}
+	}
 	
 	func setup() {
 		for textField in textFields {
 			textField.borderStyle = .roundedRect
-//			textField.addTarget(self, action: <#T##Selector#>, for: <#T##UIControl.Event#>)
+			textField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+			stack.addArrangedSubview(textField)
 		}
+		stack.axis = .horizontal
 	}
 	
 	override func refreshUI() {

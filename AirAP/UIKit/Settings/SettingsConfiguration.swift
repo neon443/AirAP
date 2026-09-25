@@ -30,8 +30,10 @@ extension SettingsViewController {
 			case .server:
 				if itemIndex == 0 {
 					return asManager.settings.name
-				} else {
+				} else if itemIndex == 1 {
 					return asManager.settings.password ?? ""
+				} else {
+					return "hello"
 				}
 			case .audio:
 				return asManager.settings.delay
@@ -63,6 +65,7 @@ extension SettingsViewController {
 		case textField
 		case segment
 		case stats
+		case macAddress
 	}
 	
 	struct SliderConfiguration {
@@ -125,12 +128,17 @@ extension SettingsViewController.Category {
 					let newValue = newValue as! String
 					asManager.settings.name = newValue
 				}
-			} else {
+			} else if itemIndex == 1 {
 				title = "Password"
 				config.onChange = { asManager, newValue in
 					let newValue = newValue as! String
 					asManager.settings.password = newValue
 					asManager.airstream?.password = newValue
+				}
+			} else {
+				title = "MAC Address"
+				config.onChange = { asManager, newValue in
+					
 				}
 			}
 		case .audio:
