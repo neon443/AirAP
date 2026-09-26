@@ -48,8 +48,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 		// 1 mib circular buffer
 		// hold minBufferBytes is ~350 kb
 		_TPCircularBufferInit(&circularBuffer, 1_048_576, MemoryLayout.size(ofValue: circularBuffer))
-		var addr2: [CChar] = [0x22, 0x1e, 0x7c, 0x60, 0x5d, 0x48]
-		airstream = Airstream(name: settings.name, password: settings.password, address: addr2)
+		airstream = Airstream(name: settings.name, password: settings.password, address: settings.address)
 		airstream?.delegate = self
 		start()
 	}
@@ -69,6 +68,11 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	}
 	
 	func start() {
+		airstream?.name = settings.name
+		airstream?.password = settings.password
+		let ptr = UnsafeMutablePointer<UInt8>.allocate(capacity: settings.address.count)
+		ptr.initialize(from: settings.address, count: settings.address.count)
+		airstream?.address = ptr
 		airstream?.startServer()
 		try? AVAudioSession.sharedInstance().setCategory(.playback)
 		try? AVAudioSession.sharedInstance().setActive(true)

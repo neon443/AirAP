@@ -10,14 +10,15 @@ import UIKit
 
 struct AAPSettings: Codable {
 	var name: String
-	var keepAwake: Bool
 	var password: String?
+	var address: [UInt8]
+	var delay: Float
 	var showBg: Bool
 	var bgOpacity: Float
 	var bgBlur: AAPSettings.bgBlurStrengths
+	var keepAwake: Bool
 	var showMetadata: Bool
 	var showAudioQuality: Bool
-	var delay: Float
 	
 	private static let userDefaults = UserDefaults(suiteName: "group.neon443.AirAP") ?? UserDefaults.standard
 	
@@ -56,24 +57,26 @@ struct AAPSettings: Codable {
 	
 	init(
 		name: String,
-		keepAwake: Bool,
 		password: String? = nil,
+		address: [UInt8],
+		delay: Float,
 		showBg: Bool,
 		bgOpacity: Float,
 		bgBlur: AAPSettings.bgBlurStrengths,
+		keepAwake: Bool,
 		showMetadata: Bool,
-		showAudioQuality: Bool,
-		delay: Float
+		showAudioQuality: Bool
 	) {
 		self.name = name
-		self.keepAwake = keepAwake
 		self.password = password
+		self.address = address
+		self.delay = delay
 		self.showBg = showBg
 		self.bgOpacity = bgOpacity
 		self.bgBlur = bgBlur
+		self.keepAwake = keepAwake
 		self.showMetadata = showMetadata
 		self.showAudioQuality = showAudioQuality
-		self.delay = delay
 	}
 	
 	init(clean: Bool = false) {
@@ -83,26 +86,28 @@ struct AAPSettings: Codable {
 			  let decoded = try? decoder.decode(AAPSettings.self, from: data),
 			  clean == false else {
 			self.name = "AirAP"
-			self.keepAwake = false
 			self.password = nil
+			self.address = [0x48, 0x5d, 0x60, 0x7c, 0xee, 0x22]
+			self.delay = 0
 			self.showBg = true
 			self.bgOpacity = 0.8
 			self.bgBlur = .systemUltraThinMaterial
+			self.keepAwake = false
 			self.showMetadata = true
 			self.showAudioQuality = false
-			self.delay = 0
 			return
 		}
 		
 		self.name = decoded.name
-		self.keepAwake = decoded.keepAwake
 		self.password = decoded.password
+		self.address = decoded.address
+		self.delay = decoded.delay
 		self.showBg = decoded.showBg
 		self.bgOpacity = decoded.bgOpacity
 		self.bgBlur = decoded.bgBlur
+		self.keepAwake = decoded.keepAwake
 		self.showMetadata = decoded.showMetadata
 		self.showAudioQuality = decoded.showAudioQuality
-		self.delay = decoded.delay
 		
 		UIApplication.shared.isIdleTimerDisabled = keepAwake
 	}

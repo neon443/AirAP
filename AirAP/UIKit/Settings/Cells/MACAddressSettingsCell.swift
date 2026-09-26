@@ -12,11 +12,14 @@ class MACAddressSettingsCell: SettingsCell {
 	var stack: UIStackView
 	var title: UILabel
 	var textFields: [UITextField]
+	var textFieldStack: UIStackView
 	
 	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
-		self.stack = UIStackView(frame: .zero)
 		self.title = UILabel()
 		self.textFields = .init(repeating: UITextField(), count: 6)
+		self.textFieldStack = UIStackView(arrangedSubviews: textFields)
+		
+		self.stack = UIStackView(arrangedSubviews: [title, textFieldStack])
 		
 		super.init(asManager: asManager, config: config)
 		
@@ -38,9 +41,18 @@ class MACAddressSettingsCell: SettingsCell {
 		for textField in textFields {
 			textField.borderStyle = .roundedRect
 			textField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-			stack.addArrangedSubview(textField)
 		}
-		stack.axis = .horizontal
+		textFieldStack.axis = .horizontal
+		
+		stack.spacing = 2
+		contentView.addSubview(stack)
+		stack.translatesAutoresizingMaskIntoConstraints = false
+		NSLayoutConstraint.activate([
+			stack.topAnchor.constraint(equalTo: contentView.layoutMarginsGuide.topAnchor),
+			stack.bottomAnchor.constraint(equalTo: contentView.layoutMarginsGuide.bottomAnchor),
+			stack.leadingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.leadingAnchor),
+			stack.trailingAnchor.constraint(equalTo: contentView.layoutMarginsGuide.trailingAnchor)
+		])
 	}
 	
 	override func refreshUI() {
