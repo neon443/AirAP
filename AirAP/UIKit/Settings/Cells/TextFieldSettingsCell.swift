@@ -38,6 +38,19 @@ class TextFieldSettingsCell: SettingsCell, UITextFieldDelegate {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	@objc func textChanged() {
+		guard let text = self.textField.text,
+			  !text.isEmpty else { return }
+		self.config.onChange?(self.asManager, text)
+		self.asManager.settings.saveSettings()
+		refreshUI()
+	}
+	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		textField.resignFirstResponder()
+		return true
+	}
+	
 	func setup() {
 		labelStack.distribution = .equalSpacing
 		
@@ -51,7 +64,7 @@ class TextFieldSettingsCell: SettingsCell, UITextFieldDelegate {
 		textField.autocorrectionType = .no
 		textField.spellCheckingType = .no
 		textField.placeholder = "Enter a \(config.title.lowercased())"
-		textField.addTarget(self, action: #selector(textChanged), for: .editingChanged)
+		textField.addTarget(self, action: #selector(textChanged), for: .editingDidEnd)
 		
 		self.contentView.addSubview(stack)
 		self.stack.translatesAutoresizingMaskIntoConstraints = false
@@ -66,16 +79,5 @@ class TextFieldSettingsCell: SettingsCell, UITextFieldDelegate {
 	override func refreshUI() {
 		self.textField.text = config.currentValue(asManager: asManager) as? String
 		label.text = config.title
-	}
-	
-	@objc func textChanged() {
-		guard let text = self.textField.text else { return }
-		self.config.onChange?(self.asManager, text)
-		self.asManager.settings.saveSettings()
-	}
-	
-	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-		textField.resignFirstResponder()
-		return true
 	}
 }

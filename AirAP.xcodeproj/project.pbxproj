@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A94EC6D3306284C000D3A980 /* PlaybackControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC6D2306284C000D3A980 /* PlaybackControlsView.swift */; };
 		A94EC6D5306411F400D3A980 /* MetadataAudioChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC6D4306411F400D3A980 /* MetadataAudioChunk.swift */; };
+		A953E3513067F19E00C9D17A /* UInt8.swift in Sources */ = {isa = PBXBuildFile; fileRef = A953E3503067F19E00C9D17A /* UInt8.swift */; };
 		A96E630E3050917C006F7533 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A96E630D3050917C006F7533 /* Assets.xcassets */; };
 		A96E63113050917C006F7533 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A96E630F3050917C006F7533 /* LaunchScreen.storyboard */; };
 		A96E63373050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c in Sources */ = {isa = PBXBuildFile; fileRef = A96E63353050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c */; };
@@ -72,6 +73,7 @@
 /* Begin PBXFileReference section */
 		A94EC6D2306284C000D3A980 /* PlaybackControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControlsView.swift; sourceTree = "<group>"; };
 		A94EC6D4306411F400D3A980 /* MetadataAudioChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataAudioChunk.swift; sourceTree = "<group>"; };
+		A953E3503067F19E00C9D17A /* UInt8.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UInt8.swift; sourceTree = "<group>"; };
 		A96E63033050917B006F7533 /* AirAP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AirAP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A96E630D3050917C006F7533 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A96E63103050917C006F7533 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				A9E2CE86305095E900330FE9 /* UIFont.swift */,
 				A9E2CE87305095E900330FE9 /* UITableView.swift */,
 				A9FA62093052ADD80007EBEB /* UIApplication.swift */,
+				A953E3503067F19E00C9D17A /* UInt8.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				A9E2CEB73050960C00330FE9 /* SettingsViewController.swift in Sources */,
 				A9E2CEB83050960C00330FE9 /* ServerStateButton.swift in Sources */,
 				A9D10731305BE7DA0075D08B /* SettingsCategory.swift in Sources */,
+				A953E3513067F19E00C9D17A /* UInt8.swift in Sources */,
 				A9E2CE89305095E900330FE9 /* UIColor.swift in Sources */,
 				A9E2CE8A305095E900330FE9 /* UIBlurEffect.swift in Sources */,
 				A9E2CE8B305095E900330FE9 /* UIFont.swift in Sources */,
