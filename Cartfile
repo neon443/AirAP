@@ -1,2 +1,2 @@
-github "neon443/Airstream" ~> master
+github "neon443/Airstream"
 github "michaeltyson/TPCircularBuffer"

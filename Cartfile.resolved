@@ -1,3 +1,3 @@
 github "michaeltyson/TPCircularBuffer" "1.6.2"
-github "neon443/Airstream" "master"
+github "neon443/Airstream" "0.1.1"
 github "neon443/shairplay" "0.1.2"
