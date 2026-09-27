@@ -12,11 +12,16 @@ class MACAddressSettingsCell: SettingsCell {
 	var stack: UIStackView
 	
 	var title: UILabel
+	var resetButton: UIButton
+	var titleStack: UIStackView
+	
 	var textFields: [UITextField]
 	var textFieldStack: UIStackView
 	
 	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
 		self.title = UILabel()
+		self.resetButton = UIButton(type: .custom)
+		self.titleStack = UIStackView(arrangedSubviews: [title, resetButton])
 		
 		self.textFields = []
 		for _ in 0..<6 {
@@ -24,7 +29,7 @@ class MACAddressSettingsCell: SettingsCell {
 		}
 		self.textFieldStack = UIStackView(frame: .zero)
 		
-		self.stack = UIStackView(arrangedSubviews: [title, textFieldStack])
+		self.stack = UIStackView(arrangedSubviews: [titleStack, textFieldStack])
 		
 		super.init(asManager: asManager, config: config)
 		
@@ -53,9 +58,21 @@ class MACAddressSettingsCell: SettingsCell {
 		let newAddress: [UInt8] = textFields.map { UInt8(hex: $0.text!) ?? 0 }
 		config.onChange?(asManager, newAddress)
 		asManager.settings.saveSettings()
+		refreshUI()
+	}
+	
+	@objc func resetTapped() {
+		config.onChange?(asManager, AAPSettings.defaults().address)
+		asManager.settings.saveSettings()
+		refreshUI()
 	}
 	
 	func setup() {
+		resetButton.setImage(UIImage(named: "arrow.uturn.backward"), for: .normal)
+		resetButton.addTarget(self, action: #selector(resetTapped), for: .touchUpInside)
+		titleStack.axis = .horizontal
+		titleStack.distribution = .equalSpacing
+		
 		for textField in textFields {
 			let index = self.textFields.firstIndex(of: textField)!
 			textField.borderStyle = .roundedRect
@@ -90,9 +107,10 @@ class MACAddressSettingsCell: SettingsCell {
 	override func refreshUI() {
 		super.refreshUI()
 		self.title.text = config.title
-		var currentValue = config.currentValue(asManager: asManager) as! [UInt8]
-		for textField in textFields {
-			textField.text = currentValue.removeFirst().hex()
+		let currentValue = config.currentValue(asManager: asManager) as! [UInt8]
+		self.resetButton.isEnabled = currentValue != AAPSettings.defaults().address
+		for i in currentValue.indices {
+			textFields[i].text = currentValue[i].hex()
 		}
 	}
 }

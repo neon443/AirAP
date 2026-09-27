@@ -49,7 +49,7 @@ extension SettingsViewController {
 		var footnote: String? {
 			switch self {
 			case .server:
-				return "Restart server to apply changes"
+				return "Restart server to apply changes. Customise the MAC Address to run multiple AirAPs on one Wi-Fi network"
 			case .audio:
 				return "Restart server to apply changes"
 			case .display, .metadata, .stats:

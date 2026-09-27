@@ -120,6 +120,6 @@ struct AAPSettings: Codable {
 	}
 	
 	static func defaults() -> AAPSettings {
-		return AAPSettings()
+		return AAPSettings(clean: true)
 	}
 }
