@@ -113,6 +113,8 @@ class PlaybackControlsView: UIStackView {
 			position.sliderStyle = .thumbless
 		}
 #endif
+//		volume.thumbTintColor = .clear
+//		position.thumbTintColor = .clear
 		volume.isUserInteractionEnabled = false
 		position.isUserInteractionEnabled = false
 		
@@ -123,6 +125,11 @@ class PlaybackControlsView: UIStackView {
 			self.position.setValue(frac.isNaN ? 0 : frac, animated: true)
 		}
 		asManager.updatePauseButton = {
+			let animation: CATransition = .init()
+			animation.duration = 0.3
+			animation.type = .fade
+			animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+			self.pause.layer.add(animation, forKey: "changeImageTransition")
 			self.pause.setImage(UIImage(named: $0 ? "pause.fill" : "play.fill"), for: .normal)
 		}
 		asManager.updateVolume = { self.volume.setValue($0, animated: true) }
