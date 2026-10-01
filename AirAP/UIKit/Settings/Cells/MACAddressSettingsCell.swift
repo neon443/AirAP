@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MACAddressSettingsCell: SettingsCell {
+class MACAddressSettingsCell: SettingsCell, UITextFieldDelegate {
 	var stack: UIStackView
 	
 	var title: UILabel
@@ -67,6 +67,16 @@ class MACAddressSettingsCell: SettingsCell {
 		refreshUI()
 	}
 	
+	func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+		guard let index = textFields.firstIndex(of: textField) else { return false }
+		if index < 5 {
+			textFields[index + 1].becomeFirstResponder()
+		} else {
+			textField.resignFirstResponder()
+		}
+		return true
+	}
+	
 	func setup() {
 		resetButton.setImage(UIImage(named: "arrow.uturn.backward"), for: .normal)
 		resetButton.addTarget(self, action: #selector(resetTapped), for: .touchUpInside)
@@ -75,6 +85,7 @@ class MACAddressSettingsCell: SettingsCell {
 		
 		for textField in textFields {
 			let index = self.textFields.firstIndex(of: textField)!
+			textField.delegate = self
 			textField.borderStyle = .roundedRect
 			if #available(iOS 13, *) {
 				textField.font = .monospacedSystemFont(ofSize: textField.font!.pointSize, weight: .regular)
@@ -82,11 +93,17 @@ class MACAddressSettingsCell: SettingsCell {
 			textField.placeholder = AAPSettings.defaults().address[index].hex()
 			textField.textAlignment = .center
 			textField.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
+			textField.autocorrectionType = .no
+			textField.autocapitalizationType = .none
+			textField.clearsOnInsertion = true
+			textField.returnKeyType = .next
 			textFieldStack.addArrangedSubview(textField)
 			if index != 5 {
 				let colon = UILabel()
 				colon.text = " : "
 				textFieldStack.addArrangedSubview(colon)
+			} else {
+				textField.returnKeyType = .done
 			}
 		}
 		textFieldStack.axis = .horizontal

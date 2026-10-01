@@ -31,7 +31,7 @@ extension UInt8 {
 
 struct HexadecimalDigit {
 	var rawValue: UInt8
-	static var validCharacters: Set<Character> = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"]
+	static var validCharacters: Set<Character> = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
 	
 	var description: String {
 		if self.rawValue >= 0 && self.rawValue <= 9 {

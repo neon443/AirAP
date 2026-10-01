@@ -97,6 +97,7 @@ class StatsSettingsCell: SettingsCell {
 			self.distribution = .equalSpacing
 			self.title.text = title
 			self.content.textColor = .gray
+			self.content.text = "--"
 		}
 		
 		required init(coder: NSCoder) {
@@ -104,7 +105,7 @@ class StatsSettingsCell: SettingsCell {
 		}
 		
 		func setContent(to newContent: String?) {
-			content.text = newContent
+			content.text = newContent ?? "--"
 		}
 	}
 }

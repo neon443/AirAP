@@ -24,6 +24,8 @@ class HelpViewCell: UITableViewCell {
 		super.init(style: .default, reuseIdentifier: nil)
 		
 		self.title.text = title
+		self.title.lineBreakMode = .byWordWrapping
+		self.title.numberOfLines = 0
 		
 		self.stepLabel?.text = "\(stepNumber)"
 		self.stepLabel?.font = self.title.font.withWeight(.bold).withSize(self.title.font.pointSize + 4)

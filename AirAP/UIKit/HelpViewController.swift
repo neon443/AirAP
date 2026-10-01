@@ -77,7 +77,7 @@ class HelpViewController: UITableViewController {
 		case .runOnOldDevice:
 			cell = .init(title: "Sideload the .ipa file from GitHub")
 		case .iHaveFeedback:
-			cell = .init(title: "Submit on TestFlight, or open a GitHub issue")
+			cell = .init(title: "Submit on TestFlight, or open an issue")
 		case nil:
 			fatalError("invalid section \(indexPath) to topic")
 		}
@@ -123,7 +123,7 @@ class HelpViewController: UITableViewController {
 			return nil
 		case .runOnOldDevice:
 			button.addTarget(self, action: #selector(openReleses), for: .touchUpInside)
-			button.setTitle("Open GitHub", for: .normal)
+			button.setTitle("Open GitHub Releases", for: .normal)
 		case .iHaveFeedback:
 			button.addTarget(self, action: #selector(createAnIssue), for: .touchUpInside)
 			button.setTitle("Create a GitHub issue", for: .normal)
