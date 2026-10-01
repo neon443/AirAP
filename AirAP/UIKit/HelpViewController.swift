@@ -59,8 +59,9 @@ class HelpViewController: UITableViewController {
 	
 	enum Topic: Int, CaseIterable {
 		case doesNotAppear = 0
-		case runOnOldDevice = 1
-		case iHaveFeedback = 2
+		case multipleOnOneNetwork = 1
+		case runOnOldDevice = 2
+		case iHaveFeedback = 3
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -74,6 +75,8 @@ class HelpViewController: UITableViewController {
 			} else {
 				cell = .init(title: "Toggle server on and off", stepNumber: 2)
 			}
+		case .multipleOnOneNetwork:
+			cell = .init(title: "Make the MAC Address in Settings unique")
 		case .runOnOldDevice:
 			cell = .init(title: "Sideload the .ipa file from GitHub")
 		case .iHaveFeedback:
@@ -94,7 +97,7 @@ class HelpViewController: UITableViewController {
 		switch topic {
 		case .doesNotAppear:
 			return 2
-		case .runOnOldDevice, .iHaveFeedback:
+		case .multipleOnOneNetwork, .runOnOldDevice, .iHaveFeedback:
 			return 1
 		case nil:
 			fatalError("invalid section \(section) to topic")
@@ -106,6 +109,8 @@ class HelpViewController: UITableViewController {
 		switch topic {
 		case .doesNotAppear:
 			return "Not appearing in AirPlay picker"
+		case .multipleOnOneNetwork:
+			return "Run multiple on one network"
 		case .runOnOldDevice:
 			return "Run server on old iOS devices"
 		case .iHaveFeedback:
@@ -119,7 +124,7 @@ class HelpViewController: UITableViewController {
 		let topic = Topic(rawValue: section)
 		let button = UIButton(type: .custom)
 		switch topic {
-		case .doesNotAppear:
+		case .multipleOnOneNetwork, .doesNotAppear:
 			return nil
 		case .runOnOldDevice:
 			button.addTarget(self, action: #selector(openReleses), for: .touchUpInside)
