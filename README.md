@@ -90,19 +90,17 @@ brew install carthage
 git clone https://github.com/neon443/AirAP
 cd AirAP
 carthage checkout
-carthage build --use-xcframeworks
 open AirAP.xcodeproj
 ```
 After adding your Team ID in Project > AirAP > Signing and Capabilities, hit `Command + R` to build and run!
 
 ##### iOS 9-12 fixes
-- Set the iOS Deployment Target (IPHONEOS_DEPLOYMENT_TARGET) build setting to 5 on Airstream, and 2 on shairplay:
-- Open Carthage/Checkouts/Airstream/Airstream.xcodeproj
+Set the iOS Deployment Target (IPHONEOS_DEPLOYMENT_TARGET) build setting to 5 on Airstream and shairplay:
+- Open AirAP.xcodeproj
 - Select the Airstream project in the sidebar, then the Airstream target
 - Click build settings and make sure visibility is set to all, and search for "ios"
 - Click the value, select "Other..." and type 5 and hit enter
-- Repeat for Carthage/Checkouts/shairplay/extras/xcode/shairplay.xcodeproj, setting its deployment target to 2
-- re-run `carthage build --use-xcframeworks` and rebuild AirAP
+- Repeat for shairplay.xcodeproj, setting its deployment target to 5
 
 ### thanks to
 
