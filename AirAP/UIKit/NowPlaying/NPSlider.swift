@@ -11,6 +11,12 @@ import UIKit
 @available(iOS 13, *)
 class NPSlider: UIView {
 	var value: Float
+	var valueFrac: Float {
+		return (value - minimumValue) / (maximumValue - minimumValue)
+	}
+	
+	var minimumValue: Float
+	var maximumValue: Float
 	
 	private var trackBackground: UIView
 	private var trackForeground: UIView
@@ -19,8 +25,11 @@ class NPSlider: UIView {
 	private var bgHeightConstraint: NSLayoutConstraint!
 	private var fgHeightConstraint: NSLayoutConstraint!
 	
+	
 	init() {
 		self.value = 0.5
+		self.minimumValue = 0.0
+		self.maximumValue = 1.0
 		
 		trackForeground = UIView()
 		trackBackground = UIView()
@@ -35,7 +44,21 @@ class NPSlider: UIView {
 	}
 	
 	func setValue(value: Float, animated: Bool) {
-		self.value = value
+		let newValue = min(maximumValue, max(minimumValue, value))
+		self.value = newValue
+		
+		foregroundWidthConstraint.isActive = false
+		foregroundWidthConstraint = trackForeground.widthAnchor.constraint(equalTo: trackBackground.widthAnchor, multiplier: CGFloat(valueFrac))
+		foregroundWidthConstraint.isActive = true
+		
+		if animated {
+			UIView.animate(withDuration: 0.25, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut]) {
+				self.layoutIfNeeded()
+			}
+		} else {
+			layoutIfNeeded()
+		}
+		
 		refreshUI()
 	}
 	
@@ -48,8 +71,12 @@ class NPSlider: UIView {
 		bgHeightConstraint.isActive = true
 
 		
-		trackBackground.layer.cornerRadius = 10
-		trackForeground.layer.cornerRadius = 10
+		
+		UIView.animate(withDuration: 0.1, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut]) {
+			self.trackBackground.layer.cornerRadius = 10
+			self.trackForeground.layer.cornerRadius = 10
+			self.layoutIfNeeded()
+		}
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -60,8 +87,12 @@ class NPSlider: UIView {
 		fgHeightConstraint.isActive = true
 		bgHeightConstraint.isActive = true
 		
-		trackBackground.layer.cornerRadius = 5
-		trackForeground.layer.cornerRadius = 5
+		
+		UIView.animate(withDuration: 0.1, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut]) {
+			self.trackBackground.layer.cornerRadius = 5
+			self.trackForeground.layer.cornerRadius = 5
+			self.layoutIfNeeded()
+		}
 	}
 	
 	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -72,13 +103,17 @@ class NPSlider: UIView {
 		
 		let diff = loc.x - touch.previousLocation(in: trackBackground).x
 		let percentDiff = diff / trackBackground.frame.width
-		print(self.value, diff, percentDiff)
-		let newValue = self.value + Float(percentDiff)
-		setValue(value: min(
-				1,
-				max(0, newValue)
-			), animated: true
-		)
+		print(self.valueFrac, diff, percentDiff)
+		let newValue = self.valueFrac + Float(percentDiff)
+		print(newValue)
+		
+		if newValue < 0 {
+			
+		} else if newValue > 1 {
+			
+		}
+		
+		setValue(value: newValue, animated: true)
 	}
 	
 	func setup() {
@@ -96,16 +131,19 @@ class NPSlider: UIView {
 			trackBackground.centerYAnchor.constraint(equalTo: trackForeground.centerYAnchor),
 			
 			self.heightAnchor.constraint(equalToConstant: 40),
-			
+
 			trackBackground.widthAnchor.constraint(equalTo: self.widthAnchor)
 		])
+		
 		
 		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
 		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
 		fgHeightConstraint.isActive = true
 		bgHeightConstraint.isActive = true
+		trackForeground.frame.size.height = 10
+		trackBackground.frame.size.height = 10
 		
-		foregroundWidthConstraint = trackForeground.widthAnchor.constraint(equalTo: trackBackground.widthAnchor, multiplier: CGFloat(value))
+		foregroundWidthConstraint = trackForeground.widthAnchor.constraint(equalTo: trackBackground.widthAnchor, multiplier: CGFloat(valueFrac))
 		foregroundWidthConstraint.isActive = true
 		
 		bringSubviewToFront(trackForeground)
@@ -116,7 +154,7 @@ class NPSlider: UIView {
 	
 	func refreshUI() {
 		self.foregroundWidthConstraint.isActive = false
-		self.foregroundWidthConstraint = self.trackForeground.widthAnchor.constraint(equalTo: self.trackBackground.widthAnchor, multiplier: CGFloat(self.value))
+		self.foregroundWidthConstraint = self.trackForeground.widthAnchor.constraint(equalTo: self.trackBackground.widthAnchor, multiplier: CGFloat(self.valueFrac))
 		self.foregroundWidthConstraint.isActive = true
 	}
 }
@@ -136,6 +174,7 @@ class NPSlider: UIView {
 	
 	DispatchQueue.main.asyncAfter(deadline: .now()+1) {
 		y.setValue(value: 0.8, animated: true)
+		stack.layoutMargins = UIEdgeInsets(top: 8, left: 50, bottom: 8, right: 80)
 	}
 	
 	return stack
