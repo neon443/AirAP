@@ -8,8 +8,7 @@
 import Foundation
 import UIKit
 
-@available(iOS 13, *)
-class NPSlider: UIView {
+class NPSlider: UIControl {
 	var value: Float
 	var valueFrac: Float {
 		return (value - minimumValue) / (maximumValue - minimumValue)
@@ -25,8 +24,11 @@ class NPSlider: UIView {
 	private var bgHeightConstraint: NSLayoutConstraint?
 	private var fgHeightConstraint: NSLayoutConstraint?
 	
+	var initialTouchLocation: CGPoint = .zero
+	var initialValue: Float = 0
+	
 	init() {
-		self.value = 0.5
+		self.value = 0.0
 		self.minimumValue = 0.0
 		self.maximumValue = 1.0
 		
@@ -43,7 +45,11 @@ class NPSlider: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	func setValue(value: Float, animated: Bool) {
+//	override func sendAction(_ action: Selector, to target: Any?, for event: UIEvent?) {
+//		super.sendAction(action, to: target, for: event)
+//	}
+	
+	func setValue(_ value: Float, animated: Bool) {
 		let newValue = min(maximumValue, max(minimumValue, value))
 		self.value = newValue
 		
@@ -62,22 +68,29 @@ class NPSlider: UIView {
 		refreshUI()
 	}
 
-	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+	override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+		guard isUserInteractionEnabled else { return false }
+		
+		initialTouchLocation = touch.location(in: self)
+		initialValue = self.value
+		
 		fgHeightConstraint?.deactivate()
 		bgHeightConstraint?.deactivate()
 		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -22)
 		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -22)
 		fgHeightConstraint?.activate()
 		bgHeightConstraint?.activate()
-
+		
 		UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
 			self.trackBackground.layer.cornerRadius = 10
 			self.trackForeground.layer.cornerRadius = 10
 			self.layoutIfNeeded()
 		}
+		return true
 	}
 	
-	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+	override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+		super.endTracking(touch, with: event)
 		fgHeightConstraint?.deactivate()
 		bgHeightConstraint?.deactivate()
 		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -33)
@@ -86,33 +99,38 @@ class NPSlider: UIView {
 		bgHeightConstraint?.activate()
 		
 		UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
-			self.trackBackground.layer.cornerRadius = 5
-			self.trackForeground.layer.cornerRadius = 5
+			self.trackBackground.layer.cornerRadius = 3.5
+			self.trackForeground.layer.cornerRadius = 3.5
 			self.layoutIfNeeded()
 		}
+		
+		guard isUserInteractionEnabled else { return }
+		guard let touch else { return }
+		handleDrag(touch: touch, animated: true)
 	}
 	
-	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-		guard let touch = touches.first else { return }
+	func handleDrag(touch: UITouch, animated: Bool) {
 		let loc = touch.location(in: self)
 		
-		let diff = loc.x - touch.previousLocation(in: trackBackground).x
+		let diff = loc.x - initialTouchLocation.x
 		let percentDiff = diff / trackBackground.frame.width
-		let newValueFrac = self.valueFrac + Float(percentDiff)
+		let trackWidth = trackBackground.bounds.width
 		
-		if newValueFrac < 0 {
-			
-		} else if newValueFrac > 1 {
-			
-		}
+		let valueDelta = Float(diff / trackWidth) * (maximumValue - minimumValue)
 		
-		let newValue = ((maximumValue-minimumValue)*newValueFrac)+minimumValue
-		setValue(value: newValue, animated: true)
+		setValue(initialValue+valueDelta, animated: false)
+		sendActions(for: .valueChanged)
+	}
+	
+	override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+		guard isUserInteractionEnabled else { return false }
+		handleDrag(touch: touch, animated: false)
+		return true
 	}
 	
 	func setup() {
-		trackForeground.backgroundColor = .red
-		trackBackground.backgroundColor = .gray.withAlphaComponent(0.5)
+		trackForeground.backgroundColor = UIColor.systemBlue
+		trackBackground.backgroundColor = .gray.withAlphaComponent(0.2)
 		self.addSubview(trackBackground)
 		self.addSubview(trackForeground)
 		trackForeground.translatesAutoresizingMaskIntoConstraints = false
@@ -129,7 +147,7 @@ class NPSlider: UIView {
 			trackBackground.widthAnchor.constraint(equalTo: self.widthAnchor)
 		])
 		
-		self.touchesEnded([], with: nil)
+		self.endTracking(nil, with: nil)
 		
 		bringSubviewToFront(trackForeground)
 	}

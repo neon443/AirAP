@@ -11,7 +11,7 @@ import UIKit
 class PlaybackControlsView: UIStackView {
 	var asManager: AirstreamManager
 	
-	var position: UISlider
+	var position: NPSlider
 	var positionStack: UIStackView
 	var labelStack: UIStackView
 	var positionLabel: UILabel
@@ -22,7 +22,7 @@ class PlaybackControlsView: UIStackView {
 	var forawrd: UIButton
 	var trackStack: UIStackView
 	
-	var volume: UISlider
+	var volume: NPSlider
 	var volumeLeading: UIImageView
 	var volumeTrailing: UIImageView
 	var volumeStack: UIStackView
@@ -30,7 +30,7 @@ class PlaybackControlsView: UIStackView {
 	init(asManager: AirstreamManager) {
 		self.asManager = asManager
 		
-		self.position = UISlider(frame: .zero)
+		self.position = NPSlider()
 		self.positionLabel = UILabel()
 		self.durationLabel = UILabel()
 		self.labelStack = UIStackView(arrangedSubviews: [positionLabel, UIView(), durationLabel])
@@ -41,7 +41,7 @@ class PlaybackControlsView: UIStackView {
 		self.forawrd = UIButton(type: .custom)
 		self.trackStack = UIStackView(arrangedSubviews: [UIView(), back, UIView(), pause, UIView(), forawrd, UIView()])
 		
-		self.volume = UISlider(frame: .zero)
+		self.volume = NPSlider()
 		self.volumeLeading = UIImageView(image: UIImage(named: "speaker.fill"))
 		self.volumeTrailing = UIImageView(image: UIImage(named: "speaker.wave.3.fill"))
 		self.volumeStack = UIStackView(arrangedSubviews: [volumeLeading, volume, volumeTrailing])
@@ -108,10 +108,10 @@ class PlaybackControlsView: UIStackView {
 		volumeTrailing.contentMode = .scaleAspectFit
 		
 #if compiler(>=6.2)
-		if #available(iOS 26, *) {
-			volume.sliderStyle = .thumbless
-			position.sliderStyle = .thumbless
-		}
+//		if #available(iOS 26, *) {
+//			volume.sliderStyle = .thumbless
+//			position.sliderStyle = .thumbless
+//		}
 #endif
 //		volume.thumbTintColor = .clear
 //		position.thumbTintColor = .clear
