@@ -71,7 +71,7 @@ class NPSlider: UIView {
 		fgHeightConstraint?.activate()
 		bgHeightConstraint?.activate()
 
-		UIView.animate(withDuration: 0.1, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
+		UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
 			self.trackBackground.layer.cornerRadius = 10
 			self.trackForeground.layer.cornerRadius = 10
 			self.layoutIfNeeded()
@@ -86,7 +86,7 @@ class NPSlider: UIView {
 		fgHeightConstraint?.activate()
 		bgHeightConstraint?.activate()
 		
-		UIView.animate(withDuration: 0.1, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
+		UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
 			self.trackBackground.layer.cornerRadius = 5
 			self.trackForeground.layer.cornerRadius = 5
 			self.layoutIfNeeded()
@@ -102,15 +102,16 @@ class NPSlider: UIView {
 		let diff = loc.x - touch.previousLocation(in: trackBackground).x
 		let percentDiff = diff / trackBackground.frame.width
 		print(self.valueFrac, diff, percentDiff)
-		let newValue = self.valueFrac + Float(percentDiff)
-		print(newValue)
+		let newValueFrac = self.valueFrac + Float(percentDiff)
+		print(newValueFrac)
 		
-		if newValue < 0 {
+		if newValueFrac < 0 {
 			
-		} else if newValue > 1 {
+		} else if newValueFrac > 1 {
 			
 		}
 		
+		let newValue = ((maximumValue-minimumValue)*newValueFrac)+minimumValue
 		setValue(value: newValue, animated: true)
 	}
 	
@@ -155,13 +156,5 @@ class NPSlider: UIView {
 	
 	let stack = UIStackView(arrangedSubviews: [x, UISlider(), y])
 	stack.axis = .vertical
-	stack.layoutMargins = UIEdgeInsets(top: 8, left: 50, bottom: 8, right: 100)
-	stack.isLayoutMarginsRelativeArrangement = true
-	
-	DispatchQueue.main.asyncAfter(deadline: .now()+1) {
-		y.setValue(value: 0.8, animated: true)
-		stack.layoutMargins = UIEdgeInsets(top: 8, left: 50, bottom: 8, right: 80)
-	}
-	
 	return stack
 }
