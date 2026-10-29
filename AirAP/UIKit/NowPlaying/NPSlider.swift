@@ -25,7 +25,6 @@ class NPSlider: UIView {
 	private var bgHeightConstraint: NSLayoutConstraint?
 	private var fgHeightConstraint: NSLayoutConstraint?
 	
-	
 	init() {
 		self.value = 0.5
 		self.minimumValue = 0.0
@@ -62,7 +61,7 @@ class NPSlider: UIView {
 		
 		refreshUI()
 	}
-	
+
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
 		fgHeightConstraint?.deactivate()
 		bgHeightConstraint?.deactivate()
@@ -94,16 +93,12 @@ class NPSlider: UIView {
 	}
 	
 	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-		print(touches.first!.location(in: trackBackground))
 		guard let touch = touches.first else { return }
 		let loc = touch.location(in: self)
-		print(loc.x - touch.previousLocation(in: trackBackground).x)
 		
 		let diff = loc.x - touch.previousLocation(in: trackBackground).x
 		let percentDiff = diff / trackBackground.frame.width
-		print(self.valueFrac, diff, percentDiff)
 		let newValueFrac = self.valueFrac + Float(percentDiff)
-		print(newValueFrac)
 		
 		if newValueFrac < 0 {
 			
