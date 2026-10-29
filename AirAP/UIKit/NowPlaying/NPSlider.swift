@@ -16,6 +16,8 @@ class NPSlider: UIView {
 	private var trackForeground: UIView
 	
 	private var foregroundWidthConstraint: NSLayoutConstraint!
+	private var bgHeightConstraint: NSLayoutConstraint!
+	private var fgHeightConstraint: NSLayoutConstraint!
 	
 	init() {
 		self.value = 0.5
@@ -32,6 +34,36 @@ class NPSlider: UIView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	func setValue(value: Float, animated: Bool) {
+		self.value = value
+		refreshUI()
+	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		fgHeightConstraint.isActive = false
+		bgHeightConstraint.isActive = false
+		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -20)
+		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -20)
+		fgHeightConstraint.isActive = true
+		bgHeightConstraint.isActive = true
+
+		
+		trackBackground.layer.cornerRadius = 10
+		trackForeground.layer.cornerRadius = 10
+	}
+	
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		fgHeightConstraint.isActive = false
+		bgHeightConstraint.isActive = false
+		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
+		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
+		fgHeightConstraint.isActive = true
+		bgHeightConstraint.isActive = true
+		
+		trackBackground.layer.cornerRadius = 5
+		trackForeground.layer.cornerRadius = 5
+	}
+	
 	func setup() {
 		trackForeground.backgroundColor = .red
 		trackBackground.backgroundColor = .gray.withAlphaComponent(0.5)
@@ -40,36 +72,35 @@ class NPSlider: UIView {
 		trackForeground.translatesAutoresizingMaskIntoConstraints = false
 		trackBackground.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
-			trackBackground.topAnchor.constraint(equalTo: topAnchor),
-			trackBackground.bottomAnchor.constraint(equalTo: bottomAnchor),
-			trackBackground.leadingAnchor.constraint(equalTo: leadingAnchor),
-			trackBackground.trailingAnchor.constraint(equalTo: trailingAnchor),
+			trackBackground.centerXAnchor.constraint(equalTo: centerXAnchor),
+			trackBackground.centerYAnchor.constraint(equalTo: centerYAnchor),
 			
 			trackBackground.leadingAnchor.constraint(equalTo: trackForeground.leadingAnchor),
+			trackBackground.centerYAnchor.constraint(equalTo: trackForeground.centerYAnchor),
 			
-			self.heightAnchor.constraint(equalToConstant: 10),
-			trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor),
-			trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor)
+			self.heightAnchor.constraint(equalToConstant: 40),
+			
+			trackBackground.widthAnchor.constraint(equalTo: self.widthAnchor)
 		])
+		
+		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
+		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
+		fgHeightConstraint.isActive = true
+		bgHeightConstraint.isActive = true
 		
 		foregroundWidthConstraint = trackForeground.widthAnchor.constraint(equalTo: trackBackground.widthAnchor, multiplier: CGFloat(value))
 		foregroundWidthConstraint.isActive = true
 		
 		bringSubviewToFront(trackForeground)
 		
-		layer.cornerRadius = 5
-		layer.masksToBounds = true
+		trackBackground.layer.cornerRadius = 5
+		trackForeground.layer.cornerRadius = 5
 	}
 	
 	func refreshUI() {
-		foregroundWidthConstraint.isActive = false
-		foregroundWidthConstraint = trackForeground.widthAnchor.constraint(equalTo: trackBackground.widthAnchor, multiplier: CGFloat(value))
-		foregroundWidthConstraint.isActive = true
-	}
-	
-	func setValue(value: Float, animated: Bool) {
-		self.value = value
-		refreshUI()
+		self.foregroundWidthConstraint.isActive = false
+		self.foregroundWidthConstraint = self.trackForeground.widthAnchor.constraint(equalTo: self.trackBackground.widthAnchor, multiplier: CGFloat(self.value))
+		self.foregroundWidthConstraint.isActive = true
 	}
 }
 
