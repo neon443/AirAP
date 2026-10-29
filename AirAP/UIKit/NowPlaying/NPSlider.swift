@@ -21,9 +21,9 @@ class NPSlider: UIView {
 	private var trackBackground: UIView
 	private var trackForeground: UIView
 	
-	private var foregroundWidthConstraint: NSLayoutConstraint!
-	private var bgHeightConstraint: NSLayoutConstraint!
-	private var fgHeightConstraint: NSLayoutConstraint!
+	private var foregroundWidthConstraint: NSLayoutConstraint?
+	private var bgHeightConstraint: NSLayoutConstraint?
+	private var fgHeightConstraint: NSLayoutConstraint?
 	
 	
 	init() {
@@ -37,6 +37,7 @@ class NPSlider: UIView {
 		super.init(frame: .zero)
 		
 		setup()
+		refreshUI()
 	}
 	
 	required init?(coder: NSCoder) {
@@ -47,9 +48,9 @@ class NPSlider: UIView {
 		let newValue = min(maximumValue, max(minimumValue, value))
 		self.value = newValue
 		
-		foregroundWidthConstraint.isActive = false
+		foregroundWidthConstraint?.deactivate()
 		foregroundWidthConstraint = trackForeground.widthAnchor.constraint(equalTo: trackBackground.widthAnchor, multiplier: CGFloat(valueFrac))
-		foregroundWidthConstraint.isActive = true
+		foregroundWidthConstraint?.activate()
 		
 		if animated {
 			UIView.animate(withDuration: 0.25, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut]) {
@@ -63,16 +64,14 @@ class NPSlider: UIView {
 	}
 	
 	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-		fgHeightConstraint.isActive = false
-		bgHeightConstraint.isActive = false
-		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -20)
-		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -20)
-		fgHeightConstraint.isActive = true
-		bgHeightConstraint.isActive = true
+		fgHeightConstraint?.deactivate()
+		bgHeightConstraint?.deactivate()
+		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -22)
+		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -22)
+		fgHeightConstraint?.activate()
+		bgHeightConstraint?.activate()
 
-		
-		
-		UIView.animate(withDuration: 0.1, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut]) {
+		UIView.animate(withDuration: 0.1, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
 			self.trackBackground.layer.cornerRadius = 10
 			self.trackForeground.layer.cornerRadius = 10
 			self.layoutIfNeeded()
@@ -80,15 +79,14 @@ class NPSlider: UIView {
 	}
 	
 	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-		fgHeightConstraint.isActive = false
-		bgHeightConstraint.isActive = false
-		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
-		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
-		fgHeightConstraint.isActive = true
-		bgHeightConstraint.isActive = true
+		fgHeightConstraint?.deactivate()
+		bgHeightConstraint?.deactivate()
+		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -33)
+		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -33)
+		fgHeightConstraint?.activate()
+		bgHeightConstraint?.activate()
 		
-		
-		UIView.animate(withDuration: 0.1, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut]) {
+		UIView.animate(withDuration: 0.1, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
 			self.trackBackground.layer.cornerRadius = 5
 			self.trackForeground.layer.cornerRadius = 5
 			self.layoutIfNeeded()
@@ -135,27 +133,15 @@ class NPSlider: UIView {
 			trackBackground.widthAnchor.constraint(equalTo: self.widthAnchor)
 		])
 		
-		
-		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
-		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -30)
-		fgHeightConstraint.isActive = true
-		bgHeightConstraint.isActive = true
-		trackForeground.frame.size.height = 10
-		trackBackground.frame.size.height = 10
-		
-		foregroundWidthConstraint = trackForeground.widthAnchor.constraint(equalTo: trackBackground.widthAnchor, multiplier: CGFloat(valueFrac))
-		foregroundWidthConstraint.isActive = true
+		self.touchesEnded([], with: nil)
 		
 		bringSubviewToFront(trackForeground)
-		
-		trackBackground.layer.cornerRadius = 5
-		trackForeground.layer.cornerRadius = 5
 	}
 	
 	func refreshUI() {
-		self.foregroundWidthConstraint.isActive = false
+		self.foregroundWidthConstraint?.deactivate()
 		self.foregroundWidthConstraint = self.trackForeground.widthAnchor.constraint(equalTo: self.trackBackground.widthAnchor, multiplier: CGFloat(self.valueFrac))
-		self.foregroundWidthConstraint.isActive = true
+		self.foregroundWidthConstraint?.activate()
 	}
 }
 
