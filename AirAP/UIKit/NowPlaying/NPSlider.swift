@@ -64,6 +64,23 @@ class NPSlider: UIView {
 		trackForeground.layer.cornerRadius = 5
 	}
 	
+	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+		print(touches.first!.location(in: trackBackground))
+		guard let touch = touches.first else { return }
+		let loc = touch.location(in: self)
+		print(loc.x - touch.previousLocation(in: trackBackground).x)
+		
+		let diff = loc.x - touch.previousLocation(in: trackBackground).x
+		let percentDiff = diff / trackBackground.frame.width
+		print(self.value, diff, percentDiff)
+		let newValue = self.value + Float(percentDiff)
+		setValue(value: min(
+				1,
+				max(0, newValue)
+			), animated: true
+		)
+	}
+	
 	func setup() {
 		trackForeground.backgroundColor = .red
 		trackBackground.backgroundColor = .gray.withAlphaComponent(0.5)
@@ -114,6 +131,8 @@ class NPSlider: UIView {
 	
 	let stack = UIStackView(arrangedSubviews: [x, UISlider(), y])
 	stack.axis = .vertical
+	stack.layoutMargins = UIEdgeInsets(top: 8, left: 50, bottom: 8, right: 100)
+	stack.isLayoutMarginsRelativeArrangement = true
 	
 	DispatchQueue.main.asyncAfter(deadline: .now()+1) {
 		y.setValue(value: 0.8, animated: true)
