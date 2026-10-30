@@ -14,7 +14,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	static let shared = AirstreamManager()
 	var airstream: Airstream?
 	
-	var settings: AAPSettings
+//	var settings: AAPSettings
 
 	var audioUnit: AudioComponentInstance?
 	var circularBuffer = TPCircularBuffer()
@@ -29,7 +29,7 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	/// allow CoreAudio to start rendering.
 	/// The default value corresponds to ~2 s of 44.1 kHz, 16-bit, stereo PCM (44 100 * 1 s * 4 B).
 	private var minBufferBytes: Int32 = 176_000
-	private var targetLatencySeconds: Double { Double(settings.delay) }
+	private var targetLatencySeconds: Double { Double(AAPSettings.shared.delay) }
 	
 	var title: String?
 	var album: String?
@@ -43,12 +43,12 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	var updatePauseButton: ((Bool) -> Void)?
 	
 	override init() {
-		self.settings = .init()
+//		self.settings = .init()
 		super.init()
 		// 1 mib circular buffer
 		// hold minBufferBytes is ~350 kb
 		_TPCircularBufferInit(&circularBuffer, 1_048_576, MemoryLayout.size(ofValue: circularBuffer))
-		airstream = Airstream(name: settings.name, password: settings.password, address: settings.address)
+		airstream = Airstream(name: AAPSettings.shared.name, password: AAPSettings.shared.password, address: AAPSettings.shared.address)
 		airstream?.delegate = self
 		start()
 	}
@@ -68,10 +68,10 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	}
 	
 	func start() {
-		airstream?.name = settings.name
-		airstream?.password = settings.password
-		let ptr = UnsafeMutablePointer<UInt8>.allocate(capacity: settings.address.count)
-		ptr.initialize(from: settings.address, count: settings.address.count)
+		airstream?.name = AAPSettings.shared.name
+		airstream?.password = AAPSettings.shared.password
+		let ptr = UnsafeMutablePointer<UInt8>.allocate(capacity: AAPSettings.shared.address.count)
+		ptr.initialize(from: AAPSettings.shared.address, count: AAPSettings.shared.address.count)
 		airstream?.address = ptr
 		airstream?.startServer()
 		try? AVAudioSession.sharedInstance().setCategory(.playback)
@@ -321,21 +321,21 @@ class AirstreamManager: NSObject, AirstreamDelegate {
 	) in
 		let manager = Unmanaged<AirstreamManager>.fromOpaque(inRefCon).takeUnretainedValue()
 		
-		if TPCircularBufferFillCount(&manager.circularBuffer) == 0 || manager.buffering {
-			//TODO: fixme
-//			i think its just best to return???
-			for i in 0..<Int(ioData!.pointee.mNumberBuffers) {
-				memset(
-					ioData!.pointee.mBuffers.mData,
-					0,
-					Int(ioData!.pointee.mBuffers.mDataByteSize)
-				)
+		for i in 0..<Int(ioData!.pointee.mNumberBuffers) {
+			let buffer = ioData!.pointee.mBuffers
+			
+			if let data = buffer.mData {
+				memset(data, 0, Int(buffer.mDataByteSize))
 			}
-			return noErr
 		}
+		let fillCount = TPCircularBufferFillCount(&manager.circularBuffer)
+		
+		guard fillCount > 0, !manager.buffering else { return noErr }
 		
 		var availableBytes: UInt32 = 0
 		let sourceBuffer = TPCircularBufferTail(&manager.circularBuffer, &availableBytes)
+		
+		let outputBuffer = ioData?.pointee.mBuffers
 		let amount = min(ioData!.pointee.mBuffers.mDataByteSize, availableBytes)
 		
 		//copy audio from our circ buffer to audio unit's buffer

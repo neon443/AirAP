@@ -49,7 +49,7 @@ class SliderSettingsCell: SettingsCell {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		
 		let value = round(self.slider.value / sliderConfig.step) * sliderConfig.step
-		if config.currentValue(asManager: asManager) as! Float != value {
+		if config.currentValue() as! Float != value {
 			if #available(iOS 10, *) {
 				UIImpactFeedbackGenerator(style: .light).impactOccurred()
 			}
@@ -62,8 +62,8 @@ class SliderSettingsCell: SettingsCell {
 			self.resetButton.layoutIfNeeded()
 		}, completion: nil)
 		
-		self.config.onChange?(self.asManager, value)
-		self.asManager.settings.saveSettings()
+		self.config.onChange?(value)
+		AAPSettings.shared.saveSettings()
 	}
 	
 	func setValueLabel(to value: Float) {
@@ -128,7 +128,7 @@ class SliderSettingsCell: SettingsCell {
 	override func refreshUI() {
 		guard let sliderConfig = self.config.sliderConfig else { fatalError("no slider config bru") }
 		
-		self.slider.value = config.currentValue(asManager: asManager) as? Float ?? 0
+		self.slider.value = config.currentValue() as? Float ?? 0
 		sliderSet()
 		self.minLabel.text = "\(sliderConfig.leading)" + sliderConfig.unit
 		self.maxLabel.text = "\(sliderConfig.trailing)" + sliderConfig.unit

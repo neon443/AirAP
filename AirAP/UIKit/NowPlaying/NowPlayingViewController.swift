@@ -37,10 +37,10 @@ class NowPlayingViewController: UIViewController {
 		bgImage.layer.add(animation, forKey: "changeBackgroundTransition")
 		bgImage.image = asManager.albumArt
 		
-		let showBg = asManager.settings.showBg
-		bgImage.alpha = showBg ? CGFloat(asManager.settings.bgOpacity/100) : 0
+		let showBg = AAPSettings.shared.showBg
+		bgImage.alpha = showBg ? CGFloat(AAPSettings.shared.bgOpacity/100) : 0
 		
-		bgBlur.effect = UIBlurEffect(style: asManager.settings.bgBlur.uiBlurEffectStyle)
+		bgBlur.effect = UIBlurEffect(style: AAPSettings.shared.bgBlur.uiBlurEffectStyle)
 		
 		startStopButton.refreshUI()
 		npStack.refresUI()

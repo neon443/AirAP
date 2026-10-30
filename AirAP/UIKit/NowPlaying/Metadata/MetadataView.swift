@@ -114,8 +114,8 @@ class MetadataView: UIVisualEffectView {
 	}
 	
 	func refreshUI() {
-		setTrackInfoVisible(asManager.settings.showMetadata)
-		setQualityInfoVisibel(asManager.settings.showAudioQuality)
+		setTrackInfoVisible(AAPSettings.shared.showMetadata)
+		setQualityInfoVisibel(AAPSettings.shared.showAudioQuality)
 		
 		let animation: CATransition = .init()
 		animation.duration = 0.3

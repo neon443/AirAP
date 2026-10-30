@@ -34,8 +34,8 @@ class SegmentedSettingsCell: SettingsCell {
 	}
 	
 	@objc func segmentChanged() {
-		self.config.onChange?(self.asManager, self.segmentedControl.selectedSegmentIndex)
-		self.asManager.settings.saveSettings()
+		self.config.onChange?(self.segmentedControl.selectedSegmentIndex)
+		AAPSettings.shared.saveSettings()
 	}
 	
 	func setup() {
@@ -74,6 +74,6 @@ class SegmentedSettingsCell: SettingsCell {
 				animated: false
 			)
 		}
-		segmentedControl.selectedSegmentIndex = (config.currentValue(asManager: asManager) as! AAPSettings.bgBlurStrengths).rawValue
+		segmentedControl.selectedSegmentIndex = segmentConfig.rawValue(config.currentValue())
 	}
 }

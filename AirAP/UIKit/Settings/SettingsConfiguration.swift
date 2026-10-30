@@ -14,7 +14,7 @@ extension SettingsViewController {
 		var type: SettingType
 		var itemIndex: Int
 		var title: String
-		var onChange: ((AirstreamManager, Any) -> Void)?
+		var onChange: ((Any) -> Void)?
 		var sliderConfig: SliderConfiguration?
 		var segmentConfig: SegmentedControlConfiguration?
 		
@@ -25,33 +25,39 @@ extension SettingsViewController {
 			self.title = title
 		}
 		
-		func currentValue(asManager: AirstreamManager) -> Any {
+		func currentValue() -> Any {
 			switch category {
 			case .server:
 				if itemIndex == 0 {
-					return asManager.settings.name
+					return AAPSettings.shared.name
 				} else if itemIndex == 1 {
-					return asManager.settings.password ?? ""
+					return AAPSettings.shared.password ?? ""
 				} else {
-					return asManager.settings.address
+					return AAPSettings.shared.address
 				}
 			case .audio:
-				return asManager.settings.delay
+				return AAPSettings.shared.delay
 			case .display:
 				if itemIndex == 0 {
-					return asManager.settings.showBg
+					return AAPSettings.shared.showBg
 				} else if itemIndex == 1 {
-					return asManager.settings.bgOpacity
+					return AAPSettings.shared.bgOpacity
 				} else if itemIndex == 2 {
-					return asManager.settings.bgBlur
+					return AAPSettings.shared.bgBlur
 				} else {
-					return asManager.settings.keepAwake
+					return AAPSettings.shared.keepAwake
+				}
+			case .persistence:
+				if itemIndex == 0 {
+					return AAPSettings.shared.keepAlive
+				} else {
+					return AAPSettings.shared.persistenceType
 				}
 			case .metadata:
 				if itemIndex == 0 {
-					return asManager.settings.showMetadata
+					return AAPSettings.shared.showMetadata
 				} else {
-					return asManager.settings.showAudioQuality
+					return AAPSettings.shared.showAudioQuality
 				}
 			case .stats:
 				return false
@@ -104,10 +110,12 @@ extension SettingsViewController {
 			}
 			return result
 		}
+		var rawValue: ((Any) -> Int)
 		
-		init(numberOfSegments: Int, titleFor: @escaping (Int) -> String) {
+		init(numberOfSegments: Int, titleFor: @escaping (Int) -> String, rawValueGetter: @escaping (Any) -> Int) {
 			self.numberOfSegments = numberOfSegments
 			self.titleFor = titleFor
+			self.rawValue = rawValueGetter
 		}
 	}
 }
@@ -124,21 +132,21 @@ extension SettingsViewController.Category {
 		case .server:
 			if itemIndex == 0 {
 				title = "Name"
-				config.onChange = { asManager, newValue in
+				config.onChange = { newValue in
 					let newValue = newValue as! String
-					asManager.settings.name = newValue
+					AAPSettings.shared.name = newValue
 				}
 			} else if itemIndex == 1 {
 				title = "Password"
-				config.onChange = { asManager, newValue in
+				config.onChange = { newValue in
 					let newValue = newValue as! String
-					asManager.settings.password = newValue
+					AAPSettings.shared.password = newValue
 				}
 			} else {
 				title = "MAC Address"
-				config.onChange = { asManager, newValue in
+				config.onChange = { newValue in
 					let newValue = newValue as! [UInt8]
-					asManager.settings.address = newValue
+					AAPSettings.shared.address = newValue
 				}
 			}
 		case .audio:
@@ -149,16 +157,16 @@ extension SettingsViewController.Category {
 				unit: "s",
 				defaultValue: 0
 			)
-			config.onChange = { asManager, newValue in
+			config.onChange = { newValue in
 				let newValue = newValue as! Float
-				asManager.settings.delay = newValue
+				AAPSettings.shared.delay = newValue
 			}
 		case .display:
 			if itemIndex == 0 {
 				title = "Theme background"
-				config.onChange = { asManager, newValue in
+				config.onChange = { newValue in
 					let newValue = newValue as! Bool
-					asManager.settings.showBg = newValue
+					AAPSettings.shared.showBg = newValue
 				}
 			} else if itemIndex == 1 {
 				title = "Opacity"
@@ -168,42 +176,72 @@ extension SettingsViewController.Category {
 					unit: "%",
 					defaultValue: 80
 				)
-				config.onChange = { asManager, newValue in
+				config.onChange = { newValue in
 					let newValue = newValue as! Float
-					asManager.settings.bgOpacity = newValue
+					AAPSettings.shared.bgOpacity = newValue
 				}
 			} else if itemIndex == 2 {
 				title = "Blur"
 				config.segmentConfig = .init(
 					numberOfSegments: 4,
-					titleFor: { index in
-						AAPSettings.bgBlurStrengths(rawValue: index)!.description
-					}
+					titleFor: { AAPSettings.bgBlurStrengths(rawValue: $0)!.description },
+					rawValueGetter: { ($0 as! AAPSettings.bgBlurStrengths).rawValue }
 				)
-				config.onChange = { asManager, newValue in
+				config.onChange = { newValue in
 					let newValue = newValue as! Int
-					asManager.settings.bgBlur = AAPSettings.bgBlurStrengths(rawValue: newValue)!
+					AAPSettings.shared.bgBlur = AAPSettings.bgBlurStrengths(rawValue: newValue)!
 				}
 			} else {
 				title = "Keep screen awake"
-				config.onChange = { asManager, newValue in
+				config.onChange = { newValue in
 					let newValue = newValue as! Bool
-					asManager.settings.keepAwake = newValue
+					AAPSettings.shared.keepAwake = newValue
 					UIApplication.shared.isIdleTimerDisabled = newValue
+				}
+			}
+		case .persistence:
+			if itemIndex == 0 {
+				title = "Keep alive in background"
+				config.onChange = { newValue in
+					let newValue = newValue as! Bool
+					AAPSettings.shared.keepAlive = newValue
+					
+					if newValue == true &&
+						AAPSettings.shared.persistenceType == .location &&
+						!Backgrounder.shared.checkLocPerms() {
+						Backgrounder.shared.locationManager.requestAlwaysAuthorization()
+					}
+					Backgrounder.shared.start()
+				}
+			} else {
+				title = "Method"
+				config.segmentConfig = .init(
+					numberOfSegments: 2,
+					titleFor: { AAPSettings.persistenceType(rawValue: $0)!.description },
+					rawValueGetter: { ($0 as! AAPSettings.persistenceType).rawValue }
+				)
+				config.onChange = { newValue in
+					let newValue = newValue as! Int
+					AAPSettings.shared.persistenceType = AAPSettings.persistenceType(rawValue: newValue)!
+					
+					if AAPSettings.persistenceType(rawValue: newValue)! == .location &&
+						!Backgrounder.shared.checkLocPerms() {
+						Backgrounder.shared.locationManager.requestAlwaysAuthorization()
+					}
 				}
 			}
 		case .metadata:
 			if itemIndex == 0 {
 				title = "Show metadata"
-				config.onChange = { asManager, newValue in
+				config.onChange = { newValue in
 					let newValue = newValue as! Bool
-					asManager.settings.showMetadata = newValue
+					AAPSettings.shared.showMetadata = newValue
 				}
 			} else {
 				title = "Show audio quality information"
-				config.onChange = { asManager, newValue in
+				config.onChange = { newValue in
 					let newValue = newValue as! Bool
-					asManager.settings.showAudioQuality = newValue
+					AAPSettings.shared.showAudioQuality = newValue
 				}
 			}
 		case .stats:

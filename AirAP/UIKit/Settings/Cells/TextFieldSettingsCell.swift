@@ -41,8 +41,8 @@ class TextFieldSettingsCell: SettingsCell, UITextFieldDelegate {
 	@objc func textChanged() {
 		guard let text = self.textField.text,
 			  !text.isEmpty else { return }
-		self.config.onChange?(self.asManager, text)
-		self.asManager.settings.saveSettings()
+		self.config.onChange?(text)
+		AAPSettings.shared.saveSettings()
 		refreshUI()
 	}
 	
@@ -77,7 +77,7 @@ class TextFieldSettingsCell: SettingsCell, UITextFieldDelegate {
 	}
 	
 	override func refreshUI() {
-		self.textField.text = config.currentValue(asManager: asManager) as? String
+		self.textField.text = config.currentValue() as? String
 		label.text = config.title
 	}
 }

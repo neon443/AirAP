@@ -32,8 +32,8 @@ class ToggleSettingsCell: SettingsCell {
 	}
 	
 	@objc func toggleToggled() {
-		self.config.onChange?(asManager, self.toggle.isOn)
-		asManager.settings.saveSettings()
+		self.config.onChange?(self.toggle.isOn)
+		AAPSettings.shared.saveSettings()
 	}
 	
 	func setup() {
@@ -53,7 +53,7 @@ class ToggleSettingsCell: SettingsCell {
 	
 	override func refreshUI() {
 		super.refreshUI()
-		self.toggle.isOn = config.currentValue(asManager: asManager) as? Bool ?? false
+		self.toggle.isOn = config.currentValue() as? Bool ?? false
 		titleLabel.text = config.title
 	}
 }

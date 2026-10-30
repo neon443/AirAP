@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		A91649C730810F60008D1B9D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91649C630810F60008D1B9D /* SceneDelegate.swift */; };
 		A919D4093093BA1B00F94107 /* NSLayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919D4083093BA1B00F94107 /* NSLayoutConstraint.swift */; };
+		A919D4113093EA8F00F94107 /* Backgrounder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A919D4103093EA8F00F94107 /* Backgrounder.swift */; };
 		A944D1CA309368240076DF1C /* NPSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = A944D1C9309368240076DF1C /* NPSlider.swift */; };
 		A94EC6D3306284C000D3A980 /* PlaybackControlsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC6D2306284C000D3A980 /* PlaybackControlsView.swift */; };
 		A94EC6D5306411F400D3A980 /* MetadataAudioChunk.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94EC6D4306411F400D3A980 /* MetadataAudioChunk.swift */; };
@@ -76,6 +77,7 @@
 /* Begin PBXFileReference section */
 		A91649C630810F60008D1B9D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A919D4083093BA1B00F94107 /* NSLayoutConstraint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstraint.swift; sourceTree = "<group>"; };
+		A919D4103093EA8F00F94107 /* Backgrounder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backgrounder.swift; sourceTree = "<group>"; };
 		A944D1C9309368240076DF1C /* NPSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NPSlider.swift; sourceTree = "<group>"; };
 		A94EC6D2306284C000D3A980 /* PlaybackControlsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaybackControlsView.swift; sourceTree = "<group>"; };
 		A94EC6D4306411F400D3A980 /* MetadataAudioChunk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetadataAudioChunk.swift; sourceTree = "<group>"; };
@@ -135,6 +137,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A919D40E3093E76600F94107 /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2CEA43050960C00330FE9 /* HelpViewCell.swift */,
+				A9E2CEA53050960C00330FE9 /* HelpViewController.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		A919D40F3093E78500F94107 /* Metadata */ = {
+			isa = PBXGroup;
+			children = (
+				A9E2CE983050960C00330FE9 /* MetadataView.swift */,
+				A9E2CE973050960C00330FE9 /* MetadataChunkView.swift */,
+				A94EC6D4306411F400D3A980 /* MetadataAudioChunk.swift */,
+			);
+			path = Metadata;
+			sourceTree = "<group>";
+		};
 		A96E62FA3050917B006F7533 = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +187,7 @@
 				A91649C630810F60008D1B9D /* SceneDelegate.swift */,
 				A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */,
 				A9E2CEB93050961D00330FE9 /* AAPSettings.swift */,
+				A919D4103093EA8F00F94107 /* Backgrounder.swift */,
 				A9E2CEA83050960C00330FE9 /* UIKit */,
 				A9E2CE88305095E900330FE9 /* Extensions */,
 			);
@@ -206,9 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				A9E2CE963050960C00330FE9 /* AlbumArtView.swift */,
-				A9E2CE973050960C00330FE9 /* MetadataChunkView.swift */,
-				A94EC6D4306411F400D3A980 /* MetadataAudioChunk.swift */,
-				A9E2CE983050960C00330FE9 /* MetadataView.swift */,
+				A919D40F3093E78500F94107 /* Metadata */,
 				A9E2CE993050960C00330FE9 /* NowPlayingStackView.swift */,
 				A9E2CE9A3050960C00330FE9 /* NowPlayingViewController.swift */,
 				A94EC6D2306284C000D3A980 /* PlaybackControlsView.swift */,
@@ -233,8 +253,7 @@
 			children = (
 				A9E2CE9C3050960C00330FE9 /* NowPlaying */,
 				A9E2CEA33050960C00330FE9 /* Settings */,
-				A9E2CEA43050960C00330FE9 /* HelpViewCell.swift */,
-				A9E2CEA53050960C00330FE9 /* HelpViewController.swift */,
+				A919D40E3093E76600F94107 /* Help */,
 				A9E2CEA63050960C00330FE9 /* InitialViewController.swift */,
 				A9E2CEA73050960C00330FE9 /* ServerStateButton.swift */,
 			);
@@ -391,6 +410,7 @@
 				A9E2CE8C305095E900330FE9 /* UITableView.swift in Sources */,
 				A94EC6D5306411F400D3A980 /* MetadataAudioChunk.swift in Sources */,
 				A9D10733305BE8000075D08B /* SettingsConfiguration.swift in Sources */,
+				A919D4113093EA8F00F94107 /* Backgrounder.swift in Sources */,
 				A9C6E32F306694DB00DA22F2 /* MACAddressSettingsCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -531,7 +551,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JGND254B7;
+				DEVELOPMENT_TEAM = 8626DL2GW3;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Carthage/Checkouts/TPCircularBuffer",
 					"$(SRCROOT)/TPCircularBuffer",
@@ -543,7 +563,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.neon443.AirAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AirAP/Bridge.h";
 				SWIFT_VERSION = 5.0;
@@ -557,7 +577,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8JGND254B7;
+				DEVELOPMENT_TEAM = 8626DL2GW3;
 				HEADER_SEARCH_PATHS = (
 					"$(SRCROOT)/Carthage/Checkouts/TPCircularBuffer",
 					"$(SRCROOT)/TPCircularBuffer",
@@ -569,7 +589,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 3.1;
-				PRODUCT_BUNDLE_IDENTIFIER = com.neon443.AirAP;
+				PRODUCT_BUNDLE_IDENTIFIER = dev.neon443.AirAP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/AirAP/Bridge.h";
 				SWIFT_VERSION = 5.0;

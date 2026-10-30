@@ -56,14 +56,14 @@ class MACAddressSettingsCell: SettingsCell, UITextFieldDelegate {
 			textField.text = text
 		}
 		let newAddress: [UInt8] = textFields.map { UInt8(hex: $0.text!) ?? 0 }
-		config.onChange?(asManager, newAddress)
-		asManager.settings.saveSettings()
+		config.onChange?(newAddress)
+		AAPSettings.shared.saveSettings()
 		refreshUI()
 	}
 	
 	@objc func resetTapped() {
-		config.onChange?(asManager, AAPSettings.defaults().address)
-		asManager.settings.saveSettings()
+		config.onChange?(AAPSettings.defaults().address)
+		AAPSettings.shared.saveSettings()
 		refreshUI()
 	}
 	
@@ -124,7 +124,7 @@ class MACAddressSettingsCell: SettingsCell, UITextFieldDelegate {
 	override func refreshUI() {
 		super.refreshUI()
 		self.title.text = config.title
-		let currentValue = config.currentValue(asManager: asManager) as! [UInt8]
+		let currentValue = config.currentValue() as! [UInt8]
 		self.resetButton.isEnabled = currentValue != AAPSettings.defaults().address
 		for i in currentValue.indices {
 			textFields[i].text = currentValue[i].hex()
