@@ -47,12 +47,12 @@ extension SettingsViewController {
 				} else {
 					return AAPSettings.shared.keepAwake
 				}
-			case .persistence:
-				if itemIndex == 0 {
-					return AAPSettings.shared.keepAlive
-				} else {
-					return AAPSettings.shared.persistenceType
-				}
+//			case .persistence:
+//				if itemIndex == 0 {
+//					return AAPSettings.shared.keepAlive
+//				} else {
+//					return AAPSettings.shared.persistenceType
+//				}
 			case .metadata:
 				if itemIndex == 0 {
 					return AAPSettings.shared.showMetadata
@@ -199,37 +199,37 @@ extension SettingsViewController.Category {
 					UIApplication.shared.isIdleTimerDisabled = newValue
 				}
 			}
-		case .persistence:
-			if itemIndex == 0 {
-				title = "Keep alive in background"
-				config.onChange = { newValue in
-					let newValue = newValue as! Bool
-					AAPSettings.shared.keepAlive = newValue
-					
-					if newValue == true &&
-						AAPSettings.shared.persistenceType == .location &&
-						!Backgrounder.shared.checkLocPerms() {
-						Backgrounder.shared.locationManager.requestAlwaysAuthorization()
-					}
-					Backgrounder.shared.start()
-				}
-			} else {
-				title = "Method"
-				config.segmentConfig = .init(
-					numberOfSegments: 2,
-					titleFor: { AAPSettings.persistenceType(rawValue: $0)!.description },
-					rawValueGetter: { ($0 as! AAPSettings.persistenceType).rawValue }
-				)
-				config.onChange = { newValue in
-					let newValue = newValue as! Int
-					AAPSettings.shared.persistenceType = AAPSettings.persistenceType(rawValue: newValue)!
-					
-					if AAPSettings.persistenceType(rawValue: newValue)! == .location &&
-						!Backgrounder.shared.checkLocPerms() {
-						Backgrounder.shared.locationManager.requestAlwaysAuthorization()
-					}
-				}
-			}
+//		case .persistence:
+//			if itemIndex == 0 {
+//				title = "Keep alive in background"
+//				config.onChange = { newValue in
+//					let newValue = newValue as! Bool
+//					AAPSettings.shared.keepAlive = newValue
+//					
+//					if newValue == true &&
+//						AAPSettings.shared.persistenceType == .location &&
+//						!Backgrounder.shared.checkLocPerms() {
+//						Backgrounder.shared.locationManager.requestAlwaysAuthorization()
+//					}
+//					Backgrounder.shared.start()
+//				}
+//			} else {
+//				title = "Method"
+//				config.segmentConfig = .init(
+//					numberOfSegments: 2,
+//					titleFor: { AAPSettings.persistenceType(rawValue: $0)!.description },
+//					rawValueGetter: { ($0 as! AAPSettings.persistenceType).rawValue }
+//				)
+//				config.onChange = { newValue in
+//					let newValue = newValue as! Int
+//					AAPSettings.shared.persistenceType = AAPSettings.persistenceType(rawValue: newValue)!
+//					
+//					if AAPSettings.persistenceType(rawValue: newValue)! == .location &&
+//						!Backgrounder.shared.checkLocPerms() {
+//						Backgrounder.shared.locationManager.requestAlwaysAuthorization()
+//					}
+//				}
+//			}
 		case .metadata:
 			if itemIndex == 0 {
 				title = "Show metadata"

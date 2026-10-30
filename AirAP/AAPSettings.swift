@@ -19,8 +19,8 @@ struct AAPSettings: Codable {
 	var bgOpacity: Float
 	var bgBlur: AAPSettings.bgBlurStrengths
 	var keepAwake: Bool
-	var keepAlive: Bool
-	var persistenceType: AAPSettings.persistenceType
+//	var keepAlive: Bool
+//	var persistenceType: AAPSettings.persistenceType
 	var showMetadata: Bool
 	var showAudioQuality: Bool
 	
@@ -59,19 +59,19 @@ struct AAPSettings: Codable {
 		}
 	}
 	
-	enum persistenceType: Int, CaseIterable, Codable, CustomStringConvertible {
-		case audio = 0
-		case location = 1
-		
-		var description: String {
-			switch self {
-			case .audio:
-				return "Audio"
-			case .location:
-				return "Location"
-			}
-		}
-	}
+//	enum persistenceType: Int, CaseIterable, Codable, CustomStringConvertible {
+//		case audio = 0
+//		case location = 1
+//		
+//		var description: String {
+//			switch self {
+//			case .audio:
+//				return "Audio"
+//			case .location:
+//				return "Location"
+//			}
+//		}
+//	}
 	
 	init(
 		name: String,
@@ -82,8 +82,8 @@ struct AAPSettings: Codable {
 		bgOpacity: Float,
 		bgBlur: AAPSettings.bgBlurStrengths,
 		keepAwake: Bool,
-		keepAlive: Bool,
-		persistenceType: AAPSettings.persistenceType,
+//		keepAlive: Bool,
+//		persistenceType: AAPSettings.persistenceType,
 		showMetadata: Bool,
 		showAudioQuality: Bool
 	) {
@@ -95,8 +95,8 @@ struct AAPSettings: Codable {
 		self.bgOpacity = bgOpacity
 		self.bgBlur = bgBlur
 		self.keepAwake = keepAwake
-		self.keepAlive = keepAlive
-		self.persistenceType = persistenceType
+//		self.keepAlive = keepAlive
+//		self.persistenceType = persistenceType
 		self.showMetadata = showMetadata
 		self.showAudioQuality = showAudioQuality
 	}
@@ -115,8 +115,8 @@ struct AAPSettings: Codable {
 			self.bgOpacity = 0.8
 			self.bgBlur = .systemUltraThinMaterial
 			self.keepAwake = false
-			self.keepAlive = false
-			self.persistenceType = .audio
+//			self.keepAlive = false
+//			self.persistenceType = .audio
 			self.showMetadata = true
 			self.showAudioQuality = false
 			return
@@ -130,8 +130,8 @@ struct AAPSettings: Codable {
 		self.bgOpacity = decoded.bgOpacity
 		self.bgBlur = decoded.bgBlur
 		self.keepAwake = decoded.keepAwake
-		self.keepAlive = decoded.keepAlive
-		self.persistenceType = decoded.persistenceType
+//		self.keepAlive = decoded.keepAlive
+//		self.persistenceType = decoded.persistenceType
 		self.showMetadata = decoded.showMetadata
 		self.showAudioQuality = decoded.showAudioQuality
 		

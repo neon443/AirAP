@@ -70,10 +70,48 @@ class NPSlider: UIControl {
 
 	override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
 		guard isUserInteractionEnabled else { return false }
-		
 		initialTouchLocation = touch.location(in: self)
 		initialValue = self.value
-		
+		thick()
+		return true
+	}
+	
+	override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
+		super.endTracking(touch, with: event)
+		thin()
+		guard let touch,
+			  isUserInteractionEnabled else { return }
+		handleDrag(touch: touch, animated: true)
+	}
+	
+	override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+		guard isUserInteractionEnabled else { return false }
+		handleDrag(touch: touch, animated: false)
+		return true
+	}
+	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		guard let touch = touches.first,
+				isUserInteractionEnabled else { return }
+		initialTouchLocation = touch.location(in: self)
+		initialValue = self.value
+		thick()
+	}
+	
+	override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+		thin()
+		guard let touch = touches.first,
+			  isUserInteractionEnabled else { return }
+		handleDrag(touch: touch, animated: true)
+	}
+	
+	override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+		guard isUserInteractionEnabled,
+			  let touch = touches.first else { return }
+		handleDrag(touch: touch, animated: false)
+	}
+
+	func thick() {
 		fgHeightConstraint?.deactivate()
 		bgHeightConstraint?.deactivate()
 		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -22)
@@ -86,11 +124,9 @@ class NPSlider: UIControl {
 			self.trackForeground.layer.cornerRadius = 10
 			self.layoutIfNeeded()
 		}
-		return true
 	}
 	
-	override func endTracking(_ touch: UITouch?, with event: UIEvent?) {
-		super.endTracking(touch, with: event)
+	func thin() {
 		fgHeightConstraint?.deactivate()
 		bgHeightConstraint?.deactivate()
 		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -33)
@@ -103,10 +139,6 @@ class NPSlider: UIControl {
 			self.trackForeground.layer.cornerRadius = 3.5
 			self.layoutIfNeeded()
 		}
-		
-		guard isUserInteractionEnabled else { return }
-		guard let touch else { return }
-		handleDrag(touch: touch, animated: true)
 	}
 	
 	func handleDrag(touch: UITouch, animated: Bool) {
@@ -120,12 +152,6 @@ class NPSlider: UIControl {
 		
 		setValue(initialValue+valueDelta, animated: false)
 		sendActions(for: .valueChanged)
-	}
-	
-	override func continueTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
-		guard isUserInteractionEnabled else { return false }
-		handleDrag(touch: touch, animated: false)
-		return true
 	}
 	
 	func setup() {

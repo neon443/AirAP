@@ -76,8 +76,8 @@ class NowPlayingViewController: UIViewController {
 			bgBlur.bottomAnchor.constraint(equalTo: view.bottomAnchor),
 			
 			//
-			npStack.bottomAnchor.constraint(equalTo: startStopButton.topAnchor, constant: -16),
-			startStopButton.heightAnchor.constraint(equalToConstant: 32)
+			npStack.bottomAnchor.constraint(equalTo: startStopButton.topAnchor, constant: -8),
+			startStopButton.heightAnchor.constraint(equalToConstant: 24)
 		])
 		if #available(iOS 11, *) {
 			NSLayoutConstraint.activate([
@@ -86,7 +86,7 @@ class NowPlayingViewController: UIViewController {
 				npStack.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
 				
 				startStopButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-				startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+				startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
 			])
 		} else {
 			NSLayoutConstraint.activate([

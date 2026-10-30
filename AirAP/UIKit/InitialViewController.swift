@@ -22,6 +22,10 @@ class InitialViewController: UITabBarController {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+		print()
+	}
+	
 	func setup() {
 		let nowView = NowPlayingViewController(asManager: asManager)
 		nowView.tabBarItem = .init(title: "Now Playing", image: UIImage(named: "play.fill.mini"), tag: 0)

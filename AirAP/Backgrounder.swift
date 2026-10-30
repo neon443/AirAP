@@ -25,20 +25,12 @@ class Backgrounder: NSObject, CLLocationManagerDelegate {
 	}
 	
 	func start() {
-		guard AAPSettings.shared.keepAlive else {
-			stop()
-			return
-		}
-		if AAPSettings.shared.persistenceType == .audio {
-			
-		} else if AAPSettings.shared.persistenceType == .location {
-			guard !tracking else { return }
-			guard checkLocPerms() else { return }
-			locationManager.allowsBackgroundLocationUpdates = true
-			locationManager.pausesLocationUpdatesAutomatically = false
-			locationManager.startMonitoringSignificantLocationChanges()
-			tracking = true
-		}
+		guard !tracking else { return }
+		guard checkLocPerms() else { return }
+		locationManager.allowsBackgroundLocationUpdates = true
+		locationManager.pausesLocationUpdatesAutomatically = false
+		locationManager.startMonitoringSignificantLocationChanges()
+		tracking = true
 	}
 	
 	func stop() {

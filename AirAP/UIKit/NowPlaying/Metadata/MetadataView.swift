@@ -85,7 +85,7 @@ class MetadataView: UIVisualEffectView {
 		artist.addArrangedSubview(UIView())
 		
 		stack.axis = .vertical
-		stack.spacing = 8
+		stack.spacing = 4
 		stack.distribution = .equalSpacing
 		
 		title.font = UIFont.preferredFont(forTextStyle: .title1, andWeight: .bold)
@@ -99,7 +99,7 @@ class MetadataView: UIVisualEffectView {
 		let container = UIStackView(arrangedSubviews: [stack, qualStack, playbackControls])
 		container.axis = .vertical
 		container.spacing = 4
-		container.layoutMargins = .init(top: 4, left: 8, bottom: 4, right: 8)
+		container.layoutMargins = .init(top: 4, left: 4, bottom: 4, right: 4)
 		container.isLayoutMarginsRelativeArrangement = true
 		
 		contentView.addSubview(container)

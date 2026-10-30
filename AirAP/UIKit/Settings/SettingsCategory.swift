@@ -13,7 +13,7 @@ extension SettingsViewController {
 		case server
 		case audio
 		case display
-		case persistence
+//		case persistence
 		case metadata
 		case stats
 		
@@ -25,8 +25,8 @@ extension SettingsViewController {
 				return 1
 			case .display:
 				return 4
-			case .persistence:
-				return 2
+//			case .persistence:
+//				return 2
 			case .metadata:
 				return 2
 			case .stats:
@@ -42,8 +42,8 @@ extension SettingsViewController {
 				return "Audio"
 			case .display:
 				return "Display"
-			case .persistence:
-				return "Persistence"
+//			case .persistence:
+//				return "Persistence"
 			case .metadata:
 				return "Metadata"
 			case .stats:
@@ -57,8 +57,8 @@ extension SettingsViewController {
 				return "Restart server to apply changes. Customise the MAC Address to run multiple AirAPs on one Wi-Fi network"
 			case .audio:
 				return "Restart server to apply changes"
-			case .persistence:
-				return "Keep AirAP alive in the background when no client is connnected"
+//			case .persistence:
+//				return "Keep AirAP alive in the background when no client is connnected"
 			case .display, .metadata, .stats:
 				return nil
 			}
@@ -87,12 +87,12 @@ extension SettingsViewController {
 				} else {
 					return .toggle
 				}
-			case .persistence:
-				if itemIndex == 0 {
-					return .toggle
-				} else {
-					return .segment
-				}
+//			case .persistence:
+//				if itemIndex == 0 {
+//					return .toggle
+//				} else {
+//					return .segment
+//				}
 			case .metadata:
 				return .toggle
 			case .stats:

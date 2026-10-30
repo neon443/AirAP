@@ -19,7 +19,7 @@ class ServerStateButton: UIVisualEffectView {
 		self.asManager = asManager
 		self.image = UIImageView()
 		self.label = UILabel()
-		self.stack = UIStackView(arrangedSubviews: [image, label])
+		self.stack = UIStackView(arrangedSubviews: [image, UIView(), label])
 		
 		var effect: UIVisualEffect
 		effect = UIBlurEffect(style: .systemUltraThinMaterialSafe)
@@ -41,14 +41,16 @@ class ServerStateButton: UIVisualEffectView {
 	}
 	
 	func setup() {
+		self.label.font = .preferredFont(forTextStyle: .footnote)
+		
 		self.isUserInteractionEnabled = true
 		addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tapped)))
 		
 		image.contentMode = .scaleAspectFit
 		
 		stack.axis = .horizontal
-		stack.spacing = 4
-		stack.layoutMargins = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+		stack.spacing = 0
+		stack.layoutMargins = UIEdgeInsets(top: 4, left: 32, bottom: 4, right: 4)
 		stack.isLayoutMarginsRelativeArrangement = true
 		
 		self.contentView.addSubview(stack)
@@ -68,7 +70,7 @@ class ServerStateButton: UIVisualEffectView {
 		
 		self.image.image = UIImage(named: isRunning ? "square.fill" : "airplay.audio")
 		self.label.text = isRunning ? "Stop" : "Start"
-		stack.layoutMargins.left = isRunning ? 12 : 8
+		stack.layoutMargins.left = isRunning ? 5 : 3
 		setTint(to: (isRunning ? UIColor.systemRed : UIColor.systemGreen))
 	}
 	

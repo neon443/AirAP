@@ -82,11 +82,11 @@ class SettingsViewController: UITableViewController {
 		self.view.addSubview(startStopButton)
 		startStopButton.translatesAutoresizingMaskIntoConstraints = false
 		
-		startStopButton.heightAnchor.constraint(equalToConstant: 32).isActive = true
+		startStopButton.heightAnchor.constraint(equalToConstant: 24).isActive = true
 		if #available(iOS 11, *) {
 			NSLayoutConstraint.activate([
 				startStopButton.centerXAnchor.constraint(equalTo: view.safeAreaLayoutGuide.centerXAnchor),
-				startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -16)
+				startStopButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -8)
 			])
 		} else {
 			NSLayoutConstraint.activate([

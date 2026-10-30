@@ -75,7 +75,9 @@ class PlaybackControlsView: UIStackView {
 	
 	func setup() {
 		positionStack.axis = .vertical
-		positionStack.spacing = 0
+		positionStack.spacing = -10
+		positionStack.layoutMargins.top = -10
+		positionStack.isLayoutMarginsRelativeArrangement = true
 		labelStack.axis = .horizontal
 		labelStack.distribution = .equalSpacing
 		
@@ -100,7 +102,8 @@ class PlaybackControlsView: UIStackView {
 		
 		trackStack.axis = .horizontal
 		trackStack.distribution = .fillEqually
-		trackStack.layoutMargins.bottom = 8
+		trackStack.layoutMargins.top = -8
+		trackStack.layoutMargins.bottom = -8
 		trackStack.isLayoutMarginsRelativeArrangement = true
 		
 		volumeStack.spacing = 8
@@ -115,7 +118,7 @@ class PlaybackControlsView: UIStackView {
 #endif
 //		volume.thumbTintColor = .clear
 //		position.thumbTintColor = .clear
-		volume.isUserInteractionEnabled = false
+		volume.isUserInteractionEnabled = true
 		position.isUserInteractionEnabled = false
 		
 		asManager.updatePosition = { position, duration in
