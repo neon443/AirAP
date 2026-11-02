@@ -10,12 +10,13 @@ import UIKit
 
 class NPSlider: UIControl {
 	var value: Float
-	var valueFrac: Float {
+	private var valueFrac: Float {
 		return (value - minimumValue) / (maximumValue - minimumValue)
 	}
 	
 	var minimumValue: Float
 	var maximumValue: Float
+	
 	
 	private var trackBackground: UIView
 	private var trackForeground: UIView
@@ -27,11 +28,21 @@ class NPSlider: UIControl {
 	var initialTouchLocation: CGPoint = .zero
 	var initialValue: Float = 0
 	
+	var secondaryValue: Float
+	private var trackForeForeround: UIView
+	private var foreForegroundWidthConstraint: NSLayoutConstraint?
+	private var ffgHeightConstraint: NSLayoutConstraint?
+	private var secondaryValueFrac: Float {
+		return (secondaryValue - minimumValue) / (maximumValue - minimumValue)
+	}
+	
 	init() {
 		self.value = 0.0
+		self.secondaryValue = 0.0
 		self.minimumValue = 0.0
 		self.maximumValue = 1.0
 		
+		trackForeForeround = UIView()
 		trackForeground = UIView()
 		trackBackground = UIView()
 		
@@ -56,6 +67,25 @@ class NPSlider: UIControl {
 		foregroundWidthConstraint?.deactivate()
 		foregroundWidthConstraint = trackForeground.widthAnchor.constraint(equalTo: trackBackground.widthAnchor, multiplier: CGFloat(valueFrac))
 		foregroundWidthConstraint?.activate()
+		
+		if animated {
+			UIView.animate(withDuration: 0.25, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut]) {
+				self.layoutIfNeeded()
+			}
+		} else {
+			layoutIfNeeded()
+		}
+		
+		refreshUI()
+	}
+	
+	func setSecondaryValue(_ value: Float, animated: Bool) {
+		let newValue = min(maximumValue, max(minimumValue, value))
+		self.secondaryValue = newValue
+		
+		foreForegroundWidthConstraint?.deactivate()
+		foreForegroundWidthConstraint = trackForeForeround.widthAnchor.constraint(equalTo: trackForeground.widthAnchor, multiplier: CGFloat(secondaryValueFrac))
+		foreForegroundWidthConstraint?.activate()
 		
 		if animated {
 			UIView.animate(withDuration: 0.25, delay: 0, options: [.beginFromCurrentState, .curveEaseInOut]) {
@@ -113,14 +143,18 @@ class NPSlider: UIControl {
 
 	func thick() {
 		fgHeightConstraint?.deactivate()
+		ffgHeightConstraint?.deactivate()
 		bgHeightConstraint?.deactivate()
 		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -22)
+		ffgHeightConstraint = trackForeForeround.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -22)
 		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -22)
 		fgHeightConstraint?.activate()
+		ffgHeightConstraint?.activate()
 		bgHeightConstraint?.activate()
 		
 		UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
 			self.trackBackground.layer.cornerRadius = 10
+			self.trackForeForeround.layer.cornerRadius = 10
 			self.trackForeground.layer.cornerRadius = 10
 			self.layoutIfNeeded()
 		}
@@ -128,14 +162,18 @@ class NPSlider: UIControl {
 	
 	func thin() {
 		fgHeightConstraint?.deactivate()
+		ffgHeightConstraint?.deactivate()
 		bgHeightConstraint?.deactivate()
 		fgHeightConstraint = trackForeground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -33)
+		ffgHeightConstraint = trackForeForeround.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -33)
 		bgHeightConstraint = trackBackground.heightAnchor.constraint(equalTo: self.heightAnchor, constant: -33)
 		fgHeightConstraint?.activate()
+		ffgHeightConstraint?.activate()
 		bgHeightConstraint?.activate()
 		
 		UIView.animate(withDuration: 0.2, delay: 0, options: [.beginFromCurrentState, .curveEaseOut]) {
 			self.trackBackground.layer.cornerRadius = 3.5
+			self.trackForeForeround.layer.cornerRadius = 3.5
 			self.trackForeground.layer.cornerRadius = 3.5
 			self.layoutIfNeeded()
 		}
@@ -155,11 +193,14 @@ class NPSlider: UIControl {
 	}
 	
 	func setup() {
+		trackForeForeround.backgroundColor = UIColor.systemRed
 		trackForeground.backgroundColor = UIColor.systemBlue
 		trackBackground.backgroundColor = .gray.withAlphaComponent(0.2)
 		self.addSubview(trackBackground)
+		self.addSubview(trackForeForeround)
 		self.addSubview(trackForeground)
 		trackForeground.translatesAutoresizingMaskIntoConstraints = false
+		trackForeForeround.translatesAutoresizingMaskIntoConstraints = false
 		trackBackground.translatesAutoresizingMaskIntoConstraints = false
 		NSLayoutConstraint.activate([
 			trackBackground.centerXAnchor.constraint(equalTo: centerXAnchor),
@@ -167,6 +208,8 @@ class NPSlider: UIControl {
 			
 			trackBackground.leadingAnchor.constraint(equalTo: trackForeground.leadingAnchor),
 			trackBackground.centerYAnchor.constraint(equalTo: trackForeground.centerYAnchor),
+			trackBackground.leadingAnchor.constraint(equalTo: trackForeForeround.leadingAnchor),
+			trackBackground.centerYAnchor.constraint(equalTo: trackForeForeround.centerYAnchor),
 			
 			self.heightAnchor.constraint(equalToConstant: 40),
 
@@ -176,12 +219,17 @@ class NPSlider: UIControl {
 		self.endTracking(nil, with: nil)
 		
 		bringSubviewToFront(trackForeground)
+		bringSubviewToFront(trackForeForeround)
 	}
 	
 	func refreshUI() {
 		self.foregroundWidthConstraint?.deactivate()
 		self.foregroundWidthConstraint = self.trackForeground.widthAnchor.constraint(equalTo: self.trackBackground.widthAnchor, multiplier: CGFloat(self.valueFrac))
 		self.foregroundWidthConstraint?.activate()
+		
+		self.foreForegroundWidthConstraint?.deactivate()
+		self.foreForegroundWidthConstraint = self.trackForeForeround.widthAnchor.constraint(equalTo: self.trackForeground.widthAnchor, multiplier: CGFloat(self.secondaryValueFrac))
+		self.foreForegroundWidthConstraint?.activate()
 	}
 }
 

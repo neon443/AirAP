@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import MediaPlayer
 
 class PlaybackControlsView: UIStackView {
 	var asManager: AirstreamManager
@@ -26,6 +27,7 @@ class PlaybackControlsView: UIStackView {
 	var volumeLeading: UIImageView
 	var volumeTrailing: UIImageView
 	var volumeStack: UIStackView
+	var mpVolumeView: MPVolumeView
 	
 	init(asManager: AirstreamManager) {
 		self.asManager = asManager
@@ -46,8 +48,11 @@ class PlaybackControlsView: UIStackView {
 		self.volumeTrailing = UIImageView(image: UIImage(named: "speaker.wave.3.fill"))
 		self.volumeStack = UIStackView(arrangedSubviews: [volumeLeading, volume, volumeTrailing])
 		
+		self.mpVolumeView = MPVolumeView()
+		
 		super.init(frame: .zero)
 		
+		getVolume()
 		setup()
 	}
 	
@@ -71,6 +76,15 @@ class PlaybackControlsView: UIStackView {
 		let mins = (input/60).rounded(.down)
 		let sec = Int((((input/60) - mins) * 60).rounded())
 		return "\(Int(mins)):\(sec < 10 ? "0" : "")\(sec)"
+	}
+	
+	@objc func updateVolume() {
+		(mpVolumeView.subviews.filter { NSStringFromClass($0.classForCoder) == "MPVolumeSlider" }.first as? UISlider)?.setValue(volume.value, animated: false)
+	}
+	
+	@objc func getVolume() {
+		guard let vol = (mpVolumeView.subviews.filter { NSStringFromClass($0.classForCoder) == "MPVolumeSlider" }.first as? UISlider)?.value else { return }
+		self.volume.setValue(vol, animated: true)
 	}
 	
 	func setup() {
@@ -110,15 +124,8 @@ class PlaybackControlsView: UIStackView {
 		volumeLeading.contentMode = .scaleAspectFit
 		volumeTrailing.contentMode = .scaleAspectFit
 		
-#if compiler(>=6.2)
-//		if #available(iOS 26, *) {
-//			volume.sliderStyle = .thumbless
-//			position.sliderStyle = .thumbless
-//		}
-#endif
-//		volume.thumbTintColor = .clear
-//		position.thumbTintColor = .clear
-		volume.isUserInteractionEnabled = true
+		volume.addTarget(self, action: #selector(updateVolume), for: .valueChanged)
+		(mpVolumeView.subviews.filter { NSStringFromClass($0.classForCoder) == "MPVolumeSlider" }.first as? UISlider)?.addTarget(self, action: #selector(getVolume), for: .valueChanged)
 		position.isUserInteractionEnabled = false
 		
 		asManager.updatePosition = { position, duration in
@@ -135,7 +142,7 @@ class PlaybackControlsView: UIStackView {
 			self.pause.layer.add(animation, forKey: "changeImageTransition")
 			self.pause.setImage(UIImage(named: $0 ? "pause.fill" : "play.fill"), for: .normal)
 		}
-		asManager.updateVolume = { self.volume.setValue($0, animated: true) }
+		asManager.updateVolume = { self.volume.setSecondaryValue($0, animated: true) }
 		
 		self.addArrangedSubview(positionStack)
 		self.addArrangedSubview(trackStack)
