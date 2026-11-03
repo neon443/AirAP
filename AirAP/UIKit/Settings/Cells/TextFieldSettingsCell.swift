@@ -15,20 +15,14 @@ class TextFieldSettingsCell: SettingsCell, UITextFieldDelegate {
 	var label: UILabel
 	var textField: UITextField
 	
-//	convenience init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration, secure: Bool) {
-//		self.init(asManager: asManager, config: config)
-//		self.textField.isSecureTextEntry
-//		self.textField.
-//	}
-	
-	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
+	override init(config: SettingsViewController.SettingsConfiguration) {
 		self.label = UILabel()
 		self.pencilImage = UIImageView(image: UIImage(named: "pencil"))
 		self.labelStack = UIStackView(arrangedSubviews: [label, pencilImage])
 		self.textField = UITextField()
 		self.stack = UIStackView(arrangedSubviews: [labelStack, textField])
 		
-		super.init(asManager: asManager, config: config)
+		super.init(config: config)
 		
 		setup()
 		refreshUI()

@@ -9,8 +9,6 @@ import Foundation
 import UIKit
 
 class MetadataView: UIVisualEffectView {
-	var asManager: AirstreamManager
-	
 	var stack: UIStackView
 	
 	var title: UILabel
@@ -25,9 +23,7 @@ class MetadataView: UIVisualEffectView {
 	
 	var playbackControls: PlaybackControlsView
 	
-	init(asManager: AirstreamManager) {
-		self.asManager = asManager
-		
+	init() {
 		self.title = UILabel()
 		self.album = MetadataChunkView(image: UIImage(named: "square.stack"))
 		self.artist = MetadataChunkView(image: UIImage(named: "music.microphone"))
@@ -48,11 +44,11 @@ class MetadataView: UIVisualEffectView {
 		}
 #endif
 		
-		self.playbackControls = PlaybackControlsView(asManager: asManager)
+		self.playbackControls = PlaybackControlsView()
 		
 		super.init(effect: effect)
 		
-		asManager.didSetMetadata = { self.refreshUI() }
+		AirAP.asManager.didSetMetadata = { self.refreshUI() }
 		
 		setup()
 		refreshUI()
@@ -122,14 +118,14 @@ class MetadataView: UIVisualEffectView {
 		animation.type = .fade
 		animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
 		title.layer.add(animation, forKey: "changeTextTransition")
-		title.text = asManager.title ?? "Not Playing"
-		title.textColor = UIColor.foreground.withAlphaComponent(asManager.title == nil ? 0.5 : 1)
+		title.text = AirAP.asManager.title ?? "Not Playing"
+		title.textColor = UIColor.foreground.withAlphaComponent(AirAP.asManager.title == nil ? 0.5 : 1)
 		
-		album.setContent(to: asManager.album ?? "——")
-		artist.setContent(to: asManager.artist ?? "——")
+		album.setContent(to: AirAP.asManager.album ?? "——")
+		artist.setContent(to: AirAP.asManager.artist ?? "——")
 		
-		sampleRate.setContent(to: "\(asManager.airstream!.sampleRate)")
-		bitDepth.setContent(to: "\(asManager.airstream!.bitsPerChannel)")
-		channels.setContent(to: "\(asManager.airstream!.channelsPerFrame)")
+		sampleRate.setContent(to: "\(AirAP.asManager.airstream!.sampleRate)")
+		bitDepth.setContent(to: "\(AirAP.asManager.airstream!.bitsPerChannel)")
+		channels.setContent(to: "\(AirAP.asManager.airstream!.channelsPerFrame)")
 	}
 }

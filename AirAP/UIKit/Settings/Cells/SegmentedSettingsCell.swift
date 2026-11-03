@@ -16,7 +16,7 @@ class SegmentedSettingsCell: SettingsCell {
 	
 	var stack: UIStackView
 	
-	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
+	override init(config: SettingsViewController.SettingsConfiguration) {
 		self.segmentedControl = UISegmentedControl()
 		
 		self.title = UILabel()
@@ -24,7 +24,7 @@ class SegmentedSettingsCell: SettingsCell {
 		
 		self.stack = UIStackView(arrangedSubviews: [title, segmentedControl])
 		
-		super.init(asManager: asManager, config: config)
+		super.init(config: config)
 		setup()
 		refreshUI()
 	}

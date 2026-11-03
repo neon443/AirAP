@@ -9,10 +9,8 @@ import Foundation
 import UIKit
 
 class InitialViewController: UITabBarController {
-	var asManager: AirstreamManager
 	
-	init(asManager: AirstreamManager) {
-		self.asManager = asManager
+	init() {
 		super.init(nibName: nil, bundle: nil)
 		
 		setup()
@@ -27,13 +25,13 @@ class InitialViewController: UITabBarController {
 	}
 	
 	func setup() {
-		let nowView = NowPlayingViewController(asManager: asManager)
+		let nowView = NowPlayingViewController()
 		nowView.tabBarItem = .init(title: "Now Playing", image: UIImage(named: "play.fill.mini"), tag: 0)
 		
-		let helpView = HelpViewController(asManager: asManager)
+		let helpView = HelpViewController()
 		helpView.tabBarItem = .init(title: "Help", image: UIImage(named: "questionmark"), tag: 1)
 		
-		let settingsView = SettingsViewController(asManager: asManager)
+		let settingsView = SettingsViewController()
 		settingsView.tabBarItem = .init(title: "Settings", image: UIImage(named: "gear"), tag: 2)
 		
 		self.setViewControllers([nowView, helpView, settingsView], animated: false)

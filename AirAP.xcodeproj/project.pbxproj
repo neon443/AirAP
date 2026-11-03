@@ -45,7 +45,7 @@
 		A9E2CEB83050960C00330FE9 /* ServerStateButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEA73050960C00330FE9 /* ServerStateButton.swift */; };
 		A9E2CEBD3050961D00330FE9 /* AirstreamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */; };
 		A9E2CEBE3050961D00330FE9 /* AAPSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEB93050961D00330FE9 /* AAPSettings.swift */; };
-		A9E2CEBF3050961D00330FE9 /* AirAPApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBB3050961D00330FE9 /* AirAPApp.swift */; };
+		A9E2CEBF3050961D00330FE9 /* AirAP.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9E2CEBB3050961D00330FE9 /* AirAP.swift */; };
 		A9FA620A3052ADD80007EBEB /* UIApplication.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FA62093052ADD80007EBEB /* UIApplication.swift */; };
 		A9FBDB73305CA68C00963953 /* StatsSettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9FBDB72305CA68C00963953 /* StatsSettingsCell.swift */; };
 /* End PBXBuildFile section */
@@ -117,7 +117,7 @@
 		A9E2CEA73050960C00330FE9 /* ServerStateButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerStateButton.swift; sourceTree = "<group>"; };
 		A9E2CEB93050961D00330FE9 /* AAPSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AAPSettings.swift; sourceTree = "<group>"; };
 		A9E2CEBA3050961D00330FE9 /* AirAP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AirAP.entitlements; sourceTree = "<group>"; };
-		A9E2CEBB3050961D00330FE9 /* AirAPApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAPApp.swift; sourceTree = "<group>"; };
+		A9E2CEBB3050961D00330FE9 /* AirAP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirAP.swift; sourceTree = "<group>"; };
 		A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirstreamManager.swift; sourceTree = "<group>"; };
 		A9E2CEDB3050A0A200330FE9 /* TPCircularBuffer+FillCount.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TPCircularBuffer+FillCount.h"; sourceTree = "<group>"; };
 		A9E2CEDC3050A0A200330FE9 /* TPCircularBuffer+FillCount.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = "TPCircularBuffer+FillCount.c"; sourceTree = "<group>"; };
@@ -183,7 +183,7 @@
 				A96E630F3050917C006F7533 /* LaunchScreen.storyboard */,
 				A96E63123050917C006F7533 /* Info.plist */,
 				A9E2CEBA3050961D00330FE9 /* AirAP.entitlements */,
-				A9E2CEBB3050961D00330FE9 /* AirAPApp.swift */,
+				A9E2CEBB3050961D00330FE9 /* AirAP.swift */,
 				A91649C630810F60008D1B9D /* SceneDelegate.swift */,
 				A9E2CEBC3050961D00330FE9 /* AirstreamManager.swift */,
 				A9E2CEB93050961D00330FE9 /* AAPSettings.swift */,
@@ -395,7 +395,7 @@
 				A96E63373050AA42006F7533 /* TPCircularBuffer+AudioBufferList.c in Sources */,
 				A9E2CEBD3050961D00330FE9 /* AirstreamManager.swift in Sources */,
 				A9E2CEBE3050961D00330FE9 /* AAPSettings.swift in Sources */,
-				A9E2CEBF3050961D00330FE9 /* AirAPApp.swift in Sources */,
+				A9E2CEBF3050961D00330FE9 /* AirAP.swift in Sources */,
 				A9FBDB73305CA68C00963953 /* StatsSettingsCell.swift in Sources */,
 				A96E63393050AA50006F7533 /* TPCircularBuffer+FillCount.c in Sources */,
 				A9E2CEB63050960C00330FE9 /* SegmentedSettingsCell.swift in Sources */,

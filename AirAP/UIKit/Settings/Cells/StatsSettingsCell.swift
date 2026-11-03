@@ -15,13 +15,13 @@ class StatsSettingsCell: SettingsCell {
 	
 	var stack: UIStackView
 	
-	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
+	override init(config: SettingsViewController.SettingsConfiguration) {
 		self.port = StatRow(title: "Port")
 		self.serverIP = StatRow(title: "Server")
 		self.clientIP = StatRow(title: "Client")
 		self.stack = UIStackView()
 		
-		super.init(asManager: asManager, config: config)
+		super.init(config: config)
 		
 		setup()
 		refreshUI()
@@ -80,9 +80,9 @@ class StatsSettingsCell: SettingsCell {
 	
 	override func refreshUI() {
 		super.refreshUI()
-		port.setContent(to: "\(asManager.airstream!.port)")
+		port.setContent(to: "\(AirAP.asManager.airstream!.port)")
 		serverIP.setContent(to: getIPAddress())
-		clientIP.setContent(to: asManager.airstream?.remote?.hostName)
+		clientIP.setContent(to: AirAP.asManager.airstream?.remote?.hostName)
 	}
 	
 	class StatRow: UIStackView {

@@ -9,12 +9,10 @@ import Foundation
 import UIKit
 
 class SettingsViewController: UITableViewController {
-	var asManager: AirstreamManager
 	var startStopButton: ServerStateButton
 	
-	init(asManager: AirstreamManager) {
-		self.asManager = asManager
-		self.startStopButton = ServerStateButton(asManager: asManager)
+	init() {
+		self.startStopButton = ServerStateButton()
 		super.init(style: .insetGroupedSafe)
 		setup()
 	}
@@ -31,17 +29,17 @@ class SettingsViewController: UITableViewController {
 		let config = category.settingsConfigFor(item: indexPath.row)
 		switch config.type {
 		case .toggle:
-			cell = ToggleSettingsCell(asManager: asManager, config: config)
+			cell = ToggleSettingsCell(config: config)
 		case .slider:
-			cell = SliderSettingsCell(asManager: asManager, config: config)
+			cell = SliderSettingsCell(config: config)
 		case .textField:
-			cell = TextFieldSettingsCell(asManager: asManager, config: config)
+			cell = TextFieldSettingsCell(config: config)
 		case .segment:
-			cell = SegmentedSettingsCell(asManager: asManager, config: config)
+			cell = SegmentedSettingsCell(config: config)
 		case .stats:
-			cell = StatsSettingsCell(asManager: asManager, config: config)
+			cell = StatsSettingsCell(config: config)
 		case .macAddress:
-			cell = MACAddressSettingsCell(asManager: asManager, config: config)
+			cell = MACAddressSettingsCell(config: config)
 		}
 		return cell
 	}

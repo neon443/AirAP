@@ -9,14 +9,11 @@ import Foundation
 import UIKit
 
 class ServerStateButton: UIVisualEffectView {
-	var asManager: AirstreamManager
-	
 	var image: UIImageView
 	var label: UILabel
 	var stack: UIStackView
 	
-	init(asManager: AirstreamManager) {
-		self.asManager = asManager
+	init() {
 		self.image = UIImageView()
 		self.label = UILabel()
 		self.stack = UIStackView(arrangedSubviews: [image, UIView(), label])
@@ -66,7 +63,7 @@ class ServerStateButton: UIVisualEffectView {
 	}
 	
 	func refreshUI() {
-		let isRunning = asManager.airstream!.running
+		let isRunning = AirAP.asManager.airstream!.running
 		
 		self.image.image = UIImage(named: isRunning ? "square.fill" : "airplay.audio")
 		self.label.text = isRunning ? "Stop" : "Start"
@@ -79,7 +76,7 @@ class ServerStateButton: UIVisualEffectView {
 	}
 	
 	@objc func tapped() {
-		self.asManager.startStop()
+		AirAP.asManager.startStop()
 		self.refreshUI()
 	}
 	

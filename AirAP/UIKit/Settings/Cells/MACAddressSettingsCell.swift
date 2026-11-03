@@ -18,7 +18,7 @@ class MACAddressSettingsCell: SettingsCell, UITextFieldDelegate {
 	var textFields: [UITextField]
 	var textFieldStack: UIStackView
 	
-	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
+	override init(config: SettingsViewController.SettingsConfiguration) {
 		self.title = UILabel()
 		self.resetButton = UIButton(type: .custom)
 		self.titleStack = UIStackView(arrangedSubviews: [title, resetButton])
@@ -31,7 +31,7 @@ class MACAddressSettingsCell: SettingsCell, UITextFieldDelegate {
 		
 		self.stack = UIStackView(arrangedSubviews: [titleStack, textFieldStack])
 		
-		super.init(asManager: asManager, config: config)
+		super.init(config: config)
 		
 		setup()
 		refreshUI()

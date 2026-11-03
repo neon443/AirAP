@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 		guard let windowScene = scene as? UIWindowScene else { return }
 		window = UIWindow(windowScene: windowScene)
 		
-		window?.rootViewController = InitialViewController(asManager: AirAPApp.asManager)
+		window?.rootViewController = InitialViewController()
 		window?.makeKeyAndVisible()
 	}
 	

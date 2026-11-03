@@ -14,10 +14,10 @@ class ToggleSettingsCell: SettingsCell {
 	
 	var stack: UIStackView!
 	
-	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
+	override init(config: SettingsViewController.SettingsConfiguration) {
 		self.titleLabel = UILabel()
 		
-		super.init(asManager: asManager, config: config)
+		super.init(config: config)
 		
 		self.toggle = UISwitch(frame: .zero)
 		self.stack = UIStackView(arrangedSubviews: [titleLabel, toggle])

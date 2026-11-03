@@ -9,12 +9,10 @@ import Foundation
 import UIKit
 
 class HelpViewController: UITableViewController {
-	var asManager: AirstreamManager
 	var startStopButton: ServerStateButton
 	
-	init(asManager: AirstreamManager) {
-		self.asManager = asManager
-		self.startStopButton = .init(asManager: asManager)
+	init() {
+		self.startStopButton = .init()
 		super.init(style: .insetGroupedSafe)
 		self.tableView.register(HelpViewCell.self, forCellReuseIdentifier: "helpCell")
 		setup()

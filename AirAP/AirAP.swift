@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @UIApplicationMain
-class AirAPApp: UIResponder, UIApplicationDelegate {
+class AirAP: UIResponder, UIApplicationDelegate {
 	var window: UIWindow?
 	static var asManager: AirstreamManager = .init()
 	
@@ -19,7 +19,7 @@ class AirAPApp: UIResponder, UIApplicationDelegate {
 	) -> Bool {
 		if #unavailable(iOS 13) {
 			window = UIWindow(frame: UIScreen.main.bounds)
-			let rootVC = InitialViewController(asManager: AirAPApp.asManager)
+			let rootVC = InitialViewController()
 			window?.rootViewController = rootVC
 			window?.makeKeyAndVisible()
 		}

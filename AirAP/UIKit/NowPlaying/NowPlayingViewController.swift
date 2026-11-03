@@ -9,16 +9,14 @@ import Foundation
 import UIKit
 
 class NowPlayingViewController: UIViewController {
-	var asManager: AirstreamManager
 	var npStack: NowPlayingStackView
 	var startStopButton: ServerStateButton
 	var bgBlur: UIVisualEffectView
 	var bgImage: UIImageView
 	
-	init(asManager: AirstreamManager) {
-		self.asManager = asManager
-		self.npStack = .init(asManager: asManager)
-		self.startStopButton = ServerStateButton(asManager: asManager)
+	init() {
+		self.npStack = .init()
+		self.startStopButton = ServerStateButton()
 		self.bgBlur = UIVisualEffectView(effect: UIBlurEffect(style: .systemUltraThinMaterialSafe))
 		self.bgImage = UIImageView()
 		super.init(nibName: nil, bundle: nil)
@@ -35,7 +33,7 @@ class NowPlayingViewController: UIViewController {
 		animation.type = .fade
 		animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
 		bgImage.layer.add(animation, forKey: "changeBackgroundTransition")
-		bgImage.image = asManager.albumArt
+		bgImage.image = AirAP.asManager.albumArt
 		
 		let showBg = AAPSettings.shared.showBg
 		bgImage.alpha = showBg ? CGFloat(AAPSettings.shared.bgOpacity/100) : 0
@@ -54,7 +52,7 @@ class NowPlayingViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		asManager.didSetAlbumArt = { self.refreshUI() }
+		AirAP.asManager.didSetAlbumArt = { self.refreshUI() }
 		
 		self.view.addSubview(bgImage)
 		self.view.addSubview(bgBlur)

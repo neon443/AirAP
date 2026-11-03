@@ -10,8 +10,6 @@ import UIKit
 import MediaPlayer
 
 class PlaybackControlsView: UIStackView {
-	var asManager: AirstreamManager
-	
 	var position: NPSlider
 	var positionStack: UIStackView
 	var labelStack: UIStackView
@@ -29,9 +27,7 @@ class PlaybackControlsView: UIStackView {
 	var volumeStack: UIStackView
 	var mpVolumeView: MPVolumeView
 	
-	init(asManager: AirstreamManager) {
-		self.asManager = asManager
-		
+	init() {
 		self.position = NPSlider()
 		self.positionLabel = UILabel()
 		self.durationLabel = UILabel()
@@ -61,15 +57,15 @@ class PlaybackControlsView: UIStackView {
 	}
 	
 	@objc func backTapped() {
-		asManager.airstream?.remote?.previousItem()
+		AirAP.asManager.airstream?.remote?.previousItem()
 	}
 	
 	@objc func pauseTapped() {
-		asManager.airstream?.remote?.playPause()
+		AirAP.asManager.airstream?.remote?.playPause()
 	}
 	
 	@objc func skipTapped() {
-		asManager.airstream?.remote?.nextItem()
+		AirAP.asManager.airstream?.remote?.nextItem()
 	}
 	
 	func minutesAndSeconds(from input: Float) -> String {
@@ -128,13 +124,13 @@ class PlaybackControlsView: UIStackView {
 		(mpVolumeView.subviews.filter { NSStringFromClass($0.classForCoder) == "MPVolumeSlider" }.first as? UISlider)?.addTarget(self, action: #selector(getVolume), for: .valueChanged)
 		position.isUserInteractionEnabled = false
 		
-		asManager.updatePosition = { position, duration in
+		AirAP.asManager.updatePosition = { position, duration in
 			self.positionLabel.text = self.minutesAndSeconds(from: position)
 			self.durationLabel.text = self.minutesAndSeconds(from: duration)
 			let frac = position/duration
 			self.position.setValue(frac.isNaN ? 0 : frac, animated: true)
 		}
-		asManager.updatePauseButton = {
+		AirAP.asManager.updatePauseButton = {
 			let animation: CATransition = .init()
 			animation.duration = 0.3
 			animation.type = .fade
@@ -142,7 +138,7 @@ class PlaybackControlsView: UIStackView {
 			self.pause.layer.add(animation, forKey: "changeImageTransition")
 			self.pause.setImage(UIImage(named: $0 ? "pause.fill" : "play.fill"), for: .normal)
 		}
-		asManager.updateVolume = { self.volume.setSecondaryValue($0, animated: true) }
+		AirAP.asManager.updateVolume = { self.volume.setSecondaryValue($0, animated: true) }
 		
 		self.addArrangedSubview(positionStack)
 		self.addArrangedSubview(trackStack)
@@ -154,6 +150,6 @@ class PlaybackControlsView: UIStackView {
 		self.layoutMargins.right = 8
 		self.isLayoutMarginsRelativeArrangement = true
 		
-		asManager.updatePosition?(0,0)
+		AirAP.asManager.updatePosition?(0,0)
 	}
 }

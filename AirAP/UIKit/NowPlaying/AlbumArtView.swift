@@ -9,11 +9,9 @@ import Foundation
 import UIKit
 
 class AlbumArtView: UIVisualEffectView {
-	var asManager: AirstreamManager
 	var imageView: UIImageView
 	
-	init(asManager: AirstreamManager) {
-		self.asManager = asManager
+	init() {
 		self.imageView = UIImageView()
 		
 		var effect: UIVisualEffect
@@ -64,7 +62,7 @@ class AlbumArtView: UIVisualEffectView {
 		animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
 		imageView.layer.add(animation, forKey: "changeImageTransition")
 		
-		if let newImage = asManager.albumArt {
+		if let newImage = AirAP.asManager.albumArt {
 			self.imageView.image = newImage
 			contentView.layoutMargins = .init(top: 8, left: 8, bottom: 8, right: 8)
 		} else {

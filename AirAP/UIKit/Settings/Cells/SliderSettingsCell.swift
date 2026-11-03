@@ -22,7 +22,7 @@ class SliderSettingsCell: SettingsCell {
 	
 	var stack: UIStackView
 	
-	override init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
+	override init(config: SettingsViewController.SettingsConfiguration) {
 		titleLabel = UILabel()
 		valueLabel = UILabel()
 		resetButton = UIButton(type: .custom)
@@ -36,7 +36,7 @@ class SliderSettingsCell: SettingsCell {
 		
 		stack = UIStackView(arrangedSubviews: [infoStack, sliderStack])
 		
-		super.init(asManager: asManager, config: config)
+		super.init(config: config)
 		setup()
 		refreshUI()
 	}

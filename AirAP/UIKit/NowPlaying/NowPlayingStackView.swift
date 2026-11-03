@@ -9,14 +9,12 @@ import Foundation
 import UIKit
 
 class NowPlayingStackView: UIStackView {
-	var asManager: AirstreamManager
 	let albumArtView: AlbumArtView!
 	let metadataView: MetadataView!
 	
-	init(asManager: AirstreamManager) {
-		self.asManager = asManager
-		self.albumArtView = AlbumArtView(asManager: asManager)
-		self.metadataView = MetadataView(asManager: asManager)
+	init() {
+		self.albumArtView = AlbumArtView()
+		self.metadataView = MetadataView()
 		super.init(frame: .zero)
 		
 		self.spacing = 8

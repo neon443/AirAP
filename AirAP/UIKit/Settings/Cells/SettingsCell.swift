@@ -9,11 +9,9 @@ import Foundation
 import UIKit
 
 class SettingsCell: UITableViewCell {
-	var asManager: AirstreamManager
 	var config: SettingsViewController.SettingsConfiguration
 	
-	init(asManager: AirstreamManager, config: SettingsViewController.SettingsConfiguration) {
-		self.asManager = asManager
+	init(config: SettingsViewController.SettingsConfiguration) {
 		self.config = config
 		super.init(style: .default, reuseIdentifier: nil)
 	}
